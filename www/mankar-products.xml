@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- picture references must be absolute -->
+
+<data>
+	
+	<identifier>mankar</identifier>
+	
+	
+	<product default="yes">
+		<label>Mini Mantra +</label>
+		<data>mc30</data>
+
+		<picture>http://www.mankar.ca/pics/minimantraplus.jpg</picture>
+		<info>The Mini Mantra Plus has a standard spray width of 45 cm. (20"), and a recommended application rate of 2 l/ha (0.2 gpa) for most herbicides, including Roundup. </info>
+		
+		<setting ref="price">
+			<default>0</default>
+			<max>2000</max>
+		</setting>
+
+		<setting ref="spray">
+			<min>15</min>
+			<default>45</default>
+			<max>45</max>
+		</setting>
+		
+		<setting ref="consumption">
+			<max>4</max>
+		</setting>
+		
+		<setting ref="speed">
+			<min>2</min>
+			<default>4</default>
+		</setting>
+		
+		<setting ref="refillTime">
+			<max>10</max>
+		</setting>
+
+	</product>
+	
+	<product>
+		<label>Mankar 110 P</label>
+		<data>mr30</data>
+
+		<picture>http://www.mankar.ca/pics/mankar110p.jpg</picture>
+		<info>The 110P is adjustable in width between 70-110 cm (28-44") and is a walk-behind model, similar to a wheelbarrow.  It, like all Mankar products, boasts a fully-shielded atomizer to control drift.</info>
+
+		<setting ref="price">
+			<default>0</default>
+			<max>4000</max>
+		</setting>
+		
+		<setting ref="spray">
+			<min>70</min>
+			<default>110</default>
+			<max>110</max>
+		</setting>
+		
+		<setting ref="refills">
+			<default>2</default>
+		</setting>
+		
+		<setting ref="consumption">
+			<max>4</max>
+		</setting>
+		
+		<setting ref="speed">
+			<min>2</min>
+			<default>4</default>
+		</setting>
+		
+		<setting ref="refillTime">
+			<max>10</max>
+		</setting>
+
+	</product>
+	
+	<product>
+		<label>Flexomant-1</label>
+		<data>mdb10</data>
+		<info>Ground-driven pump, floating spray head 40 cm wide (15").  The spray head is spring loaded to go around obstacles like vines, trees, or fenceposts.</info>
+
+		<picture>http://www.mankar.ca/pics/flexomant1.jpg</picture>
+		
+		<setting ref="price">
+			<default>0</default>
+			<max>4000</max>
+		</setting>
+		
+		<setting ref="refills">
+			<default>0.5</default>
+		</setting>
+		
+		<setting ref="consumption">
+			<max>4</max>
+		</setting>
+		
+		<setting ref="spray">
+			<min>40</min>
+			<default>40</default>
+			<max>40</max>
+		</setting>		
+		
+		<setting ref="speed">
+			<min>2</min>
+			<default>6</default>
+		</setting>
+		
+		<setting ref="refillTime">
+			<max>10</max>
+		</setting>
+
+	</product>
+	
+</data>

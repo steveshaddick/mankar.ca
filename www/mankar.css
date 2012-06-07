@@ -1,0 +1,445 @@
+
+/* Layout Stylesheet */ 
+
+body{
+ margin: 20px;
+ padding:0;
+ background: #fce2b2 url( pics/background.jpg ) repeat-x top;
+ color: #333333;
+/* font-family: georgia, serif; */
+ font-size: 100%;
+ min-width: 768px;
+ max-width: 80em;
+ }
+td {
+  vertical-align: top;
+  background: #fff;
+  color: #000;
+}
+
+
+ 
+h1 { color:#579F2F; }
+h2 { color:#579F2F; }
+h3 { color:#579F2F; }
+h4 { color:#579F2F; }	
+
+h3.inverse { 
+	color:#ffffff;
+	padding-top: 30px;	
+	}
+
+ 
+#hdr{
+ height:245px;
+ background:#ffffff url( pics/headerBg.png ) repeat-x top;
+ color:#000000;
+ border:solid #f39c00;
+ border-width:0px 0px 0px 0px;
+ margin:0;
+ padding: 0;
+ position: relative;
+ }
+#hdrpic{
+ height:245px;
+ max-width: 978px;
+ background: url( pics/header-trees.jpg ) no-repeat;
+ color:#000000;
+ border:solid #f39c00;
+ border-width:0px 0px 0px 0px;
+ margin:0;
+ padding: 0;
+/* position: relative; */
+ }
+/* logo float over background header - probably need to edit */ 
+#logo {
+	width: 636px;
+	height: 180px;
+	margin: 21px 0 0 0;
+	padding: 0 0 0 29px;
+	float:left
+	}
+	
+/* float "contact us" etc over on the right - need to edit*/
+#righttopnavbox { 
+ 	height:245px;
+ 	background:#ffffff url( pics/headerBg.png ) repeat-x top;
+ 	color:#ffffff;
+ 	margin:0;
+	padding: 10px;
+	position: absolute;  top: 0px; right: 0px; 
+	text-align: right;
+	}
+#lh-col{
+ position: absolute;
+ top: 250px;
+ left: 25px;
+ width: 15%;
+ max-width: 300px;
+ min-width: 135px;
+ border: 0px solid #424242;
+ background-color: transparent;
+ color: #3e81a9;
+ margin: 0px;
+ padding: 0px;
+/* height: 400px; */
+ }
+
+/* the list with buttons on the left hand side */
+ #navcontainer
+{
+background-color: transparent;
+width: 100%;
+margin: 0 auto;
+padding: 1em 0;
+font-size: 90%;
+text-align: center;
+/*text-transform: lowercase; */
+}
+
+.navcontainer
+	{
+	background-color: transparent;
+	width: 80%;
+	margin: 0 auto;
+	padding: 1em 0;
+	font-size: 100%;
+	text-align: center;
+	/*text-transform: lowercase; */
+	}
+	
+ul.navlist
+{
+text-align: left;
+list-style: none;
+padding: 0;
+margin: 0 auto;
+width: 100%;
+}
+
+ul.navlist li
+{
+display: block;
+margin: 0;
+padding: 0;
+}
+
+ul.navlist li a
+{
+display: block;
+width: 100%;
+padding: 0.5em 0 0.5em 6px;
+border-width: 1px;
+border-color: #ffaf31 #b87100 #b87100 #ffaf31;
+border-style: solid;
+color: #fff;
+text-decoration: none;
+background: #f39c00;
+}
+
+.colour
+	{
+	color:#579F2F;
+	text-decoration: underline;
+	text-align: center;
+	}
+
+.center
+	{
+	text-align: center;
+	}
+	
+.noborder
+	{
+	border-style: none;
+	}
+
+strong
+	{
+	text-decoration: underline;
+	}
+strong.noline
+	{
+	text-decoration: none;
+	}
+#navcontainer>ul.navlist li a { width: auto; }
+
+ul.navlist li#active a
+{
+background: #e3f5ff;
+color: #800000;
+}
+
+ul.navlist li a:hover, ul.navlist li#active a:hover
+{
+color: #800000;
+background: transparent;
+border-color: #b87100 #ffaf31 #ffaf31 #b87100;
+}
+
+/* the main body */
+/* \*/
+#rh-col {height:1%;}
+/* */
+#rh-col{
+ margin: 0px 0px 5px 18%;
+ border: 0px solid #000000;
+ background: #ffffff;
+ color: #333333;
+ padding: 20px;
+position: relative;
+ }
+/* the far right column for extra words in tabular pages STILL NEEDS WORK */
+#rh-col2 {height:1%;}
+/* */
+#rh-col2{
+ margin: 0px 5px 5px 190px;
+ border: 0px solid #000000;
+ background: #ffffff;
+ color: #333333;
+ padding: 20px;
+ float: left;
+ width: 50%;
+ }
+/* SLIMBOX - the photo effect stuff */
+
+#lbOverlay {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	background-color: #000;
+	cursor: pointer;
+}
+
+#lbCenter, #lbBottomContainer {
+	position: absolute;
+	left: 50%;
+	overflow: hidden;
+	background-color: #fff;
+}
+
+.lbLoading {
+	background: #fff url(loading.gif) no-repeat center;
+}
+
+#lbImage {
+	position: absolute;
+	left: 0;
+	top: 0;
+	border: 10px solid #fff;
+	background-repeat: no-repeat;
+}
+
+#lbPrevLink, #lbNextLink {
+	display: block;
+	position: absolute;
+	top: 0;
+	width: 50%;
+	outline: none;
+}
+
+#lbPrevLink {
+	left: 0;
+}
+
+#lbPrevLink:hover {
+	background: transparent url(prevlabel.gif) no-repeat 0% 15%;
+}
+
+#lbNextLink {
+	right: 0;
+}
+
+#lbNextLink:hover {
+	background: transparent url(nextlabel.gif) no-repeat 100% 15%;
+}
+
+#lbBottom {
+	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-size: 90%;
+	color: #666;
+	line-height: 1.4em;
+	text-align: left;
+	border: 10px solid #fff;
+	border-top-style: none;
+}
+
+#lbCloseLink {
+	display: block;
+	float: right;
+	width: 66px;
+	height: 22px;
+	background: transparent url(closelabel.gif) no-repeat center;
+	margin: 5px 0;
+}
+
+#lbCaption, #lbNumber {
+	margin-right: 71px;
+}
+
+#lbCaption {
+	font-weight: bold;
+}
+
+/*The product table - i.e. the thumbnail and little table of info for the various products*/
+.prod1 {
+	height: 20px;
+   background: #e3f5ff;
+   border-top-style: dotted; 
+   border-top-color: #666666; 
+   border-top-width: 1px; 
+   white-space: nowrap;
+}
+.prod2 {
+	height: 20px;
+   border-top-style: dotted; 
+   border-top-color: #666666; 
+   border-top-width: 1px; 
+   white-space: nowrap;
+}
+/*The paragraph to the right of the product table*/
+
+.padded { 
+	padding-left: 30px;
+	background: #e3f5ff;
+}
+
+/*For putting pictures in the paragraphs */
+.pleft {
+	float: left;
+	margin-top: 0;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	vertical-align: text-bottom;
+	border-width: 2px;
+	border-color: #f39c00;
+}
+.pright {
+	float: right;
+	margin-top: 0;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	vertical-align: text-bottom;
+	border-width: 2px;
+	border-color: #f39c00;
+}
+a img {
+	border-width: 2px;
+	border-color: #f39c00;
+}
+#nodec img {
+  	border: none;
+}
+#nodec a {
+	text-decoration: none;
+}
+/*The centre nav thing for individual products in CLASS (not ID) version*/
+.horizontalnavcontainer ul
+{
+text-align: center;
+padding-bottom: 5px;
+padding-top: 5px;
+padding-left: 0;
+margin-top: 0;
+/* cancels gap caused by top padding in Opera 7.54 */
+margin-left: 0;
+background-color: #f39c00;
+color: #fff;
+width: 100%;
+font-family: georgia, serif;
+/*line-height: 18px; */
+}
+
+.horizontalnavcontainer ul li
+{
+display: inline;
+padding-left: 0;
+padding-right: 0;
+padding-bottom: 5px;
+/* matches link padding except for left and right */
+padding-top: 5px;
+}
+
+.horizontalnavcontainer ul li a
+{
+padding-left: 10px;
+padding-right: 10px;
+padding-bottom: 5px;
+padding-top: 5px;
+color: #fff;
+text-decoration: none;
+border-right: 1px solid #fff;
+}
+
+.horizontalnavcontainer ul li a:hover
+{
+background-color: #fce2b2;
+color: #000;
+}
+
+.horizontalnavcontainer #active { border-left: 1px solid #fff; }
+
+#clear {
+  margin: 0;
+  clear: both;
+}
+
+#productList ul {
+  margin: auto;
+  clear: both;
+}
+
+#productList ul li {
+  text-align: center;
+  display: inline;
+  list-style-type:none;
+  background: #ecffe1;
+  border: 1px solid #579f2f;
+  float: left;
+  margin: 1em;
+  margin-left: 0;
+  width: 8em;
+}
+
+#productList ul li a {
+  background: white;
+  border: 1px solid #ecffe1;
+  display: block;
+  height: 157px;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+#productList ul li a:hover {
+  border: 1px solid #579f2f;
+}
+
+#productList ul li img {
+  border: none;
+  display: block;
+  margin: auto;
+}
+
+#productList ul li h4 {
+  display: inline;
+  background: none;
+  color: #579f2f;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* for the custom sprayers page photo gallery */
+#custom {margin:0;padding:0}
+#custom dl {text-align:center;font-size:.95em;margin-top:25px;}
+#custom dt,dd {width:15.5em;float:left;}
+#custom dt {margin-bottom:5.5em;}
+#custom dd {margin:190px 0 0 -15.5em;}
+#custom img {vertical-align:bottom;border:1px solid #F39C00;padding:2px;background:#fff;}
+#custom em {display:block;font-weight:bold;margin-bottom:5px;}
+#custom dl a:hover img,dl a:active img,dl a:focus img {background:#f33;}
+
+/* for FELCO stuff */
+.felco td {
+	vertical-align: middle;
+	}
+	

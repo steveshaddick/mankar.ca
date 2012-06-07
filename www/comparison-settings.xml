@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<!-- 
+	Settings for the Mankar Comparison application 
+	by Steve Shaddick
+	06/15/09
+		
+	NOTES: 
+	- settings will appear in the order they're listed in this document
+	- for combobox options, the first item listed is the default
+	- references can only be used in the order they're listed
+	- formulae respect brackets, but otherwise always calculate cumulatively from left to right regardless of operand
+	- references should not contain special characters or spaces
+	- mankar product settings can override global settings, other product settings can't
+	- overrides will only work if the particular setting aspect first exists in this document
+-->
+<data>
+	
+	<!-- Display settings -->
+	<main>
+		<logo width="180">http://www.mankar.ca/pics/mankar-72.png</logo>
+		<tagline>Comparing Mankar with other sprayer products</tagline>
+		
+		<!-- headings -->
+		<mankarproduct>Mankar Product</mankarproduct>
+		<otherproduct>Other Product</otherproduct>
+		<settings>SETTINGS</settings>
+		<moresettings>MORE SETTINGS</moresettings>
+		<comparison>COMPARISON</comparison>
+		<units>UNITS</units>
+		
+		<!-- other text -->
+		<show>show</show>
+		<hide>hide</hide>
+		
+		<metric>Metric</metric>
+		<imperial>US</imperial>
+		
+	</main>
+		
+		
+		
+		
+	<!-- product variables -->
+	
+	
+	<setting ref="price" scope="unit" location="top">
+		<description>Purchase Price</description>
+		<metric>$</metric>
+		<min>0</min>
+		<default>2000</default>
+		<inc>100</inc>
+		<max>2000</max>
+		<round>2</round>
+		<help>Please feel free to adjust the pricing to see the effect on the overall costs of weed control.</help>
+	</setting>
+	
+		
+	<setting ref="area" scope="global" location="top">
+		<description>Spray Area</description>
+		<metric>hectares</metric>
+		<imperial>acres</imperial>
+		<conversion>2.4710581</conversion>
+		<min>0.5</min>
+		<default>5</default>
+		<inc>0.5</inc>
+		<max>100</max>
+		<help>Please note this is area sprayed, not total land area.</help>
+	</setting>	
+	
+	
+	<setting ref="applications" scope="global" location="top">
+		<description>Applications</description>
+		<metric>per year</metric>
+		<min>1</min>
+		<default>3</default>
+		<inc>1</inc>
+		<max>10</max>
+		<round>0</round>
+		<help>How many times, per year, that you will apply herbicide.</help>
+	</setting>
+	
+	
+	<setting ref="lifetime" scope="unit">
+		<description>Lifetime</description>
+		<metric>years</metric>
+		<min>1</min>
+		<default>5</default>
+		<inc>1</inc>
+		<max>10</max>
+		<round>0</round>
+		<help>Over how many years are you writing off this machine?  Usually people say 5 years, although the machine might last far longer.</help>
+	</setting>				
+	
+	<setting ref="labour" scope="global">
+		<description>Labour Cost</description>
+		<metric>$ per hour</metric>
+		<min>1</min>
+		<default>30</default>
+		<inc>1</inc>
+		<max>60</max>
+		<help>How much does labour cost you per hour?  Since the calculations take into account time spent refilling the unit, you can put the true hourly rate here.</help>
+	</setting>	
+
+	<setting ref="herbicide" scope="global">
+		<description>Herbicide Cost</description>
+		<metric>$ per litre</metric>
+		<imperial>$ per gallon</imperial>
+		<conversion>3.78541178</conversion>
+		<min>1</min>
+		<default>10</default>
+		<inc>1</inc>
+		<max>100</max>
+		<round>2</round>
+		<help>Your cost of herbicide.</help>
+	</setting>
+	
+	<setting ref="speed" scope="unit">
+		<description>Walking Speed</description>
+		<metric>km/h</metric>
+		<imperial>mph</imperial>
+		<conversion>0.621371192</conversion>
+		<min>1</min>
+		<default>3</default>
+		<inc>0.5</inc>
+		<max>6</max>
+		<round>1</round>
+		<help>You can walk much faster with a Mankar sprayer because it has a uniform spray pattern, is lighter, and required no pumping to build pressure.</help>
+	</setting>
+
+		
+	<setting ref="spray" scope="unit">
+		<description>Spray Width</description>
+		<metric>cm</metric>
+		<imperial>inches</imperial>
+		<conversion>0.393700787</conversion>
+		<min>10</min>
+		<default>30</default>
+		<inc>5</inc>
+		<max>250</max>
+		<round>2</round>
+	</setting>
+	
+	<setting ref="interest" scope="global">
+		<description>Interest Rate</description>
+		<metric>%</metric>
+		<min>0</min>
+		<default>5</default>
+		<inc>0.5</inc>
+		<max>10</max>
+	</setting>
+	
+	<setting ref="consumption" scope="unit">
+		<description>Consumption Rate</description>
+		<metric>l/ha</metric>
+		<imperial>gpa</imperial>
+		<conversion>0.11</conversion>
+		<min>0.5</min>
+		<default>2</default>
+		<inc>0.5</inc>
+		<max>10</max>
+		<help>Herbicide application rate in either litres per hectare (l/ha) or gallons per acre (gpa).</help>
+	</setting>
+	
+	<setting ref="refillTime" scope="unit">
+		<description>Refill & Mixing Time</description>
+		<metric>mins</metric>
+		<min>1</min>
+		<default>5</default>
+		<inc>1</inc>
+		<max>25</max>
+		<round>0</round>
+	</setting>
+	
+	<setting ref="refills" scope="unit">
+		<description>Refills</description>
+		<metric>per hectare</metric>
+		<imperial>per acre</imperial>
+		<conversion>0.404685642</conversion>
+		<min>0.5</min>
+		<default>4</default>
+		<inc>0.5</inc>
+		<max>30</max>
+		<round>0</round>
+	</setting>
+	
+	<!-- formulae -->
+	
+	<setting ref="hoursPerHectare" scope="formula">
+		<metric>(10/(speed*0.01*spray))</metric>
+		<imperial>6272640/(speed*63360*spray)</imperial>
+	</setting>
+	
+	<setting ref="workingHoursYear" scope="formula">
+		<metric>hoursPerHectare*area*applications</metric>
+		<round>0</round>
+	</setting>
+	
+	<setting ref="lifetimeHours" scope="formula">
+		<metric>lifetime*workingHoursYear</metric>
+		
+	</setting>
+	
+	<setting ref="depreciationYear" scope="formula">
+		<metric>price/lifetime</metric>
+	</setting>
+	
+	<setting ref="depreciationHectare" scope="formula">
+		<metric>depreciationYear/(applications*area)</metric>
+	</setting>
+	
+	<setting ref="interestCostYear" scope="formula">
+		<metric>interest*0.01*price</metric>
+	</setting>
+	
+	<setting ref="interestCostHectare" scope="formula">
+		<metric>interestCostYear/(workingHoursYear/hoursPerHectare)</metric>
+	</setting>
+	
+	<setting ref="refillTimeHectare" scope="formula">
+		<metric>refillTime*refills</metric>
+	</setting>
+	
+	<setting ref="labourCostMinute" scope="formula">
+		<metric>labour/60</metric>
+	</setting>
+	
+	<setting ref="totalRefillHectare" scope="formula">
+		<metric>refillTimeHectare*labourCostMinute</metric>
+	</setting>
+	
+	<setting ref="productCost" scope="formula">
+		<metric>herbicide*consumption</metric>
+	</setting>
+	
+	<setting ref="manhoursHectare" scope="formula">
+		<metric>labour*hoursPerHectare</metric>
+	</setting>
+	
+	<setting ref="serviceYear" scope="formula">
+		<metric>price*0.05</metric>
+	</setting>
+	
+	<setting ref="serviceHectare" scope="formula">
+		<metric>serviceYear/(area*applications)</metric>
+	</setting>
+	
+	<setting ref="totalCostHectareApplication" scope="formula">
+		<metric>(depreciationHectare/applications)+(interestCostHectare/applications)+totalRefillHectare+depreciationHectare+manhoursHectare+serviceHectare</metric>
+	</setting>
+	
+	<setting ref="totalCostHectare" scope="formula">
+		<metric>totalCostHectareApplication*applications</metric>
+		<round>2</round>
+	</setting>
+	
+	<setting ref="totalCostYear" scope="formula">
+		<metric>totalCostHectare*area</metric>
+		<round>2</round>
+	</setting>
+	
+	<!-- comparisons -->
+	
+	<comparison ref="totalCostYear">
+		<dollarsign>1</dollarsign>
+		<metric>
+			<title>Total Cost per Year</title>
+			<explanation>This is your total projected spraying cost per year based on the variables entered above.  A more detailed explanation is provided below.  Feel free to play with the settings to see how they affect the results.</explanation>
+		</metric>	
+	</comparison>
+	
+	<comparison ref="price">
+		<dollarsign>1</dollarsign>
+		<metric>
+			<title>Purchase Price</title>
+			<explanation>Purchase price has remarkably little effect on the accumulative total cost of spraying.  Try changing the purchase price of either unit - you'll see that most costs of spraying come from the auxilliary costs of labour and consumables.  Mankar sprayers may be a bigger upfront investment, but they will earn it back by the end of the season.</explanation>
+		</metric>
+	</comparison>
+	
+	<comparison ref="workingHoursYear">
+		<metric>
+			<title>Spraying Hours per Year</title>
+			<explanation>Total spraying hours per year.  This excludes every other activity - for example refilling or coffee breaks.  This is based on your spray area (&&mankar#area&&) and your number of applications per year (&&mankar#applications&&).  The difference arises from the different spray widths as well as different walking speeds.</explanation>
+		</metric>
+	</comparison>
+	
+	<comparison ref="refills">
+		<metric>
+			<title>Refills per Hectare</title>
+			<explanation>This variable is based on the size of the tank, application rates, and rates of dilution of the product.  Since with the Mankar system there is no dilution of the product, this generally means there are far fewer refills using the Mankar system.</explanation>
+		</metric>
+		<imperial>
+			<title>Refills per Acre</title>
+		</imperial>
+	</comparison>
+	
+	<comparison ref="refillTime">
+		<metric>
+			<title>Time Spent Refilling</title>
+			<explanation>Since there is no water needed with the Mankar system, refilling is as simple as returning to your jug of herbicide (which you can keep nearby), and filling the small tank.  With conventional systems it is a more complicated and time-consuming process: return to a water source, measure the correct amount of herbicide for your mixture, fill the entire tank with water, and agitate.</explanation>
+		</metric>
+	</comparison>
+	
+	<comparison ref="totalRefillHectare">
+		<dollarsign>1</dollarsign>
+		<metric>
+			<title>Refill Cost per Hectare</title>
+			<units>per hectare</units>
+			<explanation>This is based on how many refills per hectare (Mankar: &&mankar#refills&& Other: &&other#refills&&) multiplied by how many minutes it takes to refill the tank (Mankar: &&mankar#refillTime&& Other: &&other#refillTime&&).</explanation>
+		</metric>
+		<imperial>
+			<title>Refill Cost per Acre</title>
+			<units>per acre</units>
+		</imperial>
+	</comparison>
+	
+	<comparison ref="manhoursHectare">
+		<metric>
+			<title>Manhours per Hectare</title>
+			<explanation>Labour cost per hour ($&&mankar#labour&&) multiplied by spraying time (hoursPerHectare).</explanation>
+		</metric>
+		<imperial>
+			<title>Manhours per Acre</title>
+		</imperial>
+	</comparison>
+	
+	<comparison ref="totalCostHectare">
+		<dollarsign>1</dollarsign>
+		<metric>
+			<title>Total Cost per Hectare</title>
+			<explanation>This is your total cost for controlling weeds per hectare, per year.  This included everything: depreciation, interest, chemicals, spray time, and refill time.</explanation>
+		</metric>
+		<imperial>
+			<title>Total Cost per Acre</title>
+		</imperial>	</comparison>
+	
+	<comparison ref="totalCostHectareApplication">
+		<dollarsign>1</dollarsign>
+		<metric>
+			<title>Total Cost per Hectare, per Application</title>
+			<explanation>A per hectare, per application breakdown.</explanation>
+		</metric>
+	</comparison>
+	
+
+</data>

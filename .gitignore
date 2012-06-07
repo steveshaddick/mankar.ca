@@ -1,0 +1,25 @@
+config.php
+config2.php
+admin.php
+_connect.php
+dealers/material/*
+Thumbs.db
+.project
+
+log/*
+news/*
+pics/*
+poster/*
+transfer/*
+uploads/*
+
+
+# images #
+images/*
+*.tif
+*.tiff
+*.png
+*.gif
+*.jpg
+*.jpeg
+*.pdf
