@@ -1,7 +1,0 @@
-AuthUserFile /usr/local/pem/vhosts/146281/webspace/httpdocs/admin/.htpasswd
-
-AuthType Basic
-
-AuthName "Mankar Ontario Admin Section"
-
-Require valid-user

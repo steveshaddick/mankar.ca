@@ -5,6 +5,9 @@ _connect.php
 dealers/material/*
 Thumbs.db
 .project
+.DS_Store
+.htaccess
+.htpasswd
 
 log/*
 news/*
