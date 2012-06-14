@@ -5,8 +5,7 @@
  * @author	Steve Shaddick
  * @version 2.0
  *
- * @description 	A class for interfacing MySQL with PHP
-					
+ * @description 	A class for interfacing MySQL with PHP			
  * @tags database, mysql, security, utility 
  *
  *

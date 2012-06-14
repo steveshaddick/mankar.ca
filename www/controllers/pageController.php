@@ -1,12 +1,36 @@
 <?php
- 
+error_reporting(E_ALL); 
+ini_set("display_errors", 1); 
+
+session_start();
+
 require_once(dirname(__FILE__).'/../env/config.php');
-require_once(dirname(__FILE__).'/../includes/_init.php');
+require_once(dirname(__FILE__).'/../lib/MankarFunctions.php');
+require_once(dirname(__FILE__).'/../lib/MySQLUtility.php');
 
-$result = mysql_query("SELECT actual_url FROM meta_tags WHERE pretty_url='{$_GET['page']}'");
+//require_once(dirname(__FILE__).'/../models/MankarMain.php');
 
-if ($result) {
-	$row = mysql_fetch_assoc($result);
+$mankarMain = new MankarMain();
+
+$view = $mankarMain->getView($_GET['page']);
+
+if ($view !== false) {
+
+	if (strpos($view,'?') !== false) {
+		parse_str($view, $query);
+		foreach ($query as $key => $value) {
+			$_GET[$key] = $value;
+		}
+		$view = substr($view, 0, strpos($view,'?'));
+	}
+
+	include(BASE_PATH.'/views/'.$view);
+
+} else {
+	header('Location: http://'.SITE_URL.'/');
+}
+
+/*	$row = mysql_fetch_assoc($result);
 	if ($row) {
 		$url = $row['actual_url'];
 		
@@ -35,6 +59,6 @@ if ($result) {
 	}
 } else {
 	header('Location: http://'.SITE_URL.'/');
-}
+}*/
 
 ?>
