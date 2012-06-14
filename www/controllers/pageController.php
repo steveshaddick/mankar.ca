@@ -1,8 +1,7 @@
 <?php
-
-require_once('includes/_init.php');
-require_once('includes/_connect.php');
-
+ 
+require_once(dirname(__FILE__).'/../env/config.php');
+require_once(dirname(__FILE__).'/../includes/_init.php');
 
 $result = mysql_query("SELECT actual_url FROM meta_tags WHERE pretty_url='{$_GET['page']}'");
 
@@ -30,12 +29,12 @@ if ($result) {
 		$pageUrl = $url;
 		$baseUrl = $actual_url;
 
-		include($actual_url);
+		include(BASE_PATH.'/views/'.$actual_url);
 	} else {
-		header('Location: http://www.mankar.ca/');
+		header('Location: http://'.SITE_URL.'/');
 	}
 } else {
-	header('Location: http://www.mankar.ca/');
+	header('Location: http://'.SITE_URL.'/');
 }
 
 ?>

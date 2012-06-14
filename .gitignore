@@ -6,8 +6,8 @@ dealers/material/*
 Thumbs.db
 .project
 .DS_Store
-.htaccess
-.htpasswd
+*.htaccess
+*.htpasswd
 
 log/*
 news/*
@@ -15,6 +15,7 @@ pics/*
 poster/*
 transfer/*
 uploads/*
+env/*
 
 
 # images #

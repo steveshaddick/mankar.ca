@@ -1,74 +1,26 @@
 <?php
 
-//error_reporting(E_ALL); 
-//ini_set("display_errors", 1); 
-
-ini_set("url_rewriter.tags","");
-
-define('LANGUAGE_ENGLISH','en');
-define('LANGUAGE_FRENCH','fr');
-define('LANGUAGE_SPANISH','sp');
-
-define('UNIT_METRIC','metric');
-define('UNIT_US','us');
-
-define('PICTURES_LOCATION', 'images/pics/');
-define('THUMBS_LOCATION', 'images/thumbs/');
-define('PARTS_LOCATION', 'images/parts/');
-define('DEALER_LOGO_LOCATION', 'images/dealer_logos/');
-define('TRADESHOW_LOGO_LOCATION', 'images/tradeshow_logos/');
-define('MANUALS_LOCATION', 'manuals/');
-
-define('ENGLISH_CONTENT', 'content/en/');
-define('FRENCH_CONTENT', 'content/fr/');
-define('SPANISH_CONTENT', 'content/sp/');
-define('GENERAL_CONTENT', 'content/');
-
-define('NO_FRENCH', 'Nous sommes d&eacute;sol&eacute;s, cette section n\'est pas encore disponible en fran&ccedil;ais.');
-define('NO_SPANISH', 'Lo sentimos mucho, esta p&aacute;gina no es disponible en espa&ntilde;ol.');
-
-define('NO_PHOTO', 'no_photo.jpg');
-
-define('HOME_PAGE', 'home');
-define('PRODUCTS_PAGE', 'products');
-define('INFORMATION_PAGE', 'information');
-define('COMPARISON_PAGE', 'comparison');
-define('SUPPORT_PAGE', 'support');
-define('NEWS_PAGE', 'news');
-define('LINKS_PAGE', 'links');
-define('DEALERS_PAGE', 'dealers');
-define('TRADESHOWS_PAGE', 'tradeshows');
-define('TECHNOLOGY_PAGE', 'technology');
-
-define('PAGE_PRODUCT', 'product');
-define('PAGE_TYPE', 'type');
+error_reporting(E_ALL); 
+ini_set("display_errors", 1); 
 
 session_start();
+$expireCookie=time()+(60*60*24*365*5);
+
 //print_r($_SESSION);
-if (isset($lang)) {
-	switch ($lang)
-	{
-		case LANGUAGE_ENGLISH:
-		case LANGUAGE_FRENCH:
-		case LANGUAGE_SPANISH:
-		break;
-		
-		default:
-		$lang = LANGUAGE_ENGLISH;
-		break;
-	}
-} else {
-	$lang = LANGUAGE_ENGLISH;
-}
-	
 
 if (isset($_GET['lang'])) {//check to see if they came from a page where they set the language - like if we are switching languages on the same page
-	$lang=$_GET['lang'];
-} elseif(isset($_SESSION['lang'])){ //see if they already chose a language
+	$lang = $_SESSION['lang'] = $_GET['lang'];
+	setcookie('lang', $lang, $expireCookie);
+} elseif (isset($_COOKIE['lang'])) { //see if they already chose a language back in the day 
+	$lang = $_SESSION['lang'] = $_COOKIE['lang'];
+} elseif (isset($_SESSION['lang'])){ //see if they already chose a language
 	//echo 'SESSIONS:'.$_SESSION['lang'];
 	$lang = $_SESSION['lang'];
+	if ($_COOKIE['lang'] != $lang) {
+		setcookie('lang', $lang, $expireCookie);
+	}
 } elseif (isset($_SERVER["HTTP_ACCEPT_LANGUAGE"])) {//check second to see if they've been nice and set the language
-	$langs=explode(",",$_SERVER["HTTP_ACCEPT_LANGUAGE"]);//grab all the languages
+	$langs = explode(",",$_SERVER["HTTP_ACCEPT_LANGUAGE"]);//grab all the languages
 
 	foreach ($langs as $value) {//start going through each one
 		//select only the first two letters
@@ -91,34 +43,64 @@ if (isset($_GET['lang'])) {//check to see if they came from a page where they se
 			$lang = LANGUAGE_ENGLISH;
 			break;
 		}
+		$_SESSION['lang'] = $lang;
+		setcookie('lang', $lang, $expireCookie);
 	}
-}else{
-	$lang = LANGUAGE_ENGLISH; 
+} else {
+	$lang = $_SESSION['lang'] = LANGUAGE_ENGLISH;
+	if ($_COOKIE['lang'] != $lang) {
+		setcookie('lang', $lang, $expireCookie);
+	} 
 }
 //if all else fails, or screws up
-if ($lang == ""){
+switch ($lang)
+{
+	case LANGUAGE_ENGLISH:
+	case LANGUAGE_FRENCH:
+	case LANGUAGE_SPANISH:
+	break;
+	
+	default:
 	$lang = LANGUAGE_ENGLISH;
+	break;
 }
 
 //same thing for units
 if (isset($_GET['units'])) {
-	$units=$_GET['units'];
-} elseif(isset($_SESSION['units'])){ 
+
+	$units = $_SESSION['units'] = $_GET['units'];
+	setcookie('units', $units, $expireCookie);
+
+} elseif (isset($_COOKIE['units'])){ 
+
+	$units = $_SESSION['units'] = $_COOKIE['units'];
+
+} elseif (isset($_SESSION['units'])){ 
+
 	$units = $_SESSION['units'];
+	if ($_COOKIE['units'] != $units) {
+		setcookie('units', $units, $expireCookie);
+	} 
 } else {
-	$units = UNIT_METRIC;
-}
-if ($units == ""){
-	$units = UNIT_METRIC;
+	$units = $_SESSION['units'] = UNIT_METRIC;
+	if ($_COOKIE['units'] != $units) {
+		setcookie('units', $units, $expireCookie);
+	} 
 }
 
-$_SESSION['lang'] = $lang;
-//echo $_SESSION['lang'];
-$_SESSION['units'] = $units;
+switch ($units)
+{
+	case UNIT_METRIC:
+	case UNIT_US:
+	break;
+	
+	default:
+	$units = UNIT_METRIC;
+	break;
+}
 
 
 define('ABSPATH_INCLUDES', dirname(__FILE__).'/');
-require(ABSPATH_INCLUDES.'_connect.php');
 
 if (!isset($flagLanguage)) $flagLanguage = false;
 
