@@ -4,6 +4,6 @@
 	$pageContent = "home-page.php";
 	$flagLanguage = true;
 	
-	require(BASE_PATH.'/includes/_page-structure.php');
+	require(BASE_PATH.'/includes/page-structure.php');
 	
 ?>

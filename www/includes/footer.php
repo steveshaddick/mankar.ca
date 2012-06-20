@@ -10,7 +10,7 @@
 
 <?php
 	
-	switch ($lang) { 
+	switch ($mankarMain->lang) { 
 		case LANGUAGE_ENGLISH :  
 			$uaCode = 'UA-3959055-1';
 			break;

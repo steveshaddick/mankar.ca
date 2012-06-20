@@ -5,13 +5,14 @@ class MankarMain {
 
 	public $lang;
 	public $units;
+	public $metaData;
+	public $pageUrl;
+	public $baseUrl;
 	
 	private $mySQL;
 	
 	public function __construct() {
 
-		require_once(dirname(__FILE__).'/../lib/MySQLUtility.php');
-		
 		if (isset($_GET['lang'])) {
 			$this->lang = $_SESSION['lang'] = $_GET['lang'];
 			setcookie('lang', $this->lang, EXPIRE_COOKIE);
@@ -28,23 +29,21 @@ class MankarMain {
 
 		if (!isset($flagLanguage)) $flagLanguage = false;
 
+		$this->metaData = array(
+			'title' => 'Chemical Weed Control with the Lowest Possible Environmental Impact',
+			'description' => "Mankar's patented segment rotation nozzle is the primary element in all our spraying systems. It is ideal for targeted applications such as between crops, along fence or property lines, between buildi",
+			'keywords' => 'ULV, CDA, controlled droplet application, ultra-low volume, roundup, glyphosate, herbicide, mankar'
+			);
+
 		if ($_SERVER['PHP_SELF']!="/support.php") {
 			$_SESSION['partPID'] = -1;
 			$_SESSION['q'] = "";
 		}
 
-		$pageUrl = substr($_SERVER['PHP_SELF'],1);
-		$baseUrl = substr($_SERVER['PHP_SELF'],1);
-		$metaTitle = '';
-		$metaDescription = '';
-		$metaKeywords = '';
-
-		$metaData = array();
 		$result = mysql_query("SELECT * FROM meta_tags");
 		while ($row = mysql_fetch_assoc($result))
 		{
 			$metaData[$row['actual_url']] = $row;
-			
 		}
 		
 
@@ -52,8 +51,23 @@ class MankarMain {
 		
 	}
 
-	public function getView($prettyUrl) {
-		return $this->mySQL->getSingleRow("SELECT actual_url FROM meta_tags WHERE pretty_url='$prettyUrl'");
+	public function getPage($prettyUrl) {
+
+		$result = $this->mySQL->getSingleRow("SELECT * FROM meta_tags WHERE pretty_url='$prettyUrl'");
+		if ($result === false) {
+			return false;
+		}
+
+		//this only works if the lang code == the db field name
+		$append = ($this->lang != LANGUAGE_ENGLISH) ? '_' . $this->lang : '';
+		
+		$this->metaData['title'] = ($result['meta_title'.$append] != '') ? $result['meta_title'.$append] : $this->metaData['title'];
+		$this->metaData['description'] = ($result['meta_description'.$append] != '') ? $result['meta_title'.$append] : $this->metaData['description'];
+		$this->metaData['keywords'] = ($result['meta_keywords'.$append] != '') ? $result['meta_title'.$append] : $this->metaData['keywords'];
+
+		$this->pageUrl = $this->baseUrl = $result['actual_url'];
+
+		return $this->pageUrl;
 	}
 
 	private function determineLanguage() {

@@ -1,6 +1,6 @@
 <?php
 
-switch ($lang) { 
+switch ($mankarMain->lang) { 
 	case LANGUAGE_ENGLISH :  
 		define('NEXT_TRADESHOW', 'Our Next Tradeshow');
 		define('RECENT_POSTS', 'Recent Posts');
@@ -55,7 +55,7 @@ switch ($lang) {
 		   echo ", ";
 		   echo $myrow['country'];
 		   echo "</span><br><a href=\"http://www.mankar.ca/tradeshows.php\" class=\"moreShowsLink\">";
-		   switch ($lang) { 
+		   switch ($mankarMain->lang) { 
 				case LANGUAGE_ENGLISH : echo 'more shows...'; break;
 				case LANGUAGE_FRENCH : echo 'more shows...'; break;
 				case LANGUAGE_SPANISH : echo 'more shows...'; break;
@@ -67,7 +67,7 @@ switch ($lang) {
      <?php
 		 //also found in header, sort of.  Maybe a better thing would be to resolve the include paths
 		 if (!(strpos($_SERVER['SCRIPT_NAME'],"news") > 0)) {
-			require_once('news/wp-blog-header.php');
+			//require_once('news/wp-blog-header.php');
 		 }
 	 ?>
      
@@ -75,13 +75,13 @@ switch ($lang) {
     <div class="divRightBox">
       <ul>
       <div id="topPosts">
-       <?php wp_get_archives('type=postbypost&limit=5'); ?>
+       <?php //wp_get_archives('type=postbypost&limit=5'); ?>
       </div>
       
        <div id="CollapsiblePanelSide" class="CollapsiblePanel">
      
       	  <div id="CollapseContentSide" class="CollapsiblePanelContent">
-		  	<?php wp_get_archives('type=postbypost&limit=30'); ?>
+		  	<?php //wp_get_archives('type=postbypost&limit=30'); ?>
           </div>
           	<?php //the text for the collapse tab is also set in SpryCollapsiblePanel.js ?>
            <div id="CollapseTabSide" class="CollapsiblePanelTab" tabindex="0"><a href="#" onclick="toggleTopPosts();" style="font-style:italic;"><?=MORE_POSTS;?></a></div>

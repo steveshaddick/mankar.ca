@@ -8,11 +8,13 @@ require_once(dirname(__FILE__).'/../env/config.php');
 require_once(dirname(__FILE__).'/../lib/MankarFunctions.php');
 require_once(dirname(__FILE__).'/../lib/MySQLUtility.php');
 
-//require_once(dirname(__FILE__).'/../models/MankarMain.php');
+require_once(dirname(__FILE__).'/../models/MankarMain.php');
 
 $mankarMain = new MankarMain();
 
-$view = $mankarMain->getView($_GET['page']);
+$_SESSION['page'] = ($_GET['page'] != 'index') ? $_GET['page'] : '';
+
+$view = $mankarMain->getPage($_GET['page']);
 
 if ($view !== false) {
 
@@ -21,7 +23,7 @@ if ($view !== false) {
 		foreach ($query as $key => $value) {
 			$_GET[$key] = $value;
 		}
-		$view = substr($view, 0, strpos($view,'?'));
+		//$view = substr($view, 0, strpos($view,'?'));
 	}
 
 	include(BASE_PATH.'/views/'.$view);

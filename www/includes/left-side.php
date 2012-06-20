@@ -11,7 +11,7 @@
 		$productTypes[] = $row;
 	}
 	
-	switch ($lang) { 
+	switch ($mankarMain->lang) { 
 	case LANGUAGE_ENGLISH :  
 		define('NAV_BENEFITS', 'Main Benefits');
 		define('NAV_TECHNOLOGY', 'Technology & Patent');
@@ -42,7 +42,7 @@
 
 
 <div class="col2"> 
-  <?php switch ($baseUrl) {
+  <?php switch ($mankarMain->baseUrl) {
 	  case "information.php":
 	  ?>
     <h2 class="leftHeading"><?=NAV_INFO;?></h2>
