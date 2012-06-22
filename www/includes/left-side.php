@@ -48,12 +48,12 @@
       
   <?php break;
   	
-	case "support.php":
+	case "support":
 	  ?>
     <h2 class="leftHeading"><?=NAV_SUPPORT;?></h2>
   	<ul class="divLeftBox">
        	<li<?php if ($subPage == "tips-manuals") echo " class='leftHighlight'"; ?>><a href="<?php echo getPrettyUrl('support.php?page=tips-manuals'); ?>"><?=NAV_MANUALS;?></a></li>
-        <li<?php if ($subPage == "parts") echo " class='leftHighlight'"; ?>><a href="<?php echo getPrettyUrl('support.php?page=parts'); ?>"><?=NAV_PARTS;?></a></li>
+        <li<?php if ($mankarMain->pageLocation[1] == "parts") echo " class='leftHighlight'"; ?>><a href="<?php echo getPrettyUrl('support.php?page=parts'); ?>"><?=NAV_PARTS;?></a></li>
     </ul>
       
   <?php
