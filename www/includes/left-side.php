@@ -4,45 +4,38 @@
 		$typeId = isset($_GET['type']) ? intval($_GET['type']) : -1;
 	}
 	
-	$productTypes = array();
-	$result = mysql_query("SELECT * FROM product_types WHERE active=1");
-	while($row = mysql_fetch_assoc($result))
-	{
-		$productTypes[] = $row;
-	}
-	
 	switch ($mankarMain->lang) { 
-	case LANGUAGE_ENGLISH :  
-		define('NAV_BENEFITS', 'Main Benefits');
-		define('NAV_TECHNOLOGY', 'Technology & Patent');
-		define('NAV_COSTSHARE', 'Government Cost-Share');
-		define('NAV_APPLICATION', 'Areas of Application');
-		define('NAV_MANUALS', 'Manuals / Tips');
-		define('NAV_PARTS', 'Parts');
-		break;
-	case LANGUAGE_FRENCH :  
-		define('NAV_BENEFITS', 'Main Benefits');
-		define('NAV_TECHNOLOGY', 'Technology & Patent');
-		define('NAV_COSTSHARE', 'Government Cost-Share');
-		define('NAV_APPLICATION', 'Areas of Application');	
-		define('NAV_MANUALS', 'Manuals / Tips');
-		define('NAV_PARTS', 'Parts');
-		break;
-	case LANGUAGE_SPANISH :  
-		define('NAV_BENEFITS', 'Main Benefits');
-		define('NAV_TECHNOLOGY', 'Technology & Patent');
-		define('NAV_COSTSHARE', 'Government Cost-Share');
-		define('NAV_APPLICATION', 'Areas of Application');
-		define('NAV_MANUALS', 'Manuals / Tips');
-		define('NAV_PARTS', 'Parts');
-		break;
-} 
+		case LANGUAGE_ENGLISH :  
+			define('NAV_BENEFITS', 'Main Benefits');
+			define('NAV_TECHNOLOGY', 'Technology & Patent');
+			define('NAV_COSTSHARE', 'Government Cost-Share');
+			define('NAV_APPLICATION', 'Areas of Application');
+			define('NAV_MANUALS', 'Manuals / Tips');
+			define('NAV_PARTS', 'Parts');
+			break;
+		case LANGUAGE_FRENCH :  
+			define('NAV_BENEFITS', 'Main Benefits');
+			define('NAV_TECHNOLOGY', 'Technology & Patent');
+			define('NAV_COSTSHARE', 'Government Cost-Share');
+			define('NAV_APPLICATION', 'Areas of Application');	
+			define('NAV_MANUALS', 'Manuals / Tips');
+			define('NAV_PARTS', 'Parts');
+			break;
+		case LANGUAGE_SPANISH :  
+			define('NAV_BENEFITS', 'Main Benefits');
+			define('NAV_TECHNOLOGY', 'Technology & Patent');
+			define('NAV_COSTSHARE', 'Government Cost-Share');
+			define('NAV_APPLICATION', 'Areas of Application');
+			define('NAV_MANUALS', 'Manuals / Tips');
+			define('NAV_PARTS', 'Parts');
+			break;
+	} 
 
 ?>
 
 
 <div class="col2"> 
-  <?php switch ($mankarMain->baseUrl) {
+  <?php switch ($mankarMain->pageLocation[0]) {
 	  case "information.php":
 	  ?>
     <h2 class="leftHeading"><?=NAV_INFO;?></h2>
@@ -71,11 +64,20 @@
   <h2 class="leftHeading"><?=NAV_PRODUCTS;?></h2>
   <ul class="divLeftBox">
     <?php
-		foreach ($productTypes as $pType)
+		
+		//this'll change
+    	$currentType = '';
+    	if (($mankarMain->pageLocation[0] == 'products') && (isset($mankarMain->pageLocation[1] ))) {
+    		$currentType = $mankarMain->pageLocation[1];
+    	}
+
+		foreach ($mankarMain->productTypes as $productType)
 		{
-			echo '<li';
-			if ($typeId == $pType['type_id']) echo " class='leftHighlight'";
-			echo ' ><a href="'.getPrettyUrl('products.php?type='.$pType['type_id']).'">'.$pType['name'].'</a></li>';
+			?>
+
+			<li <?php if ($currentType == $productType['type_id']) echo " class='leftHighlight'"; ?>><a href="<?php echo $productType['pretty_url']; ?>"><?php echo $productType['name']; ?></a></li>
+
+			<?php
 		}
   	?>
    </ul>

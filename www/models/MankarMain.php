@@ -3,17 +3,26 @@
 
 class MankarMain {
 
-	public $lang;
-	public $units;
+	public $lang = 'en';
+	public $units = 'metric';
 	public $metaData;
 	public $pageUrl;
 	public $baseUrl;
+
+	public $extraMeta = '';
+	public $flagLanguage = false;
+	public $pageContent = '';
+
+	public $pageLocation;
+	public $productTypes;
 	
 	private $mySQL;
+
+	
 	
 	public function __construct() {
 
-		if (isset($_GET['lang'])) {
+		/*if (isset($_GET['lang'])) {
 			$this->lang = $_SESSION['lang'] = $_GET['lang'];
 			setcookie('lang', $this->lang, EXPIRE_COOKIE);
 		} else {
@@ -25,14 +34,16 @@ class MankarMain {
 			setcookie('units', $this->units, EXPIRE_COOKIE);
 		} else {
 			$this->determineUnits();
-		}
+		}*/
 
-		if (!isset($flagLanguage)) $flagLanguage = false;
+		$this->determineLanguage();
+		$this->determineUnits();
 
 		$this->metaData = array(
 			'title' => 'Chemical Weed Control with the Lowest Possible Environmental Impact',
 			'description' => "Mankar's patented segment rotation nozzle is the primary element in all our spraying systems. It is ideal for targeted applications such as between crops, along fence or property lines, between buildi",
-			'keywords' => 'ULV, CDA, controlled droplet application, ultra-low volume, roundup, glyphosate, herbicide, mankar'
+			'keywords' => 'ULV, CDA, controlled droplet application, ultra-low volume, roundup, glyphosate, herbicide, mankar',
+			'extra' => ''
 			);
 
 		if ($_SERVER['PHP_SELF']!="/support.php") {
@@ -40,7 +51,7 @@ class MankarMain {
 			$_SESSION['q'] = "";
 		}
 
-		$result = mysql_query("SELECT * FROM meta_tags");
+		$result = mysql_query("SELECT * FROM site_pages");
 		while ($row = mysql_fetch_assoc($result))
 		{
 			$metaData[$row['actual_url']] = $row;
@@ -48,15 +59,19 @@ class MankarMain {
 		
 
 		$this->mySQL = new MySQLUtility(DB_USERNAME, DB_PASSWORD, DB_HOST, DB_NAME);
+
+		$this->productTypes = $this->mySQL->sendQuery("SELECT * FROM product_types WHERE active=1");
 		
 	}
 
 	public function getPage($prettyUrl) {
 
-		$result = $this->mySQL->getSingleRow("SELECT * FROM meta_tags WHERE pretty_url='$prettyUrl'");
+		$result = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl'");
 		if ($result === false) {
 			return false;
 		}
+
+		$this->pageLocation = explode('/', $result['location']);
 
 		//this only works if the lang code == the db field name
 		$append = ($this->lang != LANGUAGE_ENGLISH) ? '_' . $this->lang : '';
@@ -67,7 +82,26 @@ class MankarMain {
 
 		$this->pageUrl = $this->baseUrl = $result['actual_url'];
 
-		return $this->pageUrl;
+		return $this->pageLocation[0];
+	}
+
+	public function getProductType($typeId) {
+
+		$productType = $this->mySQL->getSingleRow("SELECT * FROM product_types WHERE type_id = $typeId");
+		$productType['productList'] = $this->mySQL->sendQuery("SELECT * FROM products WHERE type_id = '".$productType['type_id']."'");
+
+		return $productType;
+	}
+
+	public function getProduct($productId) {
+
+		$product = $this->mySQL->getSingleRow("SELECT * FROM products WHERE product_id = $productId");
+		$product['type'] = $this->mySQL->getSingleRow("SELECT * FROM product_types WHERE type_id = ". $product['type_id']);
+		
+		$product['pictures'] = $this->mySQL->sendQuery("SELECT * FROM product_photos WHERE product_photos.product_id = $productId ORDER BY product_photos.order");
+		$product['parts'] = $this->mySQL->sendQuery("SELECT * FROM parts WHERE parts.part_id IN (SELECT part_id FROM parts_to_products WHERE product_id = $productId)");
+
+		return $product;
 	}
 
 	private function determineLanguage() {

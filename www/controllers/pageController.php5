@@ -18,49 +18,53 @@ $view = $mankarMain->getPage($_GET['page']);
 
 if ($view !== false) {
 
-	if (strpos($view,'?') !== false) {
-		parse_str($view, $query);
-		foreach ($query as $key => $value) {
-			$_GET[$key] = $value;
-		}
-		//$view = substr($view, 0, strpos($view,'?'));
+	switch ($view) {
+
+		case 'home':
+			$mankarMain->flagLanguage = true;
+			$mankarMain->pageContent = "home-page.php";
+			break;
+
+		case 'products':
+
+			$mankarMain->flagLanguage = false;
+			
+			switch (count($mankarMain->pageLocation)) {
+				
+				case 1:
+					//main page
+					$mankarMain->pageContent = "products-main.php";
+					break;
+
+				case 2:
+					//product type page
+					$mankarMain->metaData['extra'] = '<script src="js/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script><link href="css/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />';
+					$mankarMain->pageContent = "products-type.php";
+
+					break;
+
+				case 3:
+					//product page
+					$mankarMain->metaData['extra'] = '<script src="js/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script><link href="css/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />';
+					$mankarMain->pageContent = "products-product.php";
+
+					break;
+
+				default: 
+					//main page
+					$mankarMain->pageContent = "products-main.php";
+					break;
+			}
+			
+
+			break;
+
 	}
 
-	include(BASE_PATH.'/views/'.$view);
+	require(BASE_PATH.'/includes/page-structure.php');
 
 } else {
 	header('Location: http://'.SITE_URL.'/');
 }
-
-/*	$row = mysql_fetch_assoc($result);
-	if ($row) {
-		$url = $row['actual_url'];
-		
-		if (strpos($url,'?') > 0) {
-		
-			$query = substr($url, strpos($url,'?') + 1);
-			$arr = explode("&", $query);
-			foreach ($arr as $pair)
-			{
-				$key = substr($pair, 0, strpos($pair, '='));
-				$value = substr($pair, strpos($pair, '=') +1);
-
-				$_GET[$key] = $value;
-			}
-			$actual_url = substr($url,0,strpos($url,'?'));
-			
-		} else {
-			$actual_url = $url;
-		}
-		$pageUrl = $url;
-		$baseUrl = $actual_url;
-
-		include(BASE_PATH.'/views/'.$actual_url);
-	} else {
-		header('Location: http://'.SITE_URL.'/');
-	}
-} else {
-	header('Location: http://'.SITE_URL.'/');
-}*/
 
 ?>

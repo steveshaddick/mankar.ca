@@ -22,7 +22,7 @@
 	<script defer type="text/javascript" src="js/pngfix.js"></script>
 	<![endif]-->
 
-	<?php if (isset($extraMeta)) echo $extraMeta; ?>
+	<?php echo $mankarMain->metaData['extra']; ?>
 
 </head>
 <body>
@@ -37,33 +37,33 @@
       <div class="col1wrap">
         <div class="col1">
         <?php
-		if ($flagLanguage) {
+		if ($mankarMain->flagLanguage) {
 			switch($mankarMain->lang)
 			{
 				case LANGUAGE_ENGLISH:
-					require(ENGLISH_CONTENT.$pageContent);
+					require(ENGLISH_CONTENT.$mankarMain->pageContent);
 					break;
 					
 				case LANGUAGE_FRENCH:
-					if (file_exists(FRENCH_CONTENT.$pageContent)) {
-						require(FRENCH_CONTENT.$pageContent);
+					if (file_exists(FRENCH_CONTENT.$mankarMain->pageContent)) {
+						require(FRENCH_CONTENT.$mankarMain->pageContent);
 					} else {
 						echo "<p class='noLanguage'>".NO_FRENCH."</p>";
-						require(ENGLISH_CONTENT.$pageContent);
+						require(ENGLISH_CONTENT.$mankarMain->pageContent);
 					}
 					break;
 					
 				case LANGUAGE_SPANISH:
-					if (file_exists(SPANISH_CONTENT.$pageContent)) {
-						require(SPANISH_CONTENT.$pageContent);
+					if (file_exists(SPANISH_CONTENT.$mankarMain->pageContent)) {
+						require(SPANISH_CONTENT.$mankarMain->pageContent);
 					} else {
 						echo "<p class='noLanguage'>".NO_SPANISH."</p>";
-						require(ENGLISH_CONTENT.$pageContent);
+						require(ENGLISH_CONTENT.$mankarMain->pageContent);
 					}
 					break;
 			} 
 		} else {
-			require(GENERAL_CONTENT.$pageContent);
+			require(GENERAL_CONTENT.$mankarMain->pageContent);
 		} ?>
         </div>
        <?php  require('left-side.php'); ?>

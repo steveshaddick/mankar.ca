@@ -1,9 +1,5 @@
 <?php
 
-require_once('includes/_init.php');
-
-
-
 $productId = (isset($_GET['pid'])) ? intval($_GET['pid']) : -1;
 $typeId = (isset($_GET['type'])) ? intval($_GET['type']) : -1;
 $page = "";
@@ -16,8 +12,14 @@ if ($productId > -1) {
 	$page = PRODUCTS_PAGE;
 }
 
-switch ($page)
+$productList = $mankarMain->getProductList($mankarMain->pageLocation[1]);
+
+switch ($mankarMain->pageLocation[1])
 {
+	case 1:
+		$pageContent = "products-main.php";
+		break;
+
 	case PAGE_PRODUCT:
 		$pageContent = "product-page.php";
 		$result = mysql_query("SELECT * FROM products WHERE products.product_id = $productId AND active=1 LIMIT 1");
@@ -44,12 +46,9 @@ switch ($page)
 		$metaKeywords = (($lang != LANGUAGE_ENGLISH) && ($meta['meta_keywords_'.$lang] != '')) ? $meta['meta_keywords_'.$lang] : $meta['meta_keywords'];
 		break;
 		
-	case PRODUCTS_PAGE:
-		$pageContent = "products-main-page.php";
-		break;
 		
 	default:
-		$pageContent = "products-main-page.php";
+		$pageContent = "products-main.php";
 		break;
 }
 
@@ -57,4 +56,4 @@ $flagLanguage = false;
 
 $extraMeta = '<script src="js/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script><link href="css/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />';
 
-require('includes/_page-structure.php');
+require(BASE_PATH.'/includes/page-structure.php');
