@@ -10,10 +10,10 @@ class MankarMain {
 	public $baseUrl;
 
 	public $extraMeta = '';
-	public $flagLanguage = false;
-	public $pageContent = '';
+	public $flagLanguage = false; 	//check for content file in language folder
+	public $pageContent = '';		//the content file
 
-	public $pageLocation;
+	public $pageLocation;			//array to hold page info
 	public $productTypes;
 	
 	private $mySQL;
@@ -66,6 +66,8 @@ class MankarMain {
 
 	public function getPage($prettyUrl) {
 
+		$prettyUrl = $this->mySQL->cleanString($prettyUrl);
+
 		$result = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl'");
 		if ($result === false) {
 			return false;
@@ -87,6 +89,8 @@ class MankarMain {
 
 	public function getProductType($typeId) {
 
+		$typeId = intval($typeId);
+
 		$productType = $this->mySQL->getSingleRow("SELECT * FROM product_types WHERE type_id = $typeId");
 		$productType['productList'] = $this->mySQL->sendQuery("SELECT * FROM products WHERE type_id = '".$productType['type_id']."'");
 
@@ -94,6 +98,9 @@ class MankarMain {
 	}
 
 	public function getProduct($productId) {
+		//TODO: error checking / active product checking
+		
+		$productId = intval($productId);
 
 		$product = $this->mySQL->getSingleRow("SELECT * FROM products WHERE product_id = $productId");
 		$product['type'] = $this->mySQL->getSingleRow("SELECT * FROM product_types WHERE type_id = ". $product['type_id']);
@@ -102,6 +109,61 @@ class MankarMain {
 		$product['parts'] = $this->mySQL->sendQuery("SELECT * FROM parts WHERE parts.part_id IN (SELECT part_id FROM parts_to_products WHERE product_id = $productId)");
 
 		return $product;
+	}
+
+	public function getAllPartsProducts() {
+		return $this->mySQL->sendQuery("SELECT * FROM products WHERE product_id IN (SELECT product_id FROM parts_to_products) AND products.active=1");
+	}
+
+	public function getPartsByProductId($productId) {
+		
+		$productId = intval($productId);
+		$error = '';
+
+		$parts = $this->mySQL->sendQuery("SELECT * FROM parts WHERE parts.part_id IN (SELECT part_id FROM parts_to_products WHERE product_id = $productId)");
+		$product = $this->mySQL->getSingleRow("SELECT name FROM products WHERE product_id=$productId AND products.active=1");
+
+		if (count($parts) == 0) {
+			$error = 'noparts';
+		}
+
+		return array('name' => $product['name'], 'parts'=> $parts, 'error'=>$error);
+	}
+
+	public function getPartsBySearch($search) {
+		
+		$parts = array();
+		$error = '';
+
+		if (strlen($search) >= 3) {
+			$search = $this->mySQL->cleanString($search);
+
+			$parts = $this->mySQL->sendQuery("SELECT * FROM parts WHERE (part_code LIKE '%$search%' OR name LIKE '%$search%' OR agtec_code LIKE '%$search%' OR old_code LIKE '%$search%') AND parts.active=1");
+			if (count($parts) == 0) {
+				$error = 'nosearch';
+			}
+
+		} else {
+			$error = 'tooshort';
+		}
+
+		return array('parts'=> $parts, 'error'=>$error);
+	}
+
+	public function getPart($partId) {
+		
+		$partId = intval($partId);
+
+		$part = $this->mySQL->getSingleRow("SELECT * FROM parts WHERE part_id = $partId AND active=1");
+
+		//$partCode = $part['part_code'];
+
+		//$products = $this->mySQL->sendQuery("SELECT * FROM products WHERE products.product_id = $productId AND active=1 LIMIT 1");
+		
+		$part['applicableProducts'] = $this->mySQL->sendQuery("SELECT * FROM products WHERE products.product_id IN (SELECT product_id FROM parts_to_products WHERE part_id = $partId) AND products.active=1");
+		
+		return $part;
+
 	}
 
 	private function determineLanguage() {

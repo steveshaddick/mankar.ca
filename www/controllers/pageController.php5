@@ -45,6 +45,7 @@ if ($view !== false) {
 
 				case 3:
 					//product page
+					//TODO: check for empty product
 					$mankarMain->metaData['extra'] = '<script src="js/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script><link href="css/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />';
 					$mankarMain->pageContent = "products-product.php";
 
@@ -60,14 +61,31 @@ if ($view !== false) {
 
 			case 'support':
 
-				if (!isset($mankarMain->pageLocation[1])) {
+				switch (count($mankarMain->pageLocation)) {
+				
+				case 1:
+					//main support page
 					$mankarMain->pageLocation[1] = 'tips-manuals';
-				} else {
-					if ($mankarMain->pageLocation[1] == 'parts') {
-						$mankarMain->flagLanguage = false;
-						$partId = (isset($_GET['partid'])) ? intval($_GET['partid']) : -1;
-					}
+					$mankarMain->flagLanguage = true;
+					$mankarMain->pageContent = "contentSupport.php";
+					break;
+
+				case 2:
+					//parts main page
+					$mankarMain->flagLanguage = false;
+					$mankarMain->pageContent = "parts-main.php";
+					break;
+
+				case 3:
+					//individual part
+					//TODO: check for empty part
+					$mankarMain->flagLanguage = false;
+					//$partId = (isset($_GET['partid'])) ? intval($_GET['partid']) : -1;
+					$mankarMain->pageContent = "parts-part.php";
+					break;
+
 				}
+
 				/*$page = SUPPORT_PAGE;
 				$subPage = (isset($_GET['page'])) ? $_GET['page'] : "tips-manuals";
 				switch ($subPage)
@@ -97,10 +115,6 @@ if ($view !== false) {
 					$pageContent = "contentSupport.php";
 					break;
 				}*/
-
-				$subPage = "tips-manuals";
-				$mankarMain->flagLanguage = true;
-				$mankarMain->pageContent = "contentSupport.php";
 
 				break;
 
