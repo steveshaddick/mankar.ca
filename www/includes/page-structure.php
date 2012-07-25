@@ -11,15 +11,15 @@
 	<meta name="description" content="<?php echo $mankarMain->metaData['description']; ?>">
 	<meta name="keywords" content="<?php echo $mankarMain->metaData['keywords']; ?>">
 
-	<link rel="stylesheet" type="text/css" href="css/mankar-style.css" >
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" >
-	<link rel="icon" href="favicon.ico" type="image/gif" >
+	<link rel="stylesheet" type="text/css" href="/css/mankar-style.css" >
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" >
+	<link rel="icon" href="/favicon.ico" type="image/gif" >
 
-	<script type="text/javascript" src="js/mootools-release-1.11.js"></script>
-	<script type="text/javascript" src="js/slimbox.js"></script>
-	<script type="text/javascript" src="js/SpryAssets/SpryCollapsiblePanel.js"></script>
+	<script type="text/javascript" src="/js/mootools-release-1.11.js"></script>
+	<script type="text/javascript" src="/js/slimbox.js"></script>
+	<script type="text/javascript" src="/js/SpryAssets/SpryCollapsiblePanel.js"></script>
 	<!--[if lt IE 7.]>
-	<script defer type="text/javascript" src="js/pngfix.js"></script>
+	<script defer type="text/javascript" src="/js/pngfix.js"></script>
 	<![endif]-->
 
 	<?php echo $mankarMain->metaData['extra']; ?>

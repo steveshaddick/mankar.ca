@@ -75,7 +75,7 @@
 		{
 			?>
 
-			<li <?php if ($currentType == $productType['type_id']) echo " class='leftHighlight'"; ?>><a href="<?php echo $productType['pretty_url']; ?>"><?php echo $productType['name']; ?></a></li>
+			<li <?php if ($currentType == $productType['type_id']) echo " class='leftHighlight'"; ?>><a href="/<?php echo $productType['pretty_url']; ?>"><?php echo $productType['name']; ?></a></li>
 
 			<?php
 		}

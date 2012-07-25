@@ -1,11 +1,7 @@
 <?php
 
-	$dealers = array();
-	$result = mysql_query("SELECT * FROM dealers JOIN state ON dealers.state_id=state.state_id  WHERE active=1 ORDER BY state");
-	while ($row = mysql_fetch_assoc($result))
-	{
-		$dealers[] =$row;
-	}
+	$dealers = $mankarMain->getDealers();
+	
 	
 	//order them into a 2d array, and obfuscate the email at the same time
 	$dealers_can = array();
@@ -34,7 +30,7 @@
 	
 	$currentHeader = "";
 	
-	switch ($lang) { 
+	switch ($mankarMain->lang) { 
 		case LANGUAGE_ENGLISH :  
 			define('DEALERS', 'Dealers');
 			define('PHONE', 'Phone');
@@ -55,13 +51,13 @@
 			break;
 	} 
 	
-	switch ($lang) { 
+	switch ($mankarMain->lang) { 
 		case LANGUAGE_FRENCH :  echo "<p class='noLanguage'>".NO_FRENCH."</p>"; break;
 		case LANGUAGE_SPANISH :  echo "<p class='noLanguage'>".NO_SPANISH."</p>"; break;
 	}
 	
 ?>
-          <h3><?=DEALERS;?></h3>
+          <h3><?php echo DEALERS;?></h3>
           <a href="#usa">U.S.A.</a> | <a href="#canada">Canada</a>
           <a name="canada"></a>
 <?php 	foreach ($dealers_can as $dealer)
@@ -81,9 +77,9 @@
               <?php echo $dealer['city'];?>, <?php echo $dealer['state_abbr'];?><br />
 			  <?php echo $dealer['zip'];?><br />
               <?php echo $dealer['country'];?><br />
-              <?=PHONE;?>: <?php echo $dealer['phone'];?><br />
+              <?php echo PHONE;?>: <?php echo $dealer['phone'];?><br />
 			  <?php if ($dealer['fax'] != "") echo FAX.':'.$dealer['fax'].'<br />';?>
-               <?php if ($dealer['email'] != "") { ?><?=EMAIL;?>:  <a href="mailto:<?php echo $dealer['email'];?>"><?php echo $dealer['email'];?></a><br /><?php } ?>
+               <?php if ($dealer['email'] != "") { ?><?php echo EMAIL;?>:  <a href="mailto:<?php echo $dealer['email'];?>"><?php echo $dealer['email'];?></a><br /><?php } ?>
                  </td>
                 <td valign="top">
                 <a href="http://maps.google.ca/maps?q=<?php echo $dealer['map']; ?>" target="_blank"><img border="0" src="http://maps.google.com/maps/api/staticmap?markers=size:mid|color:0xf4a300|label:M|<?php echo $dealer['map']; ?>&zoom=9&size=200x200&sensor=false" alt="<?php echo $dealer['name'];?>" /></a>
@@ -110,9 +106,9 @@
               <?php echo $dealer['city'];?>, <?php echo $dealer['state_abbr'];?><br />
 			  <?php echo $dealer['zip'];?><br />
               <?php echo $dealer['country'];?><br />
-              <?=PHONE;?>: <?php echo $dealer['phone'];?><br />
+              <?php echo PHONE;?>: <?php echo $dealer['phone'];?><br />
 			  <?php if ($dealer['fax'] != "") echo FAX.':'.$dealer['fax'].'<br />';?>
-               <?php if ($dealer['email'] != "") { ?><?=EMAIL;?>:  <a href="mailto:<?php echo $dealer['email'];?>"><?php echo $dealer['email'];?></a><br /><?php } ?>
+               <?php if ($dealer['email'] != "") { ?><?php echo EMAIL;?>:  <a href="mailto:<?php echo $dealer['email'];?>"><?php echo $dealer['email'];?></a><br /><?php } ?>
                  </td>
                 <td valign="top">
                  <a href="http://maps.google.ca/maps?q=<?php echo $dealer['map']; ?>" target="_blank"><img border="0" src="http://maps.google.com/maps/api/staticmap?markers=size:mid|color:0xf4a300|label:M|<?php echo $dealer['map']; ?>&zoom=9&size=200x200&sensor=false" alt="<?php echo $dealer['name'];?>" /></a>

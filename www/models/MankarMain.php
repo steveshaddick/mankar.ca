@@ -166,6 +166,26 @@ class MankarMain {
 
 	}
 
+	public function getTradeshows() {
+
+		$today = date( 'Y-m-d H:i:s' );
+		$lastyear = mktime(0, 0, 0, date("m"), date("d"), date("Y")-1);
+	    $lastyeartoday = date("Y-m-d H:i:s",$lastyear);
+	    
+	    $upcoming = $this->mySQL->sendQuery("SELECT * FROM tradeshows WHERE showend >= '$today' ORDER BY showstart");
+	    $recent = $this->mySQL->sendQuery("SELECT * FROM tradeshows WHERE showend < '$today' AND showend >= '$lastyeartoday' ORDER BY showstart DESC");
+	    $oneYear = $this->mySQL->sendQuery("SELECT * FROM tradeshows WHERE showend < '$lastyeartoday' ORDER BY showstart DESC");
+		
+		return array('upcoming'=>$upcoming, 'recent'=>$recent, 'oneYear'=>$oneYear);
+	}
+
+	public function getDealers() {
+		return $this->mySQL->sendQuery("SELECT * FROM dealers JOIN state ON dealers.state_id=state.state_id  WHERE active=1 ORDER BY state");
+	}
+
+
+	/* PRIVATE FUNCTIONS */
+
 	private function determineLanguage() {
 		
 		if (isset($_COOKIE['lang'])) { //see if they already chose a language back in the day 

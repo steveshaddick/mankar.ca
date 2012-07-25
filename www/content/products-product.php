@@ -219,7 +219,7 @@
 if (count($product['parts']) > 0) {
 	?>
     <h2><?=PARTS;?></h2>
-	<a href="support.php?page=parts&pid=<?=$product['product_id']; ?>">
+	<a href="/parts?pid=<?=$product['product_id']; ?>">
     <?php
     switch ($mankarMain->lang) { 
 		case LANGUAGE_ENGLISH :  echo 'View available parts for '.$product['name'].'.'; break;

@@ -1,12 +1,9 @@
 <?php
 
 
-	
-	$partId = (isset($_GET['partid'])) ? intval($_GET['partid']) : -1;
-	$productId = (isset($_GET['pid'])) ? intval($_GET['pid']) : -1;
+	$partId = (isset($_GET['partId'])) ? intval($_GET['partId']) : -1;
 	
 	$part = $mankarMain->getPart($partId);
-	
 	
 	switch ($mankarMain->lang) { 
 		case LANGUAGE_ENGLISH :  
@@ -35,7 +32,7 @@
 ?>
 
 <div id="breadcrumb">
-	<a href="support.php?page=parts"><?php switch ($mankarMain->lang) { 
+	<a href="/parts"><?php switch ($mankarMain->lang) { 
 								case LANGUAGE_ENGLISH : echo '< back to Parts'; break;
 								case LANGUAGE_FRENCH : echo '< back to Parts'; break;
 								case LANGUAGE_SPANISH : echo '< back to Parts'; break;

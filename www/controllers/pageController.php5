@@ -63,59 +63,36 @@ if ($view !== false) {
 
 				switch (count($mankarMain->pageLocation)) {
 				
-				case 1:
-					//main support page
-					$mankarMain->pageLocation[1] = 'tips-manuals';
-					$mankarMain->flagLanguage = true;
-					$mankarMain->pageContent = "contentSupport.php";
-					break;
+					case 1:
+						//main support page
+						$mankarMain->pageLocation[1] = 'tips-manuals';
+						$mankarMain->flagLanguage = true;
+						$mankarMain->pageContent = "contentSupport.php";
+						break;
 
-				case 2:
-					//parts main page
-					$mankarMain->flagLanguage = false;
-					$mankarMain->pageContent = "parts-main.php";
-					break;
+					case 2:
+						//part page
 
-				case 3:
-					//individual part
-					//TODO: check for empty part
-					$mankarMain->flagLanguage = false;
-					//$partId = (isset($_GET['partid'])) ? intval($_GET['partid']) : -1;
-					$mankarMain->pageContent = "parts-part.php";
-					break;
+						$mankarMain->flagLanguage = false;
+						if (isset($_GET['partId'])) {
+							$mankarMain->pageContent = "parts-part.php";
+						} else {
+							$mankarMain->pageContent = "parts-main.php";
+						}
+						break;
 
 				}
 
-				/*$page = SUPPORT_PAGE;
-				$subPage = (isset($_GET['page'])) ? $_GET['page'] : "tips-manuals";
-				switch ($subPage)
-				{
-					case "tips-manuals":
-					$flagLanguage = true;
-					$pageContent = "contentSupport.php";
-					break;
-					
-					case "parts":
-					$flagLanguage = false;
-					$partId = (isset($_GET['partid'])) ? intval($_GET['partid']) : -1;
-					
-					if ($partId > -1) {
-						$result = mysql_query("SELECT * FROM parts WHERE part_id = $partId AND active=1 LIMIT 1");
-						$part = mysql_fetch_assoc($result);
-						$pageContent = "parts-page.php";
-					} else {
-						$pageContent = "parts-main-page.php";
-					}
-					break;
-					
-					
-					default:
-					$subPage = "tips-manuals";
-					$flagLanguage = true;
-					$pageContent = "contentSupport.php";
-					break;
-				}*/
+				break;
 
+			case 'tradeshows':
+				$mankarMain->flagLanguage = false;
+				$mankarMain->pageContent = "tradeshows.php";
+				break;
+
+			case 'dealers':
+				$mankarMain->flagLanguage = false;
+				$mankarMain->pageContent = "dealers.php";
 				break;
 
 	}
