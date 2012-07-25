@@ -1,6 +1,6 @@
 <?php
 	
-	$productType = $mankarMain->getProductType($mankarMain->pageLocation[1]);
+	$productType = $mankarMain->pageData['productType'];
 
 
 	switch ($mankarMain->lang) { 

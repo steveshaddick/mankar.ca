@@ -14,11 +14,11 @@ $mankarMain = new MankarMain();
 
 $_SESSION['page'] = ($_GET['page'] != 'index') ? $_GET['page'] : '';
 
-$view = $mankarMain->getPage($_GET['page']);
+$pageResult = $mankarMain->getPage($_GET['page']);
 
-if ($view !== false) {
+if ($pageResult['success'] === true) {
 
-	switch ($view) {
+	switch ($mankarMain->pageLocation[0]) {
 
 		case 'home':
 			$mankarMain->flagLanguage = true;
@@ -38,6 +38,16 @@ if ($view !== false) {
 
 				case 2:
 					//product type page
+					$productType = $mankarMain->getProductType($mankarMain->pageLocation[1]);
+					
+					if ($productType === false) {
+						header('Location: http://'.SITE_URL.'/');
+						exit();
+					}
+					
+
+					$mankarMain->pageData['productType'] = $productType;
+
 					$mankarMain->metaData['extra'] = '<script src="js/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script><link href="css/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />';
 					$mankarMain->pageContent = "products-type.php";
 
@@ -45,7 +55,15 @@ if ($view !== false) {
 
 				case 3:
 					//product page
-					//TODO: check for empty product
+					
+					$product = $mankarMain->getProduct($mankarMain->pageLocation[2]);
+					if ($product === false) {
+						header('Location: http://'.SITE_URL.'/');
+						exit();
+					}
+
+					$mankarMain->pageData['product'] = $product;
+
 					$mankarMain->metaData['extra'] = '<script src="js/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script><link href="css/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />';
 					$mankarMain->pageContent = "products-product.php";
 
@@ -100,7 +118,8 @@ if ($view !== false) {
 	require(BASE_PATH.'/includes/page-structure.php');
 
 } else {
-	header('Location: http://'.SITE_URL.'/');
+
+	header('Location: ' . $pageResult['url']);
 }
 
 ?>

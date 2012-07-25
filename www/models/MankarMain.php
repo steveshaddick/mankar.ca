@@ -12,32 +12,33 @@ class MankarMain {
 	public $extraMeta = '';
 	public $flagLanguage = false; 	//check for content file in language folder
 	public $pageContent = '';		//the content file
+	public $pageData = array();		//general array for holding specific page data
 
 	public $pageLocation;			//array to hold page info
 	public $productTypes;
 	
-	private $mySQL;
-
+	public $urls = array(
+		'',
+		'mankar.mankar.ca',
+		'mafex.mankar.ca',
+		'rofa.mankar.ca',
+		'mantis.mankar.ca'
+		);
+	public $superTypeId = 1;		//product supertypes for separating sites
 	
+	private $mySQL;
 	
 	public function __construct() {
 
-		/*if (isset($_GET['lang'])) {
-			$this->lang = $_SESSION['lang'] = $_GET['lang'];
-			setcookie('lang', $this->lang, EXPIRE_COOKIE);
-		} else {
-			$this->determineLanguage();
-		}
-
-		if (isset($_GET['units'])) {
-			$this->units = $_SESSION['units'] = $_GET['units'];
-			setcookie('units', $this->units, EXPIRE_COOKIE);
-		} else {
-			$this->determineUnits();
-		}*/
-
 		$this->determineLanguage();
 		$this->determineUnits();
+
+		foreach($this->urls as $key=>$value) {
+			if ($_SERVER['SERVER_NAME'] == $value) {
+				$superTypeId = $key;
+				break;
+			}
+		}
 
 		$this->metaData = array(
 			'title' => 'Chemical Weed Control with the Lowest Possible Environmental Impact',
@@ -60,7 +61,7 @@ class MankarMain {
 
 		$this->mySQL = new MySQLUtility(DB_USERNAME, DB_PASSWORD, DB_HOST, DB_NAME);
 
-		$this->productTypes = $this->mySQL->sendQuery("SELECT * FROM product_types WHERE active=1");
+		$this->productTypes = $this->mySQL->sendQuery("SELECT * FROM product_types WHERE active=1 AND supertype_id = $this->superTypeId");
 		
 	}
 
@@ -70,7 +71,11 @@ class MankarMain {
 
 		$result = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl'");
 		if ($result === false) {
-			return false;
+			return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
+		}
+
+		if ($result['supertype_id'] != $this->superTypeId) {
+			return array('success' => false, 'url' => $this->urls[$result['supertype_id']] . $_SERVER['REQUEST_URI']);
 		}
 
 		$this->pageLocation = explode('/', $result['location']);
@@ -84,7 +89,7 @@ class MankarMain {
 
 		$this->pageUrl = $this->baseUrl = $result['actual_url'];
 
-		return $this->pageLocation[0];
+		return array('success' => true);
 	}
 
 	public function getProductType($typeId) {
@@ -92,7 +97,10 @@ class MankarMain {
 		$typeId = intval($typeId);
 
 		$productType = $this->mySQL->getSingleRow("SELECT * FROM product_types WHERE type_id = $typeId");
-		$productType['productList'] = $this->mySQL->sendQuery("SELECT * FROM products WHERE type_id = '".$productType['type_id']."'");
+		if ($productType === false) {
+			return $productType;
+		}
+		$productType['productList'] = $this->mySQL->sendQuery("SELECT * FROM products WHERE type_id = {$productType['type_id']}");
 
 		return $productType;
 	}

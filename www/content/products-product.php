@@ -1,6 +1,6 @@
 <?php
 	
-	$product = $mankarMain->getProduct($mankarMain->pageLocation[2]);
+	$product = $mankarMain->pageData['product'];
 	
 	if ($product['photo_page'] == "") {
 		$product['photo_page'] = NO_PHOTO;
