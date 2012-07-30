@@ -6,17 +6,32 @@ Author: nick@mankar.ca
 Author URI: mankar.ca
 */
 
-body
- {
+body {
  padding:0;
- background:#459445 url( http://mankar.ca/images/backfade.jpg ) repeat-x top;
  color: #333333;
  font-family:Verdana, Arial, Helvetica, sans-serif;
  font-size: 100%;
  min-width: 855px;
  text-align: center;
  margin: 0 auto;
- }
+
+ background-image: url('../images/page-gradient.gif') ;
+ background-repeat: repeat-x;
+ background-color: #60a35e;
+ background-image: -moz-linear-gradient(center top , #FFFFFF 100px, #60A35E 700px);
+ background-image: -webkit-linear-gradient(center top , #FFFFFF 100px, #60A35E 700px);
+ background-image: -ms-linear-gradient(center top , #FFFFFF 100px, #60A35E 700px);
+
+
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
  
  
 div#container
@@ -57,7 +72,7 @@ div#container
 	}
 	/* 3 Column settings */
 	.holygrail {
-		background:#f9de9c url(http://mankar.ca/images/right-shadow.png) 82% 0 repeat-y;		/* right column background colour */
+		background:#f9de9c url(../images/right-shadow.png) 82% 0 repeat-y;		/* right column background colour */
 	}
 	.holygrail .colmid {
 		right:20%;			/* width of the right column */
@@ -93,7 +108,7 @@ div#container
 	
 	.holygrail .colleft {
 		right:60%;			/* width of the middle column */
-		background: #f9de9c url(http://mankar.ca/images/left-shadow.png) right repeat-y;/* left column background colour */
+		background: #f9de9c url(../images/left-shadow.png) right repeat-y;/* left column background colour */
 		border-right: #deb974 thin solid;
 	}
 	.holygrail .col1 {
@@ -125,9 +140,8 @@ div#container
 
  
 h1 { 
-	color:#FFFFFF; 
-	font-size:1.5em;
-	margin:0.75em 0 0 0;
+	font-size:18px;
+	margin:0;
 	padding:0;
 }
 h2 { 
@@ -170,22 +184,12 @@ h4 { color:#9F6600; }
 
 
 #header-contact{
-	font-size:0.70em;
-	line-height:1.5em;
-	
 	width:450px;
-	height:71px;
-	background:url( http://mankar.ca/images/mankar-tab.png ) no-repeat;
-	 background-position:right;
-	 color:#ffffff;
-	 /*border:solid #f39c00;*/
-	 border-width:0;
-	 margin:26px 0 0 0;
-	 padding:0px 0.5em 0 0;
-	 position: relative;
-	 text-align: right;
-	 float:right;
-	 display:inline;
+	color:#076C0C;
+	text-align: right;
+	float:right;
+	font-size:11px;
+	padding-top:15px;
 }
 
 
@@ -193,27 +197,25 @@ h4 { color:#9F6600; }
 	text-align:left;
 	display:inline;
 	float:left;
-	height:90px;
+	padding-top:15px;
 }
 #logo-picture img {
 	border:0;
 	}
  
-#hdr{
- height:98px;
- background:url(http://mankar.ca/images/top-green-strip.png) repeat-x;
+#header{
  
  }
-#hdr  a{ 
-	color: #FFFFFF;
+#header  a{ 
+	color: inherit;
 	text-decoration: none;
 }
 
-#hdr a:hover { 
-	color: #FFFFFF;
+#header a:hover { 
+	color: inherit;
 	text-decoration: underline;
 }
-#hdr p {
+#header p {
 	margin: 0;
 	padding: 0;
 	font-size:0.75em;
@@ -224,6 +226,10 @@ h4 { color:#9F6600; }
 	font-size:11px;
 	height:18px;
 	color:#326B32; 
+	padding-top: 5px;
+	position:absolute;
+	right: 0;
+	bottom: 0;
 }
 
 #languages a {
@@ -238,21 +244,19 @@ h4 { color:#9F6600; }
 	color: #076c0c;
 	font-size: 0.8em;
 	text-align: left;
-	margin:0 0px 0 0;
-	padding:0;
+	margin: 0;
+	padding: 5px 0 0;
 	height: 20px;
-	border-left: thin solid #b6ceb4;
-	border-right: thin solid #b6ceb4;
+	position:relative;
 }
 
 #top-navigation ul.navlist
 {
 	list-style: none;
 	text-align: left;
-	width:100%;
-	margin:-1px 0 0 0;
 	padding:0 0 0 10px;
 	height:20px;
+	margin:0;
 }
 
 #top-navigation ul.navlist li
@@ -290,8 +294,7 @@ h4 { color:#9F6600; }
 
 #top-navigation-bottom{
 	height:6px;
-	background:url(http://mankar.ca/images/bottom-green-strip.png) bottom;
-	margin: 0 0 5px 0;
+	background:url(../images/bottom-green-strip.png) bottom;
 }
 
 /*ul.navlist li#active a
@@ -328,7 +331,7 @@ ul.divLeftBox {
 	padding: 0 0 0 5%;;
 	margin: 0;
 	width: 95%;
-	background: #fdf6e5 url(http://mankar.ca/images/left-shadow.png) right repeat-y;
+	background: #fdf6e5 url(../images/left-shadow.png) right repeat-y;
 	border-top: #66a061 thin solid;
 
 }
@@ -404,7 +407,7 @@ strong.noline
 	text-align:center;
 	height:23px;
 	width:194px;
-	background:url(http://mankar.ca/images/francais-button.gif) no-repeat;
+	background:url(../images/francais-button.gif) no-repeat;
 	color:#FFFFFF;
 	font-weight:bold;
 	padding: 2px 0 0 0;
@@ -420,7 +423,7 @@ strong.noline
 	height:25px;
 	width:194px;
 	display:block;
-	background:url(http://mankar.ca/images/francais-button-over.gif) no-repeat;
+	background:url(../images/francais-button-over.gif) no-repeat;
 	padding: 2px 0 0 0;
 	margin: -2px 0 0 0;
 }
@@ -456,7 +459,7 @@ strong.noline
 }
 
 .lbLoading {
-	background: #fff url(http://mankar.ca/images/loading.gif) no-repeat center;
+	background: #fff url(../images/loading.gif) no-repeat center;
 }
 
 #lbImage {
@@ -480,7 +483,7 @@ strong.noline
 }
 
 #lbPrevLink:hover {
-	background: transparent url(http://mankar.ca/images/prevlabel.gif) no-repeat 0% 15%;
+	background: transparent url(../images/prevlabel.gif) no-repeat 0% 15%;
 }
 
 #lbNextLink {
@@ -488,7 +491,7 @@ strong.noline
 }
 
 #lbNextLink:hover {
-	background: transparent url(http://mankar.ca/images/nextlabel.gif) no-repeat 100% 15%;
+	background: transparent url(../images/nextlabel.gif) no-repeat 100% 15%;
 }
 
 #lbBottom {
@@ -506,7 +509,7 @@ strong.noline
 	float: right;
 	width: 66px;
 	height: 22px;
-	background: transparent url(http://mankar.ca/images/closelabel.gif) no-repeat center;
+	background: transparent url(../images/closelabel.gif) no-repeat center;
 	margin: 5px 0;
 }
 
@@ -661,7 +664,7 @@ strong.noline
   display: block;
   height:24px;
   width:132px;
-  background:url(http://mankar.ca/images/products-heading-bg.png) no-repeat;
+  background:url(../images/products-heading-bg.png) no-repeat;
   text-align: center;
   color:#ffffff;
   padding-top:10px;
@@ -760,7 +763,7 @@ strong.noline
 }
 
 .divRightBox {
-	background: #fdf6e5  url(http://mankar.ca/images/right-shadow.png) left repeat-y;
+	background: #fdf6e5  url(../images/right-shadow.png) left repeat-y;
 	display:block;
 	margin:0;
 	padding: 0.5em 0.25em 0.5em 0.5em;
@@ -781,7 +784,7 @@ strong.noline
 .divRightBox ul {
 	margin:0;
 	padding:0 0 0 0.75em;
-	list-style: disc url(http://mankar.ca/images/green-bullet.png) outside;
+	list-style: disc url(../images/green-bullet.png) outside;
 }
 
 .divRightBox li {
@@ -933,7 +936,7 @@ strong.noline
 
 .tblProduct
 {
-	background:url(http://mankar.ca/images/product-table-bg.gif) repeat-x;
+	background:url(../images/product-table-bg.gif) repeat-x;
 	border-bottom:thin solid #CCCCCC;
 	border-top:thin solid #CCCCCC;
 }

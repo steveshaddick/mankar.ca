@@ -37,24 +37,12 @@ switch ($mankarMain->lang) {
 
 ?>
 
-<div id="hdr">
-    <div id="logo-picture"><a href="http://www.mankar.ca/"><img src="http://www.mankar.ca/images/mankar-logo.png" alt="Mankar Logo" border="0"></a></div>
+<div id="header">
+    <div id="logo-picture"><a href="http://www.mankar.ca/"><img src="/images/mankar-logo.png" alt="Mankar Logo" border="0"></a></div>
       <div id="header-contact">
-      	<div id="languages">
-			<?php
-				$query = "";
-				/*foreach ($_GET as $key=>$value)
-				{
-					if ($key != "lang") {
-						$query .= $key."=".$value."&";
-					}
-				} */?>
-			<a href="<?php echo "/locale/lang/".LANGUAGE_ENGLISH; ?>" <?php if ($mankarMain->lang == LANGUAGE_ENGLISH) { ?>class="languageSelected"<?php } ?>>English</a> |
-            <a href="<?php echo "/locale/lang/".LANGUAGE_FRENCH; ?>" <?php if ($mankarMain->lang == LANGUAGE_FRENCH) { ?>class="languageSelected"<?php } ?>>Fran&ccedil;ais</a> | 
-            <a href="<?php echo "/locale/lang/".LANGUAGE_SPANISH; ?>" <?php if ($mankarMain->lang == LANGUAGE_SPANISH) { ?>class="languageSelected"<?php } ?>>Espa&ntilde;ol</a>
-        </div>
+      	
           <h1>Mankar Distributing Inc.</h1>
-            phone: 647-309-7826&nbsp;&nbsp;&nbsp;fax: 888-510-2688&nbsp;&nbsp;&nbsp;<a href="mailto:&#105;&#110;&#102;&#111;&#064;&#109;&#097;&#110;&#107;&#097;&#114;&#046;&#099;&#097;">&#105;&#110;&#102;&#111;&#064;&#109;&#097;&#110;&#107;&#097;&#114;&#046;&#099;&#097;</a>
+            phone: 647-309-7826&nbsp;&nbsp;&nbsp;fax: 888-510-2688<br /><a href="mailto:&#105;&#110;&#102;&#111;&#064;&#109;&#097;&#110;&#107;&#097;&#114;&#046;&#099;&#097;">&#105;&#110;&#102;&#111;&#064;&#109;&#097;&#110;&#107;&#097;&#114;&#046;&#099;&#097;</a>
         </div>
 	</div>
     <div style="clear:both; height:0px;"></div>
@@ -67,5 +55,10 @@ switch ($mankarMain->lang) {
           <li <?php if ($mankarMain->pageLocation[0] == 'tradeshows') echo "class='navHighlight'"; ?>><a href="/tradeshows"><?=NAV_TRADESHOWS;?></a></li>
           <li <?php if ($mankarMain->pageLocation[0] == 'dealers') echo "class='navHighlight'"; ?>><a href="/dealers"><?=NAV_DEALERS;?></a></li>
         </ul>
+        <div id="languages">
+			<a href="<?php echo "/locale/lang/".LANGUAGE_ENGLISH; ?>" <?php if ($mankarMain->lang == LANGUAGE_ENGLISH) { ?>class="languageSelected"<?php } ?>>English</a> |
+            <a href="<?php echo "/locale/lang/".LANGUAGE_FRENCH; ?>" <?php if ($mankarMain->lang == LANGUAGE_FRENCH) { ?>class="languageSelected"<?php } ?>>Fran&ccedil;ais</a> | 
+            <a href="<?php echo "/locale/lang/".LANGUAGE_SPANISH; ?>" <?php if ($mankarMain->lang == LANGUAGE_SPANISH) { ?>class="languageSelected"<?php } ?>>Espa&ntilde;ol</a>
+        </div>
    </div>
   <div id="top-navigation-bottom">&nbsp;</div>
