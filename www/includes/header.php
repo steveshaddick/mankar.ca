@@ -38,7 +38,11 @@ switch ($mankarMain->lang) {
 ?>
 
 <div id="header">
-    <div id="logo-picture"><a href="http://www.mankar.ca/"><img src="/images/mankar-logo.png" alt="Mankar Logo" border="0"></a></div>
+    <div id="logo-picture">
+    	<a href="http://www.mankar.ca/"><img src="/images/mankar-logo.png" alt="Mankar Logo" border="0"></a>
+    	<span class="logoText">Ultra-Low Volume<br />Applicators</span>
+    </div>
+      
       <div id="header-contact">
       	
           <h1>Mankar Distributing Inc.</h1>
@@ -56,9 +60,9 @@ switch ($mankarMain->lang) {
           <li <?php if ($mankarMain->pageLocation[0] == 'dealers') echo "class='navHighlight'"; ?>><a href="/dealers"><?=NAV_DEALERS;?></a></li>
         </ul>
         <div id="languages">
-			<a href="<?php echo "/locale/lang/".LANGUAGE_ENGLISH; ?>" <?php if ($mankarMain->lang == LANGUAGE_ENGLISH) { ?>class="languageSelected"<?php } ?>>English</a> |
-            <a href="<?php echo "/locale/lang/".LANGUAGE_FRENCH; ?>" <?php if ($mankarMain->lang == LANGUAGE_FRENCH) { ?>class="languageSelected"<?php } ?>>Fran&ccedil;ais</a> | 
-            <a href="<?php echo "/locale/lang/".LANGUAGE_SPANISH; ?>" <?php if ($mankarMain->lang == LANGUAGE_SPANISH) { ?>class="languageSelected"<?php } ?>>Espa&ntilde;ol</a>
+			<a href="<?php echo "/locale/lang/".LANGUAGE_ENGLISH; ?>" <?php if ($mankarMain->lang == LANGUAGE_ENGLISH) { ?>class="languageSelected"<?php } ?>>EN</a> |
+            <a href="<?php echo "/locale/lang/".LANGUAGE_FRENCH; ?>" <?php if ($mankarMain->lang == LANGUAGE_FRENCH) { ?>class="languageSelected"<?php } ?>>FR</a> | 
+            <a href="<?php echo "/locale/lang/".LANGUAGE_SPANISH; ?>" <?php if ($mankarMain->lang == LANGUAGE_SPANISH) { ?>class="languageSelected"<?php } ?>>ES</a>
         </div>
    </div>
   <div id="top-navigation-bottom">&nbsp;</div>

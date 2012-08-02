@@ -1,4 +1,33 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<?php
+
+switch ($mankarMain->lang) { 
+		case LANGUAGE_ENGLISH :  
+			define('NAV_BENEFITS', 'Main Benefits');
+			define('NAV_TECHNOLOGY', 'Technology & Patent');
+			define('NAV_COSTSHARE', 'Government Cost-Share');
+			define('NAV_APPLICATION', 'Areas of Application');
+			define('NAV_MANUALS', 'Manuals / Tips');
+			define('NAV_PARTS', 'Parts');
+			break;
+		case LANGUAGE_FRENCH :  
+			define('NAV_BENEFITS', 'Main Benefits');
+			define('NAV_TECHNOLOGY', 'Technology & Patent');
+			define('NAV_COSTSHARE', 'Government Cost-Share');
+			define('NAV_APPLICATION', 'Areas of Application');	
+			define('NAV_MANUALS', 'Manuals / Tips');
+			define('NAV_PARTS', 'Parts');
+			break;
+		case LANGUAGE_SPANISH :  
+			define('NAV_BENEFITS', 'Main Benefits');
+			define('NAV_TECHNOLOGY', 'Technology & Patent');
+			define('NAV_COSTSHARE', 'Government Cost-Share');
+			define('NAV_APPLICATION', 'Areas of Application');
+			define('NAV_MANUALS', 'Manuals / Tips');
+			define('NAV_PARTS', 'Parts');
+			break;
+	} 
+
+?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="<?php echo $mankarMain->lang ?>">
 <head>
 
@@ -36,6 +65,35 @@
     <div class="colleft">
       <div class="col1wrap">
         <div class="col1">
+
+		<?php switch ($mankarMain->pageLocation[0]) {
+			case "information.php":
+				?>
+				<h2 class="leftHeading"><?=NAV_INFO;?></h2>
+				<ul class="divLeftBox">
+				<li<?php if ($subPage == "main-benefits") echo " class='leftHighlight'"; ?>><a href="<?php echo getPrettyUrl('information.php?page=main-benefits'); ?>"><?=NAV_BENEFITS;?></a></li>
+				<li<?php if ($subPage == "technology") echo " class='leftHighlight'"; ?>><a href="<?php echo getPrettyUrl('information.php?page=technology'); ?>"><?=NAV_TECHNOLOGY;?></a></li>
+				<li<?php if ($subPage == "cost-share") echo " class='leftHighlight'"; ?>><a href="<?php echo getPrettyUrl('information.php?page=cost-share'); ?>"><?=NAV_COSTSHARE;?></a></li>
+				<li<?php if ($subPage == "application") echo " class='leftHighlight'"; ?>><a href="<?php echo getPrettyUrl('information.php?page=application'); ?>"><?=NAV_APPLICATION;?></a></li>
+				</ul>
+
+				<?php 
+				break;
+
+			case "support":
+				?>
+				<div id="sub-navigation">
+					<ul class="navlist">
+						<li<?php if ($mankarMain->pageLocation[1] == "tips-manuals") echo " class='navHighlight'"; ?>><a href="/support"><?=NAV_MANUALS;?></a></li>
+						<li<?php if ($mankarMain->pageLocation[1] == "parts") echo " class='navHighlight'"; ?>><a href="/parts"><?=NAV_PARTS;?></a></li>
+					</ul>
+				</div>
+				<?php
+				break;
+
+		}?>
+        
+
         <?php
 		if ($mankarMain->flagLanguage) {
 			switch($mankarMain->lang)

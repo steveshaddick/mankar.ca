@@ -185,11 +185,11 @@ h4 { color:#9F6600; }
 
 #header-contact{
 	width:450px;
-	color:#076C0C;
+	color:#acacac;
 	text-align: right;
 	float:right;
 	font-size:11px;
-	padding-top:15px;
+	padding-top:22px;
 }
 
 
@@ -197,11 +197,25 @@ h4 { color:#9F6600; }
 	text-align:left;
 	display:inline;
 	float:left;
-	padding-top:15px;
+	padding-top:12px;
+	position:relative;
+	left:-8px;
 }
 #logo-picture img {
 	border:0;
 	}
+
+#logo-picture .logoText {
+	color: #076C0C;
+    display: block;
+    font-family: arial;
+    font-size: 24px;
+    left: 328px;
+    line-height: 24px;
+    position: absolute;
+    top: 24px;
+    width: 200px;
+}
  
 #header{
  
@@ -233,7 +247,7 @@ h4 { color:#9F6600; }
 }
 
 #languages a {
-	color:#326B32; 
+	color:#6AA869; 
 }
 #languages a:hover {
 	color:#326B32; 
@@ -250,25 +264,23 @@ h4 { color:#9F6600; }
 	position:relative;
 }
 
-#top-navigation ul.navlist
+ul.navlist
 {
 	list-style: none;
 	text-align: left;
-	padding:0 0 0 10px;
+	padding:0;
 	height:20px;
 	margin:0;
 }
 
-#top-navigation ul.navlist li
+ul.navlist li
 {
-	/*display: inline;*/
 	float:left;
 	height: 20px;
 	line-height:20px;
-	padding-bottom:1px;
 }
 
-#top-navigation ul.navlist li a
+ul.navlist li a
 {
 	color: #076c0c;
 	text-decoration: none;
@@ -277,24 +289,24 @@ h4 { color:#9F6600; }
 	height: 20px;
 	
 }
-#top-navigation ul.navlist li.navHighlight{
+ul.navlist li.navHighlight{
 	background:#6aa869;
 }
 
-#top-navigation ul.navlist li.navHighlight a{
+ul.navlist li.navHighlight a{
 	
 	color: #FFFFFF;
 	background:#6aa869;
 	height: 20px;
 }
-#top-navigation ul.navlist li.navHighlight a:hover{
+ul.navlist li.navHighlight a:hover{
 	
 	color: #FFFFFF;
 }
 
 #top-navigation-bottom{
-	height:6px;
-	background:url(../images/bottom-green-strip.png) bottom;
+	background: none repeat scroll 0 0 #439243;
+    height: 5px;
 }
 
 /*ul.navlist li#active a
@@ -303,7 +315,7 @@ h4 { color:#9F6600; }
 	color: #800000;
 }*/
 
-#top-navigation ul.navlist li a:hover
+ul.navlist li a:hover
 {
 	color:#6aa869;
 }
@@ -316,7 +328,7 @@ ul.navDropDown {
 	
 }
 
-#top-navigation ul.navlist li ul.navDropDown li {
+ul.navlist li ul.navDropDown li {
 
 	list-style-type:none;
 }
@@ -328,19 +340,19 @@ ul.navDropDown a {
 ul.divLeftBox {
 	text-align: left;
 	list-style: none;
-	padding: 0 0 0 5%;;
 	margin: 0;
-	width: 95%;
+	width: 100%;
 	background: #fdf6e5 url(../images/left-shadow.png) right repeat-y;
 	border-top: #66a061 thin solid;
+	padding:0;
 
 }
 
 ul.divLeftBox li
 {
 	display: block;
-	/*margin: 0;*/
-	padding: 0.25em 0 0.25em 0;
+	padding: 4px 0;
+	position:relative;
 }
 
 ul.divLeftBox li a
@@ -352,19 +364,28 @@ ul.divLeftBox li a
 	font-size: 0.8em;
 }
 
-ul.divLeftBox img {
+ul.divLeftBox img.typeIcon {
 	vertical-align:middle;
-	padding-right:0.5em;
+	position:absolute;
+	left:10px;
 }
 
-ul.divLeftBox li.leftHighlight{
+ul.divLeftBox .typeName {
+	position: relative;
+	left:30px;
+	width: 185px;
+	display: block;
+	line-height:20px;
+	padding-left:5px;
+}
+
+ul.divLeftBox li.leftHighlight .typeName{
 	
 	color:#ffffff;
 	font-weight:bold;
-	/*margin:0.5em 0;*/
-	/*padding:0.1em 0 0.1em 0.5em;*/
+	background:#6AA869;
 }
-ul.divLeftBox li.leftHighlight a{
+/*ul.divLeftBox li.leftHighlight a{
 	background:#326b32;
 	color:#ffffff;
 	font-weight:bold;
@@ -374,9 +395,9 @@ ul.divLeftBox li.leftHighlight a:hover{
 	background:#326b32;
 	color:#ffffff;
 	font-weight:bold;
-}
+}*/
 
-ul.divLeftBox li a:hover, ul.divLeftBox li#active a:hover
+ul.divLeftBox li a:hover .typeName
 {
 	color:#FFFFFF;
 	background:#6aa869;
@@ -403,29 +424,9 @@ strong.noline
 	}
 
 
-#francaisButton{
-	text-align:center;
-	height:23px;
-	width:194px;
-	background:url(../images/francais-button.gif) no-repeat;
-	color:#FFFFFF;
-	font-weight:bold;
-	padding: 2px 0 0 0;
-	margin: 0 auto;
-}
-
-#francaisButton a{
-	color:#FFFFFF;
-	font-weight:bold;
-	text-decoration:none;
-}
-#francaisButton a:hover{
-	height:25px;
-	width:194px;
-	display:block;
-	background:url(../images/francais-button-over.gif) no-repeat;
-	padding: 2px 0 0 0;
-	margin: -2px 0 0 0;
+#sub-navigation {
+    border-bottom: 1px solid #439243;
+    margin-top: 5px;
 }
 
 
