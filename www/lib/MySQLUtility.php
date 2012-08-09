@@ -3,7 +3,7 @@
 /**
  * @title 	MySQL Utility
  * @author	Steve Shaddick
- * @version 2.0
+ * @version 2.1
  *
  * @description 	A class for interfacing MySQL with PHP			
  * @tags database, mysql, security, utility 
@@ -138,12 +138,14 @@ class MySQLUtility {
 	/**********************
 	 * @function	sendQuery
 	 * @input	$query (string) : the mysql query
+	 *			$function (function) : a function for dataset iteration
+	 *			&$data (*) : a reference to pass through to the iterative function
 				
 	 * @output	Returns an array of rows and column names 
 	 			or false if something fails 
 				or true if the query returns === true
 	 */
-	public function sendQuery($query)
+	public function sendQuery($query, $fieldIndex = null, $function = null, &$data = null)
 	{
 		if ($this->initQuery($query) !== true) {
 			return false;
@@ -159,8 +161,14 @@ class MySQLUtility {
 			while($row = mysql_fetch_assoc($result))
 			{
 				//build the return array.  An empty result will return an array of count 0
-				
-				$ret[] = $row;
+				if ($fieldIndex) {
+					$ret[$row[$fieldIndex]] = $row;
+				} else {
+					$ret[] = $row;
+				}
+				if ($function) {
+					$function($row, $data);
+				}
 			}
 		}
 		

@@ -1,31 +1,7 @@
 <?php
 
-switch ($mankarMain->lang) { 
-		case LANGUAGE_ENGLISH :  
-			define('NAV_BENEFITS', 'Main Benefits');
-			define('NAV_TECHNOLOGY', 'Technology & Patent');
-			define('NAV_COSTSHARE', 'Government Cost-Share');
-			define('NAV_APPLICATION', 'Areas of Application');
-			define('NAV_MANUALS', 'Manuals / Tips');
-			define('NAV_PARTS', 'Parts');
-			break;
-		case LANGUAGE_FRENCH :  
-			define('NAV_BENEFITS', 'Main Benefits');
-			define('NAV_TECHNOLOGY', 'Technology & Patent');
-			define('NAV_COSTSHARE', 'Government Cost-Share');
-			define('NAV_APPLICATION', 'Areas of Application');	
-			define('NAV_MANUALS', 'Manuals / Tips');
-			define('NAV_PARTS', 'Parts');
-			break;
-		case LANGUAGE_SPANISH :  
-			define('NAV_BENEFITS', 'Main Benefits');
-			define('NAV_TECHNOLOGY', 'Technology & Patent');
-			define('NAV_COSTSHARE', 'Government Cost-Share');
-			define('NAV_APPLICATION', 'Areas of Application');
-			define('NAV_MANUALS', 'Manuals / Tips');
-			define('NAV_PARTS', 'Parts');
-			break;
-	} 
+require_once(dirname(__FILE__).'/../includes/language.php');
+
 
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="<?php echo $mankarMain->lang ?>">
@@ -95,34 +71,42 @@ switch ($mankarMain->lang) {
         
 
         <?php
-		if ($mankarMain->flagLanguage) {
-			switch($mankarMain->lang)
-			{
-				case LANGUAGE_ENGLISH:
-					require(ENGLISH_CONTENT.$mankarMain->pageContent);
-					break;
-					
-				case LANGUAGE_FRENCH:
-					if (file_exists(FRENCH_CONTENT.$mankarMain->pageContent)) {
-						require(FRENCH_CONTENT.$mankarMain->pageContent);
-					} else {
-						echo "<p class='noLanguage'>".NO_FRENCH."</p>";
-						require(ENGLISH_CONTENT.$mankarMain->pageContent);
-					}
-					break;
-					
-				case LANGUAGE_SPANISH:
-					if (file_exists(SPANISH_CONTENT.$mankarMain->pageContent)) {
-						require(SPANISH_CONTENT.$mankarMain->pageContent);
-					} else {
-						echo "<p class='noLanguage'>".NO_SPANISH."</p>";
-						require(ENGLISH_CONTENT.$mankarMain->pageContent);
-					}
-					break;
+
+        $contentFile = (strpos($mankarMain->pageContent, 'CONTENT_FILE::') !== false) ? str_replace('CONTENT_FILE::', '', $mankarMain->pageContent) : '';
+
+        if ($contentFile !== '') {
+			if ($mankarMain->flagLanguage) {
+				switch($mankarMain->lang)
+				{
+					case LANGUAGE_ENGLISH:
+						require(ENGLISH_CONTENT.$contentFile);
+						break;
+						
+					case LANGUAGE_FRENCH:
+						if (file_exists(FRENCH_CONTENT.$contentFile)) {
+							require(FRENCH_CONTENT.$contentFile);
+						} else {
+							echo "<p class='noLanguage'>".NO_FRENCH."</p>";
+							require(ENGLISH_CONTENT.$contentFile);
+						}
+						break;
+						
+					case LANGUAGE_SPANISH:
+						if (file_exists(SPANISH_CONTENT.$contentFile)) {
+							require(SPANISH_CONTENT.$contentFile);
+						} else {
+							echo "<p class='noLanguage'>".NO_SPANISH."</p>";
+							require(ENGLISH_CONTENT.$contentFile);
+						}
+						break;
+				} 
+			} else {
+				require(GENERAL_CONTENT.$contentFile);
 			} 
 		} else {
-			require(GENERAL_CONTENT.$mankarMain->pageContent);
-		} ?>
+			echo $mankarMain->pageContent;
+		}
+		?>
         </div>
        <?php  require('left-side.php'); ?>
       </div>

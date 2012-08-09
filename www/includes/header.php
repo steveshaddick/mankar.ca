@@ -1,39 +1,5 @@
 <?php
-switch ($mankarMain->lang) { 
-	case LANGUAGE_ENGLISH :  
-		define('NAV_HOME', 'Home');
-		define('NAV_PRODUCTS', 'Products');
-		define('NAV_INFO', 'Information');
-		define('NAV_COMPARISON', 'Comparison Tool');
-		define('NAV_SUPPORT', 'User Support');
-		define('NAV_NEWS', 'News');
-		define('NAV_LINKS', 'Other Links');
-		define('NAV_DEALERS', 'Dealers');
-		define('NAV_TRADESHOWS', 'Tradeshows');
-		break;
-	case LANGUAGE_FRENCH :  
-		define('NAV_HOME', 'Home');
-		define('NAV_PRODUCTS', 'Produits');
-		define('NAV_INFO', 'Information');
-		define('NAV_COMPARISON', 'Comparison Tool');
-		define('NAV_SUPPORT', 'User Support');
-		define('NAV_NEWS', 'News');
-		define('NAV_LINKS', 'Other Links');
-		define('NAV_DEALERS', 'Dealers');
-		define('NAV_TRADESHOWS', 'Tradeshows');		
-		break;
-	case LANGUAGE_SPANISH :  
-		define('NAV_HOME', 'Home');
-		define('NAV_PRODUCTS', 'Products');
-		define('NAV_INFO', 'Information');
-		define('NAV_COMPARISON', 'Comparison Tool');
-		define('NAV_SUPPORT', 'User Support');
-		define('NAV_NEWS', 'News');
-		define('NAV_LINKS', 'Other Links');
-		define('NAV_DEALERS', 'Dealers');
-		define('NAV_TRADESHOWS', 'Tradeshows');
-		break;
-} 
+
 
 ?>
 

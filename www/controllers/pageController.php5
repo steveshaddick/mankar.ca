@@ -22,7 +22,7 @@ if ($pageResult['success'] === true) {
 
 		case 'home':
 			$mankarMain->flagLanguage = true;
-			$mankarMain->pageContent = "home-page.php";
+			//$mankarMain->pageContent = "home-page.php";
 			break;
 
 		case 'products':
@@ -118,8 +118,8 @@ if ($pageResult['success'] === true) {
 	require(BASE_PATH.'/includes/page-structure.php');
 
 } else {
-
-	header('Location: ' . $pageResult['url']);
+	echo "redirect to {$pageResult['url']}";
+	//header('Location: ' . $pageResult['url']);
 }
 
 ?>

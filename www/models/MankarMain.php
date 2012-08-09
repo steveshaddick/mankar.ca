@@ -17,28 +17,35 @@ class MankarMain {
 	public $pageLocation;			//array to hold page info
 	public $productTypes;
 	
-	public $urls = array(
-		'',
-		'mankar.mankar.ca',
-		'mafex.mankar.ca',
-		'rofa.mankar.ca',
-		'mantis.mankar.ca'
-		);
+	public $superTypes;
+	public $superTypeUrl;
 	public $superTypeId = 1;		//product supertypes for separating sites
 	
+	public $envPrefix = 'www.';
+
 	private $mySQL;
 	
 	public function __construct() {
 
+		$this->superTypeUrl = str_replace("www.", "", $_SERVER['SERVER_NAME']);
+		$this->superTypeUrl = str_replace("dev.", "", $this->superTypeUrl);
+		switch ($this->superTypeUrl) {
+			
+			case 'mankarusa.com':
+				$_SESSION['units'] = UNIT_US;
+				//nobreak;
+			case 'mankar.ca':
+				$this->superTypeUrl = "mankarulv.com";
+				break;
+		}
+
+		if (ENVIRONMENT == 'development') {
+			$this->envPrefix = 'dev.';
+		}
+		
+
 		$this->determineLanguage();
 		$this->determineUnits();
-
-		foreach($this->urls as $key=>$value) {
-			if ($_SERVER['SERVER_NAME'] == $value) {
-				$superTypeId = $key;
-				break;
-			}
-		}
 
 		$this->metaData = array(
 			'title' => 'Chemical Weed Control with the Lowest Possible Environmental Impact',
@@ -50,16 +57,25 @@ class MankarMain {
 		if ($_SERVER['PHP_SELF']!="/support.php") {
 			$_SESSION['partPID'] = -1;
 			$_SESSION['q'] = "";
-		}
-
-		$result = mysql_query("SELECT * FROM site_pages");
-		while ($row = mysql_fetch_assoc($result))
-		{
-			$metaData[$row['actual_url']] = $row;
-		}
-		
+		}		
 
 		$this->mySQL = new MySQLUtility(DB_USERNAME, DB_PASSWORD, DB_HOST, DB_NAME);
+
+		function iterate($row, &$data) {
+			if ($row['url'] == $data->superTypeUrl) {
+				$data->superTypeId = $row['supertype_id'];
+			}
+		}
+
+		$this->superTypes = $this->mySQL->sendQuery("SELECT * FROM supertypes", 'supertype_id', 'iterate', $this);
+
+		/*foreach ($this->superTypes as $superType) {
+			echo $_SERVER['SERVER_NAME']." ".$value."<br />";
+			if ($row['url'], strpos($_SERVER['SERVER_NAME']) {
+					$this->superTypeId = $superType['supertype_id'];
+				}
+			
+		}*/
 
 		$this->productTypes = $this->mySQL->sendQuery("SELECT * FROM product_types WHERE active=1 AND supertype_id = $this->superTypeId");
 		
@@ -74,8 +90,14 @@ class MankarMain {
 			return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
 		}
 
-		if ($result['supertype_id'] != $this->superTypeId) {
-			return array('success' => false, 'url' => $this->urls[$result['supertype_id']] . $_SERVER['REQUEST_URI']);
+		if (($result['supertype_id'] == 0)) {
+
+			$content = $this->mySQL->sendQuery("SELECT * FROM site_content WHERE pretty_url='$prettyUrl'", 'supertype_id');
+
+			$this->pageContent = (isset($content[$this->superTypeId])) ? $content[$this->superTypeId]['content'] : $this->pageContent = $content[1]['content'];
+
+		} else if ($result['supertype_id'] != $this->superTypeId) {
+			return array('success' => false, 'url' => $this->superTypes[$result['supertype_id']]['url'] . $_SERVER['REQUEST_URI']);
 		}
 
 		$this->pageLocation = explode('/', $result['location']);
@@ -87,7 +109,7 @@ class MankarMain {
 		$this->metaData['description'] = ($result['meta_description'.$append] != '') ? $result['meta_title'.$append] : $this->metaData['description'];
 		$this->metaData['keywords'] = ($result['meta_keywords'.$append] != '') ? $result['meta_title'.$append] : $this->metaData['keywords'];
 
-		$this->pageUrl = $this->baseUrl = $result['actual_url'];
+		//$this->pageUrl = $this->baseUrl = $result['actual_url'];
 
 		return array('success' => true);
 	}
