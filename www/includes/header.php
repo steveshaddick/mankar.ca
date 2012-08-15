@@ -20,6 +20,7 @@
 		<ul class="navlist">
           <li <?php if ($mankarMain->pageLocation[0] == 'home') echo "class='navHighlight'"; ?>><a href="/"><?=NAV_HOME;?></a></li>
           <li <?php if ($mankarMain->pageLocation[0] == 'products') echo "class='navHighlight'"; ?>><a href="/products"><?=NAV_PRODUCTS;?></a></li>
+          <li <?php if ($mankarMain->pageLocation[0] == 'information') echo "class='navHighlight'"; ?>><a href="/information"><?=NAV_INFO;?></a></li>
           <li <?php if ($mankarMain->pageLocation[0] == 'support') echo "class='navHighlight'"; ?>><a href="/support"><?=NAV_SUPPORT;?></a></li>
           <li <?php if ($mankarMain->pageLocation[0] == 'news') echo "class='navHighlight'"; ?>><a href="/news/"><?=NAV_NEWS;?></a></li>
           <li <?php if ($mankarMain->pageLocation[0] == 'tradeshows') echo "class='navHighlight'"; ?>><a href="/tradeshows"><?=NAV_TRADESHOWS;?></a></li>

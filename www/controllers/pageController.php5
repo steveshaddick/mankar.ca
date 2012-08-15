@@ -21,19 +21,17 @@ if ($pageResult['success'] === true) {
 	switch ($mankarMain->pageLocation[0]) {
 
 		case 'home':
-			$mankarMain->flagLanguage = true;
+			//$mankarMain->flagLanguage = true;
 			//$mankarMain->pageContent = "home-page.php";
 			break;
 
 		case 'products':
 
-			$mankarMain->flagLanguage = false;
-
 			switch (count($mankarMain->pageLocation)) {
 				
 				case 1:
 					//main page
-					$mankarMain->pageContent = "products-main.php";
+					//$mankarMain->pageContent = "products-main.php";
 					break;
 
 				case 2:
@@ -49,7 +47,7 @@ if ($pageResult['success'] === true) {
 					$mankarMain->pageData['productType'] = $productType;
 
 					$mankarMain->metaData['extra'] = '<script src="js/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script><link href="css/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />';
-					$mankarMain->pageContent = "products-type.php";
+					//$mankarMain->pageContent = "products-type.php";
 
 					break;
 
@@ -65,13 +63,13 @@ if ($pageResult['success'] === true) {
 					$mankarMain->pageData['product'] = $product;
 
 					$mankarMain->metaData['extra'] = '<script src="js/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script><link href="css/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />';
-					$mankarMain->pageContent = "products-product.php";
+					//$mankarMain->pageContent = "products-product.php";
 
 					break;
 
 				default: 
 					//main page
-					$mankarMain->pageContent = "products-main.php";
+					//$mankarMain->pageContent = "products-main.php";
 					break;
 			}
 			
@@ -84,14 +82,12 @@ if ($pageResult['success'] === true) {
 					case 1:
 						//main support page
 						$mankarMain->pageLocation[1] = 'tips-manuals';
-						$mankarMain->flagLanguage = true;
-						$mankarMain->pageContent = "contentSupport.php";
+						//$mankarMain->pageContent = "contentSupport.php";
 						break;
 
 					case 2:
 						//part page
 
-						$mankarMain->flagLanguage = false;
 						if (isset($_GET['partId'])) {
 							$mankarMain->pageContent = "parts-part.php";
 						} else {
@@ -104,13 +100,13 @@ if ($pageResult['success'] === true) {
 				break;
 
 			case 'tradeshows':
-				$mankarMain->flagLanguage = false;
-				$mankarMain->pageContent = "tradeshows.php";
+				//$mankarMain->flagLanguage = false;
+				//$mankarMain->pageContent = "tradeshows.php";
 				break;
 
 			case 'dealers':
-				$mankarMain->flagLanguage = false;
-				$mankarMain->pageContent = "dealers.php";
+				//$mankarMain->flagLanguage = false;
+				//$mankarMain->pageContent = "dealers.php";
 				break;
 
 	}

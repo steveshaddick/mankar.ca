@@ -10,9 +10,11 @@ class MankarMain {
 	public $baseUrl;
 
 	public $extraMeta = '';
-	public $flagLanguage = false; 	//check for content file in language folder
-	public $pageContent = '';		//the content file
-	public $pageData = array();		//general array for holding specific page data
+	public $pageContent = '';		//the page content file
+	public $languageWarning = false; 
+	public $hasNav;
+	
+	public $sitePage = array();		//general array for holding specific page data
 
 	public $pageLocation;			//array to hold page info
 	public $productTypes;
@@ -78,6 +80,7 @@ class MankarMain {
 		}*/
 
 		$this->productTypes = $this->mySQL->sendQuery("SELECT * FROM product_types WHERE active=1 AND supertype_id = $this->superTypeId");
+		$this->hasNav = $this->mySQL->sendQuery("SELECT pretty_url FROM site_pages WHERE (supertype_id=$this->superTypeId AND has_nav = 1)", 'pretty_url');
 		
 	}
 
@@ -85,31 +88,42 @@ class MankarMain {
 
 		$prettyUrl = $this->mySQL->cleanString($prettyUrl);
 
-		$result = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl'");
-		if ($result === false) {
+		$sitePage = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND supertype_id=$this->superTypeId");
+		if ($sitePage === false) {
+			$redirect = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND redirect_supertype=$this->superTypeId");
+			if ($redirect !== false) {
+				return array('success' => false, 'url' => $this->superTypes[$redirect['redirect_supertype']]['url'] . $_SERVER['REQUEST_URI']);
+			} else {
+				return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
+			}
+		}
+
+		$this->pageContent = $sitePage['content_file'];
+		if ($this->pageContent == '') {
 			return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
 		}
 
-		if (($result['supertype_id'] == 0)) {
-
-			$content = $this->mySQL->sendQuery("SELECT * FROM site_content WHERE pretty_url='$prettyUrl'", 'supertype_id');
-
-			$this->pageContent = (isset($content[$this->superTypeId])) ? $content[$this->superTypeId]['content'] : $this->pageContent = $content[1]['content'];
-
-		} else if ($result['supertype_id'] != $this->superTypeId) {
-			return array('success' => false, 'url' => $this->superTypes[$result['supertype_id']]['url'] . $_SERVER['REQUEST_URI']);
+		if (!file_exists(PAGE_CONTENT . '/' . $this->superTypes[$this->superTypeId]['url'] . '/' . $this->pageContent)) {
+			if (!file_exists(PAGE_CONTENT . '/' . $this->superTypes[1]['url'] . '/' . $this->pageContent)) {
+				return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
+			} else {
+				$this->pageContent = $this->superTypes[1]['url'] . '/' . $this->pageContent;
+			}
+		} else {
+			$this->pageContent = $this->superTypes[$this->superTypeId]['url'] . '/' . $this->pageContent;
 		}
+		
 
-		$this->pageLocation = explode('/', $result['location']);
+		$this->pageLocation = explode('/', $sitePage['location']);
 
 		//this only works if the lang code == the db field name
 		$append = ($this->lang != LANGUAGE_ENGLISH) ? '_' . $this->lang : '';
 		
-		$this->metaData['title'] = ($result['meta_title'.$append] != '') ? $result['meta_title'.$append] : $this->metaData['title'];
-		$this->metaData['description'] = ($result['meta_description'.$append] != '') ? $result['meta_title'.$append] : $this->metaData['description'];
-		$this->metaData['keywords'] = ($result['meta_keywords'.$append] != '') ? $result['meta_title'.$append] : $this->metaData['keywords'];
+		$this->metaData['title'] = ($sitePage['meta_title'.$append] != '') ? $sitePage['meta_title'.$append] : $this->metaData['title'];
+		$this->metaData['description'] = ($sitePage['meta_description'.$append] != '') ? $sitePage['meta_title'.$append] : $this->metaData['description'];
+		$this->metaData['keywords'] = ($sitePage['meta_keywords'.$append] != '') ? $sitePage['meta_title'.$append] : $this->metaData['keywords'];
 
-		//$this->pageUrl = $this->baseUrl = $result['actual_url'];
+		//$this->pageUrl = $this->baseUrl = $sitePage['actual_url'];
 
 		return array('success' => true);
 	}

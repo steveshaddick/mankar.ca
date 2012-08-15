@@ -43,27 +43,32 @@ require_once(dirname(__FILE__).'/../includes/language.php');
         <div class="col1">
 
 		<?php switch ($mankarMain->pageLocation[0]) {
-			case "information.php":
+			
+			case 'information':
 				?>
-				<h2 class="leftHeading"><?=NAV_INFO;?></h2>
-				<ul class="divLeftBox">
-				<li<?php if ($subPage == "main-benefits") echo " class='leftHighlight'"; ?>><a href="<?php echo getPrettyUrl('information.php?page=main-benefits'); ?>"><?=NAV_BENEFITS;?></a></li>
-				<li<?php if ($subPage == "technology") echo " class='leftHighlight'"; ?>><a href="<?php echo getPrettyUrl('information.php?page=technology'); ?>"><?=NAV_TECHNOLOGY;?></a></li>
-				<li<?php if ($subPage == "cost-share") echo " class='leftHighlight'"; ?>><a href="<?php echo getPrettyUrl('information.php?page=cost-share'); ?>"><?=NAV_COSTSHARE;?></a></li>
-				<li<?php if ($subPage == "application") echo " class='leftHighlight'"; ?>><a href="<?php echo getPrettyUrl('information.php?page=application'); ?>"><?=NAV_APPLICATION;?></a></li>
-				</ul>
 
-				<?php 
+				<div id="sub-navigation">
+					<ul class="navlist">
+						<li<?php if ($mankarMain->pageLocation[1] == "main-benefits") echo " class='navHighlight'"; ?>><a href="/information"><?=NAV_BENEFITS;?></a></li>
+						<?php if (isset($mankarMain->hasNav['technology'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "technology") echo " class='navHighlight'"; ?>><a href="/technology"><?=NAV_TECHNOLOGY;?></a></li> <?php } ?>
+						<?php if (isset($mankarMain->hasNav['cost-share'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "cost-share") echo " class='navHighlight'"; ?>><a href="/cost-share"><?=NAV_COSTSHARE;?></a></li> <?php } ?>
+						<?php if (isset($mankarMain->hasNav['areas-of-application'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "areas-of-application") echo " class='navHighlight'"; ?>><a href="/areas-of-application"><?=NAV_APPLICATION;?></a></li> <?php } ?>
+					</ul>
+				</div>
+
+				<?php
 				break;
 
-			case "support":
+			case 'support':
 				?>
+
 				<div id="sub-navigation">
 					<ul class="navlist">
 						<li<?php if ($mankarMain->pageLocation[1] == "tips-manuals") echo " class='navHighlight'"; ?>><a href="/support"><?=NAV_MANUALS;?></a></li>
 						<li<?php if ($mankarMain->pageLocation[1] == "parts") echo " class='navHighlight'"; ?>><a href="/parts"><?=NAV_PARTS;?></a></li>
 					</ul>
 				</div>
+
 				<?php
 				break;
 
@@ -72,40 +77,8 @@ require_once(dirname(__FILE__).'/../includes/language.php');
 
         <?php
 
-        $contentFile = (strpos($mankarMain->pageContent, 'CONTENT_FILE::') !== false) ? str_replace('CONTENT_FILE::', '', $mankarMain->pageContent) : '';
+        require (PAGE_CONTENT . $mankarMain->pageContent);
 
-        if ($contentFile !== '') {
-			if ($mankarMain->flagLanguage) {
-				switch($mankarMain->lang)
-				{
-					case LANGUAGE_ENGLISH:
-						require(ENGLISH_CONTENT.$contentFile);
-						break;
-						
-					case LANGUAGE_FRENCH:
-						if (file_exists(FRENCH_CONTENT.$contentFile)) {
-							require(FRENCH_CONTENT.$contentFile);
-						} else {
-							echo "<p class='noLanguage'>".NO_FRENCH."</p>";
-							require(ENGLISH_CONTENT.$contentFile);
-						}
-						break;
-						
-					case LANGUAGE_SPANISH:
-						if (file_exists(SPANISH_CONTENT.$contentFile)) {
-							require(SPANISH_CONTENT.$contentFile);
-						} else {
-							echo "<p class='noLanguage'>".NO_SPANISH."</p>";
-							require(ENGLISH_CONTENT.$contentFile);
-						}
-						break;
-				} 
-			} else {
-				require(GENERAL_CONTENT.$contentFile);
-			} 
-		} else {
-			echo $mankarMain->pageContent;
-		}
 		?>
         </div>
        <?php  require('left-side.php'); ?>
