@@ -1,0 +1,16 @@
+#secLogin {
+	margin: 0 auto;
+	width: 350px;
+}
+#secLogin h1 {
+	border-bottom: thin solid;
+	font-size: 18px;
+}
+#secLogin .formLabel {
+	width: 120px;
+	padding-right: 10px;
+	display: inline-block;
+}
+#secLogin .inputText {
+	width: 200px;
+}

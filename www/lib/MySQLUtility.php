@@ -326,9 +326,9 @@ class MySQLUtility {
 	public function __destruct()
 	{
 		if ($this->sqlConn != '') {
-			mysql_close($this->sqlConn);
-			$this->sqlConn = '';
-			$this->isConnected = false;
+			//mysql_close($this->sqlConn);
+			//$this->sqlConn = '';
+			//$this->isConnected = false;
 		}
 	}
 	

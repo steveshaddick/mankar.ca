@@ -51,35 +51,39 @@
 
 
 
-          <div id="divProducts">
-                   <?php
-		  	$types = array();
-			$result = mysql_query("SELECT * FROM product_types WHERE active=1");
-			while ($row = mysql_fetch_assoc($result))
-			{
-				if ($row['thumbnail'] == '') {
-					$row['thumbnail'] = 'no_photo.jpg';
-				}
-				
-				$types[] = $row;
-				
-			}
-			?>
-			
-		  <?php foreach ($types as $type)
-		  { ?>
-          <div class="productBox">
-			<div style="background: #efefef; padding:7px 0;">
-            	<a href="products.php?type=<?=$type['type_id']; ?>"><?=$type['name']; ?></a>
-            </div>
-            <table>
-            	<tr>
-            		<td><a href="products.php?type=<?=$type['type_id']; ?>"><img style="max-height:120px;" src="<?php echo THUMBS_LOCATION.$type['thumbnail']; ?>" alt="<?php echo $type['name']; ?>" class="productTypeImage"></a></td>
-                </tr>
-            </table>
+      <div id="divProducts">
+          <?php
+            $types = array();
+            $result = mysql_query("SELECT * FROM product_types WHERE active=1");
+            while ($row = mysql_fetch_assoc($result))
+            {
+              if ($row['thumbnail'] == '') {
+            	$row['thumbnail'] = 'no_photo.jpg';
+            }
 
-          </div>
-		 <?php } ?>
+            $types[] = $row;
+
+            }
+          ?>
+			
+    		  <?php
+
+          foreach ($types as $type){ 
+            ?>
+            <div class="productBox">
+  			     <div style="background: #efefef; padding:7px 0;">
+              	<a href="products.php?type=<?=$type['type_id']; ?>"><?=$type['name']; ?></a>
+              </div>
+              <table>
+              	<tr>
+              		<td><a href="products.php?type=<?=$type['type_id']; ?>"><img style="max-height:120px;" src="<?php echo THUMBS_LOCATION.$type['thumbnail']; ?>" alt="<?php echo $type['name']; ?>" class="productTypeImage"></a></td>
+                  </tr>
+              </table>
+
+            </div>
+    		<?php 
+        } 
+        ?>
 
           
       </div>

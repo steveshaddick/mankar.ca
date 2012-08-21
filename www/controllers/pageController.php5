@@ -31,7 +31,6 @@ if ($pageResult['success'] === true) {
 				
 				case 1:
 					//main page
-					//$mankarMain->pageContent = "products-main.php";
 					break;
 
 				case 2:
@@ -63,38 +62,36 @@ if ($pageResult['success'] === true) {
 					$mankarMain->pageData['product'] = $product;
 
 					$mankarMain->metaData['extra'] = '<script src="js/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script><link href="css/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />';
-					//$mankarMain->pageContent = "products-product.php";
-
 					break;
 
-				default: 
-					//main page
-					//$mankarMain->pageContent = "products-main.php";
-					break;
 			}
 			
 			break;
 
 			case 'support':
 
-				switch (count($mankarMain->pageLocation)) {
-				
-					case 1:
-						//main support page
-						$mankarMain->pageLocation[1] = 'tips-manuals';
-						//$mankarMain->pageContent = "contentSupport.php";
+				switch ($mankarMain->pageLocation[1]) {
+					case 'manuals':
+
+						$mankarMain->pageData['manuals'] = $mankarMain->getManuals();
+
 						break;
 
-					case 2:
-						//part page
-
+					case 'parts':
 						if (isset($_GET['partId'])) {
-							$mankarMain->pageContent = "parts-part.php";
-						} else {
-							$mankarMain->pageContent = "parts-main.php";
-						}
-						break;
+	
+							$part = $mankarMain->getPart(intval($_GET['partId']));
+							if ($part === false) {
+								header('Location: http://'.SITE_URL.'/');
+								exit();
+							} 
 
+							$mankarMain->pageData['part'] = $mankarMain->getPart(intval($_GET['partId']));
+
+							//override content page
+							$mankarMain->pageContent = str_replace("parts-main.php", "parts-part.php", $mankarMain->pageContent);
+						} 
+						break;
 				}
 
 				break;

@@ -83,20 +83,10 @@ if ($action == 'submit'){
 	
 }
 
-$result = mysql_query("SELECT COUNT(*) FROM dealers");
-$row = mysql_fetch_row($result);
-$totalPages = ceil($row[0]/25);
-
-
-$dealers = array();
-$result = mysql_query("SELECT dealer_id,name FROM dealers ORDER BY name LIMIT ".($page * 25).",25");
-while ($row = mysql_fetch_assoc($result))
-{
-	$dealers[] = $row;
-}
+$dealers = $cms->getDealersTable();
 
 ?>
-<a href="?table=dealers&action=insert"><b>INSERT NEW DEALER</b></a><br /><br />
+<a href="/simple-cms/dealers/insert"><b>INSERT NEW DEALER</b></a><br /><br />
 <?php
 if (count($dealers) > 0) 
 	{ ?>
@@ -111,9 +101,9 @@ if (count($dealers) > 0)
     foreach ($dealers as $dealer)
     {?>
         <tr>
-        <td><a href="?table=dealers&action=edit&dealer=<?=$dealer['dealer_id'];?>"><?=$dealer['dealer_id'];?></a></td>
-        <td><a href="?table=dealers&action=edit&dealer=<?=$dealer['dealer_id'];?>"><?=$dealer['name'];?></a></td>
-        <td><a href="#" onClick="checkSure('Are you sure you want to delete <?=$dealer['name'];?>?','?table=dealers&page=<?=$page;?>&action=delete&dealer=<?=$dealer['dealer_id'];?>')">Delete</a></td>
+        <td><a href="/simple-cms/dealers/edit?dealer=<?=$dealer['dealer_id'];?>"><?=$dealer['dealer_id'];?></a></td>
+        <td><a href="/simple-cms/dealers/edit?dealer=<?=$dealer['dealer_id'];?>"><?=$dealer['name'];?></a></td>
+        <td><a href="#" onClick="checkSure('Are you sure you want to delete <?=$dealer['name'];?>?','')">Delete</a></td>
         </tr>
     <?php } ?>
     

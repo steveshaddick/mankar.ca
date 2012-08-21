@@ -199,10 +199,9 @@ class MankarMain {
 		$partId = intval($partId);
 
 		$part = $this->mySQL->getSingleRow("SELECT * FROM parts WHERE part_id = $partId AND active=1");
-
-		//$partCode = $part['part_code'];
-
-		//$products = $this->mySQL->sendQuery("SELECT * FROM products WHERE products.product_id = $productId AND active=1 LIMIT 1");
+		if ($part === false) {
+			return false;
+		}
 		
 		$part['applicableProducts'] = $this->mySQL->sendQuery("SELECT * FROM products WHERE products.product_id IN (SELECT product_id FROM parts_to_products WHERE part_id = $partId) AND products.active=1");
 		
@@ -224,7 +223,12 @@ class MankarMain {
 	}
 
 	public function getDealers() {
-		return $this->mySQL->sendQuery("SELECT * FROM dealers JOIN state ON dealers.state_id=state.state_id  WHERE active=1 ORDER BY state");
+	
+		return $this->mySQL->sendQuery("SELECT * FROM dealers JOIN state ON dealers.state_id=state.state_id WHERE active=1 AND supertypes LIKE '%{$this->superTypeId}%' ORDER BY state");
+	}
+
+	public function getManuals() {
+		return $this->mySQL->sendQuery("SELECT name, manual FROM products WHERE manual <> '' AND supertype_id = $this->superTypeId ORDER BY type_id, manual, product_code");
 	}
 
 

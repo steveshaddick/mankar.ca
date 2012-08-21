@@ -49,10 +49,10 @@ require_once(dirname(__FILE__).'/../includes/language.php');
 
 				<div id="sub-navigation">
 					<ul class="navlist">
-						<li<?php if ($mankarMain->pageLocation[1] == "main-benefits") echo " class='navHighlight'"; ?>><a href="/information"><?=NAV_BENEFITS;?></a></li>
-						<?php if (isset($mankarMain->hasNav['technology'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "technology") echo " class='navHighlight'"; ?>><a href="/technology"><?=NAV_TECHNOLOGY;?></a></li> <?php } ?>
-						<?php if (isset($mankarMain->hasNav['cost-share'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "cost-share") echo " class='navHighlight'"; ?>><a href="/cost-share"><?=NAV_COSTSHARE;?></a></li> <?php } ?>
-						<?php if (isset($mankarMain->hasNav['areas-of-application'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "areas-of-application") echo " class='navHighlight'"; ?>><a href="/areas-of-application"><?=NAV_APPLICATION;?></a></li> <?php } ?>
+						<li<?php if ($mankarMain->pageLocation[1] == "main-benefits") echo " class='navHighlight'"; ?>><a href="/information"><?php echo NAV_BENEFITS;?></a></li>
+						<?php if (isset($mankarMain->hasNav['technology'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "technology") echo " class='navHighlight'"; ?>><a href="/technology"><?php echo NAV_TECHNOLOGY;?></a></li> <?php } ?>
+						<?php if (isset($mankarMain->hasNav['cost-share'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "cost-share") echo " class='navHighlight'"; ?>><a href="/cost-share"><?php echo NAV_COSTSHARE;?></a></li> <?php } ?>
+						<?php if (isset($mankarMain->hasNav['areas-of-application'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "areas-of-application") echo " class='navHighlight'"; ?>><a href="/areas-of-application"><?php echo NAV_APPLICATION;?></a></li> <?php } ?>
 					</ul>
 				</div>
 
@@ -64,8 +64,9 @@ require_once(dirname(__FILE__).'/../includes/language.php');
 
 				<div id="sub-navigation">
 					<ul class="navlist">
-						<li<?php if ($mankarMain->pageLocation[1] == "tips-manuals") echo " class='navHighlight'"; ?>><a href="/support"><?=NAV_MANUALS;?></a></li>
-						<li<?php if ($mankarMain->pageLocation[1] == "parts") echo " class='navHighlight'"; ?>><a href="/parts"><?=NAV_PARTS;?></a></li>
+						<li<?php if ($mankarMain->pageLocation[1] == "tips") echo " class='navHighlight'"; ?>><a href="/support"><?php echo NAV_TIPS;?></a></li>
+						<li<?php if ($mankarMain->pageLocation[1] == "manuals") echo " class='navHighlight'"; ?>><a href="/manuals"><?php echo NAV_MANUALS;?></a></li>
+						<li<?php if ($mankarMain->pageLocation[1] == "parts") echo " class='navHighlight'"; ?>><a href="/parts"><?php echo NAV_PARTS;?></a></li>
 					</ul>
 				</div>
 

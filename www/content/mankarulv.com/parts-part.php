@@ -1,9 +1,7 @@
 <?php
 
 
-	$partId = (isset($_GET['partId'])) ? intval($_GET['partId']) : -1;
-	
-	$part = $mankarMain->getPart($partId);
+	$part = $mankarMain->pageData['part'];
 	
 	switch ($mankarMain->lang) { 
 		case LANGUAGE_ENGLISH :  
