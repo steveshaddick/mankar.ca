@@ -37,9 +37,62 @@ class SimpleCMS {
 		return $this->mySQL->sendQuery("SELECT state_id,state FROM state ORDER BY state");
 	}
 
+	public function getSitePagesList() {
+		$this->currentDataPage = $this->actionData;
+
+		$result = $this->mySQL->getSingleRow("SELECT COUNT(DISTINCT pretty_url) as totalRows FROM site_pages WHERE redirect_supertype=0");
+		$this->totalDataPages = ceil($result['totalRows'] / $this->pageSize);
+
+		return $this->mySQL->sendQuery("SELECT site_page_id, pretty_url FROM site_pages WHERE redirect_supertype=0 GROUP BY pretty_url ORDER BY pretty_url LIMIT ".($this->currentDataPage * $this->pageSize).",25");
+	}
+
+	public function getSitePage() {
+		return $this->mySQL->sendQuery("SELECT * FROM site_pages WHERE pretty_url = '$this->actionData' AND redirect_supertype = 0 ORDER BY supertype_id");
+	}
+
+	public function saveSitePage() {
+
+
+		$superTypes = array();
+		foreach ($_POST as $key=>$value)
+		{
+			$superTypeId = substr($key, -1, 1);
+
+			if (!isset($superTypes[$superTypeId])) {
+				$superTypes[$superTypeId] = array();
+			}
+
+			$key = str_replace('__' . $superTypeId, '', $key);
+			$superTypes[$superTypeId][$key] = $value;
+		}
+
+		foreach ($superTypes as $superTypeId=>$superType) 
+		{
+			$query = "UPDATE site_pages SET ";
+
+			foreach ($superType as $key=>$value)
+			{
+				$query .= "$key='".trim($value)."',";
+			}
+			$query = substr($query, 0, strlen($query)-1);
+
+			$query .= " WHERE pretty_url = '$this->actionData' AND supertype_id = $superTypeId";
+
+			$result = $this->mySQL->sendQuery($query);
+
+			if ($result !== true) {
+				$this->error = true;
+			}
+
+		}
+
+		return $this->error;
+
+	}
+
 	
 
-	public function getDealersTable() {
+	public function getDealersList() {
 
 		$this->currentDataPage = $this->actionData;
 		$this->totalDataPages = $this->getTotalPages('dealers');
@@ -148,7 +201,7 @@ class SimpleCMS {
 
 	public function deleteDealer() {
 		$this->mySQL->sendQuery("DELETE FROM dealers WHERE dealer_id = $this->actionData");
-		
+
 	}
 
 
@@ -166,8 +219,8 @@ class SimpleCMS {
 		return $ret;
 	}
 
-	private function getTotalPages($table) {
-		$result = $this->mySQL->getSingleRow("SELECT COUNT(*) as totalRows FROM $table");
+	private function getTotalPages($table, $extra = '') {
+		$result = $this->mySQL->getSingleRow("SELECT COUNT(*) as totalRows FROM $table $extra");
 
 		return ceil($result['totalRows'] / $this->pageSize);
 	}

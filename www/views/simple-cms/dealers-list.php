@@ -1,6 +1,6 @@
 <?php
 
-$dealers = $cms->getDealersTable();
+$dealers = $cms->getDealersList();
 
 ?>
 <h2>Dealers</h2>

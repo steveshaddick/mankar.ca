@@ -29,7 +29,6 @@ if ($auth->authenticated !== true) {
 		}
 	}
 }
-
 if ($auth->authenticated === true) {
 	
 
@@ -66,7 +65,7 @@ if ($auth->authenticated === true) {
 					break;
 				
 				case 'save':
-
+					//TODO clean these strings
 					if (intval($cms->actionData) > 0) {
 						$result = $cms->saveDealer('update');
 					} else {
@@ -92,8 +91,29 @@ if ($auth->authenticated === true) {
 			}
 			break;
 		
-		case 'meta_tags':
-			$content = 'meta-tags.php';
+		case 'site-pages':
+			switch ($cms->action)
+			{
+				case 'save':
+					$cms->saveSitePage();
+
+					header("Location: http://" . SITE_URL . "simple-cms/site-pages/edit/{$cms->actionData}?error={$cms->error}");
+					break;
+				
+				case 'edit':
+					$content = 'site-pages-edit.php';
+					break;
+				
+				
+				case 'list':
+					$content = 'site-pages-list.php';
+					break;
+
+				default:
+					header("Location: http://" . SITE_URL . "simple-cms/main");
+					exit();
+					break;
+			}
 			break;
 		
 		case 'main':
@@ -110,7 +130,6 @@ if ($auth->authenticated === true) {
 	$content = 'authenticate.php';
 
 }
-
 
 require(BASE_PATH.'/views/simple-cms/cms-core.php');
 
