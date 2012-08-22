@@ -2,15 +2,7 @@
 
 <?php
 
-if ($cms->action == 'edit') {
-
-	$dealer = $cms->getDealer();
-	
-} else {
-	
-	$dealer = $cms->getDealer(true);
-	
-}
+$dealer = ($cms->action == 'edit') ? $cms->getDealer() : $cms->getDealer(true);
 
 $provinces = $cms->getStates();
 
@@ -30,7 +22,7 @@ if (isset($_GET['error'])) {
 ?>
 
 <h2><?php echo $dealer['name']; ?></h2>
-<form enctype="multipart/form-data" id="frmProduct" name="frmProduct" action="<?php echo "/simple-cms/dealers/save/$cms->actionData" ; ?>" method="POST">
+<form enctype="multipart/form-data" id="frmProduct" name="frmProduct" action="<?php echo "/simple-cms/dealers/save/$cms->actionData"; ?>" method="POST">
 <table>
 <tr>
     <td width= "600px">

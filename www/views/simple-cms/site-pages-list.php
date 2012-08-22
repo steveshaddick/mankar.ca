@@ -1,38 +1,5 @@
 <?php
 
-/*if ($action == 'submit'){
-	$new = (isset($_GET['new'])) ? $_GET['new'] : "no";
-	
-	$query = "UPDATE meta_tags SET ";
-
-	foreach ($_POST as $key=>$value)
-	{
-		switch ($key)
-		{
-			case 'meta_tag_id':
-			case 'related_id':
-			case 'page':
-			break;
-			
-			default:
-			$query .= "$key='".trim($value)."',";
-			break;
-		}
-	}
-
-	$query = substr($query, 0, strlen($query)-1);
-	
-	$query .= " WHERE meta_tag_id=$sitePageId";
-
-	if (mysql_query($query)) {
-		
-		echo '*****************************META TAG UPDATED SUCCESSFULLY***************************************<br />';
-	} else {
-		echo '--------------------------------ERROR UPDATING META TAG------------------------------------------<br />';
-	}
-	
-}*/
-
 $sitePages = $cms->getSitePagesList();
 
 ?>

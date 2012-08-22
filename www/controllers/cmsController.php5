@@ -43,15 +43,109 @@ if ($auth->authenticated === true) {
 			break;
 
 		case 'products':
-			$content = 'products.php';
+			switch ($cms->action)
+			{
+				case 'delete':
+					$cms->deleteProduct();
+
+					header("Location: http://" . SITE_URL . "simple-cms/products/list/$cms->lastListPage");
+					break;
+				
+				case 'save':
+					if (intval($cms->actionData) > 0) {
+						$result = $cms->saveProduct('update');
+					} else {
+						$result = $cms->saveProduct('insert');
+					}
+
+					header("Location: http://" . SITE_URL . "simple-cms/products/edit/{$cms->actionData}?error={$cms->error}");
+					break;
+				
+				case 'edit':
+				case 'insert':
+					$content = 'products-edit.php';
+					break;
+
+				case 'list':
+					$content = 'products-list.php';
+					break;
+				
+				default:
+					header("Location: http://" . SITE_URL . "simple-cms/main");
+					exit();
+					break;
+			}
 			break;
 			
 		case 'parts':
-			$content = 'parts.php';
+			switch ($cms->action)
+			{
+				case 'delete':
+					$cms->deletePart();
+
+					header("Location: http://" . SITE_URL . "simple-cms/parts/list/$cms->lastListPage");
+					break;
+				
+				case 'save':
+					if (intval($cms->actionData) > 0) {
+						$result = $cms->savePart('update');
+					} else {
+						$result = $cms->savePart('insert');
+					}
+
+					header("Location: http://" . SITE_URL . "simple-cms/parts/edit/{$cms->actionData}?error={$cms->error}");
+					break;
+				
+				case 'edit':
+				case 'insert':
+					$content = 'parts-edit.php';
+					break;
+
+				case 'list':
+					$content = 'parts-list.php';
+					break;
+				
+				
+				default:
+					header("Location: http://" . SITE_URL . "simple-cms/main");
+					exit();
+					break;
+			}
 			break;
 		
 		case 'product_types':
-			$content = 'product-types.php';
+			switch ($cms->action)
+			{
+				case 'delete':
+					$cms->deleteProductType();
+
+					header("Location: http://" . SITE_URL . "simple-cms/product_types/list/$cms->lastListPage");
+					break;
+				
+				case 'save':
+					if (intval($cms->actionData) > 0) {
+						$result = $cms->saveProductType('update');
+					} else {
+						$result = $cms->saveProductType('insert');
+					}
+
+					header("Location: http://" . SITE_URL . "simple-cms/product_types/edit/{$cms->actionData}?error={$cms->error}");
+					break;
+				
+				case 'edit':
+				case 'insert':
+					$content = 'product-types-edit.php';
+					break;
+				
+				case 'list':
+					$content = 'product-types-list.php';
+					break;
+				
+				default:
+					header("Location: http://" . SITE_URL . "simple-cms/main");
+					exit();
+					break;
+			}
 			break;
 		
 		case 'dealers':

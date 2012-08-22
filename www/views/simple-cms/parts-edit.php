@@ -1,29 +1,30 @@
 <?php
 
-if ($action != 'insert') {
+$part = ($cms->action == 'edit') ? $cms->getPart() : $cms->getPart(true);
 
-	$result = mysql_query("SELECT * FROM parts WHERE part_id = $partId");
-	$part = mysql_fetch_assoc($result);
-	$new = 'no';
-	
-} else {
-	
-	$new = 'yes';
-	$fields = mysql_fetch_fields('parts');
-	$part = array();
-	foreach ($fields as $key => $field) {
-		$part[$field->name] = "";
-	}
-	
-}
 
 ?>
-<h2><?=$part['name'];?></h2>
-<form enctype="multipart/form-data" id="frmProduct" name="frmPart" action="?table=parts&part=<?=$partId;?>&action=submit&new=<?=$new;?>" method="POST">
+<h2><a href="/simple-cms/parts/list/<?php echo $cms->lastListPage; ?>">&lt; Parts</a></h2>
+
+
+<?php
+if (isset($_GET['error'])) {
+	if ($_GET['error'] == 0) {
+			
+		echo '*****************************UPDATED SUCCESSFULLY***************************************<br />';
+	} else {
+		echo '--------------------------------ERROR UPDATING------------------------------------------<br />';
+		echo $cms->errorMessage;
+	}
+}
+?>
+
+<h2><?php echo $part['name']; ?></h2>
+<form enctype="multipart/form-data" id="frmProduct" name="frmPart" action="/simple-cms/parts/save/<?php echo $cms->actionData; ?>" method="POST">
 <table>
 <tr>
     <td width= "600px">
-      <img src="<?php echo PARTS_IMAGES_LOCATION.$part['photo'];?>" /><br />
+      <img src="<?php echo PARTS_LOCATION.$part['photo'];?>" /><br />
 	  <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
       Upload new file:<br />
       <input id="photofile" name="photofile" type="file" /> OR Delete photo:
@@ -60,5 +61,5 @@ foreach ($part as $key=>$p)
 </table>
 <hr />
 <input type="submit" value="Save" />
-<input type="button" name="cancel" onClick="window.location='?table=parts'" value="Cancel" />
+<input type="button" name="cancel" onClick="window.location = '/simple-cms/parts/list/<?php echo $cms->lastListPage; ?>" value="Cancel" />
 </form>

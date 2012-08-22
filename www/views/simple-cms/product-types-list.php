@@ -1,6 +1,6 @@
 <?php
 
-if ($action == 'submit'){
+/*if ($action == 'submit'){
 	$new = (isset($_GET['new'])) ? $_GET['new'] : "no";
 	
 	if ($new == 'yes') {
@@ -110,21 +110,13 @@ if ($action == 'submit'){
 	}
 	mysql_query($query);
 
-}
+}*/
 
-$result = mysql_query("SELECT COUNT(*) FROM product_types");
-$row = mysql_fetch_row($result);
-$totalPages = ceil($row[0]/25);
-
-$productTypes = array();
-$result = mysql_query("SELECT type_id,name FROM product_types ORDER BY name LIMIT ".($page * 25).",25");
-while ($row = mysql_fetch_assoc($result))
-{
-	$productTypes[] = $row;
-}
+$productTypes = $cms->getProductTypesList();
 
 ?>
-<a href="?table=product_types&action=insert"><b>INSERT NEW PRODUCT TYPE</b></a><br /><br />
+<h2>Product Types</h2>
+<a href="/simple-cms/product_types/insert"><b>INSERT NEW PRODUCT TYPE</b></a><br /><br />
 <?php
 if (count($productTypes) > 0) 
 	{ ?>
@@ -139,23 +131,23 @@ if (count($productTypes) > 0)
     foreach ($productTypes as $productType)
     {?>
         <tr>
-        <td><a href="?table=product_types&action=edit&productType=<?=$productType['type_id'];?>"><?=$productType['type_id'];?></a></td>
-        <td><a href="?table=product_types&action=edit&productType=<?=$productType['type_id'];?>"><?=$productType['name'];?></a></td>
-        <td><a href="#" onClick="checkSure('Are you sure you want to delete <?=$productType['name'];?>?','?table=product_types&page=<?=$page;?>&action=delete&productType=<?=$productType['type_id'];?>')">Delete</a></td>
+        <td><a href="/simple-cms/product_types/edit/<?php echo $productType['type_id']; ?>"><?php echo $productType['type_id']; ?></a></td>
+        <td><a href="/simple-cms/product_types/edit/<?php echo $productType['type_id']; ?>"><?php echo $productType['name']; ?></a></td>
+        <td><a href="#" onClick="checkSure('Are you sure you want to delete <?php echo $productType['name']; ?>?','/simple-cms/product_types/delete/<?php echo $productType['type_id']; ?>')">Delete</a></td>
         </tr>
     <?php } ?>
     
     </table>
     <br />
     <table border="1">
-    <tr>
-    <td width="50px"><a href="?table=product_types&page=0">|&lt;</a></td>
-    <td width="50px"><a href="?table=product_types&page=<?php if ($page > 0) { echo $page-1; } else {echo 0; }?>">&lt;</a></td>
-    <td width="150px">Page <?php echo $page+1;?> of <?=$totalPages;?></td>
-    <td width="50px"><a href="?table=product_types&page=<?php if ($page < ($totalPages-1)) { echo $page+1; } else {echo $totalPages-1; }?>">&gt;</a></td>
-    <td width="50px"><a href="?table=product_types&page=<?php echo $totalPages-1;?>">&gt;|</a></td>
-	</tr>
+	    <tr>
+		    <td width="50px"><a href="/simple-cms/product_types/list/0">|&lt;</a></td>
+		    <td width="50px"><a href="/simple-cms/product_types/list/<?php if ($cms->currentDataPage > 0) { echo $cms->currentDataPage-1; } else {echo 0; }?>">&lt;</a></td>
+		    <td width="150px">Page <?php echo $cms->currentDataPage+1; ?> of <?php echo $cms->totalDataPages; ?></td>
+		    <td width="50px"><a href="/simple-cms/product_types/list/<?php if ($cms->currentDataPage < ($cms->totalDataPages-1)) { echo $cms->currentDataPage+1; } else {echo $cms->totalDataPages-1; }?>">&gt;</a></td>
+		    <td width="50px"><a href="/simple-cms/product_types/list/<?php echo $cms->totalDataPages-1; ?>">&gt;|</a></td>
+		</tr>
     </table>
 <?php }  else {?>
-	No product types.
+	No product types. Something isn't right.
 <?php } ?>
