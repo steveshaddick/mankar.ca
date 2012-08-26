@@ -5,11 +5,8 @@
 	}
 	
 ?>
-
-
-<div class="col2"> 
   
-  <h2 class="leftHeading"><a href="/products" title="<?php echo NAV_PRODUCTS; ?>"><?php echo NAV_PRODUCTS; ?></a></h2>
+  <span class="sideColumnHeading" title="<?php echo NAV_PRODUCTS; ?>"><?php echo NAV_PRODUCTS; ?></span>
   <ul class="leftProductBox">
     <?php
 		
@@ -32,7 +29,7 @@
   	?>
    </ul>
 
-  	<h2 class="leftHeading"><a href="/products" title="<?php echo NAV_OTHER_PRODUCTS; ?>"><?php echo NAV_OTHER_PRODUCTS; ?></a></h2>
+  	<span class="sideColumnHeading"><?php echo NAV_OTHER_PRODUCTS; ?></span>
   	<ul class="leftProductBox otherProduct">
     <?php
 		
@@ -51,4 +48,3 @@
 		}
   	?>
    </ul>
-</div>

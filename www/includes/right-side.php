@@ -28,7 +28,7 @@ switch ($mankarMain->lang) {
 } 
 ?>
 
-<div class="col3">
+
     <?php
     
 	$today = date( 'Y-m-d H:i:s' );
@@ -37,7 +37,7 @@ switch ($mankarMain->lang) {
 	while($myrow = mysql_fetch_array($result))
 		 {//begin of loop
 		   //now print the results:
-		   echo "<h2 class=\"rightHeading\"><img src=\"http://www.mankar.ca/images/arrow-bullet.png\">";
+		   echo "<span class=\"sideColumnHeading\">";
 		   echo NEXT_TRADESHOW;
 		   echo ":</h4><div class=\"divRightBox\"> <a href=\"http://www.mankar.ca/tradeshows.php\" class=\"tradeShowTitle\">";
 		   echo $myrow['showname'];
@@ -71,7 +71,7 @@ switch ($mankarMain->lang) {
 		 }
 	 ?>
      
-    <h2 class="rightHeading"><img src="http://www.mankar.ca/images/arrow-bullet.png"><?=RECENT_POSTS;?></h2>
+    <span class="sideColumnHeading"><?=RECENT_POSTS;?></span>
     <div class="divRightBox">
       <ul>
       <div id="topPosts">
@@ -90,7 +90,6 @@ switch ($mankarMain->lang) {
         
       </ul>
     </div>
-</div>
 <script type="text/javascript">
 
 var topPosts = true;

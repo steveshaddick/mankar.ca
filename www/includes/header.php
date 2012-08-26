@@ -11,7 +11,7 @@
       
       <div id="header-contact">
       	
-          <h1>Mankar Distributing Inc.</h1>
+          <span class="companyName">Mankar Distributing Inc.</span>
             phone: 647-309-7826&nbsp;&nbsp;&nbsp;fax: 888-510-2688<br /><a href="mailto:&#105;&#110;&#102;&#111;&#064;&#109;&#097;&#110;&#107;&#097;&#114;&#046;&#099;&#097;">&#105;&#110;&#102;&#111;&#064;&#109;&#097;&#110;&#107;&#097;&#114;&#046;&#099;&#097;</a>
         </div>
 	</div>

@@ -118,10 +118,11 @@ class MankarMain {
 
 		//this only works if the lang code == the db field name
 		$append = ($this->lang != LANGUAGE_ENGLISH) ? '_' . $this->lang : '';
-		
+
 		$this->metaData['title'] = ($sitePage['meta_title'.$append] != '') ? $sitePage['meta_title'.$append] : $this->metaData['title'];
-		$this->metaData['description'] = ($sitePage['meta_description'.$append] != '') ? $sitePage['meta_title'.$append] : $this->metaData['description'];
-		$this->metaData['keywords'] = ($sitePage['meta_keywords'.$append] != '') ? $sitePage['meta_title'.$append] : $this->metaData['keywords'];
+		$this->metaData['description'] = ($sitePage['meta_description'.$append] != '') ? $sitePage['meta_description'.$append] : $this->metaData['description'];
+		$this->metaData['keywords'] = ($sitePage['meta_keywords'.$append] != '') ? $sitePage['meta_keywords'.$append] : $this->metaData['keywords'];
+
 
 		//$this->pageUrl = $this->baseUrl = $sitePage['actual_url'];
 

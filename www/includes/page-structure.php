@@ -35,61 +35,62 @@ require_once(dirname(__FILE__).'/../includes/language.php');
 <div id="container">
   
   <?php  require('header.php'); ?>
- 
-  <div class="colmask holygrail">
-  <div class="colmid">
-    <div class="colleft">
-      <div class="col1wrap">
-        <div class="col1">
 
+  <div class="columnWrapper">
+	  <div class="contentColumn">
 		<?php switch ($mankarMain->pageLocation[0]) {
-			
-			case 'information':
-				?>
 
-				<div id="sub-navigation">
-					<ul class="navlist">
-						<li<?php if ($mankarMain->pageLocation[1] == "main-benefits") echo " class='navHighlight'"; ?>><a href="/information"><?php echo NAV_BENEFITS;?></a></li>
-						<?php if (isset($mankarMain->hasNav['technology'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "technology") echo " class='navHighlight'"; ?>><a href="/technology"><?php echo NAV_TECHNOLOGY;?></a></li> <?php } ?>
-						<?php if (isset($mankarMain->hasNav['cost-share'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "cost-share") echo " class='navHighlight'"; ?>><a href="/cost-share"><?php echo NAV_COSTSHARE;?></a></li> <?php } ?>
-						<?php if (isset($mankarMain->hasNav['areas-of-application'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "areas-of-application") echo " class='navHighlight'"; ?>><a href="/areas-of-application"><?php echo NAV_APPLICATION;?></a></li> <?php } ?>
-					</ul>
-				</div>
+		case 'information':
+			?>
 
-				<?php
-				break;
+			<div id="sub-navigation">
+				<ul class="navlist">
+					<li<?php if ($mankarMain->pageLocation[1] == "main-benefits") echo " class='navHighlight'"; ?>><a href="/information"><?php echo NAV_BENEFITS;?></a></li>
+					<?php if (isset($mankarMain->hasNav['technology'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "technology") echo " class='navHighlight'"; ?>><a href="/technology"><?php echo NAV_TECHNOLOGY;?></a></li> <?php } ?>
+					<?php if (isset($mankarMain->hasNav['cost-share'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "cost-share") echo " class='navHighlight'"; ?>><a href="/cost-share"><?php echo NAV_COSTSHARE;?></a></li> <?php } ?>
+					<?php if (isset($mankarMain->hasNav['areas-of-application'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "areas-of-application") echo " class='navHighlight'"; ?>><a href="/areas-of-application"><?php echo NAV_APPLICATION;?></a></li> <?php } ?>
+				</ul>
+			</div>
 
-			case 'support':
-				?>
+			<?php
+			break;
 
-				<div id="sub-navigation">
-					<ul class="navlist">
-						<li<?php if ($mankarMain->pageLocation[1] == "tips") echo " class='navHighlight'"; ?>><a href="/support"><?php echo NAV_TIPS;?></a></li>
-						<li<?php if ($mankarMain->pageLocation[1] == "manuals") echo " class='navHighlight'"; ?>><a href="/manuals"><?php echo NAV_MANUALS;?></a></li>
-						<li<?php if ($mankarMain->pageLocation[1] == "parts") echo " class='navHighlight'"; ?>><a href="/parts"><?php echo NAV_PARTS;?></a></li>
-					</ul>
-				</div>
+		case 'support':
+			?>
 
-				<?php
-				break;
+			<div id="sub-navigation">
+				<ul class="navlist">
+					<li<?php if ($mankarMain->pageLocation[1] == "tips") echo " class='navHighlight'"; ?>><a href="/support"><?php echo NAV_TIPS;?></a></li>
+					<li<?php if ($mankarMain->pageLocation[1] == "manuals") echo " class='navHighlight'"; ?>><a href="/manuals"><?php echo NAV_MANUALS;?></a></li>
+					<li<?php if ($mankarMain->pageLocation[1] == "parts") echo " class='navHighlight'"; ?>><a href="/parts"><?php echo NAV_PARTS;?></a></li>
+				</ul>
+			</div>
+
+			<?php
+			break;
 
 		}?>
-        
 
-        <?php
 
-        require (PAGE_CONTENT . $mankarMain->pageContent);
+		<?php
+
+		require (PAGE_CONTENT . $mankarMain->pageContent);
 
 		?>
-        </div>
-       <?php  require('left-side.php'); ?>
-      </div>
-      <?php require('right-side.php'); 
-      ?> 
-    </div>
-  </div>
-</div>
+	  </div>
+
+	  <div class="leftColumn">
+	  	<?php  require('left-side.php'); ?>
+	  </div>
+
+	  <div class="rightColumn">
+	  	<?php require('right-side.php'); ?> 
+	  </div>
+
+	</div>
+
     <?php require('footer.php'); ?>
 </div>
+ 
 </body>
 </html>

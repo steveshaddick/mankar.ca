@@ -8,8 +8,8 @@ Author URI: mankar.ca
 
 body {
  padding:0;
- color: #333333;
- font-family:Verdana, Arial, Helvetica, sans-serif;
+ color: #545454;
+ font-family:Verdana, Helvetica, sans-serif;
  font-size: 100%;
  min-width: 855px;
  text-align: center;
@@ -18,132 +18,92 @@ body {
  background-image: url('../images/page-gradient.gif') ;
  background-repeat: repeat-x;
  background-color: #60a35e;
- background-image: -moz-linear-gradient(center top , #FFFFFF 100px, #60A35E 700px);
- background-image: -webkit-linear-gradient(center top , #FFFFFF 100px, #60A35E 700px);
- background-image: -ms-linear-gradient(center top , #FFFFFF 100px, #60A35E 700px);
+ background-image: -moz-linear-gradient(center top , #FFFFFF 100px, #60A35E 1000px);
+ background-image: -webkit-linear-gradient(center top , #FFFFFF 100px, #60A35E 1000px);
+ background-image: -ms-linear-gradient(center top , #FFFFFF 100px, #60A35E 1000px);
 
 
 }
 
 a {
-	color:inherit;
-	text-decoration: none;
+	color:#9F6600;
+	text-decoration:none;
+}
+a:hover{
+	color:#583800;
+	text-decoration:underline;
 }
 
-a:hover {
-	text-decoration: underline;
+.clear {
+	clear:both;
 }
  
+img {
+	border: 0;
+	vertical-align:middle;
+}
  
-div#container
-		{
-		margin: 0 auto 0px;
-		padding: 0;
-  		min-width: 1000px;
-  		max-width: 1100px;
-  		width: expression(document.body.clientWidth < 792? "790px" : document.body.clientWidth > 1102? "1100px" : "auto");
-		text-align: left;
-		} 
+#container
+{
+	margin: 0 auto 0px;
+	padding: 0;
+	min-width: 950px;
+	max-width: 1400px;
+	width:80%;
+	text-align: left;
+} 
+
+.columnWrapper {
+	position:relative;
+}
+
+.leftColumn {
+	width: 215px;
+	position: absolute;
+	top:0;
+	left:0;
+}
+.rightColumn {
+	width: 215px;
+	position: absolute;
+	top:0;
+	right:0;
+}
+
+.contentColumn {
+
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #FFFFFF;
+    font-size: 12px;
+    margin-left: 220px;
+    margin-right: 220px;
+    min-height:700px;
+
+}
+
+.contentColumn a {
+	color:#076C0C;
+}
  
-/* column container */
-	.colmask {
-		position:relative;	/* This fixes the IE7 overflow hidden bug */
-		clear:both;
-		float:left;
-		width:100%;			/* width of whole page */
-		overflow:hidden;		/* This chops off any overhanging divs */
-	}
-	/* common column settings */
-	.colright,
-	.colmid,
-	.colleft {
-		float:left;
-		width:100%;			/* width of page */
-		position:relative;
-		min-height:600px;
-	}
-	.col1,
-	.col2,
-	.col3 {
-		float:left;
-		position:relative;
-		padding:0 0 1em 0;	/* no left and right padding on columns, we just make them narrower instead 
-						only padding top and bottom is included here, make it whatever value you need */
-		overflow:hidden;
-	}
-	/* 3 Column settings */
-	.holygrail {
-		background:#f9de9c url(../images/right-shadow.png) 82% 0 repeat-y;		/* right column background colour */
-	}
-	.holygrail .colmid {
-		right:20%;			/* width of the right column */
-		background:#fff ;		/* center column background colour */
-		border-right: #deb974 thin solid;
 
-
-	}
-	.col1 p, .col1 li {
+.mceContentBody {
+	text-align:left;
+	background:none;
 	font-size: 0.8em;
-	}
-	.mceContentBody {
-		text-align:left;
-		background:none;
-		font-size: 0.8em;
-	}
+}
 	
-	
-	
-	.col1 a{
-		color:#9F6600;
-		text-decoration:none;
-	}
-	.col1 a:hover{
-		color:#583800;
-		text-decoration:underline;
-	}
-	.col1 img {
-		border: 0;
-		vertical-align:middle;
-		}
-	
-	
-	.holygrail .colleft {
-		right:60%;			/* width of the middle column */
-		background: #f9de9c url(../images/left-shadow.png) right repeat-y;/* left column background colour */
-		border-right: #deb974 thin solid;
-	}
-	.holygrail .col1 {
-		width:58%;			/* width of center column content (column width minus padding on either side) */
-		left:101%;			/* 100% plus left padding of center column */
-	}
-	.holygrail .col2 {
-		width:20%;			/* Width of left column content (column width minus padding on either side) */
-		left:22%;			/* width of (right column) plus (center column left and right padding) plus (left column left padding) */
-		margin: 0px;
- 		padding: 5px 0 0 0;
-		
-
-	}
-	.holygrail .col3 {
-		width:20%;			/* Width of right column content (column width minus padding on either side) */
-		left:82.15%;			/* Please make note of the brackets here:
-								(100% - left column width) plus (center column left and right padding) plus (left column left and right padding) plus (right column left padding) */
-	}
 
 
- 
-/*td {
-  vertical-align: top;
-  background: #fff;
-  color: #000;
-}*/
-
-
- 
 h1 { 
-	font-size:18px;
-	margin:0;
-	padding:0;
+	color:#9f6600; 
+	font-weight:bold;
+	margin: 15px 0;
+	text-transform: capitalize;
+	margin-bottom:30px;
+
+}
+h1.productType {
+	margin-top:0.5em;
 }
 h2 { 
 	
@@ -153,9 +113,16 @@ h2 {
 	
 }
 
-h2.leftHeading {
-	padding:0 0 0 0.5em;
-	margin: 1em 0 0 0;
+.sideColumnHeading {
+	padding: 15px 0 0 0;
+	display: block;
+    font-size: 14px;
+    color: #076C0C;
+    font-weight: bold;
+
+}
+a.leftHeading:hover {
+	text-decoration: none;
 }
 
 h2.rightHeading
@@ -171,16 +138,6 @@ h2.underline
 	display:block;
 	border-bottom:#326b32 solid thin;
 }
-
-h3 { 
-	color:#9f6600; 
-	font-size:1.5em;
-	font-weight:bold;
-
-}
-h3.productType {
-	margin-top:0.5em;
-}
 h4 { color:#9F6600; }	
 
 
@@ -190,7 +147,15 @@ h4 { color:#9F6600; }
 	text-align: right;
 	float:right;
 	font-size:11px;
-	padding-top:22px;
+	padding-top:24px;
+}
+
+.companyName { 
+	font-size:18px;
+	margin:0;
+	padding:0;
+	font-weight:bold;
+	display: block;
 }
 
 
@@ -209,13 +174,13 @@ h4 { color:#9F6600; }
 #logo-picture .logoText {
 	color: #076C0C;
     display: block;
-    font-family: arial;
-    font-size: 24px;
+    font-family: Verdana, Helvetica, sans-serif;
+    font-size: 20px;
     left: 328px;
-    line-height: 24px;
+    line-height: 20px;
     position: absolute;
-    top: 24px;
-    width: 200px;
+    top: 27px;
+    width: 300px;
 }
  
 #header{
@@ -375,8 +340,9 @@ ul.navDropDown a {
 	list-style: none;
 	margin: 0;
 	width: 100%;
-	background: #fdf6e5 url(../images/left-shadow.png) right repeat-y;
-	border-top: #66a061 thin solid;
+	/*background: #fdf6e5 url(../images/left-shadow.png) right repeat-y;*/
+	background: #fffaee;
+	/*border-top: #66a061 thin solid;*/
 	padding:0;
 
 }
@@ -411,8 +377,7 @@ ul.navDropDown a {
 
 a.typeName:hover 
 {
-	color:#FFFFFF;
-	background:#6aa869;
+	color:#6AA869;
 }
 
 .leftProductBox.otherProduct .typeName{
@@ -516,7 +481,7 @@ strong.noline
 }
 
 #lbBottom {
-	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+	font-family: Verdana, Helvetica, sans-serif;
 	font-size: 90%;
 	color: #666;
 	line-height: 1.4em;
@@ -643,6 +608,10 @@ strong.noline
   clear: both;
 }
 
+.padContent {
+	padding:0 10px;
+}
+
 .productsHeading {
 	color:#326b32; 
 	font-size:1.35em;
@@ -650,47 +619,7 @@ strong.noline
 	margin:0;
 }
 
-#divProducts {
-  padding-top:5px;
-}
-#divProducts ul {
-  margin: auto;
-  clear: both;
-  display:block;
-  width:100%;
-  float:none;
-}
 
-#divProducts ul li {
-  text-align: center;
-  display: inline;
-  list-style-type:none;
-  float: left;
-  margin: 1em;
-}
-
-#divProducts ul li a {
- color:#ffffff;
- text-decoration:none;
-}
-
-
-#divProducts ul li img {
-  border: none;
-  display: block;
-  margin: auto;
-}
-
-#divProducts ul li h4 {
-  display: block;
-  height:24px;
-  width:132px;
-  background:url(../images/products-heading-bg.png) no-repeat;
-  text-align: center;
-  color:#ffffff;
-  padding-top:10px;
-  margin:0;
-}
 
 #divCustom {
 	display:table;
@@ -725,25 +654,60 @@ strong.noline
 	width:250px;
 }
 
+#homeProducts {
+  padding:15px 0;
+  border-top:1px solid #d2d2d2;
+  border-bottom:1px solid #d2d2d2;
+}
 
-.productBox{
-  /*background: #efefef;*/
-  width:135px;
-  height: 175px;
-  margin:10px 10px;
-  text-align:center;
+.homeProductBox{
+  background: url('/images/product-box-bg.png') repeat-x bottom;
+  width:155px;
   float:left;
-  font-weight:bold;
-  border: thin solid #cccccc;
-  overflow:hidden;
-}
-.productBox table{
-  width:100%;
-  height: 140px;
+  text-align: center;
+  margin: 8px 18px;
+  height:200px;
+  overflow-y:hidden;
+
 }
 
-.productBox td{
-  text-align:center;
+.homeProductBox a {
+	color:#9F6600;
+}
+
+.homeProductBox a:hover {
+	color: #b38c47;
+	text-decoration: none;
+}
+
+.homeProductBox .typeName{
+	font-size:18px;
+	font-weight:bold;
+	text-align: center;
+	line-height: 20px;
+	display: block;
+	margin-bottom: 10px;
+}
+.homeProductBox .typeName:hover{
+	font-size:18px;
+	font-weight:bold;
+	text-align: center;
+	line-height: 20px;
+	display: block;
+	margin-bottom: 10px;
+}
+
+.homeProductBox img {
+	max-width:155px;
+	vertical-align: middle;
+}
+
+.homeProductBox .typeImage {
+	line-height:150px;
+}
+
+.homeProductBox .roundedCorners {
+	
 }
 
 
@@ -784,11 +748,11 @@ strong.noline
 }
 
 .divRightBox {
-	background: #fdf6e5  url(../images/right-shadow.png) left repeat-y;
+	/*background: #fdf6e5  url(../images/right-shadow.png) left repeat-y;*/
+	background: #fffaee;
 	display:block;
 	margin:0;
 	padding: 0.5em 0.25em 0.5em 0.5em;
-	border-top: #66a061 thin solid;
 }
 
 .divRightBox a{

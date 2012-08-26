@@ -82,7 +82,7 @@ class SimpleCMS {
 
 			foreach ($superType as $key=>$value)
 			{
-				$query .= "$key='".trim($value)."',";
+				$query .= "$key='".trim($this->mySQL->cleanString($value))."',";
 			}
 			$query = substr($query, 0, strlen($query)-1);
 
@@ -162,7 +162,7 @@ class SimpleCMS {
 					break;
 				
 				default:
-					$query .= "$key='".trim($value)."',";
+					$query .= "$key='".trim($this->mySQL->cleanString($value))."',";
 					break;
 			}
 		}
@@ -172,26 +172,27 @@ class SimpleCMS {
 			//echo "deleting photo";
 		} else if (isset($_FILES['photofile'])) {
 			if ($_FILES['photofile']['name'] != "") {
-				$filename = strtolower(ereg_replace("[^A-Za-z0-9.]", "", basename( $_FILES['photofile']['name'])));
+				$extension = substr(strrchr(basename($_FILES['photofile']['name']), '.'), 1 );
+
+				$filename = strtolower(ereg_replace("[^A-Za-z0-9.\-]", "", basename( $_FILES['photofile']['name'])));
 				$filename = substr($filename, 0 , strrpos($filename,"."));
-				$filename .= ".jpg";
-				
+				$filename .= '.png';
+
 				$targetPath = UPLOAD_LOCATION.$filename;
 				
 				//make this only upload if the file doesn't exist
 				//and delete old file
 				
-				if (!file_exists(THUMBS_LOCATION.'$filename')) {
-					if(move_uploaded_file($_FILES['photofile']['tmp_name'], $targetPath)) {
-						exec("convert $targetPath  -resize 150x150  -quality 80% ".THUMBS_LOCATION."$filename");
-		
-						$query .= "thumbnail='$filename',";
-						//echo "uploaded file";
-						
-					} else{
-						$this->error = true;
-						$this->errorMessage .= "There was an error uploading ".$_FILES['photofile']['name']."<br />";
-					}
+				if(move_uploaded_file($_FILES['photofile']['tmp_name'], $targetPath)) {
+					
+					exec("convert $targetPath -resize 150x150 -fuzz 3% -transparent white -quality 80% ".dirname(__FILE__).'/..'.THUMBS_LOCATION."$filename");
+	
+					$query .= "thumbnail='$filename',";
+					//echo "uploaded file";
+					
+				} else{
+					$this->error = true;
+					$this->errorMessage .= "There was an error uploading ".$_FILES['photofile']['name']."<br />";
 				}
 			}
 		}
@@ -290,7 +291,7 @@ class SimpleCMS {
 				break;
 				
 				default:
-				$query .= "$key='".trim($value)."',";
+				$query .= "$key='".trim($this->mySQL->cleanString($value))."',";
 				break;
 			}
 		}
@@ -426,7 +427,7 @@ class SimpleCMS {
 					break;
 					
 					default:
-					$query .= "$key='".trim($value)."',";
+					$query .= "$key='".trim($this->mySQL->cleanString($value))."',";
 					break;
 				}
 			}
@@ -519,18 +520,18 @@ class SimpleCMS {
 		} else {
 			$query = "UPDATE site_pages SET ";
 		}
-		$query .= "pretty_url='".$_POST['pretty_url']."',";
-		$query .= "location = 'products/".$_POST['type_id']."/$this->actionData',";
-		$query .= "supertype_id = '".$_POST['supertype_id']."',";
-		$query .= "meta_title='".$_POST['meta_title']."',";
-		$query .= "meta_description='".$_POST['meta_description']."',";
-		$query .= "meta_keywords='".$_POST['meta_keywords']."',";
-		$query .= "meta_title_fr='".$_POST['meta_title_fr']."',";
-		$query .= "meta_description_fr='".$_POST['meta_description_fr']."',";
-		$query .= "meta_keywords_fr='".$_POST['meta_keywords_fr']."',";
-		$query .= "meta_title_sp='".$_POST['meta_title_sp']."',";
-		$query .= "meta_description_sp='".$_POST['meta_description_sp']."',";
-		$query .= "meta_keywords_sp='".$_POST['meta_keywords_sp']."'";
+		$query .= "pretty_url='".trim($this->mySQL->cleanString($_POST['pretty_url']))."',";
+		$query .= "location = 'products/".trim($this->mySQL->cleanString($_POST['type_id']))."/$this->actionData',";
+		$query .= "supertype_id = '".trim($this->mySQL->cleanString($_POST['supertype_id']))."',";
+		$query .= "meta_title='".trim($this->mySQL->cleanString($_POST['meta_title']))."',";
+		$query .= "meta_description='".trim($this->mySQL->cleanString($_POST['meta_description']))."',";
+		$query .= "meta_keywords='".trim($this->mySQL->cleanString($_POST['meta_keywords']))."',";
+		$query .= "meta_title_fr='".trim($this->mySQL->cleanString($_POST['meta_title_fr']))."',";
+		$query .= "meta_description_fr='".trim($this->mySQL->cleanString($_POST['meta_description_fr']))."',";
+		$query .= "meta_keywords_fr='".trim($this->mySQL->cleanString($_POST['meta_keywords_fr']))."',";
+		$query .= "meta_title_sp='".trim($this->mySQL->cleanString($_POST['meta_title_sp']))."',";
+		$query .= "meta_description_sp='".trim($this->mySQL->cleanString($_POST['meta_description_sp']))."',";
+		$query .= "meta_keywords_sp='".trim($this->mySQL->cleanString($_POST['meta_keywords_sp']))."'";
 
 		if ($action != 'insert') {
 			$query .= " WHERE location LIKE 'products/%/$this->actionData'";
