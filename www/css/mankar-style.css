@@ -246,7 +246,7 @@ a.localeLink.selected {
 	margin:0;
 }
 
-#sub-navigation ul.navlist {
+#sub-navigation .navlist {
 	/*background: #f0f6f0;*/
 	padding-top:10px;
 }
@@ -268,7 +268,7 @@ a.localeLink.selected {
 	padding: 0px 10px;
 }
 
-#sub-navigation ul.navlist li a
+#sub-navigation a.subNavLink
 {
 	color: #6aa869;
 	text-decoration: none;
@@ -277,17 +277,17 @@ a.localeLink.selected {
 	font-size:0.8em;
 	
 }
-#sub-navigation ul.navlist li a:hover
+#sub-navigation a.subNavLink:hover
 {
 	color: #076c0c;
 	text-decoration: none;
 	
 }
 
-ul.navlist li.navHighlight{
+.navlist .navHighlight{
 	background:#6aa869;
 }
-#sub-navigation ul.navlist li.navHighlight{
+#sub-navigation .navlist .navHighlight{
 	background: none transparent;
 }
 
@@ -297,7 +297,7 @@ ul.navlist li.navHighlight{
 	background:#6aa869;
 	height: 20px;
 }
-#sub-navigation .navlist .navHighlight .navLink{
+#sub-navigation .navHighlight a.subNavLink{
 	background:none transparent;
 	color:#076c0c;
 	border-bottom: 3px solid #439243;
@@ -989,9 +989,6 @@ a.productTitle {
 
 
 #photoSlider {
-	border-bottom: 1px solid #A3A3A3;
-    border-radius: 5px 5px 5px 5px;
-    border-top: 1px solid #A3A3A3;
     overflow-x: auto;
     overflow-y: hidden;
     padding: 3px;

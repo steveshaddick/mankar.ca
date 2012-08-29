@@ -45,10 +45,10 @@ require_once(dirname(__FILE__).'/../includes/language.php');
 
 			<div id="sub-navigation">
 				<ul class="navlist">
-					<li<?php if ($mankarMain->pageLocation[1] == "main-benefits") echo " class='navHighlight'"; ?>><a href="/information"><?php echo NAV_BENEFITS;?></a></li>
-					<?php if (isset($mankarMain->hasNav['technology'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "technology") echo " class='navHighlight'"; ?>><a href="/technology"><?php echo NAV_TECHNOLOGY;?></a></li> <?php } ?>
-					<?php if (isset($mankarMain->hasNav['cost-share'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "cost-share") echo " class='navHighlight'"; ?>><a href="/cost-share"><?php echo NAV_COSTSHARE;?></a></li> <?php } ?>
-					<?php if (isset($mankarMain->hasNav['areas-of-application'])) { ?> <li<?php if ($mankarMain->pageLocation[1] == "areas-of-application") echo " class='navHighlight'"; ?>><a href="/areas-of-application"><?php echo NAV_APPLICATION;?></a></li> <?php } ?>
+					<li class="navListItem <?php if ($mankarMain->pageLocation[1] == "main-benefits") echo 'navHighlight'; ?>"><a class="subNavLink" href="/information"><?php echo NAV_BENEFITS;?></a></li>
+					<?php if (isset($mankarMain->hasNav['technology'])) { ?> <li class="navListItem <?php if ($mankarMain->pageLocation[1] == "technology") echo 'navHighlight'; ?>"><a class="subNavLink" href="/technology"><?php echo NAV_TECHNOLOGY;?></a></li> <?php } ?>
+					<?php if (isset($mankarMain->hasNav['cost-share'])) { ?> <li class="navListItem <?php if ($mankarMain->pageLocation[1] == "cost-share") echo 'navHighlight'; ?>"><a class="subNavLink" href="/cost-share"><?php echo NAV_COSTSHARE;?></a></li> <?php } ?>
+					<?php if (isset($mankarMain->hasNav['areas-of-application'])) { ?> <li class="navListItem <?php if ($mankarMain->pageLocation[1] == "areas-of-application") echo 'navHighlight'; ?>"><a class="subNavLink" href="/areas-of-application"><?php echo NAV_APPLICATION;?></a></li> <?php } ?>
 				</ul>
 			</div>
 
@@ -60,9 +60,9 @@ require_once(dirname(__FILE__).'/../includes/language.php');
 
 			<div id="sub-navigation">
 				<ul class="navlist">
-					<li<?php if ($mankarMain->pageLocation[1] == "tips") echo " class='navHighlight'"; ?>><a href="/support"><?php echo NAV_TIPS;?></a></li>
-					<li<?php if ($mankarMain->pageLocation[1] == "manuals") echo " class='navHighlight'"; ?>><a href="/manuals"><?php echo NAV_MANUALS;?></a></li>
-					<li<?php if ($mankarMain->pageLocation[1] == "parts") echo " class='navHighlight'"; ?>><a href="/parts"><?php echo NAV_PARTS;?></a></li>
+					<li class="navListItem <?php if ($mankarMain->pageLocation[1] == "tips") echo 'navHighlight'; ?>"><a class="subNavLink" href="/support"><?php echo NAV_TIPS;?></a></li>
+					<li class="navListItem <?php if ($mankarMain->pageLocation[1] == "manuals") echo 'navHighlight'; ?>"><a class="subNavLink" href="/manuals"><?php echo NAV_MANUALS;?></a></li>
+					<li class="navListItem <?php if ($mankarMain->pageLocation[1] == "parts") echo 'navHighlight'; ?>"><a class="subNavLink" href="/parts"><?php echo NAV_PARTS;?></a></li>
 				</ul>
 			</div>
 
