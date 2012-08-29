@@ -51,32 +51,38 @@
 	
 ?>
 
-<div id="breadcrumb">
-	<div style="float:left">
-	<a href="/products"><?php echo PRODUCTS;?></a> - <a href="<?php echo $product['type']['pretty_url']; ?>"><?php echo $product['type']['name']; ?></a> - <?php echo $product['name']; ?>
-        </div>
-		<div class="units"><?=UNITS;?>: <?php if ($mankarMain->units == UNIT_METRIC) { ?><a href="/locale/units/us">U.S.</a> <?php } else { ?> <span class="unitSelected">U.S.</span> <?php } ?> | 
-								<?php if ($mankarMain->units != UNIT_METRIC) { ?><a href="/locale/units/metric">Metric</a> <?php } else { ?> <span class="unitSelected">Metric</span> <?php } ?>
-		</div>
+<div id="productTopBar">
+	<div class="backButton">
+    	<a href="/<?php echo $product['type']['pretty_url'] ?>"><span class="backArrow"><img src="/images/back-arrow.png" alt="" /></span><?php echo $product['type']['name'] ?></a>
+    </div>
+	<div class="units">
+		<a class="localeLink <?php if ($mankarMain->units == UNIT_US) { echo 'selected'; } ?>" href="/locale/units/us">U.S.</a>
+		<a class="localeLink <?php if ($mankarMain->units == UNIT_METRIC) { echo 'selected'; } ?>" href="/locale/units/metric">Metric</a>
+	</div>
+	<br class="clear" />
 </div>
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<div class="padContent">
+
+	<table width="100%" border="0" cellpadding="0" cellspacing="0">
         <tr>
           <td width="202" align="center" valign="top">
           		
                 <img src="<?php echo PICTURES_LOCATION.$product['photo_page']; ?>" alt="<?php echo $product['name']; ?>">
     
     </td>
-    <td width="353" valign="top"><h3 class="productTitle"><?php echo $product['name']; ?></h3> 
+    <td width="353" valign="top">
+    	<h1 class="productName"><?php echo $product['name']; ?></h1> 
     	<?php
 		if ($product['product_code'] != "") {
 			?>
-	        <h4 style="color:#333333; margin-top:-20px;"><?php echo 'Model #'; echo $product['product_code']; ?></h4> 
+	        <div class="productCode"><?php echo 'Model #'; echo $product['product_code']; ?></div> 
             <?php
 		}
 		?>
-            
-			<?echo $description; ?>
+            <div class="productDescription">
+				<?php echo $description; ?>
+			</div>
             <hr />
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <?php 
@@ -182,43 +188,45 @@
 
 <?php if (count($product['pictures']) > 0) { 
 	?>
-    <h2><?=PHOTOS;?></h2>
-	<span class="clickPhoto"><?php switch ($mankarMain->lang) { 
-					case LANGUAGE_ENGLISH :  echo 'Click photos to see larger.'; break;
-					case LANGUAGE_FRENCH :  echo 'Click photos to see larger.'; break;
-					case LANGUAGE_SPANISH :  echo 'Click photos to see larger.'; break;
-			} ?>
-    </span>
+    <h2 class="productPage"><?=PHOTOS;?></h2>
+	
     <div id="photoSlider">
-    <table>
-    <tr>
-    <?php	
-        
-        foreach ($product['pictures'] as $key=>$pic)
-        {
-           $picDescription = "";
-		   switch ($mankarMain->lang) { 
-				case LANGUAGE_ENGLISH :   $picDescription = $pic['photo_description']; break;
-				case LANGUAGE_FRENCH :  $picDescription = ($pic['photo_description_fr'] != '') ? $pic['photo_description_fr'] : $pic['photo_description']; break;
-				case LANGUAGE_SPANISH :  $picDescription = ($pic['photo_description_sp'] != '') ? $pic['photo_description_sp'] : $pic['photo_description']; break;
-			}
-		    echo '<td><a href="'.PICTURES_LOCATION.$pic['photo'].'" rel="lightbox[micromantra]" title="'.$picDescription.'">';
-            echo '<img src="'.THUMBS_LOCATION.$pic['photo'].'" />';
-            echo '</a></td>';
-        }
-        
-    ?>
-    </tr>
-    </table>
+	    <table>
+		    <tr>
+		    <?php	
+		        
+		        foreach ($product['pictures'] as $key=>$pic)
+		        {
+		           $picDescription = "";
+				   switch ($mankarMain->lang) { 
+						case LANGUAGE_ENGLISH :   $picDescription = $pic['photo_description']; break;
+						case LANGUAGE_FRENCH :  $picDescription = ($pic['photo_description_fr'] != '') ? $pic['photo_description_fr'] : $pic['photo_description']; break;
+						case LANGUAGE_SPANISH :  $picDescription = ($pic['photo_description_sp'] != '') ? $pic['photo_description_sp'] : $pic['photo_description']; break;
+					}
+				    echo '<td><a href="'.PICTURES_LOCATION.$pic['photo'].'" rel="lightbox[micromantra]" title="'.$picDescription.'">';
+		            echo '<img src="'.THUMBS_LOCATION.$pic['photo'].'" />';
+		            echo '</a></td>';
+		        }
+		        
+		    ?>
+		    </tr>
+	    </table>
     </div>
+	    <span class="clickPhoto"><?php switch ($mankarMain->lang) { 
+						case LANGUAGE_ENGLISH :  echo 'Click photos to see larger.'; break;
+						case LANGUAGE_FRENCH :  echo 'Click photos to see larger.'; break;
+						case LANGUAGE_SPANISH :  echo 'Click photos to see larger.'; break;
+				} ?>
+	    </span>
 <?php } ?>
-<br />
 
 
 <?php 
 if (count($product['parts']) > 0) {
 	?>
-    <h2><?=PARTS;?></h2>
+	<br />
+	<br />
+    <h2 class="productPage"><?=PARTS;?></h2>
 	<a href="/parts?pid=<?=$product['product_id']; ?>">
     <?php
     switch ($mankarMain->lang) { 
@@ -227,7 +235,7 @@ if (count($product['parts']) > 0) {
 		case LANGUAGE_SPANISH :  echo 'View available parts for '.$product['name'].'.'; break;
 	} 
 	?>
-    </a></li>
+    </a>
 <?php 
 }
 
@@ -235,7 +243,9 @@ if (count($product['parts']) > 0) {
 
 <?php if ($product['manual'] != "") {
 	?>
-	<h2><?=MANUAL;?></h2>
+	<br />
+	<br />
+	<h2 class="productPage"><?=MANUAL;?></h2>
     <a href="<?php echo MANUALS_LOCATION.$product['manual'];?>" target="_blank">
      <?php
     switch ($mankarMain->lang) { 
@@ -244,6 +254,12 @@ if (count($product['parts']) > 0) {
 		case LANGUAGE_SPANISH :  echo 'View PDF Manual for '.$product['name'].'.'; break;
 	} 
 	?>
-    </a></li>
+    </a>
 <?php }
 ?>
+<br />
+<br />
+<br />
+<br />
+
+</div>

@@ -18,18 +18,18 @@
     <div style="clear:both; height:0px;"></div>
    <div id="top-navigation">
 		<ul class="navlist">
-          <li <?php if ($mankarMain->pageLocation[0] == 'home') echo "class='navHighlight'"; ?>><a href="/"><?=NAV_HOME;?></a></li>
-          <li <?php if ($mankarMain->pageLocation[0] == 'products') echo "class='navHighlight'"; ?>><a href="/products"><?=NAV_PRODUCTS;?></a></li>
-          <li <?php if ($mankarMain->pageLocation[0] == 'information') echo "class='navHighlight'"; ?>><a href="/information"><?=NAV_INFO;?></a></li>
-          <li <?php if ($mankarMain->pageLocation[0] == 'support') echo "class='navHighlight'"; ?>><a href="/support"><?=NAV_SUPPORT;?></a></li>
-          <li <?php if ($mankarMain->pageLocation[0] == 'news') echo "class='navHighlight'"; ?>><a href="/news/"><?=NAV_NEWS;?></a></li>
-          <li <?php if ($mankarMain->pageLocation[0] == 'tradeshows') echo "class='navHighlight'"; ?>><a href="/tradeshows"><?=NAV_TRADESHOWS;?></a></li>
-          <li <?php if ($mankarMain->pageLocation[0] == 'dealers') echo "class='navHighlight'"; ?>><a href="/dealers"><?=NAV_DEALERS;?></a></li>
+          <li class="navListItem <?php if ($mankarMain->pageLocation[0] == 'home') echo 'navHighlight'; ?>"><a class="navLink" href="/"><?=NAV_HOME;?></a></li>
+          <li class="navListItem <?php if ($mankarMain->pageLocation[0] == 'products') echo 'navHighlight'; ?>"><a class="navLink" href="/products"><?=NAV_PRODUCTS;?></a></li>
+          <li class="navListItem <?php if ($mankarMain->pageLocation[0] == 'information') echo 'navHighlight'; ?>"><a class="navLink" href="/information"><?=NAV_INFO;?></a></li>
+          <li class="navListItem <?php if ($mankarMain->pageLocation[0] == 'support') echo 'navHighlight'; ?>"><a class="navLink" href="/support"><?=NAV_SUPPORT;?></a></li>
+          <li class="navListItem <?php if ($mankarMain->pageLocation[0] == 'news') echo 'navHighlight'; ?>"><a class="navLink" href="/news/"><?=NAV_NEWS;?></a></li>
+          <li class="navListItem <?php if ($mankarMain->pageLocation[0] == 'tradeshows') echo 'navHighlight'; ?>"><a class="navLink" href="/tradeshows"><?=NAV_TRADESHOWS;?></a></li>
+          <li class="navListItem <?php if ($mankarMain->pageLocation[0] == 'dealers') echo 'navHighlight'; ?>"><a class="navLink" href="/dealers"><?=NAV_DEALERS;?></a></li>
         </ul>
         <div id="languages">
-			<a href="<?php echo "/locale/lang/".LANGUAGE_ENGLISH; ?>" <?php if ($mankarMain->lang == LANGUAGE_ENGLISH) { ?>class="languageSelected"<?php } ?>>EN</a> |
-            <a href="<?php echo "/locale/lang/".LANGUAGE_FRENCH; ?>" <?php if ($mankarMain->lang == LANGUAGE_FRENCH) { ?>class="languageSelected"<?php } ?>>FR</a> | 
-            <a href="<?php echo "/locale/lang/".LANGUAGE_SPANISH; ?>" <?php if ($mankarMain->lang == LANGUAGE_SPANISH) { ?>class="languageSelected"<?php } ?>>ES</a>
+			      <a class="localeLink <?php if ($mankarMain->lang == LANGUAGE_ENGLISH) { ?> selected <?php } ?>" href="<?php echo "/locale/lang/".LANGUAGE_ENGLISH; ?>">EN</a> |
+            <a class="localeLink <?php if ($mankarMain->lang == LANGUAGE_FRENCH) { ?> selected <?php } ?>" href="<?php echo "/locale/lang/".LANGUAGE_FRENCH; ?>">FR</a> | 
+            <a class="localeLink <?php if ($mankarMain->lang == LANGUAGE_SPANISH) { ?> selected <?php } ?>" href="<?php echo "/locale/lang/".LANGUAGE_SPANISH; ?>">ES</a>
         </div>
    </div>
   <div id="top-navigation-bottom">&nbsp;</div>

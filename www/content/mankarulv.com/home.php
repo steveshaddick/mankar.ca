@@ -52,22 +52,32 @@
 
   <div id="homeProducts">
 
-  <?php
-  foreach ($mankarMain->productTypes as $productType)
-  {
+  <div class="productTypeListWrapper">
+    <?php foreach ($mankarMain->productTypes as $type)
+    { 
+        ?>
+        <div class="productTypeWrapper">
+          <div class="productType">
+
+            <div class="productImage">
+              <?php
+              echo '<a href="'.$type['pretty_url'].'" title="'.$type['name'].'">';
+              echo '<img src="'.THUMBS_LOCATION.$type['thumbnail'].'" alt="'.$type['name'].'">';
+              echo '</a>';
+            ?>  
+            </div>
+            <div class="productName">
+
+              <a class="navLink" href="<?php echo $type['pretty_url']; ?>"><?php echo $type['name']; ?></a>
+
+            </div>
+          </div>
+        </div>
+
+    <?php 
+    } 
     ?>
-
-    <div class="homeProductBox">
-    <a href="/<?php echo $productType['pretty_url']; ?>">
-      <span class="typeName"><?php echo $productType['name']; ?></span>
-      <span class="typeImage"><img src="<?php echo THUMBS_LOCATION . $productType['thumbnail']; ?>" alt="<?php echo $productType['name']; ?>" /></span>
-    </a>
-    </div>
-
-
-    <?php
-  }
-  ?>
+  </div>
   <br class="clear" />
   </div>
 
