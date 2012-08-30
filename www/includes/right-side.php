@@ -27,42 +27,39 @@ switch ($mankarMain->lang) {
 		break;
 } 
 ?>
-
-
-    <?php
-    
-	$today = date( 'Y-m-d H:i:s' );
-	$result = mysql_query("SELECT * FROM tradeshows WHERE showend >= '$today' ORDER BY showstart LIMIT 1");
-	//lets make a loop and get all news from the database
-	while($myrow = mysql_fetch_array($result))
-		 {//begin of loop
-		   //now print the results:
-		   echo "<span class=\"sideColumnHeading\">";
-		   echo NEXT_TRADESHOW;
-		   echo ":</h4><div class=\"divRightBox\"> <a href=\"http://www.mankar.ca/tradeshows.php\" class=\"tradeShowTitle\">";
-		   echo $myrow['showname'];
-		   echo "</a><span class=\"tradeShowInfo\">";
-			$starts = strtotime($myrow['showstart']);
-			echo date("M jS", $starts);
-		   echo " - ";
-		   $ends = strtotime($myrow['showend']);
-			echo date("M jS, Y", $ends);
-		   echo "</span>";
-		   echo "<br><span class=\"tradeShowInfo\">";
-		   echo $myrow['city'];
-		   echo ", ";
-		   echo $myrow['province'];
-		   echo ", ";
-		   echo $myrow['country'];
-		   echo "</span><br><a href=\"http://www.mankar.ca/tradeshows.php\" class=\"moreShowsLink\">";
-		   switch ($mankarMain->lang) { 
-				case LANGUAGE_ENGLISH : echo 'more shows...'; break;
-				case LANGUAGE_FRENCH : echo 'more shows...'; break;
-				case LANGUAGE_SPANISH : echo 'more shows...'; break;
-			} 
-		   echo "</a></div>";
-		 }//end of loop
-		 	?>
+	
+	<?php
+		$tradeshow = $mankarMain->nextTradeshow;
+	?>
+	<span class="sideColumnHeading"><?php echo NEXT_TRADESHOW; ?></span>
+	<div class="rightBox">
+		<?php
+		if ($tradeshow['logo'] != '') {
+        //TODO check for missing link
+        	?>
+        	<a href="<?php echo $tradeshow['showlink']?>" target="_blank"> <img class="imgTradeshow" src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /></a>
+        	<?php
+      	}
+      	?>
+      	<div class="tradeshowTitleWrapper">
+      		<a class="tradeshowTitle" href="<?php echo $tradeshow['showlink'] ?>" target="_blank"><?php echo $tradeshow['showname']; ?></a><br />
+      	</div>
+      	<br class="clear" />
+      	<div class="tradeshowDescription">
+      		<?php echo date("M jS", strtotime($tradeshow['showstart'])); ?> - <?php echo date("M jS, Y", strtotime($tradeshow['showend'])); ?></i><br />
+      		<?php echo $tradeshow['city'] . ", " . $tradeshow['province'] . ", " . $tradeshow['country']; ?><br class="clear" />
+      	</div>
+      	
+      	<a class="moreShowsLink" href="/tradeshows" >
+  		<?php
+	   	switch ($mankarMain->lang) { 
+			case LANGUAGE_ENGLISH : echo 'more shows &gt;'; break;
+			case LANGUAGE_FRENCH : echo 'more shows &gt;'; break;
+			case LANGUAGE_SPANISH : echo 'more shows &gt;'; break;
+		} 
+		?>
+		</a>
+  </div>
             
      <?php
 		 //also found in header, sort of.  Maybe a better thing would be to resolve the include paths

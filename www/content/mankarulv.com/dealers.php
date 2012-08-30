@@ -57,64 +57,76 @@
 	}
 	
 ?>
-          <h3><?php echo DEALERS;?></h3>
-          <a href="#usa">U.S.A.</a> | <a href="#canada">Canada</a>
-          <a name="canada"></a>
-<?php 	foreach ($dealers_can as $dealer)
-		{
-			if ($currentHeader != $dealer['state']) {
-				$currentHeader = $dealer['state'];
-				echo '<h2>'.$dealer['state'].'</h2>';
-			}
-			?>
-          <table class="tblDealer">
-		  <tr>
-		  	<td style="width:85px;" valign="top"><img src="<?php echo DEALER_LOGO_LOCATION.$dealer['logo']; ?>" class="dealerPicture" title="<?php echo $dealer['name'];?>" /></td>
-            <td style="width:300px;" valign="top">
-            <strong><?php echo $dealer['name'];?></strong><br />
-              <a href="<?php echo $dealer['website'];?>" target="_blank"><?php echo $dealer['website'];?></a><br /><br />
-              <?php echo $dealer['address'];?><br />
-              <?php echo $dealer['city'];?>, <?php echo $dealer['state_abbr'];?><br />
-			  <?php echo $dealer['zip'];?><br />
-              <?php echo $dealer['country'];?><br />
-              <?php echo PHONE;?>: <?php echo $dealer['phone'];?><br />
-			  <?php if ($dealer['fax'] != "") echo FAX.':'.$dealer['fax'].'<br />';?>
-               <?php if ($dealer['email'] != "") { ?><?php echo EMAIL;?>:  <a href="mailto:<?php echo $dealer['email'];?>"><?php echo $dealer['email'];?></a><br /><?php } ?>
-                 </td>
-                <td valign="top">
-                <a href="http://maps.google.ca/maps?q=<?php echo $dealer['map']; ?>" target="_blank"><img border="0" src="http://maps.google.com/maps/api/staticmap?markers=size:mid|color:0xf4a300|label:M|<?php echo $dealer['map']; ?>&zoom=9&size=200x200&sensor=false" alt="<?php echo $dealer['name'];?>" /></a>
-                </td>
-                 </tr>
-           </table>
-          <hr>
-<?php } ?>
-<a name="usa"></a>
-<?php 	foreach ($dealers_us as $dealer)
-		{
-			if ($currentHeader != $dealer['state']) {
-				$currentHeader = $dealer['state'];
-				echo '<h2>'.$dealer['state'].'</h2>';
-			}
-			?>
-          <table class="tblDealer">
-		  <tr>
-		  	<td style="width:85px;" valign="top"><img src="<?php echo DEALER_LOGO_LOCATION.$dealer['logo']; ?>" class="dealerPicture" title="<?php echo $dealer['name'];?>" /></td>
-            <td style="width:300px;" valign="top">
-             <strong><?php echo $dealer['name'];?></strong><br />
-              <a href="<?php echo $dealer['website'];?>" target="_blank"><?php echo $dealer['website'];?></a><br /><br />
-              <?php echo $dealer['address'];?><br />
-              <?php echo $dealer['city'];?>, <?php echo $dealer['state_abbr'];?><br />
-			  <?php echo $dealer['zip'];?><br />
-              <?php echo $dealer['country'];?><br />
-              <?php echo PHONE;?>: <?php echo $dealer['phone'];?><br />
-			  <?php if ($dealer['fax'] != "") echo FAX.':'.$dealer['fax'].'<br />';?>
-               <?php if ($dealer['email'] != "") { ?><?php echo EMAIL;?>:  <a href="mailto:<?php echo $dealer['email'];?>"><?php echo $dealer['email'];?></a><br /><?php } ?>
-                 </td>
-                <td valign="top">
-                 <a href="http://maps.google.ca/maps?q=<?php echo $dealer['map']; ?>" target="_blank"><img border="0" src="http://maps.google.com/maps/api/staticmap?markers=size:mid|color:0xf4a300|label:M|<?php echo $dealer['map']; ?>&zoom=9&size=200x200&sensor=false" alt="<?php echo $dealer['name'];?>" /></a>
-                </td>
-                 </tr>
-           </table>
-          <hr>
-<?php } ?>
-  <p>&nbsp;</p>
+
+<div class="padContent">
+	<h1><?php echo DEALERS;?></h1>
+	<a class="dealerLocationLink" href="#usa">U.S.A.</a> | <a class="dealerLocationLink" href="#canada">Canada</a>
+	<a name="canada"></a>
+	<?php 	
+	foreach ($dealers_can as $dealer)
+	{
+		if ($currentHeader != $dealer['state']) {
+		$currentHeader = $dealer['state'];
+		echo '<h2>'.$dealer['state'].'</h2>';
+	}
+	?>
+	<div class="dealerItem">
+		<table class="tblDealer">
+			<tr>
+				<td style="width:85px;" valign="top"><img src="<?php echo DEALER_LOGO_LOCATION.$dealer['logo']; ?>" class="dealerPicture" title="<?php echo $dealer['name'];?>" /></td>
+				<td style="width:300px;" valign="top">
+					<span class="dealerName"><?php echo $dealer['name'];?></span><br />
+					<a href="<?php echo $dealer['website'];?>" target="_blank"><?php echo $dealer['website'];?></a><br /><br />
+					<?php echo $dealer['address'];?><br />
+					<?php echo $dealer['city'];?>, <?php echo $dealer['state_abbr'];?><br />
+					<?php echo $dealer['zip'];?><br />
+					<?php echo $dealer['country'];?><br />
+					<?php echo PHONE;?>: <?php echo $dealer['phone'];?><br />
+					<?php if ($dealer['fax'] != "") echo FAX.':'.$dealer['fax'].'<br />';?>
+					<?php if ($dealer['email'] != "") { ?><?php echo EMAIL;?>:  <a href="mailto:<?php echo $dealer['email'];?>"><?php echo $dealer['email'];?></a><br /><?php } ?>
+				</td>
+				<td valign="top">
+					<a href="http://maps.google.ca/maps?q=<?php echo $dealer['map']; ?>" target="_blank"><img border="0" src="http://maps.google.com/maps/api/staticmap?markers=size:mid|color:0xf4a300|label:M|<?php echo $dealer['map']; ?>&zoom=9&size=200x200&sensor=false" alt="<?php echo $dealer['name'];?>" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<?php 
+	} 
+	?>
+
+	<a name="usa"></a>
+	<?php 	
+	foreach ($dealers_us as $dealer)
+	{
+		if ($currentHeader != $dealer['state']) {
+		$currentHeader = $dealer['state'];
+		echo '<h2>'.$dealer['state'].'</h2>';
+	}
+	?>
+	<div class="dealerItem">
+		<table class="tblDealer">
+			<tr>
+				<td style="width:85px;" valign="top"><img src="<?php echo DEALER_LOGO_LOCATION.$dealer['logo']; ?>" class="dealerPicture" title="<?php echo $dealer['name'];?>" /></td>
+				<td style="width:300px;" valign="top">
+					<span class="dealerName"><?php echo $dealer['name'];?></span><br />
+					<a href="<?php echo $dealer['website'];?>" target="_blank"><?php echo $dealer['website'];?></a><br /><br />
+					<?php echo $dealer['address'];?><br />
+					<?php echo $dealer['city'];?>, <?php echo $dealer['state_abbr'];?><br />
+					<?php echo $dealer['zip'];?><br />
+					<?php echo $dealer['country'];?><br />
+					<?php echo PHONE;?>: <?php echo $dealer['phone'];?><br />
+					<?php if ($dealer['fax'] != "") echo FAX.':'.$dealer['fax'].'<br />';?>
+					<?php if ($dealer['email'] != "") { ?><?php echo EMAIL;?>:  <a href="mailto:<?php echo $dealer['email'];?>"><?php echo $dealer['email'];?></a><br /><?php } ?>
+				</td>
+				<td valign="top">
+					<a href="http://maps.google.ca/maps?q=<?php echo $dealer['map']; ?>" target="_blank"><img border="0" src="http://maps.google.com/maps/api/staticmap?markers=size:mid|color:0xf4a300|label:M|<?php echo $dealer['map']; ?>&zoom=9&size=200x200&sensor=false" alt="<?php echo $dealer['name'];?>" /></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<?php 
+} 
+?>
+</div>

@@ -72,7 +72,7 @@
     
     </td>
     <td width="353" valign="top">
-    	<h1 class="productName"><?php echo $product['name']; ?></h1> 
+    	<h1 class="productName underline"><?php echo $product['name']; ?></h1> 
     	<?php
 		if ($product['product_code'] != "") {
 			?>

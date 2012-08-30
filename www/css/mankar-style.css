@@ -45,6 +45,7 @@ img {
 
 p {
 	margin:0;
+	padding-bottom:15px;
 }
  
 #container
@@ -104,11 +105,13 @@ h1 {
 	margin: 15px 0;
 	text-transform: capitalize;
 	margin-bottom:30px;
-	border-bottom: 1px solid #9F6600;
 
 }
 h1.productType {
 	margin-top:0.5em;
+}
+.underline {
+	border-bottom: 1px solid #9F6600;
 }
 
 .sideColumnHeading {
@@ -605,7 +608,7 @@ strong.noline
 }
 
 .padContent {
-	padding:0 10px;
+	padding:0 10px 30px;
 }
 
 .productsHeading {
@@ -730,7 +733,7 @@ img.productTypeHeader {
 	color:#069;
 }
 
-.divRightBox {
+.rightBox {
 	/*background: #fdf6e5  url(../images/right-shadow.png) left repeat-y;*/
 	background: #fffaee;
 	display:block;
@@ -739,62 +742,79 @@ img.productTypeHeader {
 	border-radius: 5px 5px 5px 5px;
 }
 
-.divRightBox a{
-	color:#326b32;
-	font-size:0.9em;
-	text-decoration:none;
-}
 
-.divRightBox a:hover{
-	color:#326b32;
-	text-decoration:underline;
-}
 
-.divRightBox ul {
+.rightBox ul {
 	margin:0;
 	padding:0 0 0 0.75em;
 	list-style: disc url(../images/green-bullet.png) outside;
 }
 
-.divRightBox li {
+.rightBox li {
 	padding:0.25em 0;
 	
-	}
-	
-.tradeShowTitle
-{
-	display:block;
-	font-size:0.9em;
-	padding:0.4em 0;
-}
-.tradeShowInfo
-{
-	color:#666666;
-	font-size:0.8em;
-}
-.tradeShowDescription
-{
-	margin-left: 25px;
-	margin-right: 25px;
-}
-.divRightBox a.moreShowsLink{
-	display:block;
-	font-size:0.7em;
-	font-style:italic;
-	padding:0.4em;
 }
 
-.extFaker{
-	width:59.95%;
-	left:20%;
+.rightBox .tradeshowTitleWrapper {
+	float:right;
+	width:160px;
+
+}
+
+.rightBox .imgTradeshow {
+	max-width:30px;
+	float:none;
+}
+
+.rightBox .tradeshowTitle {
+	color:#076C0C;
+	font-size: 14px;
+	line-height: 16px;
+
+}
+
+.rightBox .tradeshowTitle:hover {
+	color:#6aa869;
+	text-decoration: none;
+	
+}
+
+.rightBox .tradeshowDescription {
+	font-size:12px;
+	margin: 15px 0;
+}
+
+.greenLink {
+	color:#076C0C;
+}
+
+.greenLink:hover {
+	color:#6aa869;
+}
+
+
+
+.tradeshowItem {
+	border-bottom:1px solid #a6a6a6;
+	margin-bottom:15px;
+
+}
+.tradeshowDescription
+{
+	margin: 15px 30px;
+}
+
+
+.rightBox .moreShowsLink{
 	display:block;
-	background:#FFFFFF;
-	border-bottom: #deb974 thin solid;
-	border-left: #deb974 thin solid;
-	border-right: #deb974 thin solid;
-	float:left;
-	position:relative;
-} 
+	font-size:11px;
+	padding:0.4em;
+	color:#076C0C;
+}
+.rightBox .moreShowsLink:hover{
+	color:#6aa869;
+}
+
 .divBottom
 {
 	width:100%;
@@ -937,6 +957,13 @@ a:hover .linkArrow {
 	display: inline;
 }
 
+.productTypeSpacer {
+	width:30px;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
 /*.tblProduct
 {
 	background:url(../images/product-table-bg.gif) repeat-x;
@@ -1002,13 +1029,20 @@ ul.partsList {
 	font-size:0.85em;
 }
 
-.tblDealer td {
-	font-size:0.85em;
+.dealerLocationLink {
+	font-size:18px;
+}
+
+.dealerItem {
+	border-bottom:1px solid #a6a6a6;
 }
 
 .dealerPicture {
 	max-width: 75px;
 	max-height: 200px;
+}
+.dealerName {
+	font-size:18px;
 }
 
 .cmbProducts {
@@ -1022,7 +1056,6 @@ ul.partsList {
 }
 
 .searchTitle {
-	color: #326b32; 
 	display:block;
 	font-weight:bold;
 	padding-top:25px;
@@ -1041,7 +1074,9 @@ ul.partsList {
 }
 
 
-
+.tradeshowTitle {
+	font-size: 18px;
+}
 .imgTradeshow {
 	float:right;
 }

@@ -25,6 +25,8 @@ class MankarMain {
 	
 	public $envPrefix = 'www.';
 
+	public $nextTradeshow = array();
+
 	private $mySQL;
 	
 	public function __construct() {
@@ -68,16 +70,9 @@ class MankarMain {
 				$data->superTypeId = $row['supertype_id'];
 			}
 		}
-
 		$this->superTypes = $this->mySQL->sendQuery("SELECT * FROM supertypes", 'supertype_id', 'iterate', $this);
-
-		/*foreach ($this->superTypes as $superType) {
-			echo $_SERVER['SERVER_NAME']." ".$value."<br />";
-			if ($row['url'], strpos($_SERVER['SERVER_NAME']) {
-					$this->superTypeId = $superType['supertype_id'];
-				}
-			
-		}*/
+		
+		$this->nextTradeshow = $this->mySQL->getSingleRow("SELECT * FROM tradeshows WHERE showend >= '".date( 'Y-m-d' )."' ORDER BY showstart");
 
 		$this->productTypes = $this->mySQL->sendQuery("SELECT * FROM product_types WHERE active=1 AND supertype_id = $this->superTypeId");
 		$this->hasNav = $this->mySQL->sendQuery("SELECT pretty_url FROM site_pages WHERE (supertype_id=$this->superTypeId AND has_nav = 1)", 'pretty_url');

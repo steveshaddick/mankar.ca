@@ -70,7 +70,7 @@
 </div>
 
 <div class="padContent">
-	<h1><?php echo $productType['display_title']; ?></h1>
+	<h1 class="underline"><?php echo $productType['display_title']; ?></h1>
 
 	<div id="productTypeBlurb">
 	<?php echo $blurb; ?>

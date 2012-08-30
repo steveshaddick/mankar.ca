@@ -29,20 +29,23 @@
 
 ?>
 
-<div id="breadcrumb">
-	<a href="/parts"><?php switch ($mankarMain->lang) { 
-								case LANGUAGE_ENGLISH : echo '< back to Parts'; break;
-								case LANGUAGE_FRENCH : echo '< back to Parts'; break;
-								case LANGUAGE_SPANISH : echo '< back to Parts'; break;
-				} ?></a>
+
+<div id="productTopBar">
+	<div class="backButton">
+    	<a href="javascript:void(0);" onclick="window.history.back();"><span class="backArrow"><img src="/images/back-arrow.png" alt="" /></span>Parts</a>
+    </div>
+	<br class="clear" />
 </div>
-<br />
+
+<div class="padContent">
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="tblProduct">
         <tr>
           <td width="202" align="center" valign="top">
           		<img class="partPhoto" src="<?=PARTS_LOCATION.$part['photo'];?>" alt="<?=$partName;?>" />
     	</td>
-    <td width="353" valign="top"><h3 class="productTitle">Code #<?=$part['part_code'];?></h3> 
+    <td width="353" valign="top">
+    	<h1 class="productTitle">Code #<?=$part['part_code'];?></h1> 
     		  <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
                 <td width="37%" valign="top"><?php switch ($mankarMain->lang) { 
@@ -70,3 +73,5 @@
 		{?>
 		<a href="/<?php echo $product['pretty_url']; ?>"><?php echo $product['name']; ?></a><br />
 	<?php } ?>
+
+</div>

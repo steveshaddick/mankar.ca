@@ -1,32 +1,34 @@
-<?php
+<div class="padContent">
 
-$manuals = $mankarMain->pageData['manuals']
+	<?php
 
-?>
-<h3>MANKAR&reg; Ultra-Low Volume (ULV) Spraying Systems</h3>
-<p><strong>User Manuals</strong><em> (in PDF format)</em></p>
-  
+	$manuals = $mankarMain->pageData['manuals']
 
-  <?php
-  $lastManual = "";
-  	foreach ($manuals as $manual)
+	?>
+	<h1>MANKAR&reg; Ultra-Low Volume (ULV) Spraying Systems</h1>
+	<h2>User Manuals (in PDF format)</h2>
+	  
+
+	<?php
+	$lastManual = "";
+	foreach ($manuals as $manual)
 	{
-		if ($lastManual != $manual['manual']) {
-			if ($lastManual != "" ) {
-				?>
-            	</ul>
-               	<?php
-			}
-			$lastManual = $manual['manual'];
+	if ($lastManual != $manual['manual']) {
+		if ($lastManual != "" ) {
 			?>
-            <ul>
-            <?php
+	    	</ul>
+	       	<?php
 		}
+		$lastManual = $manual['manual'];
 		?>
-         <li><a href="<?php echo MANUALS_LOCATION . $manual['manual']; ?>" target="_blank"><?php echo $manual['name']; ?></a></li>
-        <?php
+	    <ul>
+	    <?php
+	}
+	?>
+	<li><a href="<?php echo MANUALS_LOCATION . $manual['manual']; ?>" target="_blank"><?php echo $manual['name']; ?></a></li>
+	<?php
 	}
 	?>
 	</ul>
 
-            
+</div>           
