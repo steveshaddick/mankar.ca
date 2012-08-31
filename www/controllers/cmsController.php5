@@ -225,7 +225,6 @@ if ($auth->authenticated === true) {
 			{
 				case 'save':
 					$cms->saveSitePage();
-
 					header("Location: http://" . SITE_URL . "simple-cms/site-pages/edit/{$cms->actionData}?error={$cms->error}");
 					break;
 				

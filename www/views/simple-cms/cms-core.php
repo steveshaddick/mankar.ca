@@ -53,6 +53,7 @@
 <body>
 
 <h1>Simple CMS for Mankar.ca</h1>
+<span>Supertypes: 1=mankarulv.com, 2=mafexulv.com, 3=rofaulv.com, 4=mantisulv.com</span><br />
 
 <a href="/simple-cms">Home</a> 
 <?php

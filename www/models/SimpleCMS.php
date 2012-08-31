@@ -83,6 +83,13 @@ class SimpleCMS {
 
 			$key = str_replace('__' . $superTypeId, '', $key);
 			$superTypes[$superTypeId][$key] = $value;
+			if ($key == 'has_nav') {
+				$superTypes[$superTypeId][$key] = 1;
+			} else {
+				$superTypes[$superTypeId][$key] = $value;
+			}
+
+			$query = substr($query, 0, strlen($query)-1);
 		}
 
 		foreach ($superTypes as $superTypeId=>$superType) 
