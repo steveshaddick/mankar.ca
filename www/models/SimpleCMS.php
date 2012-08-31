@@ -56,6 +56,15 @@ class SimpleCMS {
 		return $this->mySQL->sendQuery("SELECT site_page_id, pretty_url FROM site_pages WHERE redirect_supertype=0 GROUP BY pretty_url ORDER BY pretty_url LIMIT ".($this->currentDataPage * $this->pageSize).", $this->pageSize");
 	}
 
+	public function getTradeshowsList($listOnly = false) {
+
+		$this->currentDataPage = $this->actionData;
+		$this->totalDataPages = $this->getTotalPages('tradeshows');
+
+		return $this->mySQL->sendQuery("SELECT * FROM tradeshows ORDER BY showstart DESC LIMIT ".($this->currentDataPage * $this->pageSize).", $this->pageSize");
+
+	}
+
 	public function getSitePage() {
 		return $this->mySQL->sendQuery("SELECT * FROM site_pages WHERE pretty_url = '$this->actionData' AND redirect_supertype = 0 ORDER BY supertype_id");
 	}
@@ -174,7 +183,7 @@ class SimpleCMS {
 			if ($_FILES['photofile']['name'] != "") {
 				$extension = substr(strrchr(basename($_FILES['photofile']['name']), '.'), 1 );
 
-				$filename = strtolower(ereg_replace("[^A-Za-z0-9.\-]", "", basename( $_FILES['photofile']['name'])));
+				$filename = strtolower(ereg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['photofile']['name'])));
 				$filename = substr($filename, 0 , strrpos($filename,"."));
 				$filename .= '.png';
 
@@ -185,7 +194,7 @@ class SimpleCMS {
 				
 				if(move_uploaded_file($_FILES['photofile']['tmp_name'], $targetPath)) {
 					
-					exec("convert $targetPath -resize 150x150 -fuzz 3% -transparent white -quality 80% ".dirname(__FILE__).'/..'.THUMBS_LOCATION."$filename");
+					exec("convert $targetPath -resize 150x150 -fuzz 3% -transparent white -quality 90% ".dirname(__FILE__).'/..'.THUMBS_LOCATION."$filename");
 	
 					$query .= "thumbnail='$filename',";
 					//echo "uploaded file";
@@ -438,7 +447,7 @@ class SimpleCMS {
 			//echo "deleting photo";
 		} else if (isset($_FILES['photofile'])) {
 			if ($_FILES['photofile']['name'] != "") {
-				$filename = strtolower(ereg_replace("[^A-Za-z0-9.]", "", basename( $_FILES['photofile']['name'])));
+				$filename = strtolower(ereg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['photofile']['name'])));
 				$filename = substr($filename, 0 , strrpos($filename,"."));
 				$filename .= ".jpg";
 				

@@ -4,5 +4,5 @@
 <li><a href="/simple-cms/parts/list/0">Parts</a></li>
 <li><a href="/simple-cms/products/list/0">Products</a></li>
 <li><a href="/simple-cms/product_types/list/0">Product Types</a></li>
-<li><a href="/admin/tradeshows.php">Tradeshows</a></li>
+<li><a href="/simple-cms/tradeshows/list/0">Tradeshows</a></li>
 </ul>

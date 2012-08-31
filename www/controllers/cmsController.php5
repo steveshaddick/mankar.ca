@@ -42,6 +42,41 @@ if ($auth->authenticated === true) {
 			exit();
 			break;
 
+		case 'tradeshows':
+			switch ($cms->action)
+			{
+				case 'delete':
+					$cms->deleteTradeshow();
+
+					header("Location: http://" . SITE_URL . "simple-cms/tradeshows/list/$cms->lastListPage");
+					break;
+				
+				case 'save':
+					if (intval($cms->actionData) > 0) {
+						$result = $cms->saveTradeshow('update');
+					} else {
+						$result = $cms->saveTradeshow('insert');
+					}
+
+					header("Location: http://" . SITE_URL . "simple-cms/tradeshows/edit/{$cms->actionData}?error={$cms->error}");
+					break;
+				
+				case 'edit':
+				case 'insert':
+					$content = 'tradeshows-edit.php';
+					break;
+
+				case 'list':
+					$content = 'tradeshows-list.php';
+					break;
+				
+				default:
+					header("Location: http://" . SITE_URL . "simple-cms/main");
+					exit();
+					break;
+			}
+			break;
+
 		case 'products':
 			switch ($cms->action)
 			{

@@ -48,6 +48,8 @@
 			case LANGUAGE_SPANISH :  echo "<p class='noLanguage'>".NO_SPANISH."</p>"; break;
 		}
 	}
+
+	$videos = null;
 	
 ?>
 
@@ -68,7 +70,7 @@
         <tr>
           <td width="202" align="center" valign="top">
           		
-                <img src="<?php echo PICTURES_LOCATION.$product['photo_page']; ?>" alt="<?php echo $product['name']; ?>">
+                <img class="productPicture" src="<?php echo PICTURES_LOCATION.$product['photo_page']; ?>" alt="<?php echo $product['name']; ?>">
     
     </td>
     <td width="353" valign="top">
@@ -186,6 +188,17 @@
 </table>
 <br />
 
+<?php if ($product['youtube_top'] != '') {
+	$videos []= array('player'=>'ytplayerTop', 'id'=>$product['youtube_top']);
+	?>
+
+	<div id="ytplayerTop" class="youtubePlayer"></div>
+
+	<?php
+}
+
+?>
+
 <?php if (count($product['pictures']) > 0) { 
 	?>
     <h2 class="productPage"><?=PHOTOS;?></h2>
@@ -257,9 +270,38 @@ if (count($product['parts']) > 0) {
     </a>
 <?php }
 ?>
-<br />
-<br />
-<br />
-<br />
-
 </div>
+
+<?php
+if ($videos !== null) {
+	?>
+
+	<script>
+	  var tag = document.createElement('script');
+	  tag.src = "https://www.youtube.com/player_api";
+	  var firstScriptTag = document.getElementsByTagName('script')[0];
+	  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	  // Replace the 'ytplayer' element with an <iframe> and
+	  // YouTube player after the API code downloads.
+	  var player;
+	  function onYouTubePlayerAPIReady() {
+	    <?php
+	    foreach ($videos as $video) {
+	    	?>
+
+	    	player<?php echo $video['id']; ?> = new YT.Player('<?php echo $video['player']; ?>', {
+		      height: '390',
+		      width: '640',
+		      videoId: '<?php echo $video['id']; ?>'
+		    });
+
+	    	<?php
+	    }
+	    ?>
+	  }
+	</script>
+
+	<?php
+}
+?>
