@@ -11,3 +11,11 @@ I would suggest the submenu stays above the line, and that if possible they wrap
 Logos need to switch when we change websites!
 
 --------------------------------------------------------
+
+http://dev.mankarulv.com/simple-cms/tradeshows/edit/118
+
+throwing an error:
+
+Notice: Undefined index: name in /usr/local/pem/vhosts/146281/webspace/httpdocs/dev/views/simple-cms/tradeshows-edit.php on line 19
+
+--------------------------------------------------------
