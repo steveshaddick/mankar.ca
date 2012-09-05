@@ -82,6 +82,6 @@
   </div>
 
 
-  <p>Mankar Distributing Inc. is a proud member of <a href="http://www.landscapeontario.com" target="_blank"><img src="<?php echo IMAGES_LOCATION; ?>lo.gif" alt=""> Landscape Ontario.</a></p>
+  <p>Mankar Distributing Inc. is a member of the <a href="http://www.canadanursery.com/" target="_blank"><img src="<?php echo IMAGES_LOCATION; ?>CNLA.png" alt="Canadian Nursery Landscape Association"></a></p>
 
 </div>
