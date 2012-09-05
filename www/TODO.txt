@@ -19,3 +19,15 @@ throwing an error:
 Notice: Undefined index: name in /usr/local/pem/vhosts/146281/webspace/httpdocs/dev/views/simple-cms/tradeshows-edit.php on line 19
 
 --------------------------------------------------------
+
+Other Products in left column
+-add Mankar Logo
+-make them two-line entries:
+
+Mankar ULV Applicators for herbicide
+Mafex ULV Fine spray units for Potatoes and Fruit
+ROFA ULV Sprayer for insecticides
+Mantis ULV Applicator for form release
+
+I hope it doesn't look too strange.  People may not be familiar with the brands, so we need something to explain.
+---------------------------------------------------------
