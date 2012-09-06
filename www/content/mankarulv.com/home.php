@@ -23,8 +23,6 @@
         <p>Tous les syst&egrave;mes de vaporisation Mankar sont &eacute;quip&eacute;s d'une buse rotative brevet&eacute;e &agrave; secteur r&eacute;glable. Facile &agrave; utiliser, c'est id&eacute;al pour appliquer aux endroits qui n&eacute;cessitent une certaine vigilance, par exemple: entre les rang&eacute;es de r&eacute;colte, le long des cl&ocirc;tures et des lignes s&eacute;paratives d'une propri&eacute;t&eacute;, entre et sous les arbres et fleurs, autour des immeubles...Gr&acirc;ce &agrave; l'application d'herbicide g&eacute;n&eacute;ralement non dilu&eacute;, c'est-&agrave;-dire sans addition d'eau,  vous b&eacute;n&eacute;ficiez d'une charge moins lourde, vous pouvez commencer le travail imm&eacute;diatement sans &ecirc;tre oblig&eacute; de l'interrompre par des remplissages fastidieux et prises de mesure inutiles, et vous minimisez le risque de d&eacute;rive! Par exemple, un pulv&eacute;risateur portable conventionnel n&eacute;cessite des quantit&eacute;s beaucoup plus &eacute;lev&eacute;es et p&egrave;se en moyenne 20kg . En revanche, un r&eacute;servoir Mini Mantis Plus p&egrave;se &agrave; peine 3.3 kg! En somme, il vous est donc possible d'utiliser plusieurs sortes d'herbicides, d'en faire l'application &agrave; plusieurs endroits, et ce, tout en respectant l'environnement.</p>
         <a href="<?php echo PICTURES_LOCATION; ?>benefits2.jpg" rel="lightbox[benefits]" title="Mankar-P"><img class="pleft" src="<?php echo PICTURES_LOCATION; ?>benefits2.jpg" alt=""></a>
         <p>Bien que cet appareil fut initialement con&ccedil;u  pour l'utilisation d'herbicides tels que Roundup et d'autres produits glyphosates, ce pulv&eacute;risateur peut facilement s'adapter au traitement des cultures les plus vari&eacute;es. Nous testons continuellement cette machine et la consid&eacute;rons tr&egrave;s efficace puisqu'elle peut s'utiliser avec plusieurs sortes d'herbicides.</p>
-        <p><b>Mankar Ontario Inc.</b> est le distributeur et leader des syst&egrave;mes Mankar de l'Ontario, Canada.
-        N'h&eacute;sitez pas &agrave; <a href="/dealers">nous contacter</a>, et d&eacute;couvrez comment nos produits peuvent optimiser votre cont&ocirc;le herbicide!</p>
         <br />
       
       <?php
@@ -41,7 +39,7 @@
         This allows for the efficient application of different preparations in a wide range of areas and in a way that protects resources and the environment. </p>
         <a href="<?php echo PICTURES_LOCATION; ?>benefits2.jpg" rel="lightbox[benefits]" title="Mankar-P"><img class="pleft" src="<?php echo PICTURES_LOCATION; ?>benefits2.jpg" alt=""></a>
         <p>While this unit's basic purpose is for Roundup or other glyphosate products, it easily can handle a variety of chemicals - we are continually testing this machine and are finding it very effective with a wide range of preparations.</p>
-        <p><b>Mankar Distributing Inc.</b> is the distributor and dealer of the entire Mankar line in Ontario, Canada.  Please <a href="/dealers">give us a call or drop us an email</a> so we can discuss how Mankar products can help you more efficiently control weeds in any application!</p>
+        
         <br />
 
       <?php

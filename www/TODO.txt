@@ -1,14 +1,15 @@
-Look at this page:
+Organized highest to lowest priority (from Nick's point of view)
+------------------------------------------------------
+Creating new products or editing them.
+-picture not saving
+-metadata not saving
+-photos going into strip not saving
+-I try to save the photostrip (even though it is not saving photos) and I get:
+Fatal error: Call to undefined function removeQuotes() in /usr/local/pem/vhosts/146281/webspace/httpdocs/dev/models/SimpleCMS.php on line 575
 
-http://dev.mankarulv.com/information
+http://dev.mankarulv.com/simple-cms/products/edit
 
-as you get narrower than around 1200px or so, the horizontal submenu wraps in a funny way.  it goes under the dividing line and pushes the title of the page aside.
-
-I would suggest the submenu stays above the line, and that if possible they wrap evenly (so if there are 4 menu items, it goes to 2 and 2) if that is not too much work.
-
---------------------------------------------------------
-
-Logos need to switch when we change websites!
+on a positive note, it still works when I name the product and product type the same and it just sneaks over to the product!
 
 --------------------------------------------------------
 
@@ -31,3 +32,20 @@ Mantis ULV Applicator for form release
 
 I hope it doesn't look too strange.  People may not be familiar with the brands, so we need something to explain.
 ---------------------------------------------------------
+
+Look at this page:
+
+http://dev.mankarulv.com/information
+
+as you get narrower than around 1200px or so, the horizontal submenu wraps in a funny way.  it goes under the dividing line and pushes the title of the page aside.
+
+I would suggest the submenu stays above the line, and that if possible they wrap evenly (so if there are 4 menu items, it goes to 2 and 2) if that is not too much work.
+
+--------------------------------------------------------
+
+Logos need to switch when we change websites!
+
+--------------------------------------------------------
+
+
+
