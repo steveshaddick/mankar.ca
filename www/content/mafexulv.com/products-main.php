@@ -5,34 +5,20 @@
 		
 	case LANGUAGE_SPANISH:
 		?>
-		<h1>Los productos MANKAR® ULV ofrecen soluciones especializadas para el empleo de herbicidas, por ej.</h1>
-		<ul>
-			<li>en la jardinería paisajística</li>
-			<li>en la fruticultura y viticultura</li>
-			<li>en la horticultura</li>
-			<li>en la floricultura</li>
-			<li>en el ámbito municipal y en areas industriales</li>
-		</ul>
+		<h1>Los productos MAFEX® ULV</h1>
 
 		<?php
 		break;
 	case LANGUAGE_FRENCH:
 		?>
-		<h1>Les produits MANKAR® ULV offrent des solutions spécialisées pour l‘utilisation d‘herbicides, par ex.</h1>
-		<ul>
-			<li>dans l‘horticulture et l‘architecture paysagiste</li>
-			<li>dans les pépinières / cultures de sapins de Noël</li>
-			<li>dans les vergers et les vignobles</li>
-			<li>dans les cultures de plantes ornementales</li>
-			<li>dans le domaine communal et les zones industrielles</li>
-		</ul>
+		<h1>Les produits MAFEX® ULV</h1>
 	
 		<?php
 		break;
 	default:
 		?>
-		<h1>Products</h1>
-		<p>Please choose one of the following categories of MANKAR&reg; products.  The various types have different features which may make them more applicable to your business, and if you are unsure which is best for you please give your nearest dealer a call.</p>
+		<h1>MAFEX&reg; ULV Products</h1>
+		<p>The MAFEX&reg; systems are available in various spray widths and flow rates.  To choose the right one for your operation, please consult with one of our dealers.</p>
 	 
 		<?php
 		break;
