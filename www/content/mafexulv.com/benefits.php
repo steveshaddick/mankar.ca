@@ -29,7 +29,7 @@
 				<p>The MAFEX&reg; system comes standard with a relay so that, if you wish, the pumps will stop pumping the second the table stops.  This means one less button to remember and no wasted product onto a non-moving belt or table.  Secondly, the system is lightweight and supplied with brackets to attach to your table.</p>
 				<h2>Monitoring</h2>
 				<p>The integrated controller allows you to adjust dosage on the fly, and also keeps an accurate log of how much product you have pumped through the system.</p>
-				<p>Secondly, an integrated alarm is monitoring the atomizers to make sure they are spinning properply.  If not, a loud and bright alarm will sound immediately.  Also available is an optional flow sensor, so that if there is any disruption in the flow of the product to the atomizer (for example, if the tank is empty) the alarm will sound as well.</p>
+				<p>Secondly, an integrated alarm is monitoring the atomizers to make sure they are spinning properly.  If not, a loud and bright alarm will sound immediately.  Also available is an optional flow sensor, so that if there is any disruption in the flow of the product to the atomizer (for example, if the tank is empty) the alarm will sound as well.</p>
 				
 				<?php
 				break;
