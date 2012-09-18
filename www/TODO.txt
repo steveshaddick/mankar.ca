@@ -55,6 +55,7 @@ I would suggest the submenu stays above the line, and that if possible they wrap
 Logos need to switch when we change websites!
 
 --------------------------------------------------------
-
+on content/parts-main, I do not know how to edit the code so it lists only MAFEX in the dropdown, for example. 
+-------------------------------------------------------
 
 

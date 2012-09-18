@@ -7,7 +7,7 @@
       case LANGUAGE_SPANISH:
         ?>
 
-          <h1>ROFA ULV Handheld Insecticide Sprayer</h1> 
+          <h1>Pulverizadores ULV de insecticida ROFA</h1> 
           <h4>Modelo #100717</h4> 
           <a href="<?php echo PICTURES_LOCATION; ?>rofa-demo.jpg" rel="lightbox[rofa1]" title="The ROFA Ultra-Low Volume Applicator"><img class="pright" src="<?php echo THUMBS_LOCATION; ?>rofa-demo.jpg" alt="ROFA"></a>
           <ul>
