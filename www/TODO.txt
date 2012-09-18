@@ -21,6 +21,15 @@ Notice: Undefined index: name in /usr/local/pem/vhosts/146281/webspace/httpdocs/
 
 --------------------------------------------------------
 
+Here:
+http://dev.mankarulv.com/simple-cms/site-pages/list/0
+
+I go to edit cost-share, to make mafexulv not active.
+It says updated successfully, but the box remains checked and the cost-share still shows up for Mafex
+
+
+----------------------------------------------------------
+
 Other Products in left column
 -add Mankar Logo
 -make them two-line entries:
