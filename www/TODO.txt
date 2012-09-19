@@ -57,5 +57,7 @@ Logos need to switch when we change websites!
 --------------------------------------------------------
 on content/parts-main, I do not know how to edit the code so it lists only MAFEX in the dropdown, for example. 
 -------------------------------------------------------
+on the content pages, how do we control the Title, meta-description, keywords?
+-------------------------------------------------------
 
 
