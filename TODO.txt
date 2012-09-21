@@ -1,14 +1,7 @@
 Organized highest to lowest priority (from Nick's point of view)
 ------------------------------------------------------
 Creating new products or editing them.
--metadata not saving ??
--photos going into strip not saving
--I try to save the photostrip (even though it is not saving photos) and I get:
-Fatal error: Call to undefined function removeQuotes() in /usr/local/pem/vhosts/146281/webspace/httpdocs/dev/models/SimpleCMS.php on line 575
-
-http://dev.mankarulv.com/simple-cms/products/edit
-
-on a positive note, it still works when I name the product and product type the same and it just sneaks over to the product!
+-metadata not saving ?
 
 --------------------------------------------------------
 
@@ -17,14 +10,6 @@ http://dev.mankarulv.com/simple-cms/tradeshows/edit/118
 throwing an error:
 
 Notice: Undefined index: name in /usr/local/pem/vhosts/146281/webspace/httpdocs/dev/views/simple-cms/tradeshows-edit.php on line 19
-
---------------------------------------------------------
-
-Here:
-http://dev.mankarulv.com/simple-cms/site-pages/list/0
-
-I go to edit cost-share, to make mafexulv not active.
-It says updated successfully, but the box remains checked and the cost-share still shows up for Mafex
 
 
 ----------------------------------------------------------
@@ -55,8 +40,6 @@ Logos need to switch when we change websites!
 
 --------------------------------------------------------
 on content/parts-main, I do not know how to edit the code so it lists only MAFEX in the dropdown, for example. 
--------------------------------------------------------
-on the content pages, how do we control the Title, meta-description, keywords?
 -------------------------------------------------------
 
 
