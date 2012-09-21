@@ -112,10 +112,18 @@
 			}
 		},
 		{
+			"file": "www/views/simple-cms/cms-core.php",
+			"settings":
+			{
+				"buffer_size": 2532,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "www/views/simple-cms/products-edit.php",
 			"settings":
 			{
-				"buffer_size": 9002,
+				"buffer_size": 10500,
 				"line_ending": "Windows"
 			}
 		},
@@ -123,7 +131,7 @@
 			"file": "www/models/SimpleCMS.php",
 			"settings":
 			{
-				"buffer_size": 24656,
+				"buffer_size": 24776,
 				"line_ending": "Windows"
 			}
 		},
@@ -140,14 +148,6 @@
 			"settings":
 			{
 				"buffer_size": 380,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "www/views/simple-cms/cms-core.php",
-			"settings":
-			{
-				"buffer_size": 2217,
 				"line_ending": "Windows"
 			}
 		}
@@ -184,6 +184,7 @@
 	},
 	"file_history":
 	[
+		"/D/Projects/Mankar/development/www/error.html",
 		"/D/Projects/Mankar/development/www/env/config.php",
 		"/D/Projects/Mankar/development/www/admin/edit_show.php",
 		"/D/Projects/Mankar/development/www/views/simple-cms/tradeshows-edit.php",
@@ -422,7 +423,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -495,7 +496,6 @@
 							{
 								"browser": true,
 								"evil": true,
-								"indent": 1,
 								"regexdash": true,
 								"sub": true,
 								"trailing": true,
@@ -512,7 +512,7 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0,
+							"sublimelinter_delay": 2,
 							"sublimelinter_disable":
 							[
 							],
@@ -552,8 +552,8 @@
 						"selection":
 						[
 							[
-								4893,
-								4893
+								3362,
+								3362
 							]
 						],
 						"settings":
@@ -610,7 +610,6 @@
 							{
 								"browser": true,
 								"evil": true,
-								"indent": 1,
 								"regexdash": true,
 								"sub": true,
 								"trailing": true,
@@ -627,7 +626,7 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0,
+							"sublimelinter_delay": 2,
 							"sublimelinter_disable":
 							[
 							],
@@ -650,25 +649,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1761.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "www/views/simple-cms/products-edit.php",
+					"file": "www/views/simple-cms/cms-core.php",
 					"settings":
 					{
-						"buffer_size": 9002,
+						"buffer_size": 2532,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								840,
-								840
+								1903,
+								1903
 							]
 						],
 						"settings":
@@ -725,7 +724,6 @@
 							{
 								"browser": true,
 								"evil": true,
-								"indent": 1,
 								"regexdash": true,
 								"sub": true,
 								"trailing": true,
@@ -742,7 +740,7 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0,
+							"sublimelinter_delay": 2,
 							"sublimelinter_disable":
 							[
 							],
@@ -765,25 +763,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 168.0,
+						"translation.y": 294.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "www/models/SimpleCMS.php",
+					"file": "www/views/simple-cms/products-edit.php",
 					"settings":
 					{
-						"buffer_size": 24656,
+						"buffer_size": 10500,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2545,
-								2552
+								5907,
+								5907
 							]
 						],
 						"settings":
@@ -840,7 +838,6 @@
 							{
 								"browser": true,
 								"evil": true,
-								"indent": 1,
 								"regexdash": true,
 								"sub": true,
 								"trailing": true,
@@ -857,7 +854,7 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0,
+							"sublimelinter_delay": 2,
 							"sublimelinter_disable":
 							[
 							],
@@ -880,13 +877,127 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 959.0,
+						"translation.y": 2109.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
+					"file": "www/models/SimpleCMS.php",
+					"settings":
+					{
+						"buffer_size": 24776,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19161,
+								19161
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7922.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "www/models/MankarMain.php",
 					"settings":
 					{
@@ -955,7 +1066,6 @@
 							{
 								"browser": true,
 								"evil": true,
-								"indent": 1,
 								"regexdash": true,
 								"sub": true,
 								"trailing": true,
@@ -972,7 +1082,7 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0,
+							"sublimelinter_delay": 2,
 							"sublimelinter_disable":
 							[
 							],
@@ -1001,7 +1111,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "www/views/simple-cms/main.php",
 					"settings":
 					{
@@ -1070,7 +1180,6 @@
 							{
 								"browser": true,
 								"evil": true,
-								"indent": 1,
 								"regexdash": true,
 								"sub": true,
 								"trailing": true,
@@ -1087,7 +1196,7 @@
 							],
 							"pyflakes_ignore_import_*": true,
 							"sublimelinter": true,
-							"sublimelinter_delay": 0,
+							"sublimelinter_delay": 2,
 							"sublimelinter_disable":
 							[
 							],
@@ -1110,121 +1219,6 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "www/views/simple-cms/cms-core.php",
-					"settings":
-					{
-						"buffer_size": 2217,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1984,
-								1984
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"indent": 1,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 0,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_mark_style": "outline",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 294.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

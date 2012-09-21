@@ -599,7 +599,7 @@ class SimpleCMS {
 				//and delete old file, if not used anywhere else
 				
 				if(move_uploaded_file($_FILES['photoStrip_files']['tmp_name'][$key], $targetPath)) {
-					exec("convert $targetPath  -resize 1000x1000\>  -quality 100% $targetPath");
+					exec("convert $targetPath  -resize 1000x1000  -quality 100% $targetPath");
 					//echo $targetPath;
 					$image = imagecreatefromjpeg($targetPath);
 					$imageSize = getimagesize($targetPath);
@@ -608,9 +608,9 @@ class SimpleCMS {
 					$newWidth = 100 * $ratio;
 					$thumb = imagecreatetruecolor($newWidth,$newHeight);
 					imagecopyresampled($thumb, $image, 0, 0, 0, 0, $newWidth, $newHeight,  $imageSize[0],  $imageSize[1]);
-					imagejpeg($thumb, THUMBS_LOCATION."$filename");
+					imagejpeg($thumb, dirname(__FILE__).'/..'.THUMBS_LOCATION."$filename");
 					imagedestroy($image);
-					exec("convert $targetPath  -resize 500x500\>  -quality 80% ".dirname(__FILE__).'/..'.PICTURES_LOCATION."$filename");
+					exec("convert $targetPath -resize 500x500 -quality 80% ".dirname(__FILE__).'/..'.PICTURES_LOCATION."$filename");
 			
 					$query = "INSERT INTO product_photos (product_id, photo) VALUES ($this->actionData,'$filename')";
 					

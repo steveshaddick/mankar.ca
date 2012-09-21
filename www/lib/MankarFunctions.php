@@ -45,4 +45,12 @@ function logToFile($filename, $msg)
 	fclose($fd);
 }
 
+function removeQuotes($string)
+{
+	$ret = str_replace('"', '&quot;', $string);
+	$ret = str_replace("'", '&rsquo;', $ret);
+	
+	return $ret;
+}
+
 ?>
