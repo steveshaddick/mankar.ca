@@ -1,8 +1,7 @@
 Organized highest to lowest priority (from Nick's point of view)
 ------------------------------------------------------
 Creating new products or editing them.
--picture not saving
--metadata not saving
+-metadata not saving ??
 -photos going into strip not saving
 -I try to save the photostrip (even though it is not saving photos) and I get:
 Fatal error: Call to undefined function removeQuotes() in /usr/local/pem/vhosts/146281/webspace/httpdocs/dev/models/SimpleCMS.php on line 575
