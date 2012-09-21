@@ -45,6 +45,24 @@
 <style type="text/css">
 
 	body {margin:25px;}
+
+	.expander {
+		cursor: pointer;
+	}
+	.expander:hover {
+		font-weight: bold;
+	}
+
+	.expanderWrapper {
+		height:0px;
+		overflow: hidden;
+
+		transition: height 0.5s;
+		-moz-transition: height 0.5s; /* Firefox 4 */
+		-webkit-transition: height 0.5s; /* Safari and Chrome */
+		-o-transition: height 0.5s; /* Opera */
+	}
+
 </style>
 
 

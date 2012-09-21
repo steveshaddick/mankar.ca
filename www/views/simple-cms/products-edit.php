@@ -31,9 +31,7 @@ if (isset($_GET['error'])) {
 <h2><?php echo $product['name'];?></h2>
 
 <form enctype="multipart/form-data" id="frmProduct" name="frmProduct" action="<?php echo "/simple-cms/products/save/$cms->actionData"; ?>" method="POST">
-<table>
-<tr>
-    <td width= "600px">
+<div>
       <img src="<?php echo PICTURES_LOCATION.$product['photo_page'];?>" /><br />
 	  <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
       Upload new file:<br />
@@ -41,9 +39,11 @@ if (isset($_GET['error'])) {
       <input type="checkbox" id="deletephoto" name="deletephoto" value="deletephoto" />
       <hr />
 
-</td></tr>
-<tr>
-  	<td width= "600px">	
+</div>
+
+<span class="expander" onclick="expander('meta');">+ Meta</span>
+<div id="meta" class="expanderWrapper">
+	<div class="expanderContent">
   	<?php
 	if (count($metaTags) > 0){
 		foreach ($metaTags as $key=>$value)
@@ -74,182 +74,240 @@ if (isset($_GET['error'])) {
         <?php
 	}
 	?>
-  
-	</td>
-	</tr>
-<?php
-
-foreach ($product as $key=>$p)
-{ 
-	?>
-	<tr>
-    <td width= "600px">
-    
-	<?php
-	switch ($key) {
-
-		case 'description':
-		case 'description_fr':
-		case 'description_sp':
-			?><i><?php echo $key;?></i><br /><textarea id="<?php echo $key;?>" name="<?php echo $key;?>" class="mceAdvanced" style="width:300px"><?php echo $p;?></textarea><?php
-			break;
-		
-		case 'type_id':
-			?> 
-
-			<i>Type</i><br /><select name="<?php echo $key;?>" id="<?php echo $key;?>"> 
-
-			<?php
-			foreach ($productTypes as $productType) 
-			{
-				?>
-	        	<option value="<?php echo $productType['type_id'];?>" <?php if ($productType['type_id'] == $p) echo 'SELECTED'; ?>><?php echo $productType['name'];?></option> 
-			 	<?php 
-			} 
-			?>
-	        </select>
-	        <?php
-			break;
-
-		case 'supertype_id':
-			?> 
-			<i>Super Type</i><br />
-			<select name="<?php echo $key;?>" id="<?php echo $key;?>"> 
-				<option value="1" <?php if ($product['supertype_id'] == 1) echo 'SELECTED'; ?>>mankarulv.com</option>
-				<option value="2" <?php if ($product['supertype_id'] == 2) echo 'SELECTED'; ?>>mafexulv.com</option> 
-				<option value="3" <?php if ($product['supertype_id'] == 3) echo 'SELECTED'; ?>>rofaulv.com</option> 
-				<option value="4" <?php if ($product['supertype_id'] == 4) echo 'SELECTED'; ?>>mantisulv.com</option> 
-	        </select>
-	        <?php
-			break;
-
-		case 'photo_list':
-		case 'photo_page':
-		case 'product_id':
-		case 'photoStrip':
-		case 'metaTags':
-		case 'selectedParts':
-		case 'otherParts':
-			break;
-		
-		case 'manual':
-			?>
-			
-			<i>Manual</i><br />
-	        <a href="<?php echo MANUALS_LOCATION.$product['manual'];?>"><?php echo $product['manual'];?></a><br />
-	        <input id="manualfile" name="manualfile" type="file" /> OR Delete manual:
-	      	<input type="checkbox" id="deletemanual" name="deletemanual" value="deletemanual">
-		  	
-		  	<?php
-			break;
-		
-		case 'active':
-			?>
-			<i><?php echo $key;?></i><br /><input type="checkbox" id="<?php echo $key;?>" name="<?php echo $key;?>" value="<?php echo $p;?>" <?php if ($p==1) {?>checked<?php } ?>>
-			<?php
-			break;
-		
-		default:
-			?> 
-			<i><?php echo $key;?></i><br /><input type="text" id="<?php echo $key;?>" name="<?php echo $key;?>" value="<?php echo $p;?>" style="width:400px;"/> 
-			<?php
-			break;
-
-	}?>
-    </td>
-    </tr><?php
-}?>
-
-</table>
+  </div>
+</div>
 <hr />
 
-<?php 
-if ($cms->action != 'insert') { 
-	?>
-	<h3>Photos</h3>
-	UPLOAD NEW FILES: <input type="checkbox" id="uploadPhotoStrip" name="uploadPhotoStrip" value="uploadPhotoStrip"><br />
-	<i>Upload new photos</i><br />
-	<div id="photofiles_list">
-		<input type="file" name="photoStrip_files[]" id="photoStrip_files" class="multi"/>
-	</div>
-	<br />
-	<br />
-	<hr />
-	<div style="overflow:scroll; width:100%;">
-		<table>
-		<tr>
+<span class="expander" onclick="expander('info');">+ Info</span>
+<div id="info" class="expanderWrapper">
+	<div class="expanderContent">
+
+		<i>Active</i><br />
+		<input type="checkbox" id="active" name="active" value="<?php echo $product['active']; ?>" <?php if ($product['active']==1) {?>checked<?php } ?>><br />
+
 		<?php
-		foreach ($photoStrip as $photo)
-		{
-			?><td>
-		    <table width="200px">
-			    <tr><td>DELETE: <input type="checkbox" id="photoStrip_deletephoto[<?php echo $photo['photo_id'];?>]" name="photoStrip_deletephoto[<?php echo $photo['photo_id'];?>]" value="photoStrip_deletephoto"></td></tr>
-			    <tr><td><img src="<?php echo THUMBS_LOCATION.$photo['photo'];?>" /></td></tr>
-			    <tr><td><i>Order</i><br /><input type="text" id="photoStrip_order[<?php echo $photo['photo_id'];?>]" name="photoStrip_order[<?php echo $photo['photo_id'];?>]" value="<?php echo $photo['order'];?>" style="width:50px;"/></td></tr>
-			    <tr><td><i>Description</i><br /><textarea class="mceSimple" id="photoStrip_photo_description[<?php echo $photo['photo_id'];?>]" name="photoStrip_photo_description[<?php echo $photo['photo_id'];?>]" style="width:200px"><?php echo $photo['photo_description'];?></textarea></td></tr>
-			    <tr><td><i>Description FR</i><br /><textarea class="mceSimple" id="photoStrip_photo_description_fr[<?php echo $photo['photo_id'];?>]" name="photoStrip_photo_description_fr[<?php echo $photo['photo_id'];?>]" style="width:200px"><?php echo $photo['photo_description_fr'];?></textarea></td></tr>
-				<tr><td><i>Description SP</i><br /><textarea class="mceSimple" id="photoStrip_photo_description_sp[<?php echo $photo['photo_id'];?>]" name="photoStrip_photo_description_sp[<?php echo $photo['photo_id'];?>]" style="width:200px"><?php echo $photo['photo_description_sp'];?></textarea></td></tr>
-			</table>
-		    </td>
+		foreach ($product as $key=>$p)
+		{ 
+
+			switch ($key) {
+				
+				case 'type_id':
+					?> 
+
+					<i>Type</i><br /><select name="<?php echo $key;?>" id="<?php echo $key;?>"> 
+
+					<?php
+					foreach ($productTypes as $productType) 
+					{
+						?>
+			        	<option value="<?php echo $productType['type_id'];?>" <?php if ($productType['type_id'] == $p) echo 'SELECTED'; ?>><?php echo $productType['name'];?></option> 
+					 	<?php 
+					} 
+					?>
+			        </select><br />
+			        <?php
+					break;
+
+				case 'supertype_id':
+					?> 
+					<i>Super Type</i><br />
+					<select name="<?php echo $key;?>" id="<?php echo $key;?>"> 
+						<option value="1" <?php if ($product['supertype_id'] == 1) echo 'SELECTED'; ?>>mankarulv.com</option>
+						<option value="2" <?php if ($product['supertype_id'] == 2) echo 'SELECTED'; ?>>mafexulv.com</option> 
+						<option value="3" <?php if ($product['supertype_id'] == 3) echo 'SELECTED'; ?>>rofaulv.com</option> 
+						<option value="4" <?php if ($product['supertype_id'] == 4) echo 'SELECTED'; ?>>mantisulv.com</option> 
+			        </select><br />
+			        <?php
+					break;
+
+				case 'pretty_url':
+				case 'product_order':
+				case 'name':
+				case 'product_code':
+				case 'old_name':
+				case 'old_code':
+				case 'spray_width':
+				case 'spray_width_us':
+				case 'nozzles':
+				case 'tank':
+				case 'tank_us':
+				case 'area':
+				case 'area_us':
+				case 'time':
+				case 'weight':
+				case 'weight_us':
+				case 'youtube_top':
+				case 'youtube_bottom':
+					?> 
+					<i><?php echo $key;?></i><br /><input type="text" id="<?php echo $key;?>" name="<?php echo $key;?>" value="<?php echo $p;?>" style="width:400px;"/> <br />
+					<?php
+					break;
+
+				case 'manual':
+					?>
+					
+					<i>Manual</i><br />
+			        <a href="<?php echo MANUALS_LOCATION.$product['manual'];?>"><?php echo $product['manual'];?></a><br />
+			        <input id="manualfile" name="manualfile" type="file" /> OR Delete manual:
+			      	<input type="checkbox" id="deletemanual" name="deletemanual" value="deletemanual">
+				  	
+				  	<?php
+					break;
+
+				default:
+					break;
+
+			}
+		}
+		?>
+	</div>
+</div>
+<hr />
+
+<span class="expander" onclick="expander('descriptions');">+ Descriptions</span>
+<div id="descriptions" class="expanderWrapper">
+	<div class="expanderContent">
+
+		<?php
+		foreach ($product as $key=>$p)
+		{ 
+			?>
+			
+			<?php
+			switch ($key) {
+
+				case 'description':
+				case 'description_fr':
+				case 'description_sp':
+					?>
+					<i><?php echo $key;?></i><br />
+					<textarea id="<?php echo $key;?>" name="<?php echo $key;?>" class="mceAdvanced" style="width:300px"><?php echo $p;?></textarea><br />
+					<?php
+					break;
+				
+				default:
+					break;
+
+			}?>
+		    <?php
+		}?>
+	</div>
+</div>
+<hr />
+
+<span class="expander" onclick="expander('photos');">+ Photos</span>
+<div id="photos" class="expanderWrapper">
+	<div class="expanderContent">
+
+		<?php 
+		if ($cms->action != 'insert') { 
+			?>
+			UPLOAD NEW FILES: <input type="checkbox" id="uploadPhotoStrip" name="uploadPhotoStrip" value="uploadPhotoStrip"><br />
+			<i>Upload new photos</i><br />
+			<div id="photofiles_list">
+				<input type="file" name="photoStrip_files[]" id="photoStrip_files" class="multi"/>
+			</div>
+			<br />
+			<br />
+			<hr />
+			<div style="overflow:scroll; width:100%;">
+				<table>
+				<tr>
+				<?php
+				foreach ($photoStrip as $photo)
+				{
+					?><td>
+				    <table width="200px">
+					    <tr><td>DELETE: <input type="checkbox" id="photoStrip_deletephoto[<?php echo $photo['photo_id'];?>]" name="photoStrip_deletephoto[<?php echo $photo['photo_id'];?>]" value="photoStrip_deletephoto"></td></tr>
+					    <tr><td><img src="<?php echo THUMBS_LOCATION.$photo['photo'];?>" /></td></tr>
+					    <tr><td><i>Order</i><br /><input type="text" id="photoStrip_order[<?php echo $photo['photo_id'];?>]" name="photoStrip_order[<?php echo $photo['photo_id'];?>]" value="<?php echo $photo['order'];?>" style="width:50px;"/></td></tr>
+					    <tr><td><i>Description</i><br /><textarea class="mceSimple" id="photoStrip_photo_description[<?php echo $photo['photo_id'];?>]" name="photoStrip_photo_description[<?php echo $photo['photo_id'];?>]" style="width:200px"><?php echo $photo['photo_description'];?></textarea></td></tr>
+					    <tr><td><i>Description FR</i><br /><textarea class="mceSimple" id="photoStrip_photo_description_fr[<?php echo $photo['photo_id'];?>]" name="photoStrip_photo_description_fr[<?php echo $photo['photo_id'];?>]" style="width:200px"><?php echo $photo['photo_description_fr'];?></textarea></td></tr>
+						<tr><td><i>Description SP</i><br /><textarea class="mceSimple" id="photoStrip_photo_description_sp[<?php echo $photo['photo_id'];?>]" name="photoStrip_photo_description_sp[<?php echo $photo['photo_id'];?>]" style="width:200px"><?php echo $photo['photo_description_sp'];?></textarea></td></tr>
+					</table>
+				    </td>
+					<?php 
+				} 
+				?>
+
+				</tr>
+				</table>
+			</div>
+			SAVE PHOTO STRIP: <input type="checkbox" id="savePhotoStrip" name="savePhotoStrip" value="savePhotoStrip">
+
 			<?php 
 		} 
 		?>
 
-		</tr>
-		</table>
 	</div>
-	SAVE PHOTO STRIP: <input type="checkbox" id="savePhotoStrip" name="savePhotoStrip" value="savePhotoStrip">
-	<hr />
-
-	<?php 
-} 
-?>
-
-<h3>Parts</h3>
-<table>
-	<tr>
-	<td width="400px">
-		<i>Selected Parts</i><br />
-		(Check to REMOVE)
-		<div style="height:300px; width:350px; overflow:scroll;">
-		<?php
-			$i = 0;
-			foreach ($selectedParts as $selectedPart)
-			{ 
-				?>
-		        
-		        <input type="checkbox" id="removepart[<?php echo $i;?>]" name="removepart[<?php echo $i;?>]" value="<?php echo $selectedPart['part_id'];?>">
-		        <?php echo $selectedPart['part_code'].' - '.$selectedPart['name']; ?><br />
-		      	
-				<?php
-				$i++;
-			}
-		?>
-		</div>
-	</td>
-	<td>
-		<i>Other Parts</i><br />
-		(Check to ADD)
-		<div style="height:300px; width:350px; overflow:scroll;">
-		<?php
-			$i = 0;
-			foreach ($otherParts as $otherPart)
-			{ 
-				?>
-		        
-		        <input type="checkbox" id="addpart[<?php echo $i;?>]" name="addpart[<?php echo $i;?>]" value="<?php echo $otherPart['part_id'];?>">
-		        <?php echo $otherPart['part_code'].' - '.$otherPart['name']; ?><br />
-		      	
-				<?php
-				$i++;
-			}
-		?>
-		</div>
-	</td>
-	</tr>
-</table>
-SAVE PARTS: <input type="checkbox" id="saveParts" name="saveParts" value="saveParts">
+</div>
 <hr />
+
+<span class="expander" onclick="expander('parts');">+ Parts</span>
+<div id="parts" class="expanderWrapper">
+	<div class="expanderContent">
+
+		<table>
+		<tr>
+		<td width="400px">
+			<i>Selected Parts</i><br />
+			(Check to REMOVE)
+			<div style="height:300px; width:350px; overflow:scroll;">
+			<?php
+				$i = 0;
+				foreach ($selectedParts as $selectedPart)
+				{ 
+					?>
+			        
+			        <input type="checkbox" id="removepart[<?php echo $i;?>]" name="removepart[<?php echo $i;?>]" value="<?php echo $selectedPart['part_id'];?>">
+			        <?php echo $selectedPart['part_code'].' - '.$selectedPart['name']; ?><br />
+			      	
+					<?php
+					$i++;
+				}
+			?>
+			</div>
+		</td>
+		<td>
+			<i>Other Parts</i><br />
+			(Check to ADD)
+			<div style="height:300px; width:350px; overflow:scroll;">
+			<?php
+				$i = 0;
+				foreach ($otherParts as $otherPart)
+				{ 
+					?>
+			        
+			        <input type="checkbox" id="addpart[<?php echo $i;?>]" name="addpart[<?php echo $i;?>]" value="<?php echo $otherPart['part_id'];?>">
+			        <?php echo $otherPart['part_code'].' - '.$otherPart['name']; ?><br />
+			      	
+					<?php
+					$i++;
+				}
+			?>
+			</div>
+		</td>
+		</tr>
+	</table>
+	SAVE PARTS: <input type="checkbox" id="saveParts" name="saveParts" value="saveParts">
+
+	</div>
+</div>
+<hr />
+
 <input type="submit" value="Save" />
 <input type="button" name="cancel" onClick="window.location='/simple-cms/products/list/<?php echo $cms->lastListPage; ?>'" value="Cancel" />
 </form>
+
+<script>
+function expander(id) {
+	var $div = $("#" + id);
+
+	if ($div.hasClass('opened')) {
+		$div.removeClass('opened').css('height', '0px');
+	} else {
+		var height = $('.expanderContent', $div).height();
+		$div.addClass('opened').css('height', height + 'px');
+	}
+}
+</script>
