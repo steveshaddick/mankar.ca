@@ -73,6 +73,13 @@ class SimpleCMS {
 
 
 		$superTypes = array();
+
+		//default to disable, if active is checked it'll override this
+		$superTypes[1] = array('has_nav'=>0);
+		$superTypes[2] = array('has_nav'=>0);
+		$superTypes[3] = array('has_nav'=>0);
+		$superTypes[4] = array('has_nav'=>0);
+
 		foreach ($_POST as $key=>$value)
 		{
 			$superTypeId = substr($key, -1, 1);
@@ -83,13 +90,12 @@ class SimpleCMS {
 
 			$key = str_replace('__' . $superTypeId, '', $key);
 			$superTypes[$superTypeId][$key] = $value;
+			
 			if ($key == 'has_nav') {
 				$superTypes[$superTypeId][$key] = 1;
 			} else {
 				$superTypes[$superTypeId][$key] = $value;
 			}
-
-			$query = substr($query, 0, strlen($query)-1);
 		}
 
 		foreach ($superTypes as $superTypeId=>$superType) 
@@ -111,7 +117,6 @@ class SimpleCMS {
 			}
 
 		}
-
 		return $this->error;
 
 	}
