@@ -148,7 +148,7 @@ h2 {
 
 
 #header-contact{
-	width:450px;
+	width:250px;
 	color:#acacac;
 	text-align: right;
 	float:right;
@@ -182,11 +182,11 @@ h2 {
     display: block;
     font-family: Verdana, Helvetica, sans-serif;
     font-size: 20px;
-    left: 328px;
-    line-height: 20px;
-    position: absolute;
-    top: 27px;
-    width: 300px;
+    line-height: 23px;
+    margin-top: 12px;
+    width: 400px;
+    float: left;
+    margin-left:5px;
 }
  
 #header{
@@ -205,6 +205,11 @@ h2 {
 	margin: 0;
 	padding: 0;
 	font-size:0.75em;
+}
+
+.logoLink {
+	display:inline-block;
+	float:left;
 }
 
 
@@ -226,6 +231,7 @@ a.localeLink:hover {
 }
 a.localeLink.selected {
 	font-weight: bold;
+	color: #D1ECD0;
 }
 
 
@@ -386,6 +392,12 @@ a.typeName:hover
 .superTypeIcon {
 	padding-right: 10px;
     vertical-align: middle;
+}
+
+.smallSlug {
+	display: block;
+    font-size: 10px;
+    margin-left: 10px;
 }
 
 
@@ -666,6 +678,7 @@ h1.productName {
   padding:15px 0;
   border-top:1px solid #d2d2d2;
   border-bottom:1px solid #d2d2d2;
+  clear:both;
 }
 
 img.productTypeHeader {

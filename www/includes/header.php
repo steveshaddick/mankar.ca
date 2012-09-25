@@ -5,8 +5,8 @@
 
 <div id="header">
     <div id="logo-picture">
-    	<a href="http://www.mankar.ca/"><img src="/images/mankar-logo.png" alt="Mankar Logo" border="0"></a>
-    	<span class="logoText">Ultra-Low Volume<br />Applicators</span>
+    	<a class="logoLink" href="http://www.mankar.ca/"><img src="/images/<?php echo $mankarMain->superTypeLogo; ?>" alt="<?php echo $mankarMain->superTypeName; ?> Logo" border="0"></a>
+    	<span class="logoText">Ultra-Low Volume<br /><?php echo $mankarMain->superTypeSlug; ?></span>
     </div>
       
       <div id="header-contact">

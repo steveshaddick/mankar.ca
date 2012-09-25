@@ -131,7 +131,7 @@
 			"file": "www/models/SimpleCMS.php",
 			"settings":
 			{
-				"buffer_size": 24776,
+				"buffer_size": 24974,
 				"line_ending": "Windows"
 			}
 		},
@@ -148,6 +148,14 @@
 			"settings":
 			{
 				"buffer_size": 380,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "www/lib/MankarFunctions.php",
+			"settings":
+			{
+				"buffer_size": 1226,
 				"line_ending": "Windows"
 			}
 		}
@@ -184,10 +192,12 @@
 	},
 	"file_history":
 	[
+		"/D/Projects/Mankar/development/www/views/simple-cms/tradeshows-edit.php",
+		"/D/Projects/Mankar/development/www/content/mafexulv.com/products-main.php",
+		"/D/Projects/Mankar/development/www/simple-cms/index.php",
 		"/D/Projects/Mankar/development/www/error.html",
 		"/D/Projects/Mankar/development/www/env/config.php",
 		"/D/Projects/Mankar/development/www/admin/edit_show.php",
-		"/D/Projects/Mankar/development/www/views/simple-cms/tradeshows-edit.php",
 		"/D/Projects/Mankar/development/www/views/simple-cms/tradeshows-list.php",
 		"/D/Projects/Mankar/development/www/admin/tradeshows.php",
 		"/D/Projects/Mankar/development/www/content/mankarulv.com/tradeshows.php",
@@ -310,6 +320,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"gettradeshow",
 			"/simple-cms/product_types",
 			"productType",
 			"name",
@@ -423,7 +434,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -552,8 +563,8 @@
 						"selection":
 						[
 							[
-								3362,
-								3362
+								1060,
+								1060
 							]
 						],
 						"settings":
@@ -887,15 +898,15 @@
 					"file": "www/models/SimpleCMS.php",
 					"settings":
 					{
-						"buffer_size": 24776,
+						"buffer_size": 24974,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								19161,
-								19161
+								3359,
+								3359
 							]
 						],
 						"settings":
@@ -991,7 +1002,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7922.0,
+						"translation.y": 883.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1216,6 +1227,120 @@
 							},
 							"sublimelinter_wrap_find": true,
 							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "www/lib/MankarFunctions.php",
+					"settings":
+					{
+						"buffer_size": 1226,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								739,
+								739
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

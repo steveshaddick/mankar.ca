@@ -63,8 +63,7 @@
     	<a href="/products"><span class="backArrow"><img src="/images/back-arrow.png" alt="" /></span><?php echo PRODUCTS; ?></a>
     </div>
 	<div class="units">
-		<a class="localeLink <?php if ($mankarMain->units == UNIT_US) { echo 'selected'; } ?>" href="/locale/units/us">U.S.</a>
-		<a class="localeLink <?php if ($mankarMain->units == UNIT_METRIC) { echo 'selected'; } ?>" href="/locale/units/metric">Metric</a>
+		<a class="localeLink <?php if ($mankarMain->units == UNIT_US) { echo 'selected'; } ?>" href="/locale/units/us">U.S.</a> | <a class="localeLink <?php if ($mankarMain->units == UNIT_METRIC) { echo 'selected'; } ?>" href="/locale/units/metric">Metric</a>
 	</div>
 	<br class="clear" />
 </div>

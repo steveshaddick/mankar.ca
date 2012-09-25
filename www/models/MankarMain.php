@@ -21,6 +21,9 @@ class MankarMain {
 	
 	public $superTypes;
 	public $superTypeUrl;
+	public $superTypeLogo;
+	public $superTypeName;
+	public $superTypeSlug;
 	public $superTypeId = 1;		//product supertypes for separating sites
 	
 	public $envPrefix = 'www.';
@@ -68,6 +71,9 @@ class MankarMain {
 		function iterate($row, &$data) {
 			if ($row['url'] == $data->superTypeUrl) {
 				$data->superTypeId = $row['supertype_id'];
+				$data->superTypeLogo = $row['logo'];
+				$data->superTypeName = $row['name'];
+				$data->superTypeSlug = $row['slug'];
 			}
 		}
 		$this->superTypes = $this->mySQL->sendQuery("SELECT * FROM supertypes", 'supertype_id', 'iterate', $this);

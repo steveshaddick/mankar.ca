@@ -40,7 +40,7 @@
 				?>
 
 				<li>
-					<a class="typeName" href="http://<?php echo $mankarMain->envPrefix . $superType['url']; ?>"><img class="superTypeIcon" src="/images/<?php echo $superType['icon']; ?>" alt="" /><?php echo $superType['name']; ?></a>
+					<a class="typeName" href="http://<?php echo $mankarMain->envPrefix . $superType['url']; ?>"><img class="superTypeIcon" src="/images/<?php echo $superType['icon']; ?>" alt="" /><?php echo $superType['name']; ?></a><span class="smallSlug"><?php echo $superType['slug']; ?></span>
 				</li>
 
 				<?php
