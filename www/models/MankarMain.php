@@ -217,9 +217,9 @@ class MankarMain {
 		$lastyear = mktime(0, 0, 0, date("m"), date("d"), date("Y")-1);
 	    $lastyeartoday = date("Y-m-d H:i:s",$lastyear);
 	    
-	    $upcoming = $this->mySQL->sendQuery("SELECT * FROM tradeshows WHERE showend >= '$today' ORDER BY showstart");
-	    $recent = $this->mySQL->sendQuery("SELECT * FROM tradeshows WHERE showend < '$today' AND showend >= '$lastyeartoday' ORDER BY showstart DESC");
-	    $oneYear = $this->mySQL->sendQuery("SELECT * FROM tradeshows WHERE showend < '$lastyeartoday' ORDER BY showstart DESC");
+	    $upcoming = $this->mySQL->sendQuery("SELECT * FROM tradeshows WHERE showend >= '$today' AND supertypes LIKE '%{$this->superTypeId}%' ORDER BY showstart");
+	    $recent = $this->mySQL->sendQuery("SELECT * FROM tradeshows WHERE showend < '$today' AND showend >= '$lastyeartoday' AND supertypes LIKE '%{$this->superTypeId}%' ORDER BY showstart DESC");
+	    $oneYear = $this->mySQL->sendQuery("SELECT * FROM tradeshows WHERE showend < '$lastyeartoday' AND supertypes LIKE '%{$this->superTypeId}%' ORDER BY showstart DESC");
 		
 		return array('upcoming'=>$upcoming, 'recent'=>$recent, 'oneYear'=>$oneYear);
 	}

@@ -1,6 +1,7 @@
 <?php
 
 $tradeshow = ($cms->action == 'edit') ? $cms->getTradeshow() : $cms->getTradeshow(true);
+$provinces = $cms->getStates();
 
 ?>
 <h2><a href="/simple-cms/tradeshows/list/<?php echo $cms->lastListPage; ?>">&lt; Tradeshows</a></h2>
@@ -20,7 +21,7 @@ if (isset($_GET['error'])) {
 <table>
 <tr>
     <td width= "600px">
-      <img src="<?php echo THUMBS_LOCATION.$tradeshow['thumbnail'];?>" /><br />
+      <img src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /><br />
 	  <input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
       Upload new file:<br />
       <input id="photofile" name="photofile" type="file" /> OR Delete photo:
@@ -28,43 +29,9 @@ if (isset($_GET['error'])) {
       <hr />
 
 </td></tr>
-<tr>
-<td width= "600px">
-<?php
-	if (count($metaTags) > 0){
-		foreach ($metaTags as $key=>$value)
-		{
-			?>
-            
-             <?php
-			 if (($key != 'meta_tag_id') && ($key != 'related_id') && ($key != 'page') && ($key != 'actual_url')) {
-				 ?>
-                 <i><?=$key;?></i><br /><input type="text" id="<?=$key;?>" name="<?=$key;?>" value="<?=$value;?>" style="width:400px;"/><br />
-                 <?php
-			 }
-			 ?>
-             <?php
-		}
-	} else {
-		
-		?>
-		<i>meta_title</i><br /><input type="text" id="meta_title" name="meta_title" value="" style="width:400px;"/><br />
-        <i>meta_description</i><br /><input type="text" id="meta_description" name="meta_description" value="" style="width:400px;"/><br />
-        <i>meta_keywords</i><br /><input type="text" id="meta_keywords" name="meta_keywords" value="" style="width:400px;"/><br />
-        <i>meta_title_fr</i><br /><input type="text" id="meta_title_fr" name="meta_title_fr" value="" style="width:400px;"/><br />
-        <i>meta_description_fr</i><br /><input type="text" id="meta_description_fr" name="meta_description_fr" value="" style="width:400px;"/><br />
-        <i>meta_keywords_fr</i><br /><input type="text" id="meta_keywords_fr" name="meta_keywords_fr" value="" style="width:400px;"/><br />
-        <i>meta_title_sp</i><br /><input type="text" id="meta_title_sp" name="meta_title_sp" value="" style="width:400px;"/><br />
-        <i>meta_description_sp</i><br /><input type="text" id="meta_description_sp" name="meta_description_sp" value="" style="width:400px;"/><br />
-        <i>meta_keywords_sp</i><br /><input type="text" id="meta_keywords_sp" name="meta_keywords_sp" value="" style="width:400px;"/><br />
-        <?php
-	}
-	?>
-     </td>
-</tr>
+
 <?php
 
-            
 foreach ($tradeshow as $key=>$p)
 { ?>
 	<tr>
@@ -72,38 +39,46 @@ foreach ($tradeshow as $key=>$p)
 <?php
 	switch ($key) {
 
-		case 'description':
-		case 'description_fr':
-		case 'description_sp':
-		case 'blurb':
-		case 'blurb_fr':
-		case 'blurb_sp':
-			?><i><?=$key;?></i><br /><textarea id="<?=$key;?>" name="<?=$key;?>" class="mceAdvanced" style="width:300px"><?=$p;?></textarea><?php
-			break;
-
-		case 'supertype_id':
+		case 'state_id':
 			?> 
-			<i>Super Type</i><br />
-			<select name="<?php echo $key;?>" id="<?php echo $key;?>"> 
-				<option value="1" <?php if ($tradeshow['supertype_id'] == 1) echo 'SELECTED'; ?>>mankarulv.com</option>
-				<option value="2" <?php if ($tradeshow['supertype_id'] == 2) echo 'SELECTED'; ?>>mafexulv.com</option> 
-				<option value="3" <?php if ($tradeshow['supertype_id'] == 3) echo 'SELECTED'; ?>>rofaulv.com</option> 
-				<option value="4" <?php if ($tradeshow['supertype_id'] == 4) echo 'SELECTED'; ?>>mantisulv.com</option> 
+			<i><?php echo $key; ?></i><br /><select name="<?php echo $key; ?>" id="<?php echo $key; ?>"> <?php
+			foreach ($provinces as $province) 
+			{
+				?>
+	        	<option value="<?php echo $province['state_id']; ?>" <?php if ($province['state_id'] == $p) echo 'SELECTED'; ?>><?php echo $province['state']; ?></option> 
+			 	<?php 
+			} 
+			?>
 	        </select>
 	        <?php
 			break;
 		
-		case 'thumbnail':
-		case 'type_id':
-		case 'metaTags':
+		case 'country':
+			?> 
+			<i><?php echo $key; ?></i><br />
+	        <select name="<?php echo $key; ?>" id="<?php echo $key; ?>">
+				<option value="Canada" <?php if ("Canada" == $p) echo 'SELECTED'; ?>>Canada</option> 
+	       	 	<option value="U.S.A." <?php if ("U.S.A." == $p) echo 'SELECTED'; ?>>U.S.A.</option> 
+	        </select>
+	        <?php
 			break;
-			
-			case 'active':
-			?><i><?=$key;?></i><br /><input type="checkbox" id="<?=$key;?>" name="<?=$key;?>" value="<?=$p;?>" <?php if ($p==1) {?>checked<?php } ?>><?php
+
+		case 'logo':
+		case 'show_id':
+		case 'province':
+		case 'dtime':
 			break;
-		
+
+		case 'details':
+		case 'details_fr':
+		case 'details_sp':
+			?><i><?=$key;?></i><br /><textarea id="<?=$key;?>" name="<?=$key;?>" class="mceAdvanced" style="width:300px"><?=$p;?></textarea><?php
+			break;
+
 		default:
-			?> <i><?=$key;?></i><br /><input type="text" id="<?=$key;?>" name="<?=$key;?>" value="<?=$p;?>" style="width:400px;"/> <?php
+			?> 
+			<i><?php echo $key; ?></i><br /><input type="text" id="<?php echo $key; ?>" name="<?php echo $key; ?>" value="<?php echo $p; ?>" style="width:400px;"/> 
+			<?php
 			break;
 
 	}?>

@@ -3,27 +3,7 @@ Organized highest to lowest priority (from Nick's point of view)
 Creating new products or editing them.
 -metadata not saving ?
 
---------------------------------------------------------
 
-http://dev.mankarulv.com/simple-cms/tradeshows/edit/118
-
-throwing an error:
-
-Notice: Undefined index: name in /usr/local/pem/vhosts/146281/webspace/httpdocs/dev/views/simple-cms/tradeshows-edit.php on line 19
-
-
-----------------------------------------------------------
-
-Other Products in left column
--add Mankar Logo
--make them two-line entries:
-
-Mankar ULV Applicators for herbicide
-Mafex ULV Fine spray units for Potatoes and Fruit
-ROFA ULV Sprayer for insecticides
-Mantis ULV Applicator for form release
-
-I hope it doesn't look too strange.  People may not be familiar with the brands, so we need something to explain.
 ---------------------------------------------------------
 
 Look at this page:
@@ -34,9 +14,6 @@ as you get narrower than around 1200px or so, the horizontal submenu wraps in a 
 
 I would suggest the submenu stays above the line, and that if possible they wrap evenly (so if there are 4 menu items, it goes to 2 and 2) if that is not too much work.
 
---------------------------------------------------------
-
-Logos need to switch when we change websites!
 
 --------------------------------------------------------
 on content/parts-main, I do not know how to edit the code so it lists only MAFEX in the dropdown, for example. 

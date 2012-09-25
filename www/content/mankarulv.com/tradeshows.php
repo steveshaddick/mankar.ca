@@ -37,12 +37,12 @@
         //TODO check for missing link
         //TODO add back to top
         ?>
-        <a href="<?php echo $tradeshow['showlink']?>" target="_blank"> <img class="imgTradeshow" src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /></a>
+        <a href="<?php echo $tradeshow['website']?>" target="_blank"> <img class="imgTradeshow" src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /></a>
         <?php
       }
       ?>
 
-      <a class="tradeshowTitle" href="<?php echo $tradeshow['showlink'] ?>"><?php echo $tradeshow['showname']; ?></a><br />
+      <a class="tradeshowTitle" href="<?php echo $tradeshow['website'] ?>" target="_blank"><?php echo $tradeshow['showname']; ?></a><br />
       <i><?php echo date("M jS", strtotime($tradeshow['showstart'])); ?> - <?php echo date("M jS, Y", strtotime($tradeshow['showend'])); ?></i><br />
       <?php echo $tradeshow['city'] . ", " . $tradeshow['province'] . ", " . $tradeshow['country']; ?><br class="clear" />
       
@@ -70,11 +70,11 @@
       <?php
       if ($tradeshow['logo'] != '') {
         ?>
-        <a href="<?php echo $tradeshow['showlink']?>" target="_blank"> <img class="imgTradeshow" src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /></a>
+        <a href="<?php echo $tradeshow['website']?>" target="_blank"> <img class="imgTradeshow" src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /></a>
         <?php
       }
       ?>
-      <a class="tradeshowTitle" href="<?php echo $tradeshow['showlink'] ?>"><?php echo $tradeshow['showname']; ?></a><br />
+      <a class="tradeshowTitle" href="<?php echo $tradeshow['website'] ?>"><?php echo $tradeshow['showname']; ?></a><br />
       <i><?php echo date("M jS", strtotime($tradeshow['showstart'])); ?> - <?php echo date("M jS, Y", strtotime($tradeshow['showend'])); ?></i><br />
       <?php echo $tradeshow['city'] . ", " . $tradeshow['province'] . ", " . $tradeshow['country']; ?><br class="clear" />
       

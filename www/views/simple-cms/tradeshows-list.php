@@ -19,9 +19,9 @@ if (count($tradeshows) > 0)
     foreach ($tradeshows as $tradeshow)
     {?>
         <tr>
-        <td><a href="/simple-cms/tradeshows/edit/<?php echo $tradeshow['showid'];?>"><?php echo $tradeshow['showid'];?></a></td>
-        <td><a href="/simple-cms/tradeshows/edit/<?php echo $tradeshow['showid'];?>"><?php echo $tradeshow['showname'];?></a></td>
-        <td><a href="#" onClick="checkSure('Are you sure you want to delete <?php echo $tradeshow['showname'];?>?','/simple-cms/tradeshows/delete/<?php echo $tradeshow['showid'];?>')">Delete</a></td>
+        <td><a href="/simple-cms/tradeshows/edit/<?php echo $tradeshow['show_id'];?>"><?php echo $tradeshow['show_id'];?></a></td>
+        <td><a href="/simple-cms/tradeshows/edit/<?php echo $tradeshow['show_id'];?>"><?php echo $tradeshow['showname'];?></a></td>
+        <td><a href="#" onClick="checkSure('Are you sure you want to delete <?php echo $tradeshow['showname'];?>?','/simple-cms/tradeshows/delete/<?php echo $tradeshow['show_id'];?>')">Delete</a></td>
         </tr>
     <?php } ?>
     
