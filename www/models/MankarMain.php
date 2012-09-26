@@ -89,15 +89,29 @@ class MankarMain {
 
 		$prettyUrl = $this->mySQL->cleanString($prettyUrl);
 
-		$sitePage = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND supertype_id=$this->superTypeId");
-		if ($sitePage === false) {
-			$redirect = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND redirect_supertype=$this->superTypeId");
-			if ($redirect !== false) {
-				return array('success' => false, 'url' => $this->superTypes[$redirect['redirect_supertype']]['url'] . $_SERVER['REQUEST_URI']);
+		if ($prettyUrl === 'news') {
+			$newsPage = $this->mySQL->cleanString($_GET['news']);
+			if ($newsPage !== '') {
+				$newsPage = intval($news);
+				if ($newsPage === 0) {
+					$newsPage = 1;
+				}
 			} else {
-				return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
+				$newsPage = 1;
+			}
+		} else {
+			$sitePage = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND supertype_id=$this->superTypeId");
+			if ($sitePage === false) {
+				$redirect = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND redirect_supertype=$this->superTypeId");
+				if ($redirect !== false) {
+					return array('success' => false, 'url' => $this->superTypes[$redirect['redirect_supertype']]['url'] . $_SERVER['REQUEST_URI']);
+				} else {
+					return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
+				}
 			}
 		}
+
+		
 
 		$this->pageContent = $sitePage['content_file'];
 		if ($this->pageContent == '') {
