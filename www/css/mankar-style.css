@@ -834,10 +834,11 @@ img.productTypeHeader {
 
 a.recentNewsTitle {
 	color: #076C0C;
+	font-size: 14px;
 }
 
 .recentNewsDate {
-	font-size: 12px;
+	font-size: 11px;
 }
 
 .divBottom
