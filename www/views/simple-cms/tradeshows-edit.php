@@ -1,6 +1,7 @@
 <?php
 
-$tradeshow = ($cms->action == 'edit') ? $cms->getTradeshow() : $cms->getTradeshow(true);
+
+$tradeshow = $cms->getEdit(($cms->action == 'insert'));
 $provinces = $cms->getStates();
 
 ?>

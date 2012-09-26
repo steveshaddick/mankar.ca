@@ -1,6 +1,6 @@
 <?php
 
-$part = ($cms->action == 'edit') ? $cms->getPart() : $cms->getPart(true);
+$part = $cms->getEdit(($cms->action == 'insert'));
 
 
 ?>

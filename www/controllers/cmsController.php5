@@ -9,18 +9,25 @@ require_once(dirname(__FILE__).'/../env/config.php');
 require_once(dirname(__FILE__).'/../lib/MankarFunctions.php');
 require_once(dirname(__FILE__).'/../lib/MySQLUtility.php');
 require_once(dirname(__FILE__).'/../lib/AuthUtility.php');
-require_once(dirname(__FILE__).'/../models/SimpleCMS.php');
 
-$cms = new SimpleCMS();
+require_once(dirname(__FILE__).'/../models/simple-cms/SimpleCMSEditor.php');
+require_once(dirname(__FILE__).'/../models/simple-cms/SimpleCMSListView.php');
+
+$cms = null;
 
 //check authentication
 $auth = new AuthUtility();
+
+$get = explode('/', $_GET['page']);
+$page = isset($get[0]) ? $get[0] : '';
+$action = isset($get[1]) ? $get[1] : '';
+$actionData = isset($get[2]) ? $get[2] : '';
 
 if ($auth->authenticated !== true) {
 
 	require_once(dirname(__FILE__).'/../lib/StringUtils.php');
 
-	if ($cms->page == 'login') {
+	if ($page == 'login') {
 		if (isset($_POST['txtUsername'])) {
 			if ($auth->login($_POST['txtUsername'], $_POST['txtPassword'], isset($_POST['chkRemember']))) {
 				header("Location: http://" . SITE_URL . "simple-cms/main");
@@ -34,7 +41,7 @@ if ($auth->authenticated === true) {
 
 	$content = '';
 	
-	switch ($cms->page) {
+	switch ($page) {
 
 		case 'logout':
 			$auth->logout();
@@ -42,206 +49,53 @@ if ($auth->authenticated === true) {
 			exit();
 			break;
 
+		case 'news':
+
+			require_once(dirname(__FILE__).'/../models/simple-cms/NewsEditor.php');
+			$cms = new NewsEditor();
+
+			break;
+
 		case 'tradeshows':
-			switch ($cms->action)
-			{
-				case 'delete':
-					$cms->deleteTradeshow();
 
-					header("Location: http://" . SITE_URL . "simple-cms/tradeshows/list/$cms->lastListPage");
-					break;
-				
-				case 'save':
-					if (intval($cms->actionData) > 0) {
-						$result = $cms->saveTradeshow('update');
-					} else {
-						$result = $cms->saveTradeshow('insert');
-					}
+			require_once(dirname(__FILE__).'/../models/simple-cms/TradeshowsEditor.php');
+			$cms = new TradeshowsEditor();
 
-					header("Location: http://" . SITE_URL . "simple-cms/tradeshows/edit/{$cms->actionData}?error={$cms->error}");
-					break;
-				
-				case 'edit':
-				case 'insert':
-					$content = 'tradeshows-edit.php';
-					break;
-
-				case 'list':
-					$content = 'tradeshows-list.php';
-					break;
-				
-				default:
-					header("Location: http://" . SITE_URL . "simple-cms/main");
-					exit();
-					break;
-			}
 			break;
 
 		case 'products':
-			switch ($cms->action)
-			{
-				case 'delete':
-					$cms->deleteProduct();
 
-					header("Location: http://" . SITE_URL . "simple-cms/products/list/$cms->lastListPage");
-					break;
-				
-				case 'save':
-					if (intval($cms->actionData) > 0) {
-						$result = $cms->saveProduct('update');
-					} else {
-						$result = $cms->saveProduct('insert');
-					}
+			require_once(dirname(__FILE__).'/../models/simple-cms/ProductsEditor.php');
+			$cms = new ProductsEditor();
 
-					header("Location: http://" . SITE_URL . "simple-cms/products/edit/{$cms->actionData}?error={$cms->error}");
-					break;
-				
-				case 'edit':
-				case 'insert':
-					$content = 'products-edit.php';
-					break;
-
-				case 'list':
-					$content = 'products-list.php';
-					break;
-				
-				default:
-					header("Location: http://" . SITE_URL . "simple-cms/main");
-					exit();
-					break;
-			}
 			break;
 			
 		case 'parts':
-			switch ($cms->action)
-			{
-				case 'delete':
-					$cms->deletePart();
 
-					header("Location: http://" . SITE_URL . "simple-cms/parts/list/$cms->lastListPage");
-					break;
-				
-				case 'save':
-					if (intval($cms->actionData) > 0) {
-						$result = $cms->savePart('update');
-					} else {
-						$result = $cms->savePart('insert');
-					}
+			require_once(dirname(__FILE__).'/../models/simple-cms/PartsEditor.php');
+			$cms = new PartsEditor();
 
-					header("Location: http://" . SITE_URL . "simple-cms/parts/edit/{$cms->actionData}?error={$cms->error}");
-					break;
-				
-				case 'edit':
-				case 'insert':
-					$content = 'parts-edit.php';
-					break;
-
-				case 'list':
-					$content = 'parts-list.php';
-					break;
-				
-				
-				default:
-					header("Location: http://" . SITE_URL . "simple-cms/main");
-					exit();
-					break;
-			}
 			break;
 		
 		case 'product_types':
-			switch ($cms->action)
-			{
-				case 'delete':
-					$cms->deleteProductType();
 
-					header("Location: http://" . SITE_URL . "simple-cms/product_types/list/$cms->lastListPage");
-					break;
-				
-				case 'save':
-					if (intval($cms->actionData) > 0) {
-						$result = $cms->saveProductType('update');
-					} else {
-						$result = $cms->saveProductType('insert');
-					}
+			require_once(dirname(__FILE__).'/../models/simple-cms/ProductTypesEditor.php');
+			$cms = new ProductTypesEditor();
 
-					header("Location: http://" . SITE_URL . "simple-cms/product_types/edit/{$cms->actionData}?error={$cms->error}");
-					break;
-				
-				case 'edit':
-				case 'insert':
-					$content = 'product-types-edit.php';
-					break;
-				
-				case 'list':
-					$content = 'product-types-list.php';
-					break;
-				
-				default:
-					header("Location: http://" . SITE_URL . "simple-cms/main");
-					exit();
-					break;
-			}
 			break;
 		
 		case 'dealers':
-			switch ($cms->action)
-			{
-				case 'delete':
 
-					$cms->deleteDealer();
+			require_once(dirname(__FILE__).'/../models/simple-cms/DealersEditor.php');
+			$cms = new DealersEditor();
 
-					header("Location: http://" . SITE_URL . "simple-cms/dealers/list/$cms->lastListPage");
-					break;
-				
-				case 'save':
-					//TODO clean these strings
-					if (intval($cms->actionData) > 0) {
-						$result = $cms->saveDealer('update');
-					} else {
-						$result = $cms->saveDealer('insert');
-					}
-
-					header("Location: http://" . SITE_URL . "simple-cms/dealers/edit/{$cms->actionData}?error={$cms->error}");
-					break;
-				
-				case 'edit':
-				case 'insert':
-					$content = 'dealers-edit.php';
-					break;
-				
-				case 'list':
-					$content = 'dealers-list.php';
-					break;
-
-				default:
-					header("Location: http://" . SITE_URL . "simple-cms/main");
-					exit();
-					break;
-			}
 			break;
 		
-		case 'site-pages':
-			switch ($cms->action)
-			{
-				case 'save':
-					$cms->saveSitePage();
-					header("Location: http://" . SITE_URL . "simple-cms/site-pages/edit/{$cms->actionData}?error={$cms->error}");
-					break;
-				
-				case 'edit':
-					$content = 'site-pages-edit.php';
-					break;
-				
-				
-				case 'list':
-					$content = 'site-pages-list.php';
-					break;
+		case 'site_pages':
 
-				default:
-					header("Location: http://" . SITE_URL . "simple-cms/main");
-					exit();
-					break;
-			}
+			require_once(dirname(__FILE__).'/../models/simple-cms/SitePagesEditor.php');
+			$cms = new SitePagesEditor();
+
 			break;
 		
 		case 'main':
@@ -252,6 +106,43 @@ if ($auth->authenticated === true) {
 			header("Location: http://" . SITE_URL . "simple-cms/main");
 			exit();
 			break;
+	}
+
+	if ($cms) {
+
+		switch ($action)
+		{
+			case 'delete':
+				$cms->delete();
+
+				header("Location: http://" . SITE_URL . "simple-cms/$cms->table/list/$cms->lastListPage");
+				break;
+			
+			case 'save':
+				if (intval($actionData) > 0) {
+					$result = $cms->save('update');
+				} else {
+					$result = $cms->save('insert');
+				}
+
+				header("Location: http://" . SITE_URL . "simple-cms/$cms->table/edit/{$cms->actionData}?error={$cms->error}");
+				break;
+			
+			case 'edit':
+			case 'insert':
+				$content = $cms->editPage;
+				break;
+
+			case 'list':
+				$view = new SimpleCMSListView($cms);
+				$content = 'list.php';
+				break;
+			
+			default:
+				header("Location: http://" . SITE_URL . "simple-cms/main");
+				exit();
+				break;
+		}
 	}
 } else {
 

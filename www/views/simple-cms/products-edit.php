@@ -2,8 +2,8 @@
 
 <?php
 
-$product = ($cms->action == 'edit') ? $cms->getProduct() : $cms->getProduct(true);
-$productTypes = $cms->getProductTypesList(true);
+$product =  $cms->getEdit(($cms->action == 'insert'));
+$productTypes = $cms->getProductTypes();
 
 $photoStrip = $product['photoStrip'];
 $selectedParts = $product['selectedParts'];

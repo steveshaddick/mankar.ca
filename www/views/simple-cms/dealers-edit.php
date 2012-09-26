@@ -2,7 +2,7 @@
 
 <?php
 
-$dealer = ($cms->action == 'edit') ? $cms->getDealer() : $cms->getDealer(true);
+$dealer =  $cms->getEdit(($cms->action == 'insert'));
 
 $provinces = $cms->getStates();
 

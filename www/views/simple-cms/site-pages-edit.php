@@ -2,16 +2,16 @@
 
 <?php
 
-$pages = $cms->getSitePage();
+$pages = $cms->getEdit();
 if (count($pages) == 0) {
-	header("Location: http://" . SITE_URL . "simple-cms/site-pages/list/$cms->lastListPage");
+	header("Location: http://" . SITE_URL . "simple-cms/site_pages/list/$cms->lastListPage");
 	exit();
 }
 
 
 
 ?>
-<h2><a href="/simple-cms/site-pages/list/<?php echo $cms->lastListPage; ?>">&lt; Site Pages</a></h2>
+<h2><a href="/simple-cms/site_pages/list/<?php echo $cms->lastListPage; ?>">&lt; Site Pages</a></h2>
 
 <?php
 if (isset($_GET['error'])) {
@@ -25,7 +25,7 @@ if (isset($_GET['error'])) {
 ?>
 
 <h2><?php echo $pages[0]['pretty_url']; ?></h2>
-<form enctype="multipart/form-data" id="frmProduct" name="frmProduct" action="<?php echo "/simple-cms/site-pages/save/$cms->actionData"; ?>" method="POST">
+<form enctype="multipart/form-data" id="frmProduct" name="frmProduct" action="<?php echo "/simple-cms/site_pages/save/$cms->actionData"; ?>" method="POST">
 
 <table>
 
@@ -120,5 +120,5 @@ foreach ($pages as $sitePage)
 <hr />
 
 <input type="submit" value="Save" />
-<input type="button" name="cancel" onClick="window.location = '/simple-cms/site-pages/list/<?php echo $cms->lastListPage; ?>'" value="Cancel" />
+<input type="button" name="cancel" onClick="window.location = '/simple-cms/site_pages/list/<?php echo $cms->lastListPage; ?>'" value="Cancel" />
 </form>

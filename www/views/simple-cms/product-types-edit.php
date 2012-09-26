@@ -1,6 +1,6 @@
 <?php
 
-$productType = ($cms->action == 'edit') ? $cms->getProductType() : $cms->getProductType(true);
+$productType = $cms->getEdit(($cms->action == 'insert'));
 $metaTags = $productType['metaTags'];
 
 ?>
