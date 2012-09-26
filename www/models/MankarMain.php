@@ -233,6 +233,10 @@ class MankarMain {
 		return $this->mySQL->sendQuery("SELECT name, manual FROM products WHERE manual <> '' AND supertype_id = $this->superTypeId ORDER BY type_id, manual, product_code");
 	}
 
+	public function getRecentNews() {
+		return $this->mySQL->sendQuery("SELECT * FROM news WHERE active = 1 AND supertypes LIKE '%{$this->superTypeId}%' ORDER BY newsDate DESC LIMIT 3");
+	}
+
 
 	/* PRIVATE FUNCTIONS */
 

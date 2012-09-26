@@ -828,6 +828,18 @@ img.productTypeHeader {
 	color:#6aa869;
 }
 
+.recentNews {
+	margin-bottom: 5px;
+}
+
+a.recentNewsTitle {
+	color: #076C0C;
+}
+
+.recentNewsDate {
+	font-size: 12px;
+}
+
 .divBottom
 {
 	width:100%;

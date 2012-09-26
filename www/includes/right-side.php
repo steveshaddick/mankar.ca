@@ -3,7 +3,7 @@
 switch ($mankarMain->lang) { 
 	case LANGUAGE_ENGLISH :  
 		define('NEXT_TRADESHOW', 'Our Next Tradeshow');
-		define('RECENT_POSTS', 'Recent Posts');
+		define('RECENT_POSTS', 'Recent News');
 		define('CATEGORIES', 'Categories');
 		define('POSTS_BY_DATE', 'Posts by Date');
 		define('MORE_POSTS', 'More...');
@@ -11,7 +11,7 @@ switch ($mankarMain->lang) {
 		break;
 	case LANGUAGE_FRENCH :  
 		define('NEXT_TRADESHOW', 'Our Next Tradeshow');
-		define('RECENT_POSTS', 'Recent Posts');
+		define('RECENT_POSTS', 'Recent News');
 		define('CATEGORIES', 'Categories');
 		define('POSTS_BY_DATE', 'Posts by Date');
 		define('MORE_POSTS', 'More...');
@@ -19,7 +19,7 @@ switch ($mankarMain->lang) {
 		break;
 	case LANGUAGE_SPANISH :  
 		define('NEXT_TRADESHOW', 'Our Next Tradeshow');
-		define('RECENT_POSTS', 'Recent Posts');
+		define('RECENT_POSTS', 'Recent News');
 		define('CATEGORIES', 'Categories');
 		define('POSTS_BY_DATE', 'Posts by Date');
 		define('MORE_POSTS', 'More...');
@@ -59,34 +59,38 @@ switch ($mankarMain->lang) {
 		} 
 		?>
 		</a>
-  </div>
-            
-     <?php
-		 //also found in header, sort of.  Maybe a better thing would be to resolve the include paths
-		 if (!(strpos($_SERVER['SCRIPT_NAME'],"news") > 0)) {
-			//require_once('news/wp-blog-header.php');
-		 }
-	 ?>
-     
-    <span class="sideColumnHeading"><?=RECENT_POSTS;?></span>
-    <div class="divRightBox">
-      <ul>
-      <div id="topPosts">
-       <?php //wp_get_archives('type=postbypost&limit=5'); ?>
-      </div>
-      
-       <div id="CollapsiblePanelSide" class="CollapsiblePanel">
-     
-      	  <div id="CollapseContentSide" class="CollapsiblePanelContent">
-		  	<?php //wp_get_archives('type=postbypost&limit=30'); ?>
-          </div>
-          	<?php //the text for the collapse tab is also set in SpryCollapsiblePanel.js ?>
-           <div id="CollapseTabSide" class="CollapsiblePanelTab" tabindex="0"><a href="#" onclick="toggleTopPosts();" style="font-style:italic;"><?=MORE_POSTS;?></a></div>
-        
-        </div>
-        
-      </ul>
-    </div>
+  	</div>
+
+    <?php
+		$recentNews = $mankarMain->getRecentNews();
+	?>
+	<span class="sideColumnHeading"><?php echo RECENT_POSTS; ?></span>
+     <div class="rightBox">
+
+     	<?php
+     	foreach ($recentNews as $news) {
+     		?>
+
+     		<div class="recentNews">
+				<a class="recentNewsTitle" href="/news/<?php echo $news['pretty_url'] ?>"><?php echo $news['title']; ?></a><br />
+				<span class="recentNewsDate"><?php echo date('F j, Y', strtotime($news['newsDate'])); ?></span>
+     		</div>
+
+     		<?php
+     	}
+     	?>
+
+      	<a class="moreShowsLink" href="/news" >
+  		<?php
+	   	switch ($mankarMain->lang) { 
+			case LANGUAGE_ENGLISH : echo 'more news &gt;'; break;
+			case LANGUAGE_FRENCH : echo 'more news &gt;'; break;
+			case LANGUAGE_SPANISH : echo 'more news &gt;'; break;
+		} 
+		?>
+		</a>
+  	</div>
+
 <script type="text/javascript">
 
 var topPosts = true;
