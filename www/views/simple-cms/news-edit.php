@@ -35,6 +35,7 @@ foreach ($newsItem as $key=>$p)
 		case 'body':
 		case 'body_fr':
 		case 'body_sp':
+		case 'excerpt':
 			?><i><?=$key;?></i><br /><textarea id="<?=$key;?>" name="<?=$key;?>" class="mceAdvanced" style="width:300px"><?=$p;?></textarea><?php
 			break;
 

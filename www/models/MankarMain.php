@@ -25,6 +25,11 @@ class MankarMain {
 	public $superTypeName;
 	public $superTypeSlug;
 	public $superTypeId = 1;		//product supertypes for separating sites
+
+	public $totalNewsPages;
+	public $lastNewsPage;
+	public $newsList;
+	public $newsItem;
 	
 	public $envPrefix = 'www.';
 
@@ -89,34 +94,23 @@ class MankarMain {
 
 		$prettyUrl = $this->mySQL->cleanString($prettyUrl);
 
-		if ($prettyUrl === 'news') {
-			$newsPage = $this->mySQL->cleanString($_GET['news']);
-			if ($newsPage !== '') {
-				$newsPage = intval($news);
-				if ($newsPage === 0) {
-					$newsPage = 1;
-				}
+		$sitePage = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND supertype_id=$this->superTypeId");
+		if ($sitePage === false) {
+			$redirect = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND redirect_supertype=$this->superTypeId");
+			if ($redirect !== false) {
+				return array('success' => false, 'url' => $this->superTypes[$redirect['redirect_supertype']]['url'] . $_SERVER['REQUEST_URI']);
 			} else {
-				$newsPage = 1;
-			}
-		} else {
-			$sitePage = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND supertype_id=$this->superTypeId");
-			if ($sitePage === false) {
-				$redirect = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND redirect_supertype=$this->superTypeId");
-				if ($redirect !== false) {
-					return array('success' => false, 'url' => $this->superTypes[$redirect['redirect_supertype']]['url'] . $_SERVER['REQUEST_URI']);
-				} else {
-					return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
-				}
+				return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
 			}
 		}
-
 		
-
 		$this->pageContent = $sitePage['content_file'];
 		if ($this->pageContent == '') {
 			return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
 		}
+		
+		$this->pageLocation = explode('/', $sitePage['location']);
+
 
 		if (!file_exists(PAGE_CONTENT . '/' . $this->superTypes[$this->superTypeId]['url'] . '/' . $this->pageContent)) {
 			if (!file_exists(PAGE_CONTENT . '/' . $this->superTypes[1]['url'] . '/' . $this->pageContent)) {
@@ -127,9 +121,6 @@ class MankarMain {
 		} else {
 			$this->pageContent = $this->superTypes[$this->superTypeId]['url'] . '/' . $this->pageContent;
 		}
-		
-
-		$this->pageLocation = explode('/', $sitePage['location']);
 
 		//this only works if the lang code == the db field name
 		$append = ($this->lang != LANGUAGE_ENGLISH) ? '_' . $this->lang : '';
@@ -140,6 +131,44 @@ class MankarMain {
 
 
 		//$this->pageUrl = $this->baseUrl = $sitePage['actual_url'];
+
+		return array('success' => true);
+	}
+
+	public function getNewsList($newsPage) {
+		
+		if (!isset($_SESSION['totalNewsPages']) || ($_SESSION['totalNewsPages'] == 0)) {
+			$result = $this->mySQL->getSingleRow("SELECT COUNT(*) as totalRows FROM news WHERE active=1 AND supertypes LIKE '%$this->superTypeId%'");
+			$this->totalNewsPages = $_SESSION['totalNewsPages'] = ceil($result['totalRows'] / 5);
+		} else {
+			$this->totalNewsPages = $_SESSION['totalNewsPages'];
+		}
+
+		if ($newsPage > $this->totalNewsPages) {
+			$newsPage = $this->totalNewsPages;
+		}
+		if ($newsPage <= 0) {
+			$newsPage = 1;
+		}
+		$this->lastNewsPage = $_SESSION['lastNewsPage'] = $newsPage;
+		$this->newsList = $this->mySQL->sendQuery("SELECT * FROM news WHERE active=1 AND supertypes LIKE '%$this->superTypeId%' ORDER BY newsDate DESC LIMIT ". (($newsPage - 1) * 5) .",5");
+
+	}
+
+	public function getNewsItem($newsUrl) {
+
+		$newsUrl = $this->mySQL->cleanString($newsUrl);
+
+		$this->lastNewsPage = (isset($_SESSION['lastNewsPage'])) ? $_SESSION['lastNewsPage'] : 1;
+
+		$this->newsItem = $this->mySQL->getSingleRow("SELECT * FROM news WHERE active=1 AND supertypes LIKE '%$this->superTypeId%' AND pretty_url = '$newsUrl'");
+		if ($this->newsItem === false) {
+			return array('success' => false, 'url' => 'http://'.SITE_URL.'news');
+		}
+
+		//override meta data
+		$this->metaData['title'] = $this->newsItem['title'];
+		$this->metaData['description'] = substr($this->newsItem['body'], 0, 160);
 
 		return array('success' => true);
 	}

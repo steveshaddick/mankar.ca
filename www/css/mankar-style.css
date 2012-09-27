@@ -812,6 +812,8 @@ img.productTypeHeader {
 	margin-bottom:15px;
 
 }
+.newsExcerpt, 
+.newsBody,
 .tradeshowDescription
 {
 	margin: 15px 30px;
@@ -909,6 +911,7 @@ a.recentNewsTitle {
 
 }
 
+a.readMore,
 a.viewProduct {
 	font-size:11px;
 }
@@ -1108,7 +1111,7 @@ ul.partsList {
 	text-align:center;
 }
 
-
+.newsTitle,
 .tradeshowTitle {
 	font-size: 18px;
 }
@@ -1119,7 +1122,34 @@ ul.partsList {
 .languageSelected {
 	font-weight:bold;
 }
-	
+
+h1.news {
+	margin-bottom:15px;
+}
+
+.newsItem {
+	border-bottom:1px solid #e0e0e0;
+	margin-bottom:30px;
+	clear :both;
+
+}
+
+.backButton.news {
+	margin-bottom: 15px;
+}
+
+.newsPagerTop {
+	margin-bottom:15px;
+}
+
+.newsPrev {
+	display:inline-block;
+	float:left;
+}
+.newsNext {
+	display:inline-block;
+	float:right;
+}
 
 /* for the custom sprayers page photo gallery */
 #custom {margin:0;padding:0}

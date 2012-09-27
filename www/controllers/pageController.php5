@@ -106,6 +106,44 @@ if ($pageResult['success'] === true) {
 				//$mankarMain->pageContent = "dealers.php";
 				break;
 
+			case 'news':
+
+				$news = isset($_GET['news']) ? $_GET['news'] : 1;
+				$newsPage = 0;
+				$newsUrl = '';
+
+				if ($news !== '') {
+
+					if (strlen($news) > 1) {
+
+						$newsPage = intval($news);
+						if ($newsPage === 0) {
+							$newsUrl = $news;
+						}
+
+					} else {
+
+						$newsPage = intval($news);
+						if ($newsPage === 0) {
+							$newsPage = 1;
+						}
+					}
+
+				} else {
+					$newsPage = 1;
+				}
+
+				if ($newsPage > 0) {
+					$mankarMain->getNewsList($newsPage);
+				} else {
+					$pageResult = $mankarMain->getNewsItem($newsUrl);
+					if ($pageResult['success'] !== true) {
+						header('Location: ' . $pageResult['url']);
+					}
+				}
+
+				break;
+
 	}
 
 	require(BASE_PATH.'views/page-structure.php');
