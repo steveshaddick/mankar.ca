@@ -26,4 +26,9 @@ or, you could add it to the CMS in the product type section, where we can do a c
 --------------------------------------------------------
  if a certain language doesn't have metadata, it seems to default to some kind of site default metadata.  Would it be better to have it default to the page-specific English metadata first, if there is some? 
  -------------------------------------------------------
+ look at the bottom of this page:
+ http://dev.mantisulv.com/
+
+ when adding new products, it doesn't seem to be making the image that should go in those boxes
+ -----------------------------------------------------
 
