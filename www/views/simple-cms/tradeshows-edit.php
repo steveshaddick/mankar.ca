@@ -94,3 +94,10 @@ foreach ($tradeshow as $key=>$p)
 <input type="button" name="cancel" onClick="window.location='/simple-cms/tradeshows/list/<?php echo $cms->lastListPage; ?>'" value="Cancel" />
 </form>
 
+<script>
+$(document).ready(function() {
+	$("#showstart").datepicker({ dateFormat: "yyyy-mm-dd" });
+	$("#showend").datepicker({ dateFormat: "yyyy-mm-dd" });
+});
+</script>
+

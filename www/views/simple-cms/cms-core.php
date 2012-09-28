@@ -4,9 +4,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Simple CMS for Mankar.ca</title>
 
+<link rel="stylesheet" href="/css/ui-lightness/jquery-ui-1.8.23.custom.css">
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script type="text/javascript" src="/js/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript" src="/js/simple-cms/functions.js"></script>
+<script src="/js/jquery/jquery-ui-1.8.23.custom.min.js"></script>
 
 <script type="text/javascript">
 	tinyMCE.init({
