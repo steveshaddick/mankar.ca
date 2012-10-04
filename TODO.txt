@@ -31,4 +31,12 @@ or, you could add it to the CMS in the product type section, where we can do a c
 
  when adding new products, it doesn't seem to be making the image that should go in those boxes
  -----------------------------------------------------
+ This page:
+ http://dev.mankarulv.com/simple-cms/news/edit/1
+
+ I could not edit 1, 6,7, or 9.  "ERROR UPDATING"
+
+ Also, in the datepicker if you change the date it leaves the year in there, which then does not save anything in the date field
+ -----------------------------------------------------
+
 
