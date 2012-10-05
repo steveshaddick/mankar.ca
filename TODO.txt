@@ -1,20 +1,15 @@
 Organized highest to lowest priority (from Nick's point of view)
 ------------------------------------------------------
-Check out this page:
-http://dev.mantisulv.com/BEMA-1000_ULV_form_release_applicator
-
-I can't save a product photo, nor more than one photo to the strip
-
-
----------------------------------------------------------
 
 Look at this page:
 
 http://dev.mankarulv.com/information
 
 as you get narrower than around 1200px or so, the horizontal submenu wraps in a funny way.  it goes under the dividing line and pushes the title of the page aside.
-
 I would suggest the submenu stays above the line, and that if possible they wrap evenly (so if there are 4 menu items, it goes to 2 and 2) if that is not too much work.
+
+[steve]Can we rename the titles so that they don't take up so much space?
+
 
 
 --------------------------------------------------------
