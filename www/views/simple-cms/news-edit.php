@@ -64,3 +64,9 @@ foreach ($newsItem as $key=>$p)
 <input type="button" name="cancel" onClick="window.location='/simple-cms/news/list/<?php echo $cms->lastListPage; ?>'" value="Cancel" />
 </form>
 
+<script>
+$(document).ready(function() {
+	$("#newsDate").datepicker({ dateFormat: "yyyy-mm-dd" });
+});
+</script>
+
