@@ -66,7 +66,6 @@ foreach ($newsItem as $key=>$p)
 
 <script>
 $(document).ready(function() {
-	$("#newsDate").datepicker({ dateFormat: "yyyy-mm-dd" });
+	$("#newsDate").datepicker({ dateFormat: "yy-mm-dd" });
 });
 </script>
-

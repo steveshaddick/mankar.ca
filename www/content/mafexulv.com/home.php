@@ -58,8 +58,8 @@
 
   <div id="homeProducts">
 
-  <div class="productTypeListWrapper">
-    <?php foreach ($mankarMain->productTypes as $type)
+ <div class="productTypeListWrapper">
+    <?php foreach ($mankarMain->totalProductTypes as $type)
     { 
         ?>
         <div class="productTypeWrapper">
@@ -68,7 +68,11 @@
             <div class="productImage">
               <?php
               echo '<a href="'.$type['pretty_url'].'" title="'.$type['name'].'">';
-              echo '<img src="'.THUMBS_LOCATION.$type['thumbnail'].'" alt="'.$type['name'].'">';
+              if (!isset($type['is_product'])) {
+                echo '<img src="'.THUMBS_LOCATION.$type['thumbnail'].'" alt="'.$type['name'].'" />';
+              } else {
+                echo '<img src="'.PICTURES_LOCATION.$type['thumbnail'].'" alt="'.$type['name'].'" />';
+              }
               echo '</a>';
             ?>  
             </div>

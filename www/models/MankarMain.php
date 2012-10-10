@@ -18,6 +18,8 @@ class MankarMain {
 
 	public $pageLocation;			//array to hold page info
 	public $productTypes;
+	public $orphanedProducts;
+	public $totalProductTypes;
 	
 	public $superTypes;
 	public $superTypeUrl;
@@ -86,6 +88,9 @@ class MankarMain {
 		$this->nextTradeshow = $this->mySQL->getSingleRow("SELECT * FROM tradeshows WHERE showend >= '".date( 'Y-m-d' )."' ORDER BY showstart");
 
 		$this->productTypes = $this->mySQL->sendQuery("SELECT * FROM product_types WHERE active=1 AND supertype_id = $this->superTypeId");
+		$this->orphanedProducts = $this->mySQL->sendQuery("SELECT product_id as type_id, pretty_url, name, supertype_id, photo_list as thumbnail, '1' as is_product FROM products WHERE active=1 AND supertype_id = $this->superTypeId AND type_id=0");
+		$this->totalProductTypes = array_merge($this->productTypes, $this->orphanedProducts);
+
 		$this->hasNav = $this->mySQL->sendQuery("SELECT pretty_url FROM site_pages WHERE (supertype_id=$this->superTypeId AND has_nav = 1)", 'pretty_url');
 		
 	}
@@ -98,7 +103,7 @@ class MankarMain {
 		if ($sitePage === false) {
 			$redirect = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND redirect_supertype=$this->superTypeId");
 			if ($redirect !== false) {
-				return array('success' => false, 'url' => $this->superTypes[$redirect['redirect_supertype']]['url'] . $_SERVER['REQUEST_URI']);
+				return array('success' => false, 'url' => $this->superTypes[$redirect['supertype_id']]['url'] . $_SERVER['REQUEST_URI']);
 			} else {
 				return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
 			}
@@ -125,9 +130,9 @@ class MankarMain {
 		//this only works if the lang code == the db field name
 		$append = ($this->lang != LANGUAGE_ENGLISH) ? '_' . $this->lang : '';
 
-		$this->metaData['title'] = ($sitePage['meta_title'.$append] != '') ? $sitePage['meta_title'.$append] : $this->metaData['title'];
-		$this->metaData['description'] = ($sitePage['meta_description'.$append] != '') ? $sitePage['meta_description'.$append] : $this->metaData['description'];
-		$this->metaData['keywords'] = ($sitePage['meta_keywords'.$append] != '') ? $sitePage['meta_keywords'.$append] : $this->metaData['keywords'];
+		$this->metaData['title'] = ($sitePage['meta_title'.$append] != '') ? $sitePage['meta_title'.$append] : ($sitePage['meta_title'] != '') ? $sitePage['meta_title'] : $this->metaData['title'];
+		$this->metaData['description'] = ($sitePage['meta_description'.$append] != '') ? $sitePage['meta_description'.$append] : ($sitePage['meta_description'] != '') ? $sitePage['meta_description'] : $this->metaData['description'];
+		$this->metaData['keywords'] = ($sitePage['meta_keywords'.$append] != '') ? $sitePage['meta_keywords'.$append] : ($sitePage['meta_keywords'] != '') ? $sitePage['meta_keywords'] : $this->metaData['keywords'];
 
 
 		//$this->pageUrl = $this->baseUrl = $sitePage['actual_url'];
@@ -201,7 +206,7 @@ class MankarMain {
 	}
 
 	public function getAllPartsProducts() {
-		return $this->mySQL->sendQuery("SELECT * FROM products WHERE product_id IN (SELECT product_id FROM parts_to_products) AND products.active=1");
+		return $this->mySQL->sendQuery("SELECT * FROM products WHERE product_id IN (SELECT product_id FROM parts_to_products) AND products.active=1 AND products.supertype_id=$this->superTypeId");
 	}
 
 	public function getPartsByProductId($productId) {

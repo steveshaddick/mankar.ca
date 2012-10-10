@@ -15,8 +15,11 @@
     	if (($mankarMain->pageLocation[0] == 'products') && (isset($mankarMain->pageLocation[1] ))) {
     		$currentType = $mankarMain->pageLocation[1];
     	}
+    	if (($currentType == 0) && (isset($mankarMain->pageLocation[2] ))) {
+    		$currentType = $mankarMain->pageLocation[2];
+    	}
 
-		foreach ($mankarMain->productTypes as $productType)
+		foreach ($mankarMain->totalProductTypes as $productType)
 		{
 			?>
 

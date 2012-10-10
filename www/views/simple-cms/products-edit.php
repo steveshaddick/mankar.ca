@@ -94,16 +94,17 @@ if (isset($_GET['error'])) {
 				case 'type_id':
 					?> 
 
-					<i>Type</i><br /><select name="<?php echo $key;?>" id="<?php echo $key;?>"> 
-
-					<?php
-					foreach ($productTypes as $productType) 
-					{
+					<i>Type</i><br />
+					<select name="<?php echo $key;?>" id="<?php echo $key;?>"> 
+						<option value="0">NONE</option>
+						<?php
+						foreach ($productTypes as $productType) 
+						{
+							?>
+				        	<option value="<?php echo $productType['type_id'];?>" <?php if ($productType['type_id'] == $p) echo 'SELECTED'; ?>><?php echo $productType['name'];?></option> 
+						 	<?php 
+						} 
 						?>
-			        	<option value="<?php echo $productType['type_id'];?>" <?php if ($productType['type_id'] == $p) echo 'SELECTED'; ?>><?php echo $productType['name'];?></option> 
-					 	<?php 
-					} 
-					?>
 			        </select><br />
 			        <?php
 					break;

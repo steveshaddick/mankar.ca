@@ -85,7 +85,7 @@ class ProductTypesEditor extends SimpleCMSEditor {
 				
 				if(move_uploaded_file($_FILES['photofile']['tmp_name'], $targetPath)) {
 					
-					exec("convert $targetPath -resize 150x150 -fuzz 3% -transparent white -quality 90% ".dirname(__FILE__).'/..'.THUMBS_LOCATION."$filename");
+					exec("convert $targetPath -resize 150x150 -fuzz 3% -transparent white -quality 90% ".dirname(__FILE__).'/../..'.THUMBS_LOCATION."$filename");
 	
 					$query .= "thumbnail='$filename',";
 					//echo "uploaded file";
