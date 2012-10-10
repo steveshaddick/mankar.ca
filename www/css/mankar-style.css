@@ -1091,6 +1091,7 @@ ul.partsList {
 .dealerPicture {
 	max-width: 75px;
 	max-height: 200px;
+	padding-top: 3px;
 }
 .dealerName {
 	font-size:18px;
