@@ -12,7 +12,7 @@ require_once(dirname(__FILE__).'/../includes/language.php');
 	<meta name="verify-v1" content="zeZ78C8xi39aj2DZSQVNJqtrfcyTJnAqYuSpESNxuDE=" >
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 	
-	<title>Mankar.ca | <?php echo $mankarMain->metaData['title']; ?></title>
+	<title><?php echo $mankarMain->superTypeUrl; ?> | <?php echo $mankarMain->metaData['title']; ?></title>
 	<meta name="description" content="<?php echo $mankarMain->metaData['description']; ?>">
 	<meta name="keywords" content="<?php echo $mankarMain->metaData['keywords']; ?>">
 
