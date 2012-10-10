@@ -815,6 +815,11 @@ img.productTypeHeader {
 	margin-bottom:15px;
 
 }
+.tradeshowBlock {
+	float: left;
+}
+
+
 .newsExcerpt, 
 .newsBody,
 .tradeshowDescription

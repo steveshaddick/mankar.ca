@@ -37,12 +37,12 @@ switch ($mankarMain->lang) {
 		if ($tradeshow['logo'] != '') {
         //TODO check for missing link
         	?>
-        	<a href="<?php echo $tradeshow['showlink']?>" target="_blank"> <img class="imgTradeshow" src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /></a>
+        	<a href="<?php echo $tradeshow['website']?>" target="_blank"> <img class="imgTradeshow" src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /></a>
         	<?php
       	}
       	?>
       	<div class="tradeshowTitleWrapper">
-      		<a class="tradeshowTitle" href="<?php echo $tradeshow['showlink'] ?>" target="_blank"><?php echo $tradeshow['showname']; ?></a><br />
+      		<a class="tradeshowTitle" href="<?php echo $tradeshow['website'] ?>" target="_blank"><?php echo $tradeshow['showname']; ?></a><br />
       	</div>
       	<br class="clear" />
       	<div class="tradeshowDescription">
