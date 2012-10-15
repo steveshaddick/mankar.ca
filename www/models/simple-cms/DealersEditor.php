@@ -72,7 +72,7 @@ class DealersEditor extends SimpleCMSEditor {
 				//and delete old file
 				
 				if(move_uploaded_file($_FILES['photofile']['tmp_name'], $targetPath)) {
-					exec("convert $targetPath  -resize 75x75  -quality 80% ".dirname(__FILE__).'/..'.DEALER_LOGO_LOCATION."$filename");
+					exec("convert $targetPath  -resize 75x75  -quality 80% ".dirname(__FILE__).'/../..'.DEALER_LOGO_LOCATION."$filename");
 			
 					$query .= "logo='$filename',";
 					//echo "uploaded file";

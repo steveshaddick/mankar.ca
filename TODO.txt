@@ -1,37 +1,5 @@
 Organized highest to lowest priority (from Nick's point of view)
 ------------------------------------------------------
 
-Look at this page:
-
-http://dev.mankarulv.com/information
-
-as you get narrower than around 1200px or so, the horizontal submenu wraps in a funny way.  it goes under the dividing line and pushes the title of the page aside.
-I would suggest the submenu stays above the line, and that if possible they wrap evenly (so if there are 4 menu items, it goes to 2 and 2) if that is not too much work.
-
-[steve]Can we rename the titles so that they don't take up so much space?
-
-
-
---------------------------------------------------------
-on content/parts-main, I do not know how to edit the code so it lists only MAFEX in the dropdown, for example. 
--------------------------------------------------------
-If a Product Type has only one product, we skip directly to the product.
-
-or, you could add it to the CMS in the product type section, where we can do a checkbox to "skip to product file" and then a dropdown to choose which product.
---------------------------------------------------------
- if a certain language doesn't have metadata, it seems to default to some kind of site default metadata.  Would it be better to have it default to the page-specific English metadata first, if there is some? 
- -------------------------------------------------------
- look at the bottom of this page:
- http://dev.mantisulv.com/
-
- when adding new products, it doesn't seem to be making the image that should go in those boxes
- -----------------------------------------------------
- This page:
- http://dev.mankarulv.com/simple-cms/news/edit/1
-
- I could not edit 1, 6,7, or 9.  "ERROR UPDATING"
-
- Also, in the datepicker if you change the date it leaves the year in there, which then does not save anything in the date field
- -----------------------------------------------------
 
 

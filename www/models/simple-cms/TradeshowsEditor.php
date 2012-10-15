@@ -51,7 +51,7 @@ class TradeshowsEditor extends SimpleCMSEditor {
 				break;
 				
 				default:
-					$query .= "$key='".trim($value)."',";
+					$query .= "$key='".trim($this->mySQL->cleanString($value))."',";
 					break;
 			}
 		}
@@ -71,7 +71,7 @@ class TradeshowsEditor extends SimpleCMSEditor {
 				//and delete old file
 				
 				if(move_uploaded_file($_FILES['photofile']['tmp_name'], $targetPath)) {
-					exec("convert $targetPath  -resize 100x100  -quality 80% ".dirname(__FILE__).'/..'.TRADESHOW_LOGO_LOCATION."$filename");
+					exec("convert $targetPath  -resize 100x100  -quality 80% ".dirname(__FILE__).'/../..'.TRADESHOW_LOGO_LOCATION."$filename");
 			
 					$query .= "logo='$filename',";
 					//echo "uploaded file";

@@ -59,7 +59,7 @@ class PartsEditor extends SimpleCMSEditor {
 				//and delete old file
 				
 				if(move_uploaded_file($_FILES['photofile']['tmp_name'], $targetPath)) {
-					exec("convert $targetPath  -resize 150x150  -quality 80% ".dirname(__FILE__).'/..'.PARTS_LOCATION."$filename");
+					exec("convert $targetPath  -resize 150x150  -quality 80% ".dirname(__FILE__).'/../..'.PARTS_LOCATION."$filename");
 			
 					$query .= "photo='$filename',";
 					//echo "uploaded file";

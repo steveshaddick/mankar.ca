@@ -102,8 +102,8 @@ class ProductsEditor extends SimpleCMSEditor {
 				//and delete old file
 				
 				if(move_uploaded_file($_FILES['photofile']['tmp_name'], $targetPath)) {
-					exec("convert $targetPath  -resize 150x150  -quality 80% ".dirname(__FILE__).'/..'.PICTURES_LOCATION."list_$filename");
-					exec("convert $targetPath  -resize 200x375  -quality 80% ".dirname(__FILE__).'/..'.PICTURES_LOCATION."page_$filename");
+					exec("convert $targetPath  -resize 150x150  -quality 80% ".dirname(__FILE__).'/../..'.PICTURES_LOCATION."list_$filename");
+					exec("convert $targetPath  -resize 200x375  -quality 80% ".dirname(__FILE__).'/../..'.PICTURES_LOCATION."page_$filename");
 			
 					$query .= "photo_list='list_$filename',";
 					$query .= "photo_page='page_$filename',";
@@ -246,9 +246,9 @@ class ProductsEditor extends SimpleCMSEditor {
 					$newWidth = 100 * $ratio;
 					$thumb = imagecreatetruecolor($newWidth,$newHeight);
 					imagecopyresampled($thumb, $image, 0, 0, 0, 0, $newWidth, $newHeight,  $imageSize[0],  $imageSize[1]);
-					imagejpeg($thumb, dirname(__FILE__).'/..'.THUMBS_LOCATION."$filename");
+					imagejpeg($thumb, dirname(__FILE__).'/../..'.THUMBS_LOCATION."$filename");
 					imagedestroy($image);
-					exec("convert $targetPath -resize 500x500 -quality 80% ".dirname(__FILE__).'/..'.PICTURES_LOCATION."$filename");
+					exec("convert $targetPath -resize 500x500 -quality 80% ".dirname(__FILE__).'/../..'.PICTURES_LOCATION."$filename");
 			
 					$query = "INSERT INTO product_photos (product_id, photo) VALUES ($this->actionData,'$filename')";
 					

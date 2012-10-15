@@ -79,7 +79,7 @@ p {
 
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #FFFFFF;
-    font-size: 12px;
+    font-size: 14px;
     margin-left: 220px;
     margin-right: 220px;
     min-height:700px;
@@ -184,7 +184,6 @@ h2 {
     font-size: 20px;
     line-height: 23px;
     margin-top: 12px;
-    width: 350px;
     float: left;
     margin-left:5px;
 }
@@ -274,6 +273,11 @@ a.localeLink.selected {
 	float:left;
 	height: 20px;
 	line-height:20px;
+	padding: 0px 10px;
+}
+
+#sub-navigation .navlist .navListItem
+{
 	padding: 0px 2px;
 }
 
@@ -712,7 +716,9 @@ img.productTypeHeader {
 .backArrow {
 	display: inline-block;
     height: 25px;
+    position: relative;
     text-align: center;
+    top: -1px;
     width: 25px;
 }
 
@@ -722,6 +728,7 @@ img.productTypeHeader {
 	font-size: 11px;
 	color:#6aa869;
 	border-bottom:thin solid #DDDDDD;
+	padding-top:7px;
 }
 
 #productTypeBlurb {
@@ -735,16 +742,12 @@ img.productTypeHeader {
 	width:100%;
 }
 #CollapseTab a{
-	color:#069;
 	font-size:10px;
 	margin:0;
 	padding:0;
 	
 }
 
-#CollapseTab a:hover{
-	color:#069;
-}
 
 .rightBox {
 	/*background: #fdf6e5  url(../images/right-shadow.png) left repeat-y;*/
@@ -812,6 +815,11 @@ img.productTypeHeader {
 	margin-bottom:15px;
 
 }
+.tradeshowBlock {
+	float: left;
+}
+
+
 .newsExcerpt, 
 .newsBody,
 .tradeshowDescription
@@ -914,6 +922,11 @@ a.recentNewsTitle {
 a.readMore,
 a.viewProduct {
 	font-size:11px;
+}
+
+a.viewProduct {
+	display:inline-block;
+	margin-top:10px;
 }
 
 	
@@ -1078,6 +1091,7 @@ ul.partsList {
 .dealerPicture {
 	max-width: 75px;
 	max-height: 200px;
+	padding-top: 3px;
 }
 .dealerName {
 	font-size:18px;

@@ -39,7 +39,7 @@ class NewsEditor extends SimpleCMSEditor {
 					break;
 				
 				default:
-					$query .= "$key='".trim($value)."',";
+					$query .= "$key='".trim($this->mySQL->cleanString($value))."',";
 					break;
 			}
 		}
