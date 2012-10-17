@@ -18,6 +18,10 @@ There was an error uploading BEMA-500-manual.pdf
 So there is something wonky there.  It is not forgetting older failed uploads, and also not uploading!
 ---------------------------------------------------------
 
+add comparison tool to mankarulv.com
+
+---------------------------------------------------------
+
 I inserted some youtubes into a page, but they don't show up.
 
 See:
@@ -38,6 +42,10 @@ and:
 http://dev.mankarulv.com/simple-cms/dealers/edit/21?error=
 
 
+
+---------------------------------------------------------
+
+On both IE9 and FF15, it is not holding the Language between supertypes.  Nor the unit of measurement.  Is it because separate domains can't share cookies?  Can we sort by newest of the four cookies and use that one?  Or is this crazy difficult and not worth it.  
 
 ---------------------------------------------------------
 
