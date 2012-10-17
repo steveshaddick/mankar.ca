@@ -1,5 +1,77 @@
 Organized highest to lowest priority (from Nick's point of view)
 ------------------------------------------------------
 
+Manuals upload
 
+http://dev.mankarulv.com/simple-cms/products/edit/53?error=1
+
+I wonder if the first fail was because of a space in the name, but once I had one fail it keeps them all in the queue, even for a different product.
+
+I started with the MAFEX ULV Potato machine, then switched to a BEMA 500, and the error now shows as:
+
+--------------------------------ERROR UPDATING------------------------------------------
+There was an error uploading MAFEX install tips_merged.pdf
+There was an error uploading MAFEX_potato_manual.pdf
+There was an error uploading MAFEX_potato_manual.pdf
+There was an error uploading BEMA-500-manual.pdf
+
+So there is something wonky there.  It is not forgetting older failed uploads, and also not uploading!
+---------------------------------------------------------
+
+I inserted some youtubes into a page, but they don't show up.
+
+See:
+http://dev.mankarulv.com/simple-cms/products/edit/6?error=
+and:
+http://dev.mankarulv.com/mini-mantra-plus-ulv-sprayer
+
+perhaps my link format is wrong?  If so (or either way) on the cms page could you put the example for the format you want?
+
+---------------------------------------------------------
+
+
+I inserted a new dealer with no website, but the form seems to autofill an http:
+
+see:
+http://dev.mafexulv.com/dealers
+and:
+http://dev.mankarulv.com/simple-cms/dealers/edit/21?error=
+
+
+
+---------------------------------------------------------
+
+The parts page output:
+http://dev.mankarulv.com/parts?pid=10
+Could we have it so it orders by part number, and also shows the part number?  Kind of like a table?
+
+---------------------------------------------------------
+the mini logos in the left column don't look very crisp - are we trying to fit too much detail in there?
+I don't have that font and can't find it with identifont either.  
+Maybe the logos got to go?  Your thoughts?
+these guys have something very similar called Reaction Bold : http://www.fontsforflash.com/
+
+---------------------------------------------------------
+
+on the dealer pages, the maps are pushed at narrow window settings by unbroken web addresses or email addresses.
+
+in that case should we trim the map to size?  I mean hide the part of the map that goes further than the 10 pixels from the edge or whatever they normally do.
+
+---------------------------------------------------------
+
+noticed a weird thing when uploading a dealer logo:
+I uploaded a PNG, it converted it to JPG and filled in the clear with black.
+no need to fix, easy to work around, but i found it funny.
+---------------------------------------------------------
+Dealers page 
+ex: http://dev.mantisulv.com/dealers
+
+should check if there are US AND Canadian dealers before putting that up.  If only one county, hide the US/Canada thingie
+
+Secondly, if they have US IP should we put US first?
+
+we had talked before about the following for measurements:
+if cookie set from previous visit, use that setting
+if not, if they have a US IP set to US, otherwise metric
+---------------------------------------------------------
 
