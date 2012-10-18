@@ -51,7 +51,7 @@ On both IE9 and FF15, it is not holding the Language between supertypes.  Nor th
 
 The parts page output:
 http://dev.mankarulv.com/parts?pid=10
-Could we have it so it orders by part number, and also shows the part number?  Kind of like a table?
+Could we have it so it orders by part number, and also shows the part number?  Kind of like a table?  Also if they have the picture we could show a small picture.
 
 ---------------------------------------------------------
 the mini logos in the left column don't look very crisp - are we trying to fit too much detail in there?
