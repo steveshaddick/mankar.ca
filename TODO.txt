@@ -83,3 +83,7 @@ if cookie set from previous visit, use that setting
 if not, if they have a US IP set to US, otherwise metric
 ---------------------------------------------------------
 
+If you try to upload a part with a part number that already exists, the thing throws an error (which is good), but it is just mumbo-jumbo mysql errorspeak.
+Could you tell the user why they got the error in this case?
+
+-----------------------------------------------------------
