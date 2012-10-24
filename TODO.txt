@@ -44,6 +44,11 @@ http://dev.mankarulv.com/simple-cms/dealers/edit/21?error=
 
 
 ---------------------------------------------------------
+see http://dev.mankarulv.com/mankar-varimant-ulv-sprayers
+
+products seem to be sorting on product ID, not on the product_order variable.
+
+---------------------------------------------------------
 
 On both IE9 and FF15, it is not holding the Language between supertypes.  Nor the unit of measurement.  Is it because separate domains can't share cookies?  Can we sort by newest of the four cookies and use that one?  Or is this crazy difficult and not worth it.  
 
