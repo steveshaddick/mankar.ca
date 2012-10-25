@@ -1,7 +1,8 @@
 <!-- begin mankar-footer -->
 <div id="container2">
     <div class="divBottom">
-        <p>Copyright &copy;<?php echo date('Y'); ?> Mankar Distributing Inc. &nbsp;&nbsp;All Rights Reserved.<br>
+    	<p><i>When using any chemicals please follow label instructions and applicable local guidelines.</i><br>
+        Copyright &copy;<?php echo date('Y'); ?> Mankar Distributing Inc. &nbsp;&nbsp;All Rights Reserved.<br>
         phone: 647-309-7826&nbsp;&nbsp;&nbsp;fax: 888-510-2688&nbsp;&nbsp;&nbsp;<a href="mailto:&#105;&#110;&#102;&#111;&#064;&#109;&#097;&#110;&#107;&#097;&#114;&#046;&#099;&#097;">&#105;&#110;&#102;&#111;&#064;&#109;&#097;&#110;&#107;&#097;&#114;&#046;&#099;&#097;</a>
         </p>
     </div>
