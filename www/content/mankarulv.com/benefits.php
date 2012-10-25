@@ -14,7 +14,7 @@
 
 			case LANGUAGE_FRENCH:
 				?>
-				<h1>Syst&egrave;mes de pulv&eacute;risation MANKAR&reg; ULV<br />- De grands avantages</h1>
+				<h1>Syst&egrave;mes de pulv&eacute;risation MANKAR&reg; ULV - De grands avantages</h1>
 				<a href="http://www.mankar.ca/pics/benefits1.jpg" rel="lightbox[benefits]" title="Mankar-P"><img class="pright" src="http://www.mankar.ca/pics/thumbs/benefits1.jpg" alt=""></a>
 				<h2>Technique brevet&eacute;e</h2>
 				<p>MANKAR&reg; respecte les ressources naturelles. Bon pour l&rsquo;environnement et  vos finances : gr&acirc;ce &agrave; la technique ULV (Ultra Low Volume &ndash; application  de doses particuli&egrave;rement petites) et &agrave; la buse rotative &agrave; secteur  r&eacute;glable, 1 &agrave; 2 litres de produit sont suffisants pour une surface de 1  ha. Les syst&egrave;mes conventionnels, comme les pulv&eacute;risateurs portables  communs, n&eacute;cessitent des quantit&eacute;s beaucoup plus &eacute;lev&eacute;es pour une m&ecirc;me  surface.</p>
@@ -38,7 +38,7 @@
 			default:
 				?>
 
-				<h1>MANKAR&reg; Ultra-Low Volume (ULV)<br />Spraying Systems Main benefits</h1>
+				<h1>MANKAR&reg; Ultra-Low Volume (ULV) Spraying Systems Main benefits</h1>
 				<a href="http://www.mankar.ca/pics/benefits1.jpg" rel="lightbox[benefits]" title="Mankar-P"><img class="pright" src="http://www.mankar.ca/pics/thumbs/benefits1.jpg" alt=""></a>
 				<h2>Patented technology</h2>
 				<p>MANKAR&reg; spares resources. Good for the environment, good for your  finances. Only 2-3 litres of herbicide needed per hectare, thanks to  the special ULV (Ultra-Low Volume) technology and patented segment  rotation nozzles. Conventional systems, for example backpack sprayers,  use many times more herbicide for the same area.</p>

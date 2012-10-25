@@ -50,7 +50,7 @@ products seem to be sorting on product ID, not on the product_order variable.
 
 ---------------------------------------------------------
 
-On both IE9 and FF15, it is not holding the Language between supertypes.  Nor the unit of measurement.  Is it because separate domains can't share cookies?  Can we sort by newest of the four cookies and use that one?  Or is this crazy difficult and not worth it.  
+On both IE9 and FF15, it is not holding the Language between supertypes.  Nor the unit of measurement.  Is it because separate domains can't share cookies?  Can we embed that info in the link?  I bet you can wizard!
 
 ---------------------------------------------------------
 
@@ -71,11 +71,6 @@ on the dealer pages, the maps are pushed at narrow window settings by unbroken w
 in that case should we trim the map to size?  I mean hide the part of the map that goes further than the 10 pixels from the edge or whatever they normally do.
 
 ---------------------------------------------------------
-
-noticed a weird thing when uploading a dealer logo:
-I uploaded a PNG, it converted it to JPG and filled in the clear with black.
-no need to fix, easy to work around, but i found it funny.
----------------------------------------------------------
 Dealers page 
 ex: http://dev.mantisulv.com/dealers
 
@@ -86,9 +81,9 @@ Secondly, if they have US IP should we put US first?
 we had talked before about the following for measurements:
 if cookie set from previous visit, use that setting
 if not, if they have a US IP set to US, otherwise metric
----------------------------------------------------------
-
-If you try to upload a part with a part number that already exists, the thing throws an error (which is good), but it is just mumbo-jumbo mysql errorspeak.
-Could you tell the user why they got the error in this case?
-
 -----------------------------------------------------------
+I put this at the bottom as it may be outside the scope of this update.
+However, I am getting a growning collection of French (and even Spanish) manuals
+
+It would be good to have these show up in the different language sections.  This may be a big deal coding wise, or maybe not.  Let me know.
+------------------------------------------------------------

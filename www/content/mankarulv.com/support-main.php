@@ -106,7 +106,7 @@
 
 				<h2>General Usage Tips</h2>
 				<ul>
-					<li>after use, fill the tank with water and open the valve to its  widest setting. Empty the tank by overspraying the area you just  completed.</li>
+					<li>After use, fill the tank with water and open the valve to its  widest setting. Empty the tank by overspraying the area you just  completed.</li>
 					<li>After a period of non-use, look under the spraycap and make sure  that the atomizer spins freely. It is best to use a pen or a paperclip.  If it has become gummed up due to some herbicide residue you could blow  the fuse!</li>
 				</ul>
 				<h2>Battery Charging Best Practices</h2>

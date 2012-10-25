@@ -8,7 +8,6 @@
         ?>
 
           <h1>Pulverizadores ULV de insecticida ROFA</h1> 
-          <h4>Modelo #100717</h4> 
           <a href="<?php echo PICTURES_LOCATION; ?>rofa-demo.jpg" rel="lightbox[rofa1]" title="The ROFA Ultra-Low Volume Applicator"><img class="pright" src="<?php echo THUMBS_LOCATION; ?>rofa-demo.jpg" alt="ROFA"></a>
           <ul>
             <li>ahorro  de costes: menor consumo de insecticida</li>
@@ -36,7 +35,6 @@
     case LANGUAGE_FRENCH:
       ?>
           <h1>Pulvérisateurs à insecticide ULV ROFA</h1> 
-          <h4>Modèle #100717</h4> 
           <a href="<?php echo PICTURES_LOCATION; ?>rofa-demo.jpg" rel="lightbox[rofa1]" title="The ROFA Ultra-Low Volume Applicator"><img class="pright" src="<?php echo THUMBS_LOCATION; ?>rofa-demo.jpg" alt="ROFA"></a>
           <ul>
             <li>Economie  d’argent&nbsp;: moins d’insecticide utilisé</li>
@@ -67,7 +65,6 @@
       ?>
 
         <h1>ROFA ULV Handheld Insecticide Applicator</h1>
-        <h4>Model #100717</h4> 
         <h3>For controlling insects in livestock areas</h3>
         <a href="<?php echo PICTURES_LOCATION; ?>rofa-demo.jpg" rel="lightbox[rofa1]" title="The ROFA Ultra-Low Volume Applicator"><img class="pright" src="<?php echo THUMBS_LOCATION; ?>rofa-demo.jpg" alt="ROFA"></a>
           <p>The ULV rotating nozzle creates microscopically small droplets that hover in the air for several minutes and only fall extremely slowly.  The insects flying around automatically leads to a successful treatment that can hardly be achieved with other spraying processes.  The range of droplet size is defined so that they are demonstrably not respirable (approx. 35 micron).</p>
