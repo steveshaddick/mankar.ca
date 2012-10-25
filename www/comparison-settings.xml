@@ -246,7 +246,7 @@
 	</setting>
 	
 	<setting ref="totalCostHectareApplication" scope="formula">
-		<metric>(depreciationHectare/applications)+(interestCostHectare/applications)+totalRefillHectare+depreciationHectare+manhoursHectare+serviceHectare</metric>
+		<metric>(depreciationHectare/applications)+(interestCostHectare/applications)+totalRefillHectare+depreciationHectare+manhoursHectare+serviceHectare+productCost</metric>
 	</setting>
 	
 	<setting ref="totalCostHectare" scope="formula">
@@ -273,7 +273,7 @@
 		<dollarsign>1</dollarsign>
 		<metric>
 			<title>Purchase Price</title>
-			<explanation>Purchase price has remarkably little effect on the accumulative total cost of spraying.  Try changing the purchase price of either unit - you'll see that most costs of spraying come from the auxilliary costs of labour and consumables.  Mankar sprayers may be a bigger upfront investment, but they will earn it back by the end of the season.</explanation>
+			<explanation>Purchase price has remarkably little effect on the accumulative total cost of spraying.  Try changing the purchase price of either unit - you'll see that most costs of spraying come from the auxilliary costs of labor and consumables.  Mankar sprayers may be a bigger upfront investment, but they will earn it back by the end of the season.</explanation>
 		</metric>
 	</comparison>
 	
@@ -310,6 +310,7 @@
 		</metric>
 		<imperial>
 			<title>Refill Cost per Acre</title>
+			<explanation>This is based on how many refills per acre (Mankar: &&mankar#refills&& Other: &&other#refills&&) multiplied by how many minutes it takes to refill the tank (Mankar: &&mankar#refillTime&& Other: &&other#refillTime&&).</explanation>
 			<units>per acre</units>
 		</imperial>
 	</comparison>
@@ -317,10 +318,11 @@
 	<comparison ref="manhoursHectare">
 		<metric>
 			<title>Manhours per Hectare</title>
-			<explanation>Labour cost per hour ($&&mankar#labour&&) multiplied by spraying time (hoursPerHectare).</explanation>
+			<explanation>Labor cost per hour ($&&mankar#labour&&) multiplied by spraying time.</explanation>
 		</metric>
 		<imperial>
 			<title>Manhours per Acre</title>
+			<explanation>Labor cost per hour ($&&mankar#labour&&) multiplied by spraying time.</explanation>
 		</imperial>
 	</comparison>
 	
@@ -332,6 +334,7 @@
 		</metric>
 		<imperial>
 			<title>Total Cost per Acre</title>
+			<explanation>This is your total cost for controlling weeds per acre, per year.  This included everything: depreciation, interest, chemicals, spray time, and refill time.</explanation>
 		</imperial>	</comparison>
 	
 	<comparison ref="totalCostHectareApplication">
@@ -340,6 +343,10 @@
 			<title>Total Cost per Hectare, per Application</title>
 			<explanation>A per hectare, per application breakdown.</explanation>
 		</metric>
+		<imperial>
+			<title>Total Cost per Acre, per Application</title>
+			<explanation>A per acre, per application breakdown.</explanation>
+		</imperial>
 	</comparison>
 	
 
