@@ -8,7 +8,7 @@
 		<data>other1</data>
 		<class>walk</class>
 		
-		<picture>http://www.mankar.ca/pics/other/backpack1.jpg</picture>
+		<picture>/images/comparison/backpack1.jpg</picture>
 		<info>Standard Backpack sprayer: 20L, handpump to build pressure, wand for application.</info>
 
 		<setting ref="price">
@@ -38,7 +38,7 @@
 		<data>other3</data>
 		<class>drive</class>
 		
-		<picture>http://www.mankar.ca/pics/other/200lsprayer.jpg</picture>
+		<picture>/images/comparison/200lsprayer.jpg</picture>
 
 		<setting ref="price">
 			<default>0</default>

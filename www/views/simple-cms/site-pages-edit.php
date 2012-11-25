@@ -88,6 +88,13 @@ foreach ($pages as $sitePage)
 					case 'pretty_url':
 						break;
 
+					case 'extra_header':
+						?>
+						<i><?php echo $key;?></i><br />
+						<textarea id="<?php echo $key . '__' . $sitePage['supertype_id']; ?>" name="<?php echo $key . '__' . $sitePage['supertype_id']; ?>" style="width:400px"><?php echo $value;?></textarea><br />
+						<?php
+						break;
+
 					default:
 						?> 
 						<i><?php echo $key; ?></i><br /><input type="text" id="<?php echo $key . '__' . $sitePage['supertype_id']; ?>" name="<?php echo $key . '__' . $sitePage['supertype_id']; ?>" value="<?php echo $value; ?>" style="width:400px;"/> 

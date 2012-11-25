@@ -133,6 +133,7 @@ class MankarMain {
 		$this->metaData['title'] = ($sitePage['meta_title'.$append] != '') ? $sitePage['meta_title'.$append] : ($sitePage['meta_title'] != '') ? $sitePage['meta_title'] : $this->metaData['title'];
 		$this->metaData['description'] = ($sitePage['meta_description'.$append] != '') ? $sitePage['meta_description'.$append] : ($sitePage['meta_description'] != '') ? $sitePage['meta_description'] : $this->metaData['description'];
 		$this->metaData['keywords'] = ($sitePage['meta_keywords'.$append] != '') ? $sitePage['meta_keywords'.$append] : ($sitePage['meta_keywords'] != '') ? $sitePage['meta_keywords'] : $this->metaData['keywords'];
+		$this->metaData['extra'] .= $sitePage['extra_header'];
 
 
 		//$this->pageUrl = $this->baseUrl = $sitePage['actual_url'];

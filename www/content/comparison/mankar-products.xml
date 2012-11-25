@@ -11,7 +11,7 @@
 		<label>Mini Mantra +</label>
 		<data>mc30</data>
 
-		<picture>http://www.mankar.ca/pics/minimantraplus.jpg</picture>
+		<picture>/images/comparison/minimantraplus.jpg</picture>
 		<info>The Mini Mantra Plus has a standard spray width of 45 cm. (18"), and a recommended application rate of 2 l/ha (0.2 gpa) for most herbicides, including Roundup. </info>
 		
 		<setting ref="price">
@@ -44,7 +44,7 @@
 		<label>Mankar 110 P</label>
 		<data>mr30</data>
 
-		<picture>http://www.mankar.ca/pics/mankar110p.jpg</picture>
+		<picture>/images/comparison/mankar110p.jpg</picture>
 		<info>The 110P is adjustable in width between 70-110 cm (28-44") and is a walk-behind model, similar to a wheelbarrow.  It, like all Mankar products, boasts a fully-shielded atomizer to control drift.</info>
 
 		<setting ref="price">
@@ -82,7 +82,7 @@
 		<data>mdb10</data>
 		<info>Ground-driven pump, floating spray head 40 cm wide (15").  The spray head is spring loaded to go around obstacles like vines, trees, or fenceposts.</info>
 
-		<picture>http://www.mankar.ca/pics/flexomant1.jpg</picture>
+		<picture>/images/comparison/flexomant1.jpg</picture>
 		
 		<setting ref="price">
 			<default>0</default>

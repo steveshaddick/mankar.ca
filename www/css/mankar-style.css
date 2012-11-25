@@ -1174,3 +1174,9 @@ h1.news {
 #custom img {vertical-align:bottom;border:1px solid #F39C00;padding:2px;background:#fff;}
 #custom em {display:block;font-weight:bold;margin-bottom:5px;}
 #custom dl a:hover img,dl a:active img,dl a:focus img {background:#f33;}
+
+/* comparison tool */
+.noflash {
+	display:block;
+	margin-top:30px;
+}
