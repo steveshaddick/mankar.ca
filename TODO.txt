@@ -2,38 +2,6 @@ Organized highest to lowest priority (from Nick's point of view)
 ------------------------------------------------------
 
 
-add comparison tool to mankarulv.com
-
----------------------------------------------------------
-
-I inserted some youtubes into a page, but they don't show up.
-
-See:
-http://dev.mankarulv.com/simple-cms/products/edit/6?error=
-and:
-http://dev.mankarulv.com/mini-mantra-plus-ulv-sprayer
-
-perhaps my link format is wrong?  If so (or either way) on the cms page could you put the example for the format you want?
-
----------------------------------------------------------
-
-
-I inserted a new dealer with no website, but the form seems to autofill an http:
-
-see:
-http://dev.mafexulv.com/dealers
-and:
-http://dev.mankarulv.com/simple-cms/dealers/edit/21?error=
-
-
-
----------------------------------------------------------
-see http://dev.mankarulv.com/mankar-varimant-ulv-sprayers
-
-products seem to be sorting on product ID, not on the product_order variable.
-
----------------------------------------------------------
-
 On both IE9 and FF15, it is not holding the Language between supertypes.  Nor the unit of measurement.  Is it because separate domains can't share cookies?  Can we embed that info in the link?  I bet you can wizard!
 
 ---------------------------------------------------------

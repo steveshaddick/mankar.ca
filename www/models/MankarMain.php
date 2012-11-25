@@ -187,7 +187,7 @@ class MankarMain {
 		if ($productType === false) {
 			return $productType;
 		}
-		$productType['productList'] = $this->mySQL->sendQuery("SELECT * FROM products WHERE type_id = {$productType['type_id']}");
+		$productType['productList'] = $this->mySQL->sendQuery("SELECT * FROM products WHERE type_id = {$productType['type_id']} ORDER BY product_order");
 
 		return $productType;
 	}

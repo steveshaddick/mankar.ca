@@ -45,8 +45,10 @@ class DealersEditor extends SimpleCMSEditor {
 				
 				case 'website':
 					$value = trim($value);
-					if (substr($value,0,7) != "http://") {
-						$value = "http://".$value;
+					if ($value != '') {
+						if (substr($value,0,7) != "http://") {
+							$value = "http://".$value;
+						}
 					}
 					$query .= "$key='".$value."',";
 				break;
