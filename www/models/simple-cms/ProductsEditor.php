@@ -49,6 +49,8 @@ class ProductsEditor extends SimpleCMSEditor {
 		} else {
 			$query = "UPDATE products SET ";
 		}
+
+		$_SESSION['errorMessage'] = '';
 		
 		foreach ($_POST as $key=>$value)
 		{
@@ -98,9 +100,6 @@ class ProductsEditor extends SimpleCMSEditor {
 				
 				$targetPath = UPLOAD_LOCATION.$filename;
 				
-				//make this only upload if the file doesn't exist
-				//and delete old file
-				
 				if(move_uploaded_file($_FILES['photofile']['tmp_name'], $targetPath)) {
 					exec("convert $targetPath  -resize 150x150  -quality 80% ".dirname(__FILE__).'/../..'.PICTURES_LOCATION."list_$filename");
 					exec("convert $targetPath  -resize 200x375  -quality 80% ".dirname(__FILE__).'/../..'.PICTURES_LOCATION."page_$filename");
@@ -121,22 +120,16 @@ class ProductsEditor extends SimpleCMSEditor {
 			//echo "deleting photo";
 		} else if (isset($_FILES['manualfile'])) {
 			if ($_FILES['manualfile']['name'] != "") {
-				$filename = preg_replace("/[^A-Za-z0-9.\\-\\+]/", "", basename( $_FILES['manualfile']['name']));
+				$filename = ereg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['manualfile']['name']));
 				
-				$targetPath = MANUALS_LOCATION.$filename;
+				$targetPath = MANUALS_UPLOAD_LOCATION.$filename;
 				
-				//make this only upload if the file doesn't exist
-				//and delete old file
-				if (!file_exists(MANUALS_LOCATION.$filename)){
-					if(move_uploaded_file($_FILES['manualfile']['tmp_name'], $targetPath)) {
-						$query .= "manual='$filename',";
-						//echo "uploaded file";
-					} else{
-						$this->error = true;
-						$this->errorMessage .= "There was an error uploading ".$_FILES['manualfile']['name']."<br />";
-					}
-				} else {
+				if(move_uploaded_file($_FILES['manualfile']['tmp_name'], $targetPath)) {
 					$query .= "manual='$filename',";
+					//echo "uploaded file";
+				} else{
+					$this->error = true;
+					$this->errorMessage .= "There was an error uploading ".$_FILES['manualfile']['name']."<br />";
 				}
 			}
 		}

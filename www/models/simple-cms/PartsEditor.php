@@ -25,6 +25,8 @@ class PartsEditor extends SimpleCMSEditor {
 		} else {
 			$query = "UPDATE parts SET ";
 		}
+
+		$_SESSION['errorMessage'] = '';
 		
 		foreach ($_POST as $key=>$value)
 		{

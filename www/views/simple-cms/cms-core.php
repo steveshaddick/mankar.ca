@@ -29,7 +29,7 @@
 		theme_advanced_resizing : true,
 	
 		// Example content CSS (should be your site CSS)
-		content_css : "../_test/css/mankar-style.css",
+		content_css : "/css/mankar-style.css",
 	
 		// Drop lists for link/image/media/template dialogs
 		template_external_list_url : "js/template_list.js",
