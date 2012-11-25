@@ -201,7 +201,9 @@
 	$videos []= array('player'=>'ytplayerTop', 'id'=>$product['youtube_top']);
 	?>
 
+	<h2 class="productPage">Video</h2>
 	<div id="ytplayerTop" class="youtubePlayer"></div>
+	<br /><br />
 
 	<?php
 }
@@ -279,6 +281,22 @@ if (count($product['parts']) > 0) {
     </a>
 <?php }
 ?>
+
+
+<?php if ($product['youtube_bottom'] != '') {
+	$videos []= array('player'=>'ytplayerBottom', 'id'=>$product['youtube_bottom']);
+	?>
+
+
+	<br /><br />
+	<h2 class="productPage">Video</h2>
+	<div id="ytplayerBottom" class="youtubePlayer"></div>
+
+	<?php
+}
+
+?>
+
 </div>
 
 <?php
@@ -296,12 +314,10 @@ if ($videos !== null) {
 	  var player;
 	  function onYouTubePlayerAPIReady() {
 	    <?php
-	    foreach ($videos as $video) {
+	    foreach ($videos as $key=>$video) {
 	    	?>
 
-	    	player<?php echo $video['id']; ?> = new YT.Player('<?php echo $video['player']; ?>', {
-		      height: '390',
-		      width: '640',
+	    	player<?php echo $key ?> = new YT.Player('<?php echo $video['player']; ?>', {
 		      videoId: '<?php echo $video['id']; ?>'
 		    });
 
