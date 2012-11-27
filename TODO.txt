@@ -5,6 +5,11 @@ Organized highest to lowest priority (from Nick's point of view)
 On both IE9 and FF15, it is not holding the Language between supertypes.  Nor the unit of measurement.  Is it because separate domains can't share cookies?  Can we embed that info in the link?  I bet you can wizard!
 
 ---------------------------------------------------------
+In Firefox 17, http://dev.mankarulv.com/comparison breaks the page.
+At narrow widths the right side wants to overlap it.
+Even at wide widths, the left part of the tool is being cut off.
+
+---------------------------------------------------------
 
 The parts page output:
 http://dev.mankarulv.com/parts?pid=10
@@ -34,8 +39,6 @@ we had talked before about the following for measurements:
 if cookie set from previous visit, use that setting
 if not, if they have a US IP set to US, otherwise metric
 -----------------------------------------------------------
-I put this at the bottom as it may be outside the scope of this update.
-However, I am getting a growning collection of French (and even Spanish) manuals
-
-It would be good to have these show up in the different language sections.  This may be a big deal coding wise, or maybe not.  Let me know.
+Ability to upload manuals in other languages (French and Spanish)
+List all the manuals for that machine, preceeded by English, Francais, Espanol
 ------------------------------------------------------------
