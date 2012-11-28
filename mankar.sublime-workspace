@@ -115,7 +115,7 @@
 			"file": "www/css/mankar-style.css",
 			"settings":
 			{
-				"buffer_size": 16219,
+				"buffer_size": 16320,
 				"line_ending": "Windows"
 			}
 		},
@@ -131,39 +131,23 @@
 			"file": "www/models/MankarMain.php",
 			"settings":
 			{
-				"buffer_size": 13124,
+				"buffer_size": 13204,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "www/content/mankarulv.com/dealers.php",
+			"file": "/D/Projects/Challenge/challenge-multi.html",
 			"settings":
 			{
-				"buffer_size": 4560,
-				"line_ending": "Windows"
+				"buffer_size": 2135,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "www/content/mankarulv.com/tradeshows.php",
+			"file": "www/models/simple-cms/DealersEditor.php",
 			"settings":
 			{
-				"buffer_size": 5678,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "www/views/right-side.php",
-			"settings":
-			{
-				"buffer_size": 3537,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "www/views/page-structure.php",
-			"settings":
-			{
-				"buffer_size": 3606,
+				"buffer_size": 2520,
 				"line_ending": "Windows"
 			}
 		}
@@ -200,8 +184,30 @@
 	},
 	"file_history":
 	[
-		"/D/Projects/Mankar/development/www/models/simple-cms/NewsEditor.php",
+		"/D/Projects/Mankar/development/www/content/mankarulv.com/products-product.php",
+		"/D/Projects/Mankar/development/www/content/mankarulv.com/comparison.php",
+		"/D/Projects/Mankar/development/www/models/simple-cms/SitePagesEditor.php",
+		"/D/Projects/Mankar/development/www/views/header.php",
+		"/D/Projects/Mankar/development/env/dev.htaccess",
+		"/D/Projects/Mankar/development/www/views/simple-cms/site-pages-edit.php",
+		"/D/Projects/Mankar/development/www/content/comparison/mankar-products.xml",
+		"/D/Projects/Mankar/development/www/content/comparison/other-products.xml",
+		"/D/Projects/Mankar/development/www/.htaccess",
+		"/D/Projects/Mankar/development/www/content/en/contentComparison.html",
+		"/D/Projects/Mankar/development/www/views/page-structure.php",
+		"/D/Projects/Mankar/development/www/views/simple-cms/cms-core.php",
+		"/D/Projects/Mankar/development/env/config.php",
 		"/D/Projects/Mankar/development/www/models/simple-cms/ProductsEditor.php",
+		"/D/Projects/Mankar/development/www/views/simple-cms/products-edit.php",
+		"/D/Projects/Mankar/development/.gitignore",
+		"/D/Projects/Mankar/development/www/models/simple-cms/PartsEditor.php",
+		"/D/Projects/Mankar/development/www/run.php",
+		"/D/Projects/Mankar/development/www/content/mankarulv.com/dealers.php",
+		"/D/Projects/Mankar/development/www/content/mankarulv.com/tradeshows.php",
+		"/D/Projects/Mankar/development/www/views/right-side.php",
+		"/D/Projects/Mankar/development/www/robots-DEV.txt",
+		"/D/Projects/Mankar/development/www/sitemap.xml",
+		"/D/Projects/Mankar/development/www/models/simple-cms/NewsEditor.php",
 		"/D/Projects/Mankar/development/www/models/simple-cms/TradeshowsEditor.php",
 		"/D/Projects/Mankar/development/www/views/simple-cms/news-edit.php",
 		"/D/Projects/Mankar/development/www/content/mafexulv.com/products-main.php",
@@ -215,18 +221,11 @@
 		"/D/Projects/Mankar/development/www/content/mantisulv.com/home.php",
 		"/D/Projects/Mankar/development/www/content/mafexulv.com/home.php",
 		"/D/Projects/Mankar/development/www/content/mankarulv.com/home.php",
-		"/D/Projects/Mankar/development/www/content/mankarulv.com/products-product.php",
-		"/D/Projects/Mankar/development/www/views/page-structure.php",
-		"/D/Projects/Mankar/development/www/views/header.php",
 		"/D/Projects/Mankar/development/www/models/simple-cms/ProductTypesEditor.php",
-		"/D/Projects/Mankar/development/www/models/simple-cms/PartsEditor.php",
 		"/D/Projects/Mankar/development/www/models/simple-cms/DealersEditor.php",
 		"/D/Projects/Mankar/development/www/env/config.php",
 		"/D/Projects/Mankar/development/www/content/mankarulv.com/parts-main.php",
-		"/D/Projects/Mankar/development/www/views/simple-cms/products-edit.php",
-		"/D/Projects/Mankar/development/www/.htaccess",
 		"/D/Projects/Mankar/development/www/content/mankarulv.com/news.php",
-		"/D/Projects/Mankar/development/www/content/mankarulv.com/tradeshows.php",
 		"/D/Projects/Mankar/development/www/models/simple-cms/SimpleCMSEditor.php",
 		"/D/Projects/Mankar/development/www/includes/right-side.php",
 		"/D/Projects/Mankar/development/www/includes/_init.php",
@@ -235,9 +234,7 @@
 		"/D/Projects/Mankar/development/www/views/simple-cms/list.php",
 		"/D/Projects/Mankar/development/www/models/simple-cms/SimpleCMSListView.php",
 		"/C/Users/Steve/Downloads/wordpress.2012-09-25.xml",
-		"/D/Projects/Mankar/development/www/models/simple-cms/SitePagesEditor.php",
 		"/D/Projects/Mankar/development/www/views/simple-cms/main.php",
-		"/D/Projects/Mankar/development/www/views/simple-cms/site-pages-edit.php",
 		"/D/Projects/Mankar/development/www/models/SimpleCMS.php",
 		"/D/Projects/Mankar/development/www/views/simple-cms/dealers-edit.php",
 		"/D/Projects/Mankar/development/www/views/simple-cms/parts-edit.php",
@@ -249,7 +246,6 @@
 		"/D/Projects/Mankar/development/www/views/simple-cms/products-list.php",
 		"/D/Projects/Mankar/development/www/views/simple-cms/parts-list.php",
 		"/D/Projects/Mankar/development/www/models/MankarMain.php",
-		"/D/Projects/Mankar/development/www/views/simple-cms/cms-core.php",
 		"/D/Projects/Mankar/development/www/models/SimpleCMSListView.php",
 		"/D/Projects/Mankar/development/www/includes/header.php",
 		"/D/Projects/Mankar/development/www/views/simple-cms/tradeshows-list.php",
@@ -279,7 +275,6 @@
 		"/D/Projects/Mankar/development/www/views/simple-cms/dealers-list.php",
 		"/D/Projects/Mankar/development/www/simple-cms/includes/products-table.php",
 		"/D/Projects/Mankar/development/www/simple-cms/includes/edit-meta-tag.php",
-		"/D/Projects/Mankar/development/www/content/mankarulv.com/dealers.php",
 		"/D/Projects/Mankar/development/www/simple-cms/includes/meta-tags-table.php",
 		"/D/Projects/Mankar/development/www/simple-cms/includes/meta-tags.php",
 		"/D/Projects/Mankar/development/www/lib/MySQLUtility.php",
@@ -316,18 +311,7 @@
 		"/D/Projects/Mankar/development/www/content/parts-part.php",
 		"/C/Users/Steve/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/D/Projects/Mankar/development/www/dev.htaccess",
-		"/D/Projects/plangere/paypalwpp.php",
-		"/D/Projects/plangere/ipn_main_handler.php",
-		"/D/Projects/plangere/hellothere.txt",
-		"/D/Projects/plangere/500.php",
-		"/D/Projects/plangere/application_top.php",
-		"/D/Projects/plangere/payment.php",
-		"/D/Projects/Mankar/development/www/includes/_page-structure.php",
-		"/D/Projects/steveshaddick.com/live/www/.htaccess",
-		"/D/Projects/Mankar/development/www/live.htaccess",
-		"/D/Projects/Mankar/development/www/controllers/pageController.php",
-		"/D/Projects/steveshaddick.com/live/env/Config.php",
-		"/D/Projects/Mankar/development/www/index.php"
+		"/D/Projects/plangere/paypalwpp.php"
 	],
 	"find":
 	{
@@ -338,6 +322,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"D:\\Projects\\Mankar\\development\\www",
 			"",
 			"D:\\Projects\\Mankar\\www",
 			"D:\\Projects\\Mankar\\development\\www"
@@ -348,6 +333,15 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"pageData['productType']",
+			"http://www.mankar.ca",
+			"metadata['extra']",
+			"metadata",
+			"metaData",
+			"extra",
+			"'extra",
+			"MANUALS",
+			"errorMessage",
 			"block",
 			"\"><?",
 			"showlink",
@@ -466,16 +460,7 @@
 			"typename",
 			"<?=",
 			"$lang",
-			"$myrow",
-			"<?=",
-			"$lang",
-			"productId",
-			"cust_print_r",
-			"getlanguagecode",
-			"print_r",
-			"function zclog",
-			"zcLog",
-			"$subtotalPRE"
+			"$myrow"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -493,7 +478,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -501,15 +486,15 @@
 					"file": "www/css/mankar-style.css",
 					"settings":
 					{
-						"buffer_size": 16219,
+						"buffer_size": 16320,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1530,
-								1531
+								14156,
+								14156
 							]
 						],
 						"settings":
@@ -597,6 +582,7 @@
 							"sublimelinter_popup_errors_on_save": false,
 							"sublimelinter_syntax_map":
 							{
+								"C++": "c",
 								"Python Django": "python",
 								"Ruby on Rails": "ruby"
 							},
@@ -605,7 +591,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 959.0,
+						"translation.y": 14315.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -622,8 +608,8 @@
 						"selection":
 						[
 							[
-								1291,
-								1291
+								856,
+								870
 							]
 						],
 						"settings":
@@ -711,6 +697,7 @@
 							"sublimelinter_popup_errors_on_save": false,
 							"sublimelinter_syntax_map":
 							{
+								"C++": "c",
 								"Python Django": "python",
 								"Ruby on Rails": "ruby"
 							},
@@ -719,7 +706,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 28.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -729,15 +716,15 @@
 					"file": "www/models/MankarMain.php",
 					"settings":
 					{
-						"buffer_size": 13124,
+						"buffer_size": 13204,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1164,
-								1145
+								7268,
+								7268
 							]
 						],
 						"settings":
@@ -825,6 +812,7 @@
 							"sublimelinter_popup_errors_on_save": false,
 							"sublimelinter_syntax_map":
 							{
+								"C++": "c",
 								"Python Django": "python",
 								"Ruby on Rails": "ruby"
 							},
@@ -833,25 +821,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 274.0,
+						"translation.y": 1890.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "www/content/mankarulv.com/dealers.php",
+					"file": "/D/Projects/Challenge/challenge-multi.html",
 					"settings":
 					{
-						"buffer_size": 4560,
+						"buffer_size": 2135,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1025,
-								1025
+								0,
+								0
 							]
 						],
 						"settings":
@@ -939,33 +927,34 @@
 							"sublimelinter_popup_errors_on_save": false,
 							"sublimelinter_syntax_map":
 							{
+								"C++": "c",
 								"Python Django": "python",
 								"Ruby on Rails": "ruby"
 							},
 							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 420.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "www/content/mankarulv.com/tradeshows.php",
+					"file": "www/models/simple-cms/DealersEditor.php",
 					"settings":
 					{
-						"buffer_size": 5678,
+						"buffer_size": 2520,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3344,
-								3344
+								664,
+								664
 							]
 						],
 						"settings":
@@ -1053,234 +1042,7 @@
 							"sublimelinter_popup_errors_on_save": false,
 							"sublimelinter_syntax_map":
 							{
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "www/views/right-side.php",
-					"settings":
-					{
-						"buffer_size": 3537,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1169,
-								1169
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_mark_style": "outline",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
-								"Python Django": "python",
-								"Ruby on Rails": "ruby"
-							},
-							"sublimelinter_wrap_find": true,
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "www/views/page-structure.php",
-					"settings":
-					{
-						"buffer_size": 3606,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								966,
-								966
-							]
-						],
-						"settings":
-						{
-							"annotations":
-							[
-								"TODO",
-								"README",
-								"FIXME"
-							],
-							"csslint_options":
-							{
-								"adjoining-classes": "warning",
-								"box-model": true,
-								"box-sizing": "warning",
-								"compatible-vendor-prefixes": "warning",
-								"display-property-grouping": true,
-								"duplicate-background-images": "warning",
-								"duplicate-properties": true,
-								"empty-rules": true,
-								"errors": true,
-								"fallback-colors": "warning",
-								"floats": "warning",
-								"font-faces": "warning",
-								"font-sizes": "warning",
-								"gradients": "warning",
-								"ids": "warning",
-								"import": "warning",
-								"important": "warning",
-								"known-properties": true,
-								"outline-none": "warning",
-								"overqualified-elements": "warning",
-								"qualified-headings": "warning",
-								"regex-selectors": "warning",
-								"rules-count": "warning",
-								"shorthand": "warning",
-								"star-property-hack": "warning",
-								"text-indent": "warning",
-								"underscore-property-hack": "warning",
-								"unique-headings": "warning",
-								"universal-selector": "warning",
-								"vendor-prefix": true,
-								"zero-units": "warning"
-							},
-							"gjslint_ignore":
-							[
-								110
-							],
-							"gjslint_options":
-							[
-							],
-							"javascript_linter": "jshint",
-							"jshint_options":
-							{
-								"browser": true,
-								"evil": true,
-								"regexdash": true,
-								"sub": true,
-								"trailing": true,
-								"wsh": true
-							},
-							"pep8": true,
-							"pep8_ignore":
-							[
-								"E501"
-							],
-							"perl_linter": "perlcritic",
-							"pyflakes_ignore":
-							[
-							],
-							"pyflakes_ignore_import_*": true,
-							"sublimelinter": true,
-							"sublimelinter_delay": 2,
-							"sublimelinter_disable":
-							[
-							],
-							"sublimelinter_executable_map":
-							{
-							},
-							"sublimelinter_fill_outlines": false,
-							"sublimelinter_gutter_marks": false,
-							"sublimelinter_mark_style": "outline",
-							"sublimelinter_notes": false,
-							"sublimelinter_objj_check_ascii": false,
-							"sublimelinter_popup_errors_on_save": false,
-							"sublimelinter_syntax_map":
-							{
+								"C++": "c",
 								"Python Django": "python",
 								"Ruby on Rails": "ruby"
 							},
@@ -1289,7 +1051,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 84.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

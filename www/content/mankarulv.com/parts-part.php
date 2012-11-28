@@ -22,9 +22,9 @@
 		$partName = $part['name'];
 	}
 	if ($part['photo'] == '') {
-		$part['photo'] = 'no_photo.jpg';
-	} else if (!file_exists(PARTS_LOCATION.$part['photo'])) {
-		$part['photo'] = 'no_photo.jpg';
+		$part['photo'] = 'no-photo.gif';
+	} else if (!file_exists($_SERVER['DOCUMENT_ROOT']. PARTS_LOCATION.'/'.$part['photo'])) {
+		$part['photo'] = 'no-photo.gif';
 	}
 
 ?>
@@ -39,7 +39,7 @@
 
 <div class="padContent">
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" class="tblProduct">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="part-table">
         <tr>
           <td width="202" align="center" valign="top">
           		<img class="partPhoto" src="<?=PARTS_LOCATION.$part['photo'];?>" alt="<?=$partName;?>" />

@@ -215,7 +215,7 @@ class MankarMain {
 		$productId = intval($productId);
 		$error = '';
 
-		$parts = $this->mySQL->sendQuery("SELECT * FROM parts WHERE parts.part_id IN (SELECT part_id FROM parts_to_products WHERE product_id = $productId)");
+		$parts = $this->mySQL->sendQuery("SELECT * FROM parts WHERE parts.part_id IN (SELECT part_id FROM parts_to_products WHERE product_id = $productId) AND parts.active=1 ORDER BY parts.part_code");
 		$product = $this->mySQL->getSingleRow("SELECT name FROM products WHERE product_id=$productId AND products.active=1");
 
 		if (count($parts) == 0) {
@@ -233,7 +233,7 @@ class MankarMain {
 		if (strlen($search) >= 3) {
 			$search = $this->mySQL->cleanString($search);
 
-			$parts = $this->mySQL->sendQuery("SELECT * FROM parts WHERE (part_code LIKE '%$search%' OR name LIKE '%$search%' OR agtec_code LIKE '%$search%' OR old_code LIKE '%$search%') AND parts.active=1");
+			$parts = $this->mySQL->sendQuery("SELECT * FROM parts WHERE (part_code LIKE '%$search%' OR name LIKE '%$search%' OR agtec_code LIKE '%$search%' OR old_code LIKE '%$search%') AND parts.active=1  ORDER BY parts.part_code");
 			if (count($parts) == 0) {
 				$error = 'nosearch';
 			}
@@ -359,7 +359,25 @@ class MankarMain {
 			setcookie('units', $this->units, EXPIRE_COOKIE);
 
 		} else {
+
 			$this->units = $_SESSION['units'] = UNIT_METRIC;
+
+			$ip = isset($_SESSION['REMOTE_ADDR']) ? $_SESSION['REMOTE_ADDR'] : '';
+			if (!empty($ip)) {
+				
+				include(BASE_PATH. '/lib/ip2locationlite.class.php');
+				
+				$ipLite = new ip2location_lite;
+				$ipLite->setKey(IPINFO_API);
+
+				$visitorGeolocation = $ipLite->getCountry($ip);
+				if ($visitorGeolocation['statusCode'] == 'OK') {
+					if ($visitorGeolocation['country'] == 'US') {
+						$this->units = $_SESSION['units'] = UNIT_US;
+					}
+				}
+			}
+
 			setcookie('units', $this->units, EXPIRE_COOKIE);
 		}
 

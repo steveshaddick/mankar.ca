@@ -11,11 +11,6 @@ Even at wide widths, the left part of the tool is being cut off.
 
 ---------------------------------------------------------
 
-The parts page output:
-http://dev.mankarulv.com/parts?pid=10
-Could we have it so it orders by part number, and also shows the part number?  Kind of like a table?  Also if they have the picture we could show a small picture.
-
----------------------------------------------------------
 the mini logos in the left column don't look very crisp - are we trying to fit too much detail in there?
 I don't have that font and can't find it with identifont either.  
 Maybe the logos got to go?  Your thoughts?

@@ -223,14 +223,14 @@ h2 {
 }
 
 a.localeLink {
-	color:#6AA869; 
+	color: #D1ECD0;
 }
 a.localeLink:hover {
 	color:#326B32; 
 }
 a.localeLink.selected {
 	font-weight: bold;
-	color: #D1ECD0;
+	color:#6AA869; 
 }
 
 
@@ -1066,6 +1066,11 @@ a.productTitle {
 	color:#a3a3a3;
 }
 
+.part-table {
+	margin-bottom: 50px;
+    margin-top: 50px;
+}
+
 
 
 #photoSlider {
@@ -1076,6 +1081,33 @@ a.productTitle {
 
 #photoSlide img {
 	padding: 4px 2px;
+}
+
+.parts-table {
+	width:100%;
+}
+
+.parts-table .photo {
+	text-align: center;
+    width: 20%;
+}
+
+.parts-table tr {
+	height: 50px;
+}
+
+.parts-table .part-photo{
+	max-width:50px;
+	max-height:50px;
+}
+
+.parts-table .part-number {
+	display:block;
+	font-size:11px;
+}
+
+.parts-table .part-name {
+
 }
 
 ul.partsList {
@@ -1116,8 +1148,8 @@ ul.partsList {
 }
 
 .partPhoto {
-	width:150px;
-	height:150px;
+	max-width:150px;
+	max-height:150px;
 }
 
 .noLanguage {
