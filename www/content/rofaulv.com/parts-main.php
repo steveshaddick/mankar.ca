@@ -109,15 +109,39 @@
 
 	<?php
 		if ($error === '') {
-			foreach ($productParts['parts'] as $part)
-			{ ?>
-				<ul class="partsList">
-					<li><a href="/parts/<?php echo $part['part_id']; ?>"><?php echo $part['name']; ?></a></li>
-				</ul>
-		<?php }
-			}else { ?>
-			<?php echo $error; ?>
-		<?php } 
-		} ?>
+			?>
 
+			<table class="parts-table">
+				<?php
+				foreach ($productParts['parts'] as $part)
+				{ ?>
+					<tr>
+						<td class="photo">
+							<?php
+							if (($part['photo'] != '') && (file_exists($_SERVER['DOCUMENT_ROOT']. PARTS_LOCATION.'/'.$part['photo']))){
+								?>
+								<a class="part-name" href="/parts/<?php echo $part['part_id']; ?>"><img class="part-photo" src="<?php echo PARTS_LOCATION.$part['photo']; ?>" alt="" /></a>
+								<?php
+							} else {
+								?>
+								<a class="part-name" href="/parts/<?php echo $part['part_id']; ?>"><img class="part-photo" src="<?php echo PARTS_LOCATION.'no-photo.gif'; ?>" alt="" /></a>
+								<?php
+							}
+							?>
+						</td>
+						<td class="part">
+							<span class="part-number"><?php echo $part['part_code']; ?></span>
+							<a class="part-name" href="/parts/<?php echo $part['part_id']; ?>"><?php echo $part['name']; ?></a>
+						</td>
+					</tr>
+				<?php 
+				}
+				?>
+			</table>
+			<?php
+		} else { 
+			echo $error;
+
+		} 
+	} ?>
 </div>
