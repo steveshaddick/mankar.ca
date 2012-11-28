@@ -349,6 +349,7 @@ class MankarMain {
 	}
 
 	private function determineUnits() {
+		
 		if (isset($_COOKIE['units'])){ 
 
 			$this->units = $_SESSION['units'] = $_COOKIE['units'];
@@ -362,7 +363,7 @@ class MankarMain {
 
 			$this->units = $_SESSION['units'] = UNIT_METRIC;
 
-			$ip = isset($_SESSION['REMOTE_ADDR']) ? $_SESSION['REMOTE_ADDR'] : '';
+			$ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
 			if (!empty($ip)) {
 				
 				include(BASE_PATH. '/lib/ip2locationlite.class.php');
@@ -370,11 +371,13 @@ class MankarMain {
 				$ipLite = new ip2location_lite;
 				$ipLite->setKey(IPINFO_API);
 
+				$ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
 				$visitorGeolocation = $ipLite->getCountry($ip);
+				
 				if ($visitorGeolocation['statusCode'] == 'OK') {
-					if ($visitorGeolocation['country'] == 'US') {
+					if ($visitorGeolocation['countryCode'] == 'US') {
 						$this->units = $_SESSION['units'] = UNIT_US;
-					}
+					} 
 				}
 			}
 

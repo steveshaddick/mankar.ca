@@ -28,7 +28,7 @@ final class ip2location_lite{
 	private function getResult($host, $name){
 		$ip = @gethostbyname($host);
 
-		if(filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)){
+		if(filter_var($ip, FILTER_VALIDATE_IP)){
 			$xml = @file_get_contents('http://' . $this->service . '/' . $this->version . '/' . $name . '/?key=' . $this->apiKey . '&ip=' . $ip . '&format=xml');
 
 
