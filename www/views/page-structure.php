@@ -32,7 +32,7 @@ require_once(dirname(__FILE__).'/../includes/language.php');
 </head>
 <body>
 
-<div id="container">
+<div id="container" class="container-<?php echo $mankarMain->pageLocation[0]; ?>">
   
   <?php  require('header.php'); ?>
 

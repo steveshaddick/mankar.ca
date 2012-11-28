@@ -56,7 +56,10 @@ p {
 	max-width: 1400px;
 	width:80%;
 	text-align: left;
-} 
+}
+#container.container-comparison {
+	min-width: 1050px;
+}
 
 .columnWrapper {
 	position:relative;

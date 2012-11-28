@@ -5,11 +5,6 @@ Organized highest to lowest priority (from Nick's point of view)
 On both IE9 and FF15, it is not holding the Language between supertypes.  Nor the unit of measurement.  Is it because separate domains can't share cookies?  Can we embed that info in the link?  I bet you can wizard!
 
 ---------------------------------------------------------
-In Firefox 17, http://dev.mankarulv.com/comparison breaks the page.
-At narrow widths the right side wants to overlap it.
-Even at wide widths, the left part of the tool is being cut off.
-
----------------------------------------------------------
 
 the mini logos in the left column don't look very crisp - are we trying to fit too much detail in there?
 I don't have that font and can't find it with identifont either.  

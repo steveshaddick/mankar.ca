@@ -15,7 +15,7 @@
 			id: "mankarcomp",
 			name:"mankarcomp",
 			align:"top"};
-			swfobject.embedSWF("/content/comparison/mankar-comparison.swf", "flashcontent", "600", "900", "9.0.0", flashvars, params, attributes);
+			swfobject.embedSWF("/content/comparison/mankar-comparison.swf", "flashcontent", "100%", "900", "9.0.0", flashvars, params, attributes);
 		</script> 
 	</div>
 </div>
