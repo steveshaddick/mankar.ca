@@ -1117,12 +1117,44 @@ ul.partsList {
 	font-size:0.85em;
 }
 
+
+.dealer-quick-locate-box {
+	float:left;
+	width:33%;
+	padding-bottom: 30px;
+}
+
+.dealer-quick-locate-box .country-heading {
+	color: #9F6600;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.dealer-quick-locate-box .country-list {
+	padding-left:15px;
+	line-height: 22px;
+}
+
+.dealer-state {
+	border-top: 1px solid #A6A6A6;
+    color: #9F6600;
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.tblDealer {
+	max-width:100%;
+}
+
 .dealerLocationLink {
 	font-size:18px;
 }
 
 .dealerItem {
-	border-bottom:1px solid #a6a6a6;
+	overflow-x:hidden;
+	margin-bottom: 30px;
 }
 
 .dealerPicture {

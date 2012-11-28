@@ -32,6 +32,8 @@ class MankarMain {
 	public $lastNewsPage;
 	public $newsList;
 	public $newsItem;
+
+	public $isUSA = false;
 	
 	public $envPrefix = 'www.';
 
@@ -57,6 +59,9 @@ class MankarMain {
 			$this->envPrefix = 'dev.';
 		}
 		
+		if (isset($_COOKIE['usa'])){ 
+			$this->isUSA = true;
+		}
 
 		$this->determineLanguage();
 		$this->determineUnits();
@@ -377,6 +382,8 @@ class MankarMain {
 				if ($visitorGeolocation['statusCode'] == 'OK') {
 					if ($visitorGeolocation['countryCode'] == 'US') {
 						$this->units = $_SESSION['units'] = UNIT_US;
+						$this->isUSA = true;
+						setcookie('usa', 1, EXPIRE_COOKIE);
 					} 
 				}
 			}

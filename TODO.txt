@@ -13,22 +13,6 @@ these guys have something very similar called Reaction Bold : http://www.fontsfo
 
 ---------------------------------------------------------
 
-on the dealer pages, the maps are pushed at narrow window settings by unbroken web addresses or email addresses.
-
-in that case should we trim the map to size?  I mean hide the part of the map that goes further than the 10 pixels from the edge or whatever they normally do.
-
----------------------------------------------------------
-Dealers page 
-ex: http://dev.mantisulv.com/dealers
-
-should check if there are US AND Canadian dealers before putting that up.  If only one county, hide the US/Canada thingie
-
-Secondly, if they have US IP should we put US first?
-
-we had talked before about the following for measurements:
-if cookie set from previous visit, use that setting
-if not, if they have a US IP set to US, otherwise metric
------------------------------------------------------------
 Ability to upload manuals in other languages (French and Spanish)
 List all the manuals for that machine, preceeded by English, Francais, Espanol
 ------------------------------------------------------------
