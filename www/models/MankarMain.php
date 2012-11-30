@@ -111,10 +111,14 @@ class MankarMain {
 			switch ($param) {
 				case 'usa':
 					if ($prettyUrl == $param) { $prettyUrl = 'index'; }
-					$this->units = $_SESSION['units'] = UNIT_US;
 					$this->isUSA = true;
-					setcookie('usa', 1, EXPIRE_COOKIE);
-					setcookie('units', $this->units, EXPIRE_COOKIE);
+					if (!isset($_COOKIE['usa'])) {
+						setcookie('usa', 1, EXPIRE_COOKIE);
+					}
+					if (!isset($_COOKIE['units'])) {
+						$this->units = $_SESSION['units'] = UNIT_US;
+						setcookie('units', $this->units, EXPIRE_COOKIE);
+					}
 					break;
 
 				case 'fr':
