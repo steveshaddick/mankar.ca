@@ -80,6 +80,8 @@ class ProductsEditor extends SimpleCMSEditor {
 	        		case 'meta_title_sp':
 	        		case 'meta_description_sp':
 	       			case 'meta_keywords_sp':
+	       			case 'deletemanual_fr':
+	       			case 'deletemanual_sp':
 					break;
 					
 					default:
@@ -133,6 +135,44 @@ class ProductsEditor extends SimpleCMSEditor {
 				}
 			}
 		}
+		if (isset($_POST['deletemanual_fr'])) {
+			//unlink();
+			$query .= "manual_fr='',";
+			//echo "deleting photo";
+		} else if (isset($_FILES['manualfile_fr'])) {
+			if ($_FILES['manualfile_fr']['name'] != "") {
+				$filename = ereg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['manualfile_fr']['name']));
+				
+				$targetPath = MANUALS_UPLOAD_LOCATION.$filename;
+				
+				if(move_uploaded_file($_FILES['manualfile_fr']['tmp_name'], $targetPath)) {
+					$query .= "manual_fr='$filename',";
+					//echo "uploaded file";
+				} else{
+					$this->error = true;
+					$this->errorMessage .= "There was an error uploading ".$_FILES['manualfile_fr']['name']."<br />";
+				}
+			}
+		}
+		if (isset($_POST['deletemanual_sp'])) {
+			//unlink();
+			$query .= "manual_sp='',";
+			//echo "deleting photo";
+		} else if (isset($_FILES['manualfile_sp'])) {
+			if ($_FILES['manualfile_sp']['name'] != "") {
+				$filename = ereg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['manualfile_sp']['name']));
+				
+				$targetPath = MANUALS_UPLOAD_LOCATION.$filename;
+				
+				if(move_uploaded_file($_FILES['manualfile_sp']['tmp_name'], $targetPath)) {
+					$query .= "manual_sp='$filename',";
+					//echo "uploaded file";
+				} else{
+					$this->error = true;
+					$this->errorMessage .= "There was an error uploading ".$_FILES['manualfile_sp']['name']."<br />";
+				}
+			}
+		}
 
 		
 		if (!isset($_POST['active'])) {
@@ -154,6 +194,8 @@ class ProductsEditor extends SimpleCMSEditor {
 
 		if ($result !== true) {
 			$this->error = true;
+			echo $query;
+			die();
 		}
 
 		

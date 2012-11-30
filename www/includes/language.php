@@ -7,6 +7,9 @@ define('NO_SPANISH', "<p class='noLanguage'>Lo sentimos mucho, esta p&aacute;gin
 
 switch ($mankarMain->lang) { 
 	case LANGUAGE_ENGLISH :  
+		
+		define('TITLE_404', 'Page Not Found');
+		
 		define('NAV_BENEFITS', 'Benefits');
 		define('NAV_TECHNOLOGY', 'Technology');
 		define('NAV_COSTSHARE', 'Government Cost-Share');
@@ -15,7 +18,11 @@ switch ($mankarMain->lang) {
 		define('NAV_MANUALS', 'Manuals');
 		define('NAV_PARTS', 'Parts');
 		break;
+
 	case LANGUAGE_FRENCH :  
+		
+		define('TITLE_404', 'Page Not Found');
+
 		define('NAV_BENEFITS', 'Avantages');
 		define('NAV_TECHNOLOGY', 'Technologie');
 		define('NAV_COSTSHARE', 'Partage des Coûts');
@@ -24,7 +31,11 @@ switch ($mankarMain->lang) {
 		define('NAV_MANUALS', 'Manuels');
 		define('NAV_PARTS', 'Pièces');
 		break;
+
 	case LANGUAGE_SPANISH :  
+		
+		define('TITLE_404', 'Page Not Found');
+
 		define('NAV_BENEFITS', 'Beneficios');
 		define('NAV_TECHNOLOGY', 'Tecnología');
 		define('NAV_COSTSHARE', 'Government Cost-Share');

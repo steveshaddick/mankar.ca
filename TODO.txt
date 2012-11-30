@@ -6,13 +6,4 @@ On both IE9 and FF15, it is not holding the Language between supertypes.  Nor th
 
 ---------------------------------------------------------
 
-the mini logos in the left column don't look very crisp - are we trying to fit too much detail in there?
-I don't have that font and can't find it with identifont either.  
-Maybe the logos got to go?  Your thoughts?
-these guys have something very similar called Reaction Bold : http://www.fontsforflash.com/
 
----------------------------------------------------------
-
-Ability to upload manuals in other languages (French and Spanish)
-List all the manuals for that machine, preceeded by English, Francais, Espanol
-------------------------------------------------------------

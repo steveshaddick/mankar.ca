@@ -16,7 +16,17 @@
 			define('UNITS', 'Units');
 
 			$description = $product['description'];
+			$manuals = ($mankarMain->isUSA) ? 
+			array(
+				array('lang'=>'en', 'manual'=>$product['manual']), 
+				array('lang'=>'sp', 'manual'=>$product['manual_sp']), 
+				array('lang'=>'fr', 'manual'=>$product['manual_fr'])) : 
+			array(
+				array('lang'=>'en', 'manual'=>$product['manual']), 
+				array('lang'=>'fr', 'manual'=>$product['manual_fr']), 
+				array('lang'=>'sp', 'manual'=>$product['manual_sp']));
 			break;
+
 		case LANGUAGE_FRENCH :  
 			define('PRODUCTS', 'Produits');
 			define('PARTS', 'Parts');
@@ -25,6 +35,11 @@
 			define('UNITS', 'Units');
 
 			$description = $product['description_fr'];
+			$manuals = array(
+				array('lang'=>'fr', 'manual'=>$product['manual_fr']), 
+				array('lang'=>'en', 'manual'=>$product['manual']), 
+				array('lang'=>'sp', 'manual'=>$product['manual_sp']));
+
 			break;
 		case LANGUAGE_SPANISH :  
 			define('PRODUCTS', 'Products');
@@ -34,6 +49,11 @@
 			define('UNITS', 'Units');
 
 			$description = $product['description_sp'];
+			$manuals = array(
+				array('lang'=>'sp', 'manual'=>$product['manual_sp']), 
+				array('lang'=>'en', 'manual'=>$product['manual']), 
+				array('lang'=>'fr', 'manual'=>$product['manual_fr']));
+
 			break;
 	} 
 
@@ -265,21 +285,54 @@ if (count($product['parts']) > 0) {
 
 ?>
 
-<?php if ($product['manual'] != "") {
-	?>
-	<br />
-	<br />
-	<h2 class="productPage"><?=MANUAL;?></h2>
-    <a href="<?php echo MANUALS_LOCATION.$product['manual'];?>" target="_blank">
-     <?php
-    switch ($mankarMain->lang) { 
-		case LANGUAGE_ENGLISH :  echo 'View PDF Manual for '.$product['name'].'.'; break;
-		case LANGUAGE_FRENCH :  echo 'View PDF Manual for '.$product['name'].'.'; break;
-		case LANGUAGE_SPANISH :  echo 'View PDF Manual for '.$product['name'].'.'; break;
-	} 
-	?>
-    </a>
-<?php }
+<?php 
+	
+$outputTitle = false;
+foreach ($manuals as $manual) {
+
+	if ($manual['manual'] != "") {
+		if (!$outputTitle) {
+			$outputTitle = true;
+			?>
+			<br />
+			<br />
+			<h2 class="productPage"><?=MANUAL;?></h2>
+			<?php
+		}
+		?>
+		<a href="<?php echo MANUALS_LOCATION.$manual['manual'];?>" target="_blank">
+		<?php
+		switch ($manual['lang']) {
+
+			case 'en':
+				switch ($mankarMain->lang) { 
+					case LANGUAGE_ENGLISH :  echo 'View PDF Manual (English)'; break;
+					case LANGUAGE_FRENCH :  echo 'View PDF Manual (English)'; break;
+					case LANGUAGE_SPANISH :  echo 'View PDF Manual (English)'; break;
+				} 
+				break;
+
+			case 'fr':
+				switch ($mankarMain->lang) { 
+					case LANGUAGE_ENGLISH :  echo 'View PDF Manual (French)'; break;
+					case LANGUAGE_FRENCH :  echo 'View PDF Manual (French)'; break;
+					case LANGUAGE_SPANISH :  echo 'View PDF Manual (French)'; break;
+				} 
+				break;
+
+			case 'sp':
+				switch ($mankarMain->lang) { 
+					case LANGUAGE_ENGLISH :  echo 'View PDF Manual (Spanish)'; break;
+					case LANGUAGE_FRENCH :  echo 'View PDF Manual (Spanish)'; break;
+					case LANGUAGE_SPANISH :  echo 'View PDF Manual (Spanish)'; break;
+				} 
+				break;
+		}
+		?>
+	    </a><br /><br />
+		<?php
+	}
+}
 ?>
 
 

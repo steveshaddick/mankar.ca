@@ -110,21 +110,25 @@ class MankarMain {
 			if ($redirect !== false) {
 				return array('success' => false, 'url' => $this->superTypes[$redirect['supertype_id']]['url'] . $_SERVER['REQUEST_URI']);
 			} else {
-				return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
+				$this->pageContent = '404.php';
 			}
+		} else {
+			$this->pageContent = $sitePage['content_file'];
 		}
 		
-		$this->pageContent = $sitePage['content_file'];
+		
 		if ($this->pageContent == '') {
-			return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
+			$this->pageContent = '404.php';
 		}
 		
-		$this->pageLocation = explode('/', $sitePage['location']);
+		if (isset($sitePage['location'])) {
+			$this->pageLocation = explode('/', $sitePage['location']);
+		}
 
 
 		if (!file_exists(PAGE_CONTENT . '/' . $this->superTypes[$this->superTypeId]['url'] . '/' . $this->pageContent)) {
 			if (!file_exists(PAGE_CONTENT . '/' . $this->superTypes[1]['url'] . '/' . $this->pageContent)) {
-				return array('success' => false, 'url' => 'http://'.SITE_URL.'/');
+				return array('success' => false, 'url' => 'http://'.SITE_URL);
 			} else {
 				$this->pageContent = $this->superTypes[1]['url'] . '/' . $this->pageContent;
 			}
@@ -132,14 +136,24 @@ class MankarMain {
 			$this->pageContent = $this->superTypes[$this->superTypeId]['url'] . '/' . $this->pageContent;
 		}
 
-		//this only works if the lang code == the db field name
-		$append = ($this->lang != LANGUAGE_ENGLISH) ? '_' . $this->lang : '';
+		switch ($this->pageContent) {
+			
+			case '404.php':
+				$this->metaData['title'] = TITLE_404;
+				$this->metaData['description'] = '';
+				$this->metaData['keywords'] = '';
+				break;
 
-		$this->metaData['title'] = ($sitePage['meta_title'.$append] != '') ? $sitePage['meta_title'.$append] : ($sitePage['meta_title'] != '') ? $sitePage['meta_title'] : $this->metaData['title'];
-		$this->metaData['description'] = ($sitePage['meta_description'.$append] != '') ? $sitePage['meta_description'.$append] : ($sitePage['meta_description'] != '') ? $sitePage['meta_description'] : $this->metaData['description'];
-		$this->metaData['keywords'] = ($sitePage['meta_keywords'.$append] != '') ? $sitePage['meta_keywords'.$append] : ($sitePage['meta_keywords'] != '') ? $sitePage['meta_keywords'] : $this->metaData['keywords'];
-		$this->metaData['extra'] .= $sitePage['extra_header'];
+			default:
+				//this only works if the lang code == the db field name
+				$append = ($this->lang != LANGUAGE_ENGLISH) ? '_' . $this->lang : '';
 
+				$this->metaData['title'] = ($sitePage['meta_title'.$append] != '') ? $sitePage['meta_title'.$append] : ($sitePage['meta_title'] != '') ? $sitePage['meta_title'] : $this->metaData['title'];
+				$this->metaData['description'] = ($sitePage['meta_description'.$append] != '') ? $sitePage['meta_description'.$append] : ($sitePage['meta_description'] != '') ? $sitePage['meta_description'] : $this->metaData['description'];
+				$this->metaData['keywords'] = ($sitePage['meta_keywords'.$append] != '') ? $sitePage['meta_keywords'.$append] : ($sitePage['meta_keywords'] != '') ? $sitePage['meta_keywords'] : $this->metaData['keywords'];
+				$this->metaData['extra'] .= $sitePage['extra_header'];
+				break;
+		}
 
 		//$this->pageUrl = $this->baseUrl = $sitePage['actual_url'];
 
@@ -284,7 +298,7 @@ class MankarMain {
 	}
 
 	public function getManuals() {
-		return $this->mySQL->sendQuery("SELECT name, manual FROM products WHERE manual <> '' AND supertype_id = $this->superTypeId ORDER BY type_id, manual, product_code");
+		return $this->mySQL->sendQuery("SELECT name, manual, manual_fr, manual_sp FROM products WHERE (manual <> '' OR manual_fr <> '' OR manual_sp <> '') AND supertype_id = $this->superTypeId ORDER BY type_id, manual, product_code");
 	}
 
 	public function getRecentNews() {

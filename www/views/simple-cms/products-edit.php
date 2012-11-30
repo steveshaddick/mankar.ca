@@ -146,11 +146,33 @@ if (isset($_GET['error'])) {
 
 				case 'manual':
 					?>
-					
+					<br />
 					<i>Manual</i><br />
 			        <a href="<?php echo MANUALS_LOCATION.$product['manual'];?>"><?php echo $product['manual'];?></a><br />
 			        <input id="manualfile" name="manualfile" type="file" /> OR Delete manual:
 			      	<input type="checkbox" id="deletemanual" name="deletemanual" value="deletemanual">
+				  	
+				  	<?php
+					break;
+
+				case 'manual_fr':
+					?>
+					<br /><br />
+					<i>French Manual</i><br />
+			        <a href="<?php echo MANUALS_LOCATION.$product['manual_fr'];?>"><?php echo $product['manual_fr'];?></a><br />
+			        <input id="manualfile_fr" name="manualfile_fr" type="file" /> OR Delete manual:
+			      	<input type="checkbox" id="deletemanual_fr" name="deletemanual_fr" value="deletemanual_fr">
+				  	
+				  	<?php
+					break;
+
+				case 'manual_sp':
+					?>
+					<br /><br />
+					<i>Spanish Manual</i><br />
+			        <a href="<?php echo MANUALS_LOCATION.$product['manual_sp'];?>"><?php echo $product['manual_sp'];?></a><br />
+			        <input id="manualfile_sp" name="manualfile_sp" type="file" /> OR Delete manual:
+			      	<input type="checkbox" id="deletemanual_sp" name="deletemanual_sp" value="deletemanual_sp">
 				  	
 				  	<?php
 					break;
