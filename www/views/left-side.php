@@ -36,6 +36,14 @@
   	<ul class="leftProductBox otherProduct">
     <?php
 		
+		$postfix = '';
+		if ($mankarMain->lang == LANGUAGE_FRENCH) {
+			$postfix = '/fr';
+		} else if ($mankarMain->lang == LANGUAGE_FRENCH) {
+			$postfix = '/sp';
+		} else if ($mankarMain->isUSA) {
+			$postfix = '/usa';
+		} 
 		//this'll change
 		foreach ($mankarMain->superTypes as $superType)
 		{
@@ -43,7 +51,9 @@
 				?>
 
 				<li>
-					<a class="typeName" href="http://<?php echo $mankarMain->envPrefix . $superType['url']; ?>"><img class="superTypeIcon" src="/images/<?php echo $superType['icon']; ?>" alt="" /><?php echo $superType['name']; ?></a><span class="smallSlug"><?php echo $superType['slug']; ?></span>
+					<a class="typeName" href="http://<?php echo $mankarMain->envPrefix . $superType['url'] . $postfix ; ?>">
+						<img class="superTypeIcon" src="/images/<?php echo $superType['icon']; ?>" alt="" /><?php echo $superType['name']; ?>
+					</a><span class="smallSlug"><?php echo $superType['slug']; ?></span>
 				</li>
 
 				<?php

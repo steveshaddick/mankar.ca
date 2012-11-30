@@ -149,7 +149,8 @@ if ($pageResult['success'] === true) {
 	require(BASE_PATH.'views/page-structure.php');
 
 } else {
-	header('Location: ' . $pageResult['url']);
+	echo "redirect to {$pageResult['url']}";
+	//header('Location: ' . $pageResult['url']);
 }
 
 ?>

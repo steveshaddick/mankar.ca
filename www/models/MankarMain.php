@@ -104,6 +104,34 @@ class MankarMain {
 
 		$prettyUrl = $this->mySQL->cleanString($prettyUrl);
 
+		$urlParams = explode('/', $prettyUrl);
+		$prettyUrl = $urlParams[0];
+
+		foreach ($urlParams as $param) {
+			switch ($param) {
+				case 'usa':
+					if ($prettyUrl == $param) { $prettyUrl = 'index'; }
+					$this->units = $_SESSION['units'] = UNIT_US;
+					$this->isUSA = true;
+					setcookie('usa', 1, EXPIRE_COOKIE);
+					setcookie('units', $this->units, EXPIRE_COOKIE);
+					break;
+
+				case 'fr':
+					if ($prettyUrl == $param) { $prettyUrl = 'index'; }
+					$this->lang = $_SESSION['lang'] = LANGUAGE_FRENCH;
+					setcookie('lang', $this->lang, EXPIRE_COOKIE);
+					break;
+
+				case 'sp':
+					if ($prettyUrl == $param) { $prettyUrl = 'index'; }
+					$this->lang = $_SESSION['lang'] = LANGUAGE_SPANISH;
+					setcookie('lang', $this->lang, EXPIRE_COOKIE);
+					break;
+
+			}
+		}
+
 		$sitePage = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND supertype_id=$this->superTypeId");
 		if ($sitePage === false) {
 			$redirect = $this->mySQL->getSingleRow("SELECT * FROM site_pages WHERE pretty_url='$prettyUrl' AND redirect_supertype=$this->superTypeId");

@@ -1,9 +1,2 @@
 Organized highest to lowest priority (from Nick's point of view)
 ------------------------------------------------------
-
-
-On both IE9 and FF15, it is not holding the Language between supertypes.  Nor the unit of measurement.  Is it because separate domains can't share cookies?  Can we embed that info in the link?  I bet you can wizard!
-
----------------------------------------------------------
-
-
