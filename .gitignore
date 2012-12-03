@@ -9,6 +9,8 @@ Thumbs.db
 *.htaccess
 *.htpasswd
 
+build/*
+
 log/*
 news/*
 pics/*

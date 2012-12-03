@@ -44,8 +44,6 @@ if ($pageResult['success'] === true) {
 					
 
 					$mankarMain->pageData['productType'] = $productType;
-
-					$mankarMain->metaData['extra'] = '<script src="js/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script><link href="css/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />';
 					//$mankarMain->pageContent = "products-type.php";
 
 					break;
@@ -61,7 +59,6 @@ if ($pageResult['success'] === true) {
 
 					$mankarMain->pageData['product'] = $product;
 
-					$mankarMain->metaData['extra'] = '<script src="js/SpryAssets/SpryCollapsiblePanel.js" type="text/javascript"></script><link href="css/SpryAssets/SpryCollapsiblePanel.css" rel="stylesheet" type="text/css" />';
 					break;
 
 			}
