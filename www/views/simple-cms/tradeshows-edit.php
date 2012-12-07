@@ -96,8 +96,8 @@ foreach ($tradeshow as $key=>$p)
 
 <script>
 $(document).ready(function() {
-	$("#showstart").datepicker({ dateFormat: "yyyy-mm-dd" });
-	$("#showend").datepicker({ dateFormat: "yyyy-mm-dd" });
+	$("#showstart").datepicker({ dateFormat: "yy-mm-dd" });
+	$("#showend").datepicker({ dateFormat: "yy-mm-dd" });
 });
 </script>
 
