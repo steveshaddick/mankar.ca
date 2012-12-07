@@ -59,7 +59,7 @@ class MankarMain {
 			$this->envPrefix = 'dev.';
 		}
 		
-		if (isset($_COOKIE['usa'])){ 
+		if (isset($_COOKIE['usa']) && ($_COOKIE['usa'] == 1)){ 
 			$this->isUSA = true;
 		}
 
@@ -112,13 +112,10 @@ class MankarMain {
 				case 'usa':
 					if ($prettyUrl == $param) { $prettyUrl = 'index'; }
 					$this->isUSA = true;
-					if (!isset($_COOKIE['usa'])) {
-						setcookie('usa', 1, EXPIRE_COOKIE);
-					}
-					if (!isset($_COOKIE['units'])) {
-						$this->units = $_SESSION['units'] = UNIT_US;
-						setcookie('units', $this->units, EXPIRE_COOKIE);
-					}
+					setcookie('usa', 1, EXPIRE_COOKIE);
+
+					$this->units = $_SESSION['units'] = UNIT_US;
+					setcookie('units', $this->units, EXPIRE_COOKIE);
 					break;
 
 				case 'fr':

@@ -28,6 +28,10 @@ switch ($_GET['key']) {
 	case 'units':
 		$_SESSION['units'] = $_GET['value'];
 		setcookie('units', $_GET['value'], EXPIRE_COOKIE, '/');
+
+		if ($_SESSION['units'] != UNIT_US) {
+			setcookie ('usa', "", time() - 3600, '/');
+		}
 		break;
 }
 

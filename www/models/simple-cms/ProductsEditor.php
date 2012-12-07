@@ -150,7 +150,7 @@ class ProductsEditor extends SimpleCMSEditor {
 					//echo "uploaded file";
 				} else{
 					$this->error = true;
-					$this->errorMessage .= "There was an error uploading ".$_FILES['manualfile_fr']['name']."<br />";
+					$this->errorMessage .= "There was an error uploading ".$_FILES['manualfile_fr']['name']." to $targetPath<br />";
 				}
 			}
 		}
