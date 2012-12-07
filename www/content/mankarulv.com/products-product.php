@@ -314,17 +314,17 @@ foreach ($manuals as $manual) {
 
 			case 'fr':
 				switch ($mankarMain->lang) { 
-					case LANGUAGE_ENGLISH :  echo 'View PDF Manual (French)'; break;
-					case LANGUAGE_FRENCH :  echo 'View PDF Manual (French)'; break;
-					case LANGUAGE_SPANISH :  echo 'View PDF Manual (French)'; break;
+					case LANGUAGE_ENGLISH :  echo 'View PDF Manual (Français)'; break;
+					case LANGUAGE_FRENCH :  echo 'View PDF Manual (Français)'; break;
+					case LANGUAGE_SPANISH :  echo 'View PDF Manual (Français)'; break;
 				} 
 				break;
 
 			case 'sp':
 				switch ($mankarMain->lang) { 
-					case LANGUAGE_ENGLISH :  echo 'View PDF Manual (Spanish)'; break;
-					case LANGUAGE_FRENCH :  echo 'View PDF Manual (Spanish)'; break;
-					case LANGUAGE_SPANISH :  echo 'View PDF Manual (Spanish)'; break;
+					case LANGUAGE_ENGLISH :  echo 'View PDF Manual (Español)'; break;
+					case LANGUAGE_FRENCH :  echo 'View PDF Manual (Español)'; break;
+					case LANGUAGE_SPANISH :  echo 'View PDF Manual (Español)'; break;
 				} 
 				break;
 		}

@@ -2,8 +2,8 @@ Organized highest to lowest priority (from Nick's point of view)
 ------------------------------------------------------
 
 
-
-Add an editable title field for the youtube top and bottom videos, so we can write something other than "Video"
+Youtube title fields
+Video 1 can stay Video, Video 2 make it Assembly Video.
 
 
 --------------------------------------------------------
