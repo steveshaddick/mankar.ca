@@ -90,7 +90,7 @@ class MankarMain {
 		}
 		$this->superTypes = $this->mySQL->sendQuery("SELECT * FROM supertypes", 'supertype_id', 'iterate', $this);
 		
-		$this->nextTradeshow = $this->mySQL->getSingleRow("SELECT * FROM tradeshows WHERE showend >= '".date( 'Y-m-d' )."' ORDER BY showstart");
+		$this->nextTradeshow = $this->mySQL->getSingleRow("SELECT * FROM tradeshows WHERE showend >= '".date( 'Y-m-d' )."' AND supertypes LIKE '%{$this->superTypeId}%' ORDER BY showstart");
 
 		$this->productTypes = $this->mySQL->sendQuery("SELECT * FROM product_types WHERE active=1 AND supertype_id = $this->superTypeId");
 		$this->orphanedProducts = $this->mySQL->sendQuery("SELECT product_id as type_id, pretty_url, name, supertype_id, photo_list as thumbnail, '1' as is_product FROM products WHERE active=1 AND supertype_id = $this->superTypeId AND type_id=0");
