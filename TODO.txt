@@ -1,2 +1,17 @@
 Organized highest to lowest priority (from Nick's point of view)
 ------------------------------------------------------
+
+Something funny happened to the tradeshow widget!  It looks like we have an unnamed show on the Unix Epoch!
+
+
+------------------------------------------------------
+
+Add an editable title field for the youtube top and bottom videos, so we can write something other than "Video"
+
+
+--------------------------------------------------------
+I can't upload other language manuals.  Maybe same issue as before with Eng manuals?
+"There was an error uploading es._1-9_-_mini-mantraplus__micro-mantra_09.pdf"
+
+------------------------------------------------------
+
