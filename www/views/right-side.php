@@ -30,38 +30,41 @@ switch ($mankarMain->lang) {
 	
 	<?php
 		$tradeshow = $mankarMain->nextTradeshow;
-	?>
-	<span class="sideColumnHeading"><?php echo NEXT_TRADESHOW; ?></span>
-	<div class="rightBox">
-		<?php
-		if ($tradeshow['logo'] != '') {
-        //TODO check for missing link
-        	?>
-        	<a href="<?php echo $tradeshow['website']?>" target="_blank"> <img class="imgTradeshow" src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /></a>
-        	<?php
-      	}
-      	?>
-      	<div class="tradeshowTitleWrapper">
-      		<a class="tradeshowTitle" href="<?php echo $tradeshow['website'] ?>" target="_blank"><?php echo $tradeshow['showname']; ?></a><br />
-      	</div>
-      	<br class="clear" />
-      	<div class="tradeshowDescription">
-      		<?php echo date("M jS", strtotime($tradeshow['showstart'])); ?> - <?php echo date("M jS, Y", strtotime($tradeshow['showend'])); ?></i><br />
-      		<?php echo $tradeshow['city'] . ", " . $tradeshow['province'] . ", " . $tradeshow['country']; ?><br class="clear" />
-      	</div>
-      	
-      	<a class="moreShowsLink" href="/tradeshows" >
-  		<?php
-	   	switch ($mankarMain->lang) { 
-			case LANGUAGE_ENGLISH : echo 'more shows &gt;'; break;
-			case LANGUAGE_FRENCH : echo 'more shows &gt;'; break;
-			case LANGUAGE_SPANISH : echo 'more shows &gt;'; break;
-		} 
-		?>
-		</a>
-  	</div>
+		if ($tradeshow) {
+			?>
+			<span class="sideColumnHeading"><?php echo NEXT_TRADESHOW; ?></span>
+			<div class="rightBox">
+				<?php
+				if ($tradeshow['logo'] != '') {
+		        //TODO check for missing link
+		        	?>
+		        	<a href="<?php echo $tradeshow['website']?>" target="_blank"> <img class="imgTradeshow" src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /></a>
+		        	<?php
+		      	}
+		      	?>
+		      	<div class="tradeshowTitleWrapper">
+		      		<a class="tradeshowTitle" href="<?php echo $tradeshow['website'] ?>" target="_blank"><?php echo $tradeshow['showname']; ?></a><br />
+		      	</div>
+		      	<br class="clear" />
+		      	<div class="tradeshowDescription">
+		      		<?php echo date("M jS", strtotime($tradeshow['showstart'])); ?> - <?php echo date("M jS, Y", strtotime($tradeshow['showend'])); ?></i><br />
+		      		<?php echo $tradeshow['city'] . ", " . $tradeshow['province'] . ", " . $tradeshow['country']; ?><br class="clear" />
+		      	</div>
+		      	
+		      	<a class="moreShowsLink" href="/tradeshows" >
+		  		<?php
+			   	switch ($mankarMain->lang) { 
+					case LANGUAGE_ENGLISH : echo 'more shows &gt;'; break;
+					case LANGUAGE_FRENCH : echo 'more shows &gt;'; break;
+					case LANGUAGE_SPANISH : echo 'more shows &gt;'; break;
+				} 
+				?>
+				</a>
+		  	</div>
 
-    <?php
+	    	<?php
+    	}
+    	
 		$recentNews = $mankarMain->getRecentNews();
 	?>
 	<span class="sideColumnHeading"><?php echo RECENT_POSTS; ?></span>

@@ -39,7 +39,7 @@
 		$postfix = '';
 		if ($mankarMain->lang == LANGUAGE_FRENCH) {
 			$postfix = '/fr';
-		} else if ($mankarMain->lang == LANGUAGE_FRENCH) {
+		} else if ($mankarMain->lang == LANGUAGE_SPANISH) {
 			$postfix = '/sp';
 		} else if ($mankarMain->isUSA) {
 			$postfix = '/usa';

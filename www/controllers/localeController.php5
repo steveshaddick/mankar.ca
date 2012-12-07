@@ -9,6 +9,20 @@ switch ($_GET['key']) {
 	case 'lang':
 		$_SESSION['lang'] = $_GET['value'];
 		setcookie('lang', $_GET['value'], EXPIRE_COOKIE, '/');
+
+		if (isset($_SESSION['page'])) {
+			$url = explode('/', $_SESSION['page']);
+			switch ($url[count($url) -1]) {
+				case LANGUAGE_ENGLISH:
+				case LANGUAGE_FRENCH:
+				case LANGUAGE_SPANISH:
+					array_pop($url);
+					$_SESSION['page'] = implode('/', $url);
+					break;
+			}
+		}
+
+
 		break;
 
 	case 'units':
