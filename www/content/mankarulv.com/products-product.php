@@ -14,6 +14,8 @@
 			define('MANUAL', 'Manual');
 			define('PHOTOS', 'Photos');
 			define('UNITS', 'Units');
+			define('VIDEO_1', 'Video');
+			define('VIDEO_2', 'Assembly Video');
 
 			$description = $product['description'];
 			$manuals = ($mankarMain->isUSA) ? 
@@ -33,6 +35,8 @@
 			define('MANUAL', 'Manual');
 			define('PHOTOS', 'Photos'); 
 			define('UNITS', 'Units');
+			define('VIDEO_1', 'Video');
+			define('VIDEO_2', 'Assembly Video');
 
 			$description = $product['description_fr'];
 			$manuals = array(
@@ -47,6 +51,8 @@
 			define('MANUAL', 'Manual');
 			define('PHOTOS', 'Photos');
 			define('UNITS', 'Units');
+			define('VIDEO_1', 'Video');
+			define('VIDEO_2', 'Assembly Video');
 
 			$description = $product['description_sp'];
 			$manuals = array(
@@ -221,7 +227,7 @@
 	$videos []= array('player'=>'ytplayerTop', 'id'=>$product['youtube_top']);
 	?>
 
-	<h2 class="productPage">Video</h2>
+	<h2 class="productPage"><?=VIDEO_1;?></h2>
 	<div id="ytplayerTop" class="youtubePlayer"></div>
 	<br /><br />
 
@@ -342,7 +348,7 @@ foreach ($manuals as $manual) {
 
 
 	<br /><br />
-	<h2 class="productPage">Video</h2>
+	<h2 class="productPage"><?=VIDEO_2;?></h2>
 	<div id="ytplayerBottom" class="youtubePlayer"></div>
 
 	<?php
