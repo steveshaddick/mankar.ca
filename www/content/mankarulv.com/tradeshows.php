@@ -25,46 +25,49 @@
 
 ?>
 <div class="padContent">
-  <h1><?php echo UPCOMING_TRADESHOWS; ?></h1>
-
-  <?php      
-  foreach ($tradeshows['upcoming'] as $tradeshow) {
+  <?php if (count($tradeshows['upcoming']) > 0) {
     ?>
-    
-    <div class="tradeshowItem">
-      <table>
-        <tr>
-          <td style="vertical-align:top;">
-            <a class="tradeshowTitle" href="<?php echo $tradeshow['website'] ?>" target="_blank"><?php echo $tradeshow['showname']; ?></a><br />
-            <i><?php echo date("M jS", strtotime($tradeshow['showstart'])); ?> - <?php echo date("M jS, Y", strtotime($tradeshow['showend'])); ?></i><br />
-            <?php echo $tradeshow['city'] . ", " . $tradeshow['province'] . ", " . $tradeshow['country']; ?><br class="clear" />
-            
-            <div class="tradeshowDescription">
+    <h1><?php echo UPCOMING_TRADESHOWS; ?></h1>
+
+    <?php      
+    foreach ($tradeshows['upcoming'] as $tradeshow) {
+      ?>
+      
+      <div class="tradeshowItem">
+        <table>
+          <tr>
+            <td style="vertical-align:top;">
+              <a class="tradeshowTitle" href="<?php echo $tradeshow['website'] ?>" target="_blank"><?php echo $tradeshow['showname']; ?></a><br />
+              <i><?php echo date("M jS", strtotime($tradeshow['showstart'])); ?> - <?php echo date("M jS, Y", strtotime($tradeshow['showend'])); ?></i><br />
+              <?php echo $tradeshow['city'] . ", " . $tradeshow['province'] . ", " . $tradeshow['country']; ?><br class="clear" />
+              
+              <div class="tradeshowDescription">
+                <?php
+                switch ($mankarMain->lang) { 
+                  case LANGUAGE_ENGLISH : echo $tradeshow['details']; break;
+                  case LANGUAGE_FRENCH : if ($tradeshow['details_fr'] != '') echo $tradeshow['details_fr']; else echo $tradeshow['details']; break;
+                  case LANGUAGE_SPANISH : if ($tradeshow['details_sp'] != '') echo $tradeshow['details_sp']; else echo $tradeshow['details']; break;
+                }
+                ?>
+                </div>
+            </td>
+            <td style="vertical-align:top;">
               <?php
-              switch ($mankarMain->lang) { 
-                case LANGUAGE_ENGLISH : echo $tradeshow['details']; break;
-                case LANGUAGE_FRENCH : if ($tradeshow['details_fr'] != '') echo $tradeshow['details_fr']; else echo $tradeshow['details']; break;
-                case LANGUAGE_SPANISH : if ($tradeshow['details_sp'] != '') echo $tradeshow['details_sp']; else echo $tradeshow['details']; break;
+              if ($tradeshow['logo'] != '') {
+                //TODO check for missing link
+                //TODO add back to top
+                ?>
+                <a href="<?php echo $tradeshow['website']?>" target="_blank"> <img class="imgTradeshow" src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /></a>
+                <?php
               }
               ?>
-              </div>
-          </td>
-          <td style="vertical-align:top;">
-            <?php
-            if ($tradeshow['logo'] != '') {
-              //TODO check for missing link
-              //TODO add back to top
-              ?>
-              <a href="<?php echo $tradeshow['website']?>" target="_blank"> <img class="imgTradeshow" src="<?php echo TRADESHOW_LOGO_LOCATION.$tradeshow['logo'];?>" /></a>
-              <?php
-            }
-            ?>
-          </td>
-        </tr>
-      </table>
-    
-      </div>
-    <?php
+            </td>
+          </tr>
+        </table>
+      
+        </div>
+      <?php
+    }
   }
   ?>
 

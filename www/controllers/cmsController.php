@@ -24,7 +24,6 @@ $action = isset($get[1]) ? $get[1] : '';
 $actionData = isset($get[2]) ? $get[2] : '';
 
 if ($auth->authenticated !== true) {
-
 	require_once(dirname(__FILE__).'/../lib/StringUtils.php');
 
 	if ($page == 'login') {
@@ -37,7 +36,6 @@ if ($auth->authenticated !== true) {
 	}
 }
 if ($auth->authenticated === true) {
-	
 
 	$content = '';
 	

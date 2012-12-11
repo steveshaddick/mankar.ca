@@ -49,6 +49,11 @@ class TradeshowsEditor extends SimpleCMSEditor {
 						$query .= "$key='".$value."',";
 					}
 				break;
+
+				case 'state_id':
+					$query .= "$key='".trim($this->mySQL->cleanString($value))."',";
+					$query .= "province=(SELECT state_abbr FROM state WHERE state_id =".trim($this->mySQL->cleanString($value))."),";
+					break;
 				
 				default:
 					$query .= "$key='".trim($this->mySQL->cleanString($value))."',";

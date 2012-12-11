@@ -1,14 +1,2 @@
 Organized highest to lowest priority (from Nick's point of view)
 ------------------------------------------------------
-
-
-Youtube title fields
-Video 1 can stay Video, Video 2 make it Assembly Video.
-
-
---------------------------------------------------------
-
-Province/State is not showing for newly uploaded tradeshows.  I suspect it is because of some code saying Province and some saying state.
-http://dev.mankarulv.com/tradeshows
-http://dev.mankarulv.com/simple-cms/tradeshows/edit/121
---------------------------------------------------------

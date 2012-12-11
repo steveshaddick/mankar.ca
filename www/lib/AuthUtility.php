@@ -18,7 +18,7 @@ class AuthUtility {
 
 		if ((isset($_COOKIE['a'])) && ($_COOKIE['a'] != '')) {
 			$cookie = $this->mySQL->cleanString($_COOKIE['a']);
-			$result = $this->mySQL->sendQuery("SELECT _id FROM auth WHERE cookie = $cookie AND valid_until > NOW()");
+			$result = $this->mySQL->sendQuery("SELECT _id FROM auth WHERE cookie = '$cookie' AND valid_until > NOW()");
 			if ($result !== false) {
 				$_SESSION['auth'] = true;
 				$this->authenticated = true;
