@@ -5,7 +5,7 @@
 
 <div id="header">
     <div id="logo-picture">
-    	<a class="logoLink" href="http://<?php echo $mankarMain->envPrefix . $mankarMain->superTypeUrl; ?>"><img src="/images/<?php echo $mankarMain->superTypeLogo; ?>" alt="<?php echo $mankarMain->superTypeName; ?> Logo" border="0"></a>
+    	<a class="logoLink" href="http://<?php echo $mankarMain->envPrefix . $mankarMain->superTypeUrl; ?>"><img src="/images/<?php echo $mankarMain->superTypeLogo; ?>" alt="<?php echo $mankarMain->superTypeName; ?> Logo"></a>
     	<span class="logoText">Ultra-Low Volume<br /><?php echo $mankarMain->superTypeSlug; ?></span>
     </div>
       
