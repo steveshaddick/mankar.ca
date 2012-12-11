@@ -153,7 +153,6 @@ class MySQLUtility {
 		
 		//good to send the query
 		$result = mysql_query($query, $this->sqlConn);
-		
 		$ret = array();
 		if (($result === false) || ($result === true)){
 			$ret = $result;
@@ -171,7 +170,6 @@ class MySQLUtility {
 				}
 			}
 		}
-		
 		return $ret;
 	}
 	
