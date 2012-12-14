@@ -36,7 +36,7 @@ if ($pageResult['success'] === true) {
 					$productType = $mankarMain->getProductType($mankarMain->pageLocation[1]);
 					
 					if ($productType === false) {
-						header('Location: http://'.SITE_URL.'/');
+						header('Location: http://'.SITE_URL);
 						exit();
 					}
 					
@@ -51,7 +51,7 @@ if ($pageResult['success'] === true) {
 					
 					$product = $mankarMain->getProduct($mankarMain->pageLocation[2]);
 					if ($product === false) {
-						header('Location: http://'.SITE_URL.'/');
+						header('Location: http://'.SITE_URL);
 						exit();
 					}
 
@@ -77,7 +77,7 @@ if ($pageResult['success'] === true) {
 	
 							$part = $mankarMain->getPart(intval($_GET['partId']));
 							if ($part === false) {
-								header('Location: http://'.SITE_URL.'/');
+								header('Location: http://'.SITE_URL);
 								exit();
 							} 
 

@@ -231,11 +231,11 @@ class MankarMain {
 
 		$typeId = intval($typeId);
 
-		$productType = $this->mySQL->getSingleRow("SELECT * FROM product_types WHERE type_id = $typeId");
+		$productType = $this->mySQL->getSingleRow("SELECT * FROM product_types WHERE type_id = $typeId AND active=1");
 		if ($productType === false) {
 			return $productType;
 		}
-		$productType['productList'] = $this->mySQL->sendQuery("SELECT * FROM products WHERE type_id = {$productType['type_id']} ORDER BY product_order");
+		$productType['productList'] = $this->mySQL->sendQuery("SELECT * FROM products WHERE type_id = {$productType['type_id']} AND active=1 ORDER BY product_order");
 
 		return $productType;
 	}
@@ -245,11 +245,13 @@ class MankarMain {
 		
 		$productId = intval($productId);
 
-		$product = $this->mySQL->getSingleRow("SELECT * FROM products WHERE product_id = $productId");
-		$product['type'] = $this->mySQL->getSingleRow("SELECT * FROM product_types WHERE type_id = ". $product['type_id']);
-		
-		$product['pictures'] = $this->mySQL->sendQuery("SELECT * FROM product_photos WHERE product_photos.product_id = $productId ORDER BY product_photos.order");
-		$product['parts'] = $this->mySQL->sendQuery("SELECT * FROM parts WHERE parts.part_id IN (SELECT part_id FROM parts_to_products WHERE product_id = $productId)");
+		$product = $this->mySQL->getSingleRow("SELECT * FROM products WHERE product_id = $productId AND active=1");
+		if (!empty($product)) {
+			$product['type'] = $this->mySQL->getSingleRow("SELECT * FROM product_types WHERE type_id = ". $product['type_id']);
+			
+			$product['pictures'] = $this->mySQL->sendQuery("SELECT * FROM product_photos WHERE product_photos.product_id = $productId ORDER BY product_photos.order");
+			$product['parts'] = $this->mySQL->sendQuery("SELECT * FROM parts WHERE parts.part_id IN (SELECT part_id FROM parts_to_products WHERE product_id = $productId)");
+		}
 
 		return $product;
 	}
