@@ -421,12 +421,10 @@ class MankarMain {
 
 				$ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '';
 				$visitorGeolocation = $ipLite->getCountry($ip);
-				
+
 				if ($visitorGeolocation['statusCode'] == 'OK') {
 					if ($visitorGeolocation['countryCode'] == 'US') {
 						$this->units = $_SESSION['units'] = UNIT_US;
-						$this->isUSA = true;
-						setcookie('usa', 1, EXPIRE_COOKIE);
 					} 
 				}
 			}
