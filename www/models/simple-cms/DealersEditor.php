@@ -64,7 +64,7 @@ class DealersEditor extends SimpleCMSEditor {
 			//echo "deleting photo";
 		} else if (isset($_FILES['photofile'])) {
 			if ($_FILES['photofile']['name'] != "") {
-				$filename = strtolower(ereg_replace("[^A-Za-z0-9.]", "", basename( $_FILES['photofile']['name'])));
+				$filename = strtolower(preg_replace("[^A-Za-z0-9.]", "", basename( $_FILES['photofile']['name'])));
 				$filename = substr($filename, 0 , strrpos($filename,"."));
 				$filename .= ".jpg";
 				

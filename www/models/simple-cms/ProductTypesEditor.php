@@ -74,7 +74,7 @@ class ProductTypesEditor extends SimpleCMSEditor {
 			if ($_FILES['photofile']['name'] != "") {
 				$extension = substr(strrchr(basename($_FILES['photofile']['name']), '.'), 1 );
 
-				$filename = strtolower(ereg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['photofile']['name'])));
+				$filename = strtolower(preg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['photofile']['name'])));
 				$filename = substr($filename, 0 , strrpos($filename,"."));
 				$filename .= '.png';
 

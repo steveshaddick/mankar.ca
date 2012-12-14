@@ -96,7 +96,7 @@ class ProductsEditor extends SimpleCMSEditor {
 			//echo "deleting photo";
 		} else if (isset($_FILES['photofile'])) {
 			if ($_FILES['photofile']['name'] != "") {
-				$filename = strtolower(ereg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['photofile']['name'])));
+				$filename = strtolower(preg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['photofile']['name'])));
 				$filename = substr($filename, 0 , strrpos($filename,"."));
 				$filename .= ".jpg";
 				
@@ -122,7 +122,7 @@ class ProductsEditor extends SimpleCMSEditor {
 			//echo "deleting photo";
 		} else if (isset($_FILES['manualfile'])) {
 			if ($_FILES['manualfile']['name'] != "") {
-				$filename = ereg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['manualfile']['name']));
+				$filename = preg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['manualfile']['name']));
 				
 				$targetPath = MANUALS_UPLOAD_LOCATION.$filename;
 				
@@ -141,7 +141,7 @@ class ProductsEditor extends SimpleCMSEditor {
 			//echo "deleting photo";
 		} else if (isset($_FILES['manualfile_fr'])) {
 			if ($_FILES['manualfile_fr']['name'] != "") {
-				$filename = ereg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['manualfile_fr']['name']));
+				$filename = preg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['manualfile_fr']['name']));
 				
 				$targetPath = MANUALS_UPLOAD_LOCATION.$filename;
 				
@@ -160,7 +160,7 @@ class ProductsEditor extends SimpleCMSEditor {
 			//echo "deleting photo";
 		} else if (isset($_FILES['manualfile_sp'])) {
 			if ($_FILES['manualfile_sp']['name'] != "") {
-				$filename = ereg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['manualfile_sp']['name']));
+				$filename = preg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['manualfile_sp']['name']));
 				
 				$targetPath = MANUALS_UPLOAD_LOCATION.$filename;
 				
@@ -262,7 +262,7 @@ class ProductsEditor extends SimpleCMSEditor {
 		{
 			foreach ($_FILES['photoStrip_files']['name'] as $key=>$file)
 			{
-				$filename = strtolower(ereg_replace("[^A-Za-z0-9.]", "", basename( $_FILES['photoStrip_files']['name'][$key])));
+				$filename = strtolower(preg_replace("[^A-Za-z0-9.]", "", basename( $_FILES['photoStrip_files']['name'][$key])));
 				$filename = substr($filename, 0 , strrpos($filename,"."));
 				$filename .= ".jpg";
 				
