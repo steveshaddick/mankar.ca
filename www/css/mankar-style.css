@@ -60,6 +60,11 @@ p {
 #container.container-comparison {
 	min-width: 1050px;
 }
+#container.container-maintenance {
+	width: 600px;
+	max-width:600px;
+	min-width:600px;
+}
 
 .columnWrapper {
 	position:relative;
@@ -86,6 +91,15 @@ p {
     margin-left: 220px;
     margin-right: 220px;
     min-height:700px;
+
+}
+.contentColumn-maintenance {
+
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #FFFFFF;
+    font-size: 14px;
+    min-height:400px;
+    padding:15px;
 
 }
 
