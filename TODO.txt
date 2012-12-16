@@ -1,10 +1,8 @@
 Organized highest to lowest priority (from Nick's point of view)
 ------------------------------------------------------
 News is not being populated by the body of the story.
-You can see it here:
-http://www.mafexulv.com/news
-but not here:
-http://www.mafexulv.com/news/maple-leaf-sold-to-cavendish
+
+I fixed it manually in Mysql (I know you hate that!), but what is happening is that the simple cms is saving the body in a field called "excerpt", not "body".
 
 --------------------------------------------------------
 
@@ -14,7 +12,7 @@ After than, we could have a button for "more previous shows", which then loads A
 Alternativly, we could do it with a button for each calendar year previous, if you like that better.
 This guys seems to have the stuff we are looking for:
 http://www.problogdesign.com/wordpress/load-next-wordpress-posts-with-ajax/
-
+Although you are already doing something similar on the product type pages.
 -------------------------------------------------------
 
 I think there might be an issue with duplicate filenames, for example when we upload photos.
