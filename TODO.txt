@@ -15,8 +15,6 @@ http://www.problogdesign.com/wordpress/load-next-wordpress-posts-with-ajax/
 Although you are already doing something similar on the product type pages.
 -------------------------------------------------------
 
-I think there might be an issue with duplicate filenames, for example when we upload photos.
-I think now if we upload a duplicate, it wants to use the one that is already there.
-Maybe when uploading and sanitizing the filename, we should add something to the name (timestamp or something?)
+Duplicate filenames for uploading manuals.
 
 -------------------------------------------------------

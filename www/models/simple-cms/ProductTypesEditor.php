@@ -75,7 +75,7 @@ class ProductTypesEditor extends SimpleCMSEditor {
 				$extension = substr(strrchr(basename($_FILES['photofile']['name']), '.'), 1 );
 
 				$filename = strtolower(preg_replace("[^A-Za-z0-9.\\-]", "", basename( $_FILES['photofile']['name'])));
-				$filename = substr($filename, 0 , strrpos($filename,"."));
+				$filename = substr($filename, 0 , strrpos($filename,".")) . "_" . time();
 				$filename .= '.png';
 
 				$targetPath = UPLOAD_LOCATION.$filename;

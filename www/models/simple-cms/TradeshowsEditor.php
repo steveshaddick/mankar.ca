@@ -67,7 +67,7 @@ class TradeshowsEditor extends SimpleCMSEditor {
 		} else if (isset($_FILES['photofile'])) {
 			if ($_FILES['photofile']['name'] != "") {
 				$filename = strtolower(preg_replace("[^A-Za-z0-9.]", "", basename( $_FILES['photofile']['name'])));
-				$filename = substr($filename, 0 , strrpos($filename,"."));
+				$filename = substr($filename, 0 , strrpos($filename,".")) . "_" . time();
 				$filename .= ".jpg";
 				
 				$targetPath = UPLOAD_LOCATION.$filename;
