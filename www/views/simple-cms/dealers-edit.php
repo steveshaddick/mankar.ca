@@ -63,6 +63,7 @@ foreach ($dealer as $key=>$p)
 	        <select name="<?php echo $key; ?>" id="<?php echo $key; ?>">
 				<option value="Canada" <?php if ("Canada" == $p) echo 'SELECTED'; ?>>Canada</option> 
 	       	 	<option value="U.S.A." <?php if ("U.S.A." == $p) echo 'SELECTED'; ?>>U.S.A.</option> 
+	       	 	<option value="México" <?php if ("México" == $p) echo 'SELECTED'; ?>>México</option> 
 	        </select>
 	        <?php
 			break;

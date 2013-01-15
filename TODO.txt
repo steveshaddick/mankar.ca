@@ -4,7 +4,19 @@ News is not being populated by the body of the story.
 
 I fixed it manually in Mysql (I know you hate that!), but what is happening is that the simple cms is saving the body in a field called "excerpt", not "body".
 
+Note I manually moved the content from Excerpt to body to make it work right, so it looks like everything is OK. but see what happens if you try to put in a new story.
+
 --------------------------------------------------------
+So I'm here:
+http://www.mankarulv.com/mini-mantra-plus-ulv-sprayer
+and I try to change the units.  Rolling over the link shows it wants to go to this:
+http://www.mankarulv.com/locale/units/metric
+which throws a 404.  But hitting the back button, the local actually has been changed.
+
+really weird thing is, I can't find any other product page or product type page (including Mankar) that is having this issue except for the link above (of course it is our bestseller!).  Maybe they wore out the buttons?
+
+Fucked up, right? 
+-----------------------------------------------------------
 
 Truncate the tradeshow list
 I think if we have 12 months previous in the main page it is fine.
@@ -15,6 +27,6 @@ http://www.problogdesign.com/wordpress/load-next-wordpress-posts-with-ajax/
 Although you are already doing something similar on the product type pages.
 -------------------------------------------------------
 
-Duplicate filenames for uploading manuals.
+Duplicate filenames for uploading manuals.  I think you did this already.  We want to have unique photo names, but the pdfs are often shared between multiple machines so it is fine to have the same filename.
 
 -------------------------------------------------------
