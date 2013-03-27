@@ -37,7 +37,7 @@
         <table>
           <tr>
             <td style="vertical-align:top;">
-              <a class="tradeshowTitle" href="<?php echo $tradeshow['website'] ?>" target="_blank"><?php echo $tradeshow['showname']; ?></a><br />
+              <a class="tradeshowTitle" href="<?php echo $tradeshow['website'] ?>" target="_blank" onclick="trackOutboundLink('tradeshow-click','<?php echo preg_replace("/[^a-zA-Z0-9\s]+/", "", $tradeshow['showname']); ?>');"><?php echo $tradeshow['showname']; ?></a><br />
               <i><?php echo date("M jS", strtotime($tradeshow['showstart'])); ?> - <?php echo date("M jS, Y", strtotime($tradeshow['showend'])); ?></i><br />
               <?php echo $tradeshow['city'] . ", " . $tradeshow['province'] . ", " . $tradeshow['country']; ?><br class="clear" />
               
@@ -80,7 +80,7 @@
       <table>
         <tr>
           <td style="vertical-align:top;">
-            <a class="tradeshowTitle" href="<?php echo $tradeshow['website'] ?>" target="_blank"><?php echo $tradeshow['showname']; ?></a><br />
+            <a class="tradeshowTitle" href="<?php echo $tradeshow['website'] ?>" target="_blank" onclick="trackOutboundLink('tradeshow-click','<?php echo preg_replace("/[^a-zA-Z0-9\s]+/", "", $tradeshow['showname']); ?>');"><?php echo $tradeshow['showname']; ?></a><br />
             <i><?php echo date("M jS", strtotime($tradeshow['showstart'])); ?> - <?php echo date("M jS, Y", strtotime($tradeshow['showend'])); ?></i><br />
             <?php echo $tradeshow['city'] . ", " . $tradeshow['province'] . ", " . $tradeshow['country']; ?><br class="clear" />
             

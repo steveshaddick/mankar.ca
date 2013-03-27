@@ -111,10 +111,12 @@
 			<div class="dealerItem">
 				<table class="tblDealer">
 					<tr>
-						<td style="width:85px;" valign="top"><img src="<?php echo DEALER_LOGO_LOCATION.$dealer['logo']; ?>" class="dealerPicture" title="<?php echo $dealer['name'];?>" /></td>
+						<td style="width:85px;" valign="top">
+							<?php img($dealer['logo'], DEALER_LOGO_LOCATION, '', array('class'=>'dealerPicture', 'alt'=>$dealer['name'])); ?>
+						</td>
 						<td style="width:300px;" valign="top">
 							<span class="dealerName"><?php echo $dealer['name'];?></span><br />
-							<a href="<?php echo $dealer['website'];?>" target="_blank"><?php echo $dealer['website'];?></a><br /><br />
+							<a href="<?php echo $dealer['website'];?>" target="_blank" onclick="trackOutboundLink('dealer-click','<?php echo preg_replace("/[^a-zA-Z0-9\s]+/", "", $dealer['name']); ?>');"><?php echo $dealer['website'];?></a><br /><br />
 							<?php echo $dealer['address'];?><br />
 							<?php echo $dealer['city'];?>, <?php echo $dealer['state_abbr'];?><br />
 							<?php echo $dealer['zip'];?><br />

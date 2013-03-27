@@ -61,14 +61,6 @@
 			  		<div class="productName">
 
 			  			<a class="navLink" href="<?php echo $type['pretty_url']; ?>"><?php echo $type['name']; ?></a>
-			  			<?php 
-
-			  			/*switch ($mankarMain->lang) { 
-								case LANGUAGE_ENGLISH :  echo $type['blurb']; break;
-								case LANGUAGE_FRENCH :  if ($type['blurb_fr'] != '') echo $type['blurb_fr']; else echo $type['blurb']; break;
-								case LANGUAGE_SPANISH :   if ($type['blurb_sp'] != '') echo $type['blurb_sp']; else echo $type['blurb_sp']; break;
-							} */
-						?>
 			  		</div>
 			  	</div>
 			  </div>

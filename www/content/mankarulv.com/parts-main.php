@@ -117,17 +117,7 @@
 				{ ?>
 					<tr>
 						<td class="photo">
-							<?php
-							if (($part['photo'] != '') && (file_exists($_SERVER['DOCUMENT_ROOT']. PARTS_LOCATION.'/'.$part['photo']))){
-								?>
-								<a class="part-name" href="/parts/<?php echo $part['part_id']; ?>"><img class="part-photo" src="<?php echo PARTS_LOCATION.$part['photo']; ?>" alt="" /></a>
-								<?php
-							} else {
-								?>
-								<a class="part-name" href="/parts/<?php echo $part['part_id']; ?>"><img class="part-photo" src="<?php echo PARTS_LOCATION.'no-photo.gif'; ?>" alt="" /></a>
-								<?php
-							}
-							?>
+							<a class="part-name" href="/parts/<?php echo $part['part_id']; ?>"><?php img($part['photo'], PARTS_LOCATION, PARTS_LOCATION.'no-photo.gif', array('class'=>"part-photo")); ?> </a>
 						</td>
 						<td class="part">
 							<span class="part-number"><?php echo $part['part_code']; ?></span>

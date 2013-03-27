@@ -53,4 +53,27 @@ function removeQuotes($string)
 	return $ret;
 }
 
+function img($file, $path='', $default='', $attr = null) {
+	if (empty($attr))
+		$attr = array();
+	if (!isset($attr['alt']))
+		$attr['alt'] = '';
+	if (!isset($attr['class']))
+		$attr['class'] = '';
+	if (!isset($attr['style']))
+		$attr['style'] = '';
+
+	if (!empty($file) && (file_exists($_SERVER['DOCUMENT_ROOT'].$path.$file) || file_exists($path.$file))) {
+		$src = $path.$file;
+	} else if (!empty($default)) {
+		$src = $default;
+	}
+
+	if (!empty($src)) {
+		?>
+		<img src="<?php echo $src; ?>" alt="<?php echo removeQuotes($attr['alt']); ?>" class="<?php echo $attr['class']; ?>" style="<?php echo $attr['style']; ?>">
+		<?php
+	}
+}
+
 ?>

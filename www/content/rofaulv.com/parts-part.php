@@ -41,8 +41,8 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" class="part-table">
         <tr>
-          <td width="202" align="center" valign="top">
-          		<img class="partPhoto" src="<?=PARTS_LOCATION.$part['photo'];?>" alt="<?=$partName;?>" />
+        <td width="202" align="center" valign="top">
+          		<?php img($part['photo'], PARTS_LOCATION, PARTS_LOCATION.'no-photo.gif', array('class'=>'partPhoto', 'alt'=>$partName)); ?>
     	</td>
     <td width="353" valign="top">
     	<h1 class="productTitle">Code #<?=$part['part_code'];?></h1> 
