@@ -6,6 +6,7 @@
 	//order them into a 2d array, and obfuscate the email at the same time
 	$dealers_can = array();
 	$dealers_us = array();
+	$dealers_mex = array();
 	$sort = "";
 	foreach ($dealers as $dealer)
 	{
@@ -24,6 +25,10 @@
 			
 			case 'U.S.A.':
 			$dealers_us[] = $dealer;
+			break;
+			
+			case 'México':
+			$dealers_mex[] = $dealer;
 			break;
 		}
 	}
@@ -56,7 +61,7 @@
 		case LANGUAGE_SPANISH :  echo "<p class='noLanguage'>".NO_SPANISH."</p>"; break;
 	}
 
-	$dealersOrder = ($mankarMain->isUSA) ? array($dealers_us, $dealers_can) : array($dealers_can, $dealers_us);
+	$dealersOrder = ($mankarMain->isUSA) ? array($dealers_us, $dealers_can, $dealers_mex) : array($dealers_can, $dealers_us, $dealers_mex);
 	
 ?>
 

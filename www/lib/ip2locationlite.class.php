@@ -35,6 +35,7 @@ final class ip2location_lite{
 			if (get_magic_quotes_runtime()){
 				$xml = stripslashes($xml);
 			}
+
 			try{
 				$response = @new SimpleXMLElement($xml);
 
