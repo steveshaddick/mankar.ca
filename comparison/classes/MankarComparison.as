@@ -11,8 +11,8 @@
 	import flash.display.StageAlign;
 	import flash.display.Stage;
 	import flash.text.TextField;
-	import steve.utils.meString3;
-	import steve.utils.meMath3;
+	import com.utils.meString3;
+	import com.utils.meMath3;
 	import flash.display.StageScaleMode;
 	import flash.net.navigateToURL;
 	

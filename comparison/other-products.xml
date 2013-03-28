@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	<identifier>other</identifier>
+	
+	<product default="yes">
+		<label>Standard Backpack Sprayer</label>
+		<data>other1</data>
+		<class>walk</class>
+		
+		<picture>/images/comparison/backpack1.jpg</picture>
+		<info>Standard Backpack sprayer: 20L, handpump to build pressure, wand for application.</info>
+
+		<setting ref="price">
+			<default>0</default>
+		</setting>
+		
+		<setting ref="consumption">
+			<default>5</default>
+		</setting>
+		
+		<setting ref="speed">
+			<default>1.5</default>
+		</setting>
+		
+		<setting ref="refillTime">
+			<default>20</default>
+		</setting>
+		
+		<setting ref="refills">
+			<default>10</default>
+		</setting>
+
+	</product>
+	
+	<product>
+		<label>200L Tank Sprayer</label>
+		<data>other3</data>
+		<class>drive</class>
+		
+		<picture>/images/comparison/200lsprayer.jpg</picture>
+
+		<setting ref="price">
+			<default>0</default>
+		</setting>
+		
+		<setting ref="consumption">
+			<default>5</default>
+		</setting>
+		
+		<setting ref="refillTime">
+			<default>25</default>
+			<max>45</max>
+		</setting>
+		
+		<setting ref="refills">
+			<default>1</default>
+		</setting>
+
+	</product>
+
+	
+</data>

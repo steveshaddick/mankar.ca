@@ -4,9 +4,9 @@
 	import flash.geom.ColorTransform;
 	import flash.geom.Point;
 	import flash.text.TextField;
-	import steve.utils.meString3;
+	import com.utils.meString3;
 	import fl.controls.Slider;
-	import steve.utils.meMath3;
+	import com.utils.meMath3;
 	import flash.events.Event;
 	import fl.events.SliderEvent;
 	import flash.events.KeyboardEvent;

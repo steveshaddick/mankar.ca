@@ -17,7 +17,7 @@ package classes{
 	import flash.events.HTTPStatusEvent;
 	import flash.events.SecurityErrorEvent;
 	import flash.events.IEventDispatcher;
-	import steve.utils.meMath3;
+	import com.utils.meMath3;
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	
