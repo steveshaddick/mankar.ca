@@ -8,8 +8,8 @@ Thumbs.db
 .DS_Store
 *.htaccess
 *.htpasswd
-.sublime-project
-.sublime-workspace
+*.sublime-project
+*.sublime-workspace
 
 build/*
 
